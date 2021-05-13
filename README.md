@@ -1,3 +1,11 @@
+---
+typora-root-url: images
+---
+
+
+
+
+
 # leecode
 
 
@@ -15,102 +23,39 @@
 
 ### 01背包
 
+https://www.nowcoder.com/practice/2820ea076d144b30806e72de5e5d4bbf
+
 ```
- /*
-    算法的主要思想，利用动态规划来解决。
-    每次遍历到的第i个物品，根据w[i]和v[i]来确定是否需要将该物品放入背包中。
-    即对于给定的n个物品，设v[i]、w[i]分别为第i个物品的价值和重量，C为背包的容量。
-    再令v[i][j]表示在前i个物品中能够装入容量为j的背包中的最大价值。
-    则我们有下面的结果：
-        (1)  v[i][0]=v[0][j]=0; //表示 填入表 第一行和第一列是0
-        (2) 当w[i]> j 时：v[i][j]=v[i-1][j]
-            // 当准备加入新增的商品的容量大于 当前背包的容量时，就直接使用上一个单元格的装入策略
-        (3) 当j>=w[i]时： v[i][j]=max{v[i-1][j], v[i]+v[i-1][j-w[i]]}
-            // 当 准备加入的新增的商品的容量小于等于当前背包的容量,
-            // 装入的方式:
-            v[i-1][j]： 就是上一个单元格的装入的最大值
-            v[i] : 表示当前商品的价值
-            v[i-1][j-w[i]] ： 装入i-1商品，到剩余空间j-w[i]的最大值
-            当j>=w[i]时： v[i][j]=max{v[i-1][j], v[i]+v[i-1][j-w[i]]} :
-     */
 
-
-    public static void main(String[] args) {
-
-        /*
-            背包问题
-
-         */
-
-
-        //物品的总重量
-        int[] w = {1,4,3};
-
-        //物品的价值
-        int[] val = {1500,3000,2000};
-
-        //背包的容量
-        int m = 4;
-        //物品的个数
-        int n = val.length;
-
-        int[][] v = new int[n+1][m+1];
-
-        //记录存放的商品的详情
-        int[][] path = new int[n+1][m+1];
-
-        // 处理第一行第一列
-        for (int i = 0; i < v.length; i++) {
-            v[i][0] = 0;
-        }
-        for (int i = 0; i < v[0].length; i++) {
-            v[0][i] = 0;
-        }
-
-
-        for (int i = 1; i < v.length; i++) {
-            for (int j = 1; j < v[i].length; j++) {
-
-                if(w[i-1] > j){
-                    v[i][j] = v[i-1][j];
-                }else{
-
-//                    v[i][j] = Math.max(v[i-1][j],val[i-1]+v[i-1][j - w[i-1]]);
-                    if(v[i-1][j] < (val[i-1] + v[i-1][j-w[i-1]])){
-                        v[i][j] = val[i-1] + v[i-1][j-w[i-1]];
-                        path[i][j] = 1;
-                    }else{
-                        v[i][j] = v[i-1][j];
-                    }
-
+ public int knapsack1(int V, int n, int[][] vw) {
+        // write code here
+        if (V == 0 || n == 0 || vw == null) return 0;
+        int[][] dp = new int[n + 1][V + 1];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= V; j++) {
+                //放不下
+                if (j < vw[i - 1][0]) {
+                    dp[i][j] = dp[i - 1][j];
+                } else {
+                    //可以放下 能放下的物品的重量+减去当前物品容量后剩余可以放下的最大重量
+                    dp[i][j] = Math.max(dp[i - 1][j], 
+                    				dp[i - 1][j - vw[i - 1][0]] + vw[i - 1][1]);
                 }
-
-
             }
         }
-
-        for (int i = 0; i < v.length; i++) {
-            for (int j = 0; j < v[i].length; j++) {
-                System.out.print(v[i][j]+" ");
-            }
-            System.out.println();
-        }
-
-
-        System.out.println("======================================");
-
-        int i = path.length-1;
-        int j = path[0].length-1;
-        while (i > 0 && j > 0){
-            if(path[i][j] == 1){
-                System.out.printf("第%d个商品放入到背包中\n",i);
-                j = j-w[i-1];
-            }
-            i--;
-        }
-
-
+        return dp[n][V];
     }
+
+    public int knapsack(int V, int n, int[][] vw) {
+        int[] w=new int[V+1];
+        for(int i=0;i<n;i++){
+            for(int j=V;j>=vw[i][0];j--){
+                w[j]=Math.max(w[j],w[j-vw[i][0]]+vw[i][1]);
+            }
+        }
+        return w[V];
+    }
+
 ```
 
 
@@ -120,22 +65,314 @@
 https://www.nowcoder.com/practice/554aa508dd5d4fefbf0f86e5fe953abd?tab=answerKey
 
 ```
- public int maxsumofSubarray (int[] arr) {
-     
-        if(arr == null || arr.length == 0) return 0;
+
+```
+
+### 最长回文子串
+
+https://www.nowcoder.com/practice/b4525d1d84934cf280439aeecc36f4af
+
+```
+中心扩散法
+	每遍历一个字符就以该字符为中心向两边扩散，查找最长回文子串
+1.一个字符认为是一个回文
+2.
 
 
-        int m = arr[0];
+    public int getLongestPalindrome(String A, int n) {
+    	if(n<2) return n;
+    	int max = 0;
+    	for(int i=0;i<n){
+    		if(n-i<max/2) break;
+    		
+    		int left = i,right=i;
+    		
+    		while(right<n-1 && A.charAt()){}
+    		
+    	
+    	}
+    
+    }
+ 
 
-        for (int i = 1; i < arr.length; i++) {
-            arr[i] = Math.max(arr[i],arr[i] + arr[i-1]);
-            m = Math.max(m,arr[i]);
+
+
+```
+
+
+
+### 股票买卖
+
+https://www.nowcoder.com/practice/64b4262d4e6d4f6181cd45446a5821ec
+
+```
+股票利润：卖出的价格-买入的价格
+思路：找到最大值及最大值前面的最小值
+1.暴力匹配
+    public int maxProfit1(int[] prices) {
+        // write code here
+        if (prices == null || prices.length < 2) return 0;
+        int max = 0;
+        for (int i = 0; i < prices.length; i++) {
+            for (int j = i + 1; j < prices.length; j++) {
+                max = Math.max(max, prices[j] - prices[i]);
+            }
         }
-
-        return m;
+        return max;
+    }
+2.双指针 动态规划
+	 public int maxProfit(int[] prices) {
+        // write code here
+        if (prices == null || prices.length < 2) return 0;
+        int buy = prices[0],max = 0;
+        for (int i = 1; i < prices.length; i++) {
+            buy = Math.min(buy,prices[i]);
+            max = Math.max(prices[i] - buy,max);
+        }
+        return max;
+    }
+3.最大字序列
+    假设数组的值是[a,b,c,d,e,f]，我们用数组的前一个值减去后一个值，得到的新数组如下
+    [b-a,c-b,d-c,e-d,f-e]
+    我们在新数组中随便找几个连续的数字相加就会发现一个规律，就是中间的数字都可以约掉，
+    比如新数组中第1个到第4个数字的和是
+    b-a+c-b+d-c+e-d=e-a
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length < 2) return 0;
+        int curr = 0;
+        int max = 0;
+        for (int i = 1; i < prices.length; i++) {
+            curr = Math.max(curr, 0) + prices[i] - prices[i - 1];
+            max = Math.max(max, curr);
+        }
+        return max;
     }
 
 ```
+
+
+
+
+
+### 最长公共子串
+
+https://www.nowcoder.com/practice/f33f5adc55f444baa0e0ca87ad8a6aac
+
+### 最长公共字序列
+
+https://www.nowcoder.com/practice/6d29638c85bb4ffd80c020fe244baf11
+
+
+
+
+
+## 数组
+
+### JZ1
+
+https://www.nowcoder.com/practice/abc3fe2ce8e146608e868a70efebf62e
+
+```
+
+暴力求解无需多言
+
+```
+
+![Snipaste_2021-05-13_16-07-49](/Snipaste_2021-05-13_16-07-49.jpg)
+
+```
+由数组的特性可知 从左至右依次递增 从上至下依次递增
+所以从右上角开始遍历
+如果val=tar 则返回true
+如果tar>val 向下
+如果tar<val 向左
+
+    public boolean Find(int target, int[][] array) {
+        if (array == null || array.length == 0) return false;
+        System.out.println(array[array.length - 1][array[array.length - 1].length - 1]);
+        int x = 0;
+        int y = array[0].length - 1;
+        while (x < array.length && y >= 0) {
+            if (target == array[x][y]) {
+            return true;
+            }
+            if (target > array[x][y]) {
+                //向下
+                x += 1;
+            } else if (target < array[x][y]) {
+                //向左
+                y -= 1;
+            }
+        }
+        return false;
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 字符串
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
