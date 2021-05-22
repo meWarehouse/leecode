@@ -242,9 +242,34 @@ https://www.nowcoder.com/practice/abc3fe2ce8e146608e868a70efebf62e
 
 
 
+## 链表
+
+### JZ3
+
+https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035
 
 
 
+```
+   ArrayList<Integer> list = new ArrayList<>();
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        if(listNode != null){
+            printListFromTailToHead(listNode.next);
+            list.add(listNode.val);
+        }
+        return list;
+    }
+
+    public ArrayList<Integer> printListFromTailToHead1(ListNode listNode) {
+        ArrayList<Integer> list = new ArrayList<>();
+        ListNode temp = listNode;
+        while (temp != null){
+            list.add(0,temp.val);
+            temp = temp.next;
+        }
+        return list;
+    }
+```
 
 
 
