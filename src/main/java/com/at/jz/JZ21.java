@@ -8,6 +8,13 @@ import java.util.Stack;
  */
 public class JZ21 {
 
+    /*
+
+    https://www.nowcoder.com/practice/4e7267b55fdf430d9403aa12206572b3?sourceQid=23290&sourceTpId=
+
+
+     */
+
     public boolean IsPopOrder(int[] pushA, int[] popA) {
 
         Stack<Integer> stack = new Stack<>();
