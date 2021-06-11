@@ -1,5 +1,7 @@
 package jz;
 
+import com.at.jz.TreeNode;
+
 import java.util.ArrayList;
 
 /**
@@ -11,7 +13,7 @@ public class JZ24 {
     ArrayList<Integer> path = new ArrayList();
 
 
-    public ArrayList<ArrayList<Integer>> FindPath(jz.TreeNode root, int target) {
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
 
         if(root == null || target < root.val) return list;
 

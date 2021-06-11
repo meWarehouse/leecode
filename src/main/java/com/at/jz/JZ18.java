@@ -2,6 +2,10 @@ package jz;
 
 
 
+
+
+import com.at.jz.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -88,13 +92,4 @@ public class JZ18 {
 
     }
 
-}
-class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
 }
