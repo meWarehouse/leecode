@@ -1,21 +1,10 @@
-package com.at;
-
-
+package com.at.lc;
 
 /**
  * @author zero
- * @create 2021-06-10 18:47
+ * @create 2021-06-19 20:19
  */
-public class Main1 {
-
-
-    public static void main(String[] args) {
-
-        int[] arr = {0,0,1,1,1,2,2,3,3,4};
-
-        System.out.println(new Main1().removeDuplicates(arr));
-
-    }
+public class lc_26 {
 
     /*
         26 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
@@ -45,8 +34,4 @@ public class Main1 {
         return pre + 1;
 
     }
-
-
-
-
 }
