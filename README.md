@@ -91,19 +91,14 @@ typora-root-url: images
     }
 
     public int maxProfit(int[] prices) {
-
-        int n = prices.length;
-        int[][] dp = new int[n][2];
-
-        dp[0][0] = 0;
-        dp[0][1] = -prices[0];
-
-        for (int i = 0; i < n; i++) {
-            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[0]);
-            dp[i][1] = Math.max(dp[i-1][1],dp[i-1][0] + prices[i]);
+ 		int n = prices.size();
+        int dp[n][2];
+        dp[0][0] = 0, dp[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
         }
-
-        return dp[n-1][0];
+        return dp[n - 1][0];
 
     }
 ```
@@ -191,19 +186,254 @@ typora-root-url: images
 
 
 
+## [66. 加一](https://leetcode-cn.com/problems/plus-one/)
+
+```
+ /*
+        66. https://leetcode-cn.com/problems/plus-one/
+        
+        遇 9 进位 
+        特殊的需要扩容
+
+    */
+
+    public int[] plusOne(int[] digits) {
+
+        int index = digits.length - 1;
+        while (index >= 0) {
+            int val = digits[index] + 1;
+            if (val >= 10) {
+                digits[index] = val % 10;
+                if (index == 0) {
+                    digits = new int[digits.length + 1];
+                    digits[0] = 1;
+                }
+                index--;
+            } else {
+                digits[index] = val;
+                break;
+            }
+        }
+
+        return digits;
+
+    }
+
+```
+
+
+
+## [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+
+```java
+/*
+        70 https://leetcode-cn.com/problems/climbing-stairs/
+
+     */
+    public int climbStairs_1(int n) {
+
+        if(n < 3) return n;
+        int[] step = new int[n + 1];
+
+        step[1] = 1;
+        step[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            step[i] = step[i - 1] + step[i - 2];
+
+        }
+
+        return step[n];
+
+    }
+
+    public int climbStairs(int n) {
+        if(n < 3) return n;
+
+        int prr = 1;
+        int pr = 2;
+
+        for (int i = 2; i < n; i++) {
+            pr = prr + pr;
+            prr = pr - prr;
+        }
+        return pr;
+    }
+
+```
+
+
+
+## [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
+
+```java
+/*
+
+        88 https://leetcode-cn.com/problems/merge-sorted-array/
+
+        归并
+
+        逆向归避免覆盖num1中的数据
+
+     */
+
+    public void merge_1(int[] nums1, int m, int[] nums2, int n) {
+
+        if (m == 0 && n == 0 || n == 0) return;
+
+        if (m == 0) {
+            for (int i = 0; i < n; i++) {
+                nums1[i] = nums2[i];
+            }
+            return;
+        }
+
+        int[] sort = new int[n + m];
+
+        int p1 = 0, p2 = 0, k = 0;
+
+        while (p1 < m || p2 < n) {
+
+            if (p1 == m) {
+                sort[k] = nums2[p2++];
+            } else if (p2 == n) {
+                sort[k] = nums1[p1++];
+            } else if (nums1[p1] <= nums2[p2]) {
+                sort[k] = nums1[p1++];
+            } else {
+                sort[k] = nums2[p2++];
+            }
+
+            k++;
+        }
+
+        for (int i = 0; i < sort.length; i++) {
+            nums1[i] = sort[i];
+        }
+
+    }
+
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        if (m == 0 && n == 0 || n == 0) return;
+
+        if (m == 0) {
+            for (int i = 0; i < n; i++) {
+                nums1[i] = nums2[i];
+            }
+            return;
+        }
+
+        int p1 = m - 1, p2 = n - 1, k = nums1.length - 1;
+
+        while (p1 >= 0  || p2 >= 0){
+
+            if(p1 < 0){
+                nums1[k] = nums2[p2--];
+            }else if(p2 < 0){
+                nums1[k] = nums1[p1--];
+            }else if(nums1[p1] <= nums2[p2]){
+                nums1[k] = nums2[p2--];
+            }else {
+                nums1[k] = nums1[p1--];
+            }
+
+            k--;
+        }
+    }
+```
 
 
 
 
 
+## [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/)
+
+```java
+ /*
+
+    189 https://leetcode-cn.com/problems/rotate-array/
+
+     */
+
+    public void rotate_1(int[] nums, int k) {
+
+        //将后面的k个元素先放入一个新的数组中，再将原来的数组中的 nums.length-k 个数组后移k位
+        //最后将后面的k个元素添加到 nums 数组中
+
+        int len = nums.length;
+
+        if(nums == null || len < 2) return;
+
+        if(k >= len) k = k % len;
+
+        if(k == 0) return;
+
+        int[] tail = new int[k];
+        int j = 0;
+        for (int i = len-k; i < len ; i++) {
+            tail[j++] = nums[i];
+        }
+
+        for (int i = len - k - 1; i  >= 0 ; i--) {
+            nums[i + k] = nums[i];
+        }
+
+        for (int i = 0; i < k; i++) {
+            nums[i] = tail[i];
+        }
 
 
+    }
+
+    public void rotate_2(int[] nums, int k) {
+
+        int len = nums.length;
+
+        if(nums == null || len < 2) return;
+
+        if(k >= len) k = k % len;
+
+        if(k == 0) return;
+
+       while (k-- > 0){
+
+           int t = nums[len-1];
+           for (int i = len-2; i >=0 ; i--) {
+               nums[i+1] = nums[i];
+           }
+           nums[0] = t;
+
+       }
+
+    }
+
+    public void rotate(int[] nums, int k) {
+
+        //数组反转  
+        int len = nums.length;
+
+        if(nums == null || len < 2 || k % len == 0) return;
+
+        if(k >= len) k = k % len;
 
 
+        revorse(nums,0,len-1);
+        revorse(nums,0,k-1);
+        revorse(nums,k,len-1);
 
+    }
 
+    public void revorse(int[] arr,int start,int end){
+        while (start < end){
+            arr[start] = arr[start] ^ arr[end];
+            arr[end] = arr[start] ^ arr[end];
+            arr[start] = arr[start] ^ arr[end];
 
+            start++;
+            end--;
+        }
 
+    }
+```
 
 
 
