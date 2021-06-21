@@ -91,15 +91,15 @@ typora-root-url: images
     }
 
     public int maxProfit(int[] prices) {
- 		int n = prices.size();
-        int dp[n][2];
-        dp[0][0] = 0, dp[0][1] = -prices[0];
+ 		 int n = prices.length;
+        int[][] dp = new int[n][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
         for (int i = 1; i < n; ++i) {
-            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
-            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
         }
         return dp[n - 1][0];
-
     }
 ```
 
@@ -441,6 +441,7 @@ typora-root-url: images
 
 
 
+## [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/) X
 
 
 
@@ -448,34 +449,329 @@ typora-root-url: images
 
 
 
+## [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
+
+```java
+
+    /*
+        62 https://leetcode-cn.com/problems/unique-paths/
+
+        通过规律可以发现 
+            每个位置上的点只可能来自上面或左边，所以到达该点的路径就为它上面的路径次数+左边的路径次数 
+            因此在最顶上的边的位置只可能来自它的左边 
+            最右边的位置只可能来自它的上面
+        
+
+     */
+
+    public int uniquePaths(int m, int n) {
+
+        int[][] dp = new int[n][m];
+        dp[0][0] = 0;
+
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = 1;
+        }
+
+        for (int i = 1; i < m; i++) {
+            dp[0][i] = 1;
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+
+                dp[i][j] = dp[i][j-1] + dp[i-1][j];
+
+            }
+        }
+
+        return dp[n-1][m-1];
+
+    }
+
+ public int uniquePaths_1(int m, int n) {
+
+        int[] res = new int[m];
+
+        for (int i = 0; i < m; i++) {
+            res[i] = 1;
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                res[j] = res[j - 1] + res[j];
+            }
+        }
+
+        return res[m - 1];
+        
+    }
+
+```
+
+## [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)
+
+```java
+    public int uniquePaths_1(int[][] obstacleGrid) {
+
+        if (obstacleGrid == null) return 0;
+
+        int y = obstacleGrid.length;
+        int x = obstacleGrid[0].length;
+
+        if (obstacleGrid[y - 1][x - 1] == 1) return 0;
+
+
+        for (int i = 0; i < x; i++) {
+            if (obstacleGrid[0][i] == 1) break;
+            obstacleGrid[0][i] = -1;
+        }
+
+        for (int i = 0; i < y; i++) {
+            if (obstacleGrid[i][0] == 1) break;
+            obstacleGrid[i][0] = -1;
+        }
+
+        for (int i = 1; i < y; i++) {
+            for (int j = 1; j < x; j++) {
+
+                if (obstacleGrid[i][j] != 1) {
+                    int a = obstacleGrid[i - 1][j];
+                    int b = obstacleGrid[i][j - 1];
+                    obstacleGrid[i][j] = (a == 1 ? 0 : a) + (b == 1 ? 0 : b);
+                }
+            }
+        }
+
+        return Math.abs(obstacleGrid[y - 1][x - 1]);
+
+
+    }
+
+    public int uniquePaths(int[][] obstacleGrid) {
+
+        if (obstacleGrid == null) return 0;
+
+        int y = obstacleGrid.length;
+        int x = obstacleGrid[0].length;
+
+        if (obstacleGrid[y - 1][x - 1] + obstacleGrid[0][0] >= 1) return 0;
+
+        int[] dp = new int[x];
+        dp[0] = 1;
+        for (int i = 0; i < y; i++) {
+            for (int j = 0; j < x; j++) {
+                if (obstacleGrid[i][j] == 1) {
+                    dp[i] = 0;
+                } else if (obstacleGrid[i][j] == 0 && j - 1 >= 0) {
+                    dp[j] = dp[j] + dp[j - 1];
+                }
+            }
+        }
+        return dp[x - 1];
+
+    }
+
+```
+
+
+
+## [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)
+
+```java
+
+    public int minPathSum_1(int[][] grid) {
+
+        if (grid == null) return 0;
+
+        int a = grid.length;
+        int b = grid[0].length;
+
+        int[][] dp = new int[a][b];
+        dp[0][0] = grid[0][0];
+
+        for (int i = 1; i < a; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+
+        for (int i = 1; i < b; i++) {
+            dp[0][i] = dp[0][i - 1] + grid[0][i];
+        }
+
+        for (int i = 1; i < a; i++) {
+            for (int j = 1; j < b; j++) {
+
+                dp[i][j] = grid[i][j] + Math.min(dp[i][j - 1], dp[i - 1][j]);
+
+            }
+        }
+
+        return dp[a - 1][b - 1];
+
+
+    }
+
+    public int minPathSum(int[][] grid) {
+
+        if (grid == null) return 0;
+
+        int a = grid.length;
+        int b = grid[0].length;
+
+        int[] dp = new int[b];
+        dp[0] = grid[0][0];
+        for (int i = 1; i < b; i++) {
+            dp[i] = dp[i - 1] + grid[0][i];
+        }
+        
+        for (int i = 1; i < a; i++) {
+            dp[0] = dp[0] + grid[i][0];
+            for (int j = 1; j < b; j++) {
+
+                dp[j] = grid[i][j] = Math.min(dp[j], dp[j - 1]);
+
+            }
+        }
+        
+        return dp[b-1];
+
+
+    }
+```
 
 
 
 
 
+## [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
+
+```java
+
+    /*
+        72 https://leetcode-cn.com/problems/edit-distance/
+
+     */
+
+    public int minDistance(String word1, String word2) {
+
+        int a = word1.length();
+        int b = word2.length();
+
+        int[][] dp = new int[a+1][b+1];
+        dp[0][0] = 0;
+
+        //空串变成 world1 最少需要变化的次数
+        for (int i = 1; i <= a; i++) {
+            dp[i][0] = i;
+        }
+
+        //空串变成 world2 最少需要变化的次数
+        for (int i = 1; i <= b; i++) {
+            dp[0][i] = i;
+        }
+
+        for (int i = 1; i <= a; i++) {
+            for (int j = 1; j <= b; j++) {
+
+                char w1 = word1.charAt(i-1);
+                char w2 = word2.charAt(j-1);
+
+                //如果当前两个字符相同 
+                if(w2 == w1){
+                    dp[i][j] = dp[i-1][j-1];
+                }else {
+                    dp[i][j] = 1 + Math.min(Math.min(dp[i-1][j-1],dp[i][j-1]),dp[i-1][j]);
+                }
+
+            }
+        }
+
+        return dp[a][b];
+
+
+    }
+```
 
 
 
+## [面试题 01.05. 一次编辑](https://leetcode-cn.com/problems/one-away-lcci/)
+
+```
+  public boolean oneEditAway_1(String first, String second) {
+
+        int f = first.length();
+        int s = second.length();
+
+        if (Math.abs(f - s) > 1) return false;
+
+
+        int[][] dp = new int[f + 1][s + 1];
+        dp[0][0] = 0;
+        for (int i = 1; i <= f; i++) {
+            dp[i][0] = i;
+        }
+        for (int i = 1; i <= s; i++) {
+            dp[0][i] = i;
+        }
+
+        for (int i = 1; i <= f; i++) {
+            for (int j = 1; j <= s; j++) {
+                char w1 = first.charAt(i - 1);
+                char w2 = second.charAt(j - 1);
+                if (w2 == w1) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = 1 + Math.min(Math.min(dp[i - 1][j - 1], dp[i][j - 1]), dp[i - 1][j]);
+                }
+            }
+        }
+
+        return dp[f][s] < 2 ? true : false;
+
+    }
+
+    public boolean oneEditAway(String first, String second) {
+        int f = first.length();
+        int s = second.length();
+
+        if (Math.abs(f - s) > 1) return false;
+
+        int i = 0, j = 0;
+        boolean flag = false;
+        while (i < f && j < s) {
+
+            char w1 = first.charAt(i);
+            char w2 = second.charAt(j);
+
+            if (w2 == w1) {
+                i++;
+                j++;
+            } else {
+
+                if (!flag) {
+                    if (f == s) {
+                        i++;
+                        j++;
+                    } else if (f > s) {
+                        i++;
+                    } else {
+                        j++;
+                    }
+                    flag = true;
+                } else return false;
+            }
+
+        }
+
+        return true;
+
+    }
+
+```
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) x
 
 
 
