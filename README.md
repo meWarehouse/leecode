@@ -266,12 +266,10 @@ typora-root-url: images
 ## [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
 
 ```java
-/*
-
+	/*
         88 https://leetcode-cn.com/problems/merge-sorted-array/
 
         归并
-
         逆向归避免覆盖num1中的数据
 
      */
@@ -512,65 +510,65 @@ typora-root-url: images
 ## [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)
 
 ```java
-    public int uniquePaths_1(int[][] obstacleGrid) {
+public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
-        if (obstacleGrid == null) return 0;
+    if(obstacleGrid == null) return 0;
 
-        int y = obstacleGrid.length;
-        int x = obstacleGrid[0].length;
+    int m = obstacleGrid.length;
+    int n = obstacleGrid[0].length;
 
-        if (obstacleGrid[y - 1][x - 1] == 1) return 0;
-
-
-        for (int i = 0; i < x; i++) {
-            if (obstacleGrid[0][i] == 1) break;
-            obstacleGrid[0][i] = -1;
-        }
-
-        for (int i = 0; i < y; i++) {
-            if (obstacleGrid[i][0] == 1) break;
-            obstacleGrid[i][0] = -1;
-        }
-
-        for (int i = 1; i < y; i++) {
-            for (int j = 1; j < x; j++) {
-
-                if (obstacleGrid[i][j] != 1) {
-                    int a = obstacleGrid[i - 1][j];
-                    int b = obstacleGrid[i][j - 1];
-                    obstacleGrid[i][j] = (a == 1 ? 0 : a) + (b == 1 ? 0 : b);
-                }
-            }
-        }
-
-        return Math.abs(obstacleGrid[y - 1][x - 1]);
+    if(obstacleGrid[0][0] + obstacleGrid[m-1][n-1] != 0) return 0;
 
 
+    for(int i = 0;i < m;i++){
+        if(obstacleGrid[i][0] == 1) break;
+        obstacleGrid[i][0] = -1;
     }
 
-    public int uniquePaths(int[][] obstacleGrid) {
+    for(int i = 0;i < n;i++){
+        if(obstacleGrid[0][i] == 1) break;
+        obstacleGrid[0][i] = -1;
+    }
 
-        if (obstacleGrid == null) return 0;
+    for(int i = 1 ;i < m;i++){
+        for(int j = 1;j < n;j++){
 
-        int y = obstacleGrid.length;
-        int x = obstacleGrid[0].length;
+            if(obstacleGrid[i][j] != 1){
+                int x = obstacleGrid[i][j-1];
+                int y = obstacleGrid[i-1][j];
 
-        if (obstacleGrid[y - 1][x - 1] + obstacleGrid[0][0] >= 1) return 0;
+                obstacleGrid[i][j] = (x == 1 ? 0 : x) + (y == 1 ? 0 : y);
 
-        int[] dp = new int[x];
-        dp[0] = 1;
-        for (int i = 0; i < y; i++) {
-            for (int j = 0; j < x; j++) {
-                if (obstacleGrid[i][j] == 1) {
-                    dp[i] = 0;
-                } else if (obstacleGrid[i][j] == 0 && j - 1 >= 0) {
-                    dp[j] = dp[j] + dp[j - 1];
-                }
+            }
+
+        }
+    }
+    return Math.abs(obstacleGrid[m-1][n-1]);
+}
+
+public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+
+    if (obstacleGrid == null) return 0;
+
+    int y = obstacleGrid.length;
+    int x = obstacleGrid[0].length;
+
+    if (obstacleGrid[y - 1][x - 1] + obstacleGrid[0][0] >= 1) return 0;
+
+    int[] dp = new int[x];
+    dp[0] = 1;
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++) {
+            if (obstacleGrid[i][j] == 1) {
+                dp[i] = 0;
+            } else if (obstacleGrid[i][j] == 0 && j - 1 >= 0) {
+                dp[j] = dp[j] + dp[j - 1];
             }
         }
-        return dp[x - 1];
-
     }
+    return dp[x - 1];
+
+}
 
 ```
 
@@ -615,25 +613,24 @@ typora-root-url: images
 
         if (grid == null) return 0;
 
-        int a = grid.length;
-        int b = grid[0].length;
+        int m = grid.length;
+        int n = grid[0].length;
 
-        int[] dp = new int[b];
+         int[] dp = new int[n];
+
         dp[0] = grid[0][0];
-        for (int i = 1; i < b; i++) {
-            dp[i] = dp[i - 1] + grid[0][i];
+        for(int i = 1;i < n;i++){
+            dp[i] = dp[i-1] + grid[0][i];
         }
-        
-        for (int i = 1; i < a; i++) {
-            dp[0] = dp[0] + grid[i][0];
-            for (int j = 1; j < b; j++) {
 
-                dp[j] = grid[i][j] = Math.min(dp[j], dp[j - 1]);
-
+        for(int i = 1;i < m;i++){
+            dp[0] = grid[i][0] + dp[0];
+            for(int j = 1;j < n;j++){
+                dp[j] = grid[i][j] + Math.min(dp[j],dp[j-1]);
             }
         }
-        
-        return dp[b-1];
+
+        return dp[n-1];
 
 
     }
@@ -775,7 +772,135 @@ typora-root-url: images
 
 
 
+## [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/)
 
+```java
+/*
+        91 https://leetcode-cn.com/problems/decode-ways/
+
+     */
+
+public int dfs(String s, int index) {
+
+    if (cache.containsKey(index)) return cache.get(index);
+
+    if (index >= s.length()) return 1;
+
+    int one = 0;
+    int two = 0;
+
+    if (s.charAt(index) != '0') {
+        one = dfs(s, index + 1);
+    }
+
+    if (index + 1 < s.length() && s.charAt(index) != '0' && isValidNum(s, index)) {
+        two = dfs(s, index + 2);
+    }
+
+    cache.put(index, one + two);
+    return cache.get(index);
+
+}
+
+public boolean isValidNum(String s, int index) {
+
+    int a = s.charAt(index) - 48;
+    int b = s.charAt(index + 1) - 48;
+
+    int res = a * 10 + b;
+
+    return res >= 10 && res <= 26;
+
+}
+
+//=============================
+
+
+public int numDecodings_2(String s) {
+
+
+    if (s == null || s.length() == 0 || s.charAt(0) == '0') return 0;
+
+    int len = s.length();
+
+    if (len == 1) return 1;
+
+    int[] dp = new int[len];
+    dp[0] = 1;
+
+    //第二个数为 '0'
+    if (s.charAt(1) != '0') {
+        dp[1] = 1;
+    }
+
+    //第二个数可以与前一个数组合
+    if (isValid(s, 1)) {
+        dp[1] = dp[1] + dp[0];
+    }
+
+    for (int i = 2; i < len; i++) {
+
+        if (s.charAt(i) != '0') {
+            dp[i] = dp[i - 1];
+        }
+
+        if (isValid(s, i)) {
+            dp[i] = dp[i] + dp[i - 2];
+        }
+
+    }
+
+    return dp[len - 1];
+
+
+}
+
+public int numDecodings(String s) {
+
+    if (s == null || s.length() == 0 || s.charAt(0) == '0') return 0;
+
+    int len = s.length();
+
+    if (len == 1) return 1;
+
+    int pre = 1;
+    int curr = 0;
+
+    if (s.charAt(1) != '0') {
+        curr = 1;
+    }
+
+    if (isValid(s, 1)) {
+        curr = curr + pre;
+    }
+
+    for (int i = 2; i < len; i++) {
+        int temp = 0;
+        if (s.charAt(i) != '0') {
+            temp = curr;
+        }
+        if (isValid(s, i)) {
+            temp += pre;
+        }
+        pre = curr;
+        curr = temp;
+    }
+
+    return curr;
+
+}
+
+
+public boolean isValid(String str, int index) {
+
+
+    int a = str.charAt(index - 1) - 48;
+    int b = str.charAt(index) - 48;
+    int t = a * 10 + b;
+    return t >= 10 && t <= 26;
+}
+
+```
 
 
 
