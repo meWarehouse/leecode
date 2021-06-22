@@ -5,46 +5,91 @@ import java.util.Arrays;
 public class MergeSort {
 
     public static void main(String[] args) {
-//        int[] arr = {8,4,5,7,1,3,6,2,0,9,34,-29};
+        int[] arr = {8,4,5,7,1,3,6,2,0,9,34,-29};
+
+        int[] temp = new int[arr.length];
+
+        new MergeSort().process(arr,0,arr.length-1);
+
+        System.out.println(Arrays.toString(arr));
+
+
+//        int arr1[] = {1, 3, 5, 6, 9};
+//        int arr2[] = {2, 4, 6, 8, 10};
 //
-//        int[] temp = new int[arr.length];
-//
-//        new MergeSort().mergeSort(arr,0,arr.length-1,temp);
-
-
-        int arr1[] = {1,3,5,6,9};
-        int arr2[] = {2,4,6,8,10};
-
-        new MergeSort().doubleMerge(arr1,arr2);
+//        new MergeSort().doubleMerge(arr1, arr2);
 
 
     }
 
-    public void doubleMerge(int[] arr1,int[] arr2){
+    public void process(int[] arr, int left, int right) {
+
+        if (left == right) return;
+
+        int mid = left + ((right - left) >> 1);
+
+        process(arr, left, mid);
+        process(arr, mid + 1, right);
+
+        merge1(arr, left, mid, right);
+
+
+    }
+
+    private void merge1(int[] arr, int left, int mid, int right) {
+
+        int[] help = new int[right - left + 1];
+
+        int i = 0, p1 = left, p2 = mid + 1;
+
+
+        while (p1 <= mid && p2 <= right){
+
+            help[i++] = arr[p1] > arr[p2] ? arr[p2++] : arr[p1++];
+
+        }
+
+        while (p1 <= mid){
+            help[i++] = arr[p1++];
+        }
+
+        while (p2 <= right){
+            help[i++] = arr[p2++];
+        }
+
+        for (i = 0;  i<help.length ; i++) {
+            arr[left + i] = help[i];
+        }
+
+
+    }
+
+
+    public void doubleMerge(int[] arr1, int[] arr2) {
 
         int[] temp = new int[arr1.length + arr2.length];
 
-        int a = 0,b=0,t=0;
+        int a = 0, b = 0, t = 0;
 
-        while (a < arr1.length && b < arr2.length){
-            if(arr1[a] > arr2[b]){
+        while (a < arr1.length && b < arr2.length) {
+            if (arr1[a] > arr2[b]) {
                 temp[t] = arr2[b];
                 t++;
                 b++;
-            }else {
+            } else {
                 temp[t] = arr1[a];
                 a++;
                 t++;
             }
         }
 
-        while (a < arr1.length){
+        while (a < arr1.length) {
             temp[t] = arr1[a];
             t++;
             a++;
         }
 
-        while (b < arr2.length){
+        while (b < arr2.length) {
             temp[t] = arr2[b];
             t++;
             b++;
@@ -55,17 +100,17 @@ public class MergeSort {
     }
 
 
-    public void mergeSort(int[] arr,int left,int right,int[] temp) {
+    public void mergeSort(int[] arr, int left, int right, int[] temp) {
 
         //分
-        if(left < right){
+        if (left < right) {
             int mid = (left + right) / 2;
 
-            mergeSort(arr,left,mid,temp);
+            mergeSort(arr, left, mid, temp);
 
-            mergeSort(arr,mid+1,right,temp);
+            mergeSort(arr, mid + 1, right, temp);
 
-            merge(arr,left,mid,right,temp);
+            merge(arr, left, mid, right, temp);
 
         }
 
@@ -80,13 +125,13 @@ public class MergeSort {
 
         //第一步
         //先将左右两边(有序)的数据按照规则填充到 temp 数组  直到左右两边的有序序列有一边处理完毕
-        while(i <= mid && j <= right) {
-            if(arr[i] <= arr[j]) {
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
                 //左边小于右边的，将左边的填充到 temp 数组中 t,i 分别后移
                 temp[t] = arr[i];
                 i++;
                 t++;
-            }else {
+            } else {
                 //反之 左边大于右边的，将右边的填充到 temp 数组中 t,j 分别后移
                 temp[t] = arr[j];
                 j++;
@@ -96,12 +141,12 @@ public class MergeSort {
 
         //第二步
         //将剩余数据的一边的数据依次全部填充到temp中
-        while(i <= mid) {//左边有剩余
+        while (i <= mid) {//左边有剩余
             temp[t] = arr[i];
             t++;
             i++;
         }
-        while(j <= right) {//右边有剩余
+        while (j <= right) {//右边有剩余
             temp[t] = arr[j];
             t++;
             j++;
@@ -126,7 +171,7 @@ public class MergeSort {
          *
          */
 
-        while(tempLeft <= right) {
+        while (tempLeft <= right) {
             arr[tempLeft] = temp[t];
             t++;
             tempLeft++;
