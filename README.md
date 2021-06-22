@@ -904,5 +904,223 @@ public boolean isValid(String str, int index) {
 
 
 
+## [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
+
+```java
+/*
+    120 https://leetcode-cn.com/problems/triangle/
+     */
+    
+    public int minimumTotal_1(ArrayList<ArrayList<Integer>> triangle) {
+
+        int m = triangle.size();
+
+        int[][] dp = new int[m][m];
+
+        dp[0][0] = triangle.get(0).get(0);
+
+        for (int i = 1; i < m; i++) {
+
+            List<Integer> tar = triangle.get(i);
+
+            dp[i][0] = tar.get(0) + dp[i - 1][0];
+
+            for (int j = 1; j < tar.size(); j++) {
+
+
+                if (j == tar.size() - 1) {
+                    dp[i][j] = tar.get(j) + dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = tar.get(j) + Math.min(dp[i - 1][j], dp[i - 1][j - 1]);
+                }
+
+            }
+        }
+
+        int min = dp[m - 1][0];
+        for (int i = 1; i < dp[m - 1].length; i++) {
+            min = Math.min(dp[m - 1][i], min);
+        }
+
+
+        return min;
+
+
+    }
+
+
+    public int minimumTotal(ArrayList<ArrayList<Integer>> triangle) {
+
+        int m = triangle.size();
+
+        int[][] dp = new int[m+1][m+1];
+
+        for (int i = m-1; i >= 0 ; i--) {
+            for (int j = 0; j <= i; j++) {
+                dp[i][j] = Math.min(dp[i+1][j],dp[i+1][j+1] + triangle.get(i).get(j));
+            }
+        }
+
+        return dp[0][0];
+
+    }
+```
+
+
+
+
+
+## [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
+
+```java
+/*
+         152  https://leetcode-cn.com/problems/maximum-product-subarray/
+     */
+public int maxProduct(int[] nums) {
+
+    if (nums == null || nums.length == 0) return 0;
+    if (nums.length == 1) return nums[0];
+
+    int m = nums.length;
+
+
+    int max = Integer.MIN_VALUE;
+    int imax = 1,imin  = 1;
+
+    for (int i = 0; i < nums.length; i++) {
+
+        if(nums[i] < 0){
+            imax = imin ^ imax;
+            imin = imin ^ imax;
+            imax = imin ^ imax;
+        }
+
+        imax = Math.max(nums[i],nums[i]*imax);
+        imin = Math.min(nums[i],nums[i]*imin);
+
+        max = Math.max(max,imax);
+
+    }
+
+
+
+    return max;
+
+
+}
+
+```
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

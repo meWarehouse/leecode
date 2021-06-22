@@ -46,10 +46,12 @@ public class Main1 {
         lists.add(l4);
 
 
-        System.out.println(new Main1().minimumTotal(lists));
+
+        new Main1().maxProduct(new int[]{-5,6,2,7,-1});
 
 
     }
+
 
 
 
