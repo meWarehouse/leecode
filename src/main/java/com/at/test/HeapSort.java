@@ -17,7 +17,7 @@ public class HeapSort {
 
         //将待排序序列构造成一个大顶堆
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
-            heap(arr, i, arr.length);
+            adjust(arr, i, arr.length);
         }
 
         int temp = 0;
@@ -28,13 +28,13 @@ public class HeapSort {
             arr[j] = temp;
 
             //继续调整
-            heap(arr, 0, j);
+            adjust(arr, 0, j);
         }
 
         return arr;
     }
 
-    public void heap(int[] arr, int i, int length) {
+    public void adjust(int[] arr, int i, int length) {
 
         int temp = arr[i];
 
@@ -58,6 +58,65 @@ public class HeapSort {
 
         arr[i] = temp;
 
+    }
+
+    public void heap(int[] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            heapInsert(arr, i);
+        }
+
+        int heapSize = arr.length;
+
+        swap(arr, 0, --heapSize);
+
+        while (heapSize > 0) {
+
+            heapify(arr, 0, heapSize);
+            swap(arr, 0, --heapSize);
+
+        }
+
+
+    }
+
+    private void heapify(int[] arr, int index, int heapSize) {
+
+        int left = index * 2 + 1;
+
+        while (left < heapSize) {
+
+            int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
+
+            largest = arr[largest] > arr[index] ? largest : index;
+
+            if (largest == index) break;
+
+            swap(arr, index, largest);
+
+            left = index * 2 + 1;
+
+        }
+
+
+    }
+
+    private void heapInsert(int[] arr, int index) {
+
+        while (arr[index] > arr[(index - 1) / 2]) {
+            swap(arr, index, (index - 1) / 2);
+            index = (index - 1) / 2;
+        }
+
+    }
+
+
+    public void swap(int[] arr, int s, int e) {
+        if (s != e) {
+            arr[s] = arr[s] ^ arr[e];
+            arr[e] = arr[s] ^ arr[e];
+            arr[s] = arr[s] ^ arr[e];
+        }
     }
 
 

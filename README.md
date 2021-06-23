@@ -154,6 +154,47 @@ typora-root-url: images
 
 
 
+## [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) x
+
+```java
+public int maxProfit(int k, int[] prices) {
+
+    if(prices == null || k < 1) return 0;
+
+    int len = prices.length;
+    if(len == 1) return 0;
+
+    int[] max = new int[len];
+    int m = 0;
+
+    for (int i = 0; i < len; i++) {
+        m = 0;
+        for (int j = i+1; j < len; j++) {
+
+            int p = prices[j] - prices[i];
+            m = Math.max(m,p);
+
+        }
+        max[i] = m;
+    }
+
+    Arrays.sort(max);
+
+    int p = len-1;
+    m = 0;
+    while (k-- > 0){
+        m+=max[p--];
+    }
+
+    return m;
+
+}
+```
+
+
+
+
+
 ## [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
 ```java

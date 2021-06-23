@@ -75,5 +75,54 @@ public class QuickSort {
 
     }
 
+    public void quick(int[] arr, int left, int right) {
+
+        if (left < right) {
+
+            int random = left + (int) (Math.random() * (right - left + 1));
+
+            swap(arr, random, right);
+
+            int[] p = partition(arr, left, right);
+
+            quickSort(arr, left, p[0] - 1);
+            quickSort(arr, p[1] + 1, right);
+
+
+        }
+
+    }
+
+    private int[] partition(int[] arr, int left, int right) {
+
+        int L = left - 1;
+        int R = right;
+
+
+        while (left < R) {
+
+            if (arr[left] < arr[right]) {
+                swap(arr, ++L, left++);
+            } else if (arr[left] > arr[right]) {
+                swap(arr, left, --R);
+            } else {
+                left++;
+            }
+
+        }
+
+        swap(arr, right, R);
+
+
+        return new int[]{L + 1, R};
+    }
+
+    public void swap(int[] arr, int s, int e) {
+        if (s != e) {
+            arr[s] = arr[s] ^ arr[e];
+            arr[e] = arr[s] ^ arr[e];
+            arr[s] = arr[s] ^ arr[e];
+        }
+    }
 
 }
