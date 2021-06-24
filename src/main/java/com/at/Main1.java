@@ -1,18 +1,7 @@
 package com.at;
 
 
-import com.at.test.InsertSort;
-import com.at.test.QuickSort;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import sun.misc.FpUtils;
-
-import javax.jnlp.IntegrationService;
-import javax.xml.stream.FactoryConfigurationError;
-import java.beans.EventHandler;
-import java.lang.annotation.Target;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
 /**
  * @author zero
@@ -33,5 +22,28 @@ public class Main1 {
 
 
     }
+
+    public TreeNode mirrorTree(TreeNode root) {
+
+
+        if(root == null) return root;
+
+        TreeNode left = root.left;
+
+        root.left= root.right;
+        root.right = left;
+
+        mirrorTree(root.left);
+
+        mirrorTree(root.right);
+
+        return root;
+
+
+    }
+
+
+
+
 
 }
