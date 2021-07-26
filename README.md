@@ -38,7 +38,6 @@ typora-root-url: images
         }
 
         return maxProfit;
-
     }
 
     public int maxProfit(int[] prices) {
@@ -480,7 +479,7 @@ public int maxProfit(int k, int[] prices) {
 
 
 
-## [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/) X
+## [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/) x                                                                                                       
 
 
 
@@ -1056,13 +1055,317 @@ public int maxProduct(int[] nums) {
 
 
 
+## [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+
+```java
+试用递归
+
+public ListNode reverseList_1(ListNode head) {
+
+    if (head == null || head.next == null) return head;
+
+    Stack<ListNode> stack = new Stack<>();
+
+    while (head != null) {
+        stack.push(head);
+        head = head.next;
+    }
+
+    head = stack.pop();
+    ListNode curr = head;
+
+    while (!stack.isEmpty()) {
+        curr.next = stack.pop();
+        curr = curr.next;
+    }
+
+    curr.next = null;
+
+    return head;
+
+}
+```
+
+## [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+
+```java
+public boolean hasCycle_1(ListNode head) {
+
+    //缓存
+    if (head == null || head.next == null) return false;
+
+    HashSet<ListNode> set = new HashSet<>();
+
+    while (head != null) {
+        if (set.contains(head)) {
+            return true;
+        }
+        set.add(head);
+        head = head.next;
+    }
+
+    return false;
+
+}
+
+public boolean hasCycle(ListNode head) {
+    //快慢指针
+
+    if (head == null || head.next == null) return false;
+
+    ListNode f = head.next;
+    ListNode s = head;
+
+    while (s != f) {
+        if (f == null || f.next == null) return false;
+        s = s.next;
+        f = f.next.next;
+    }
+
+
+    return true;
+
+
+}
+```
 
 
 
 
 
+## [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+
+  ```java
+
+/*
+        142. 环形链表 II
+            https://leetcode-cn.com/problems/linked-list-cycle-ii/
+     */
+public ListNode detectCycle_1(ListNode head) {
+
+    //缓存
+
+    if (head == null || head.next == null) return null;
+
+    HashSet<ListNode> set = new HashSet<>();
+
+    while (head != null) {
+
+        if (set.contains(head)) return head;
+
+        set.add(head);
+        head = head.next;
+    }
+
+    return null;
+}
+
+public ListNode detectCycle(ListNode head) {
+
+    //快慢指针
+    if (head == null || head.next == null) return null;
+
+    ListNode f = head.next;
+    ListNode s = head;
+
+    while (f != s) {
+        if (f == null || f.next == null) return null;
+        f = f.next.next;
+        s = s.next;
+    }
+
+    //s == f
+    f = head;
+    while (f != s.next) {
+        f = f.next;
+        s = s.next;
+    }
+
+    return f;
+}
+  ```
+
+## [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+```java
+/*
+        21. 合并两个有序链表
+            https://leetcode-cn.com/problems/merge-two-sorted-lists/
+     */
+
+public ListNode mergeTwoLists_1(ListNode l1, ListNode l2) {
+
+    if (l1 == null && l2 == null) return null;
+
+    if (l1 == null && l2 != null) return l2;
+
+    if (l1 != null && l2 == null) return l1;
 
 
+    ListNode head = new ListNode();
+    ListNode curr = head;
+
+    while (l1 != null && l2 != null) {
+
+        if (l1.val > l2.val) {
+            curr.next = l2;
+            l2 = l2.next;
+        } else {
+            curr.next = l1;
+            l1 = l1.next;
+        }
+        curr = curr.next;
+
+    }
+
+    while (l1 != null) {
+        curr.next = l1;
+        l1 = l1.next;
+        curr = curr.next;
+    }
+
+    while (l2 != null) {
+        curr.next = l2;
+        l2 = l2.next;
+        curr = curr.next;
+    }
+
+
+    return head.next;
+
+
+}
+
+public ListNode mergeTwoLists(ListNode l1, ListNode l2){
+
+    if (l1 == null){
+        return l2;
+    }else if(l2 == null){
+        return l1;
+    }else if(l1.val > l2.val){
+        l1.next = mergeTwoLists(l1.next,l2);
+        return l1;
+    }else {
+        l2.next = mergeTwoLists(l1,l2.next);
+        return l2;
+    }
+
+
+}
+
+```
+
+
+
+## [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+
+```java
+/*
+        24. 两两交换链表中的节点
+            https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+     */
+
+public ListNode swapPairs_1(ListNode head) {
+
+    //缓存
+
+    if (head == null || head.next == null) return head;
+
+    LinkedList<ListNode> l1 = new LinkedList<>();
+    LinkedList<ListNode> l2 = new LinkedList<>();
+
+    int i = 1;
+
+    while (head != null) {
+        if (i % 2 == 1) {
+            l1.add(head);
+        } else {
+            l2.add(head);
+        }
+        i++;
+        head = head.next;
+    }
+
+    ListNode h = new ListNode();
+    ListNode c = h;
+
+    while (!l1.isEmpty() && !l2.isEmpty()) {
+        c.next = l2.pollFirst();
+        c.next.next = l1.pollFirst();
+        c = c.next.next;
+    }
+
+
+    c.next = i % 2 == 0 ? l1.pollFirst() : l2.pollFirst();
+
+
+    return h.next;
+
+
+}
+
+public ListNode swapPairs_2(ListNode head) {
+
+    //指针
+    if (head == null || head.next == null) return head;
+
+    ListNode p = head;
+    ListNode n = head.next;
+    ListNode c = head.next.next;
+
+    //只有两个节点
+    if (c == null) {
+        n.next = p;
+        p.next = c;
+        return n;
+    }
+
+    //三个以上的节点
+    ListNode h = head.next;
+
+    while (n != null && c != null) {
+
+        p.next = c.next;
+        n.next = p;
+
+        if (c.next == null) {
+            c.next = n;
+            p.next = c;
+            c.next = null;
+            break;
+        }
+        if (c.next.next == null) {
+            p.next.next = c;
+            c.next = null;
+            break;
+        }
+        p = c;
+        n = p.next;
+
+        c = n.next;
+
+    }
+
+    return h;
+
+
+}
+
+
+public ListNode swapPairs(ListNode head){
+
+    if(head == null || head.next == null) return  head;
+
+    ListNode n = head.next;
+
+    head.next = swapPairs(n.next);
+
+    n.next = head;
+
+    return head;
+
+}
+```
 
 
 

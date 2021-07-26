@@ -16,24 +16,24 @@ public class Main {
 //        System.out.println(new Main().PrintMinNumber(new int[]{3,32,321}));
 
 
-        System.out.println(new Main().majorityElement(new int[]{2,2,1,1,1,1,2,2}));
+        System.out.println(new Main().majorityElement(new int[]{2, 2, 1, 1, 1, 1, 2, 2}));
 
 
     }
 
     public int majorityElement(int[] nums) {
 
-       int mode = nums[0];
-       int vote = 0;
+        int mode = nums[0];
+        int vote = 0;
 
         for (int num : nums) {
-            if(vote == 0){
+            if (vote == 0) {
                 mode = num;
             }
 
-            if(mode == num){
+            if (mode == num) {
                 vote++;
-            }else {
+            } else {
                 vote--;
             }
         }
@@ -41,22 +41,21 @@ public class Main {
         return mode;
     }
 
-    public String PrintMinNumber(int [] numbers) {
+    public String PrintMinNumber(int[] numbers) {
 
-        if(numbers == null || numbers.length < 1) return "";
+        if (numbers == null || numbers.length < 1) return "";
 
         for (int i = 0; i < numbers.length; i++) {
-            for (int j = i+1; j < numbers.length; j++) {
+            for (int j = i + 1; j < numbers.length; j++) {
                 Integer a = Integer.valueOf(numbers[i] + "" + numbers[j]);
                 Integer b = Integer.valueOf(numbers[j] + "" + numbers[i]);
-                if(a > b){
+                if (a > b) {
                     int t = numbers[j];
                     numbers[j] = numbers[i];
                     numbers[i] = t;
                 }
             }
         }
-
 
 
         StringBuilder res = new StringBuilder();
@@ -80,46 +79,46 @@ public class Main {
         }
     }
 
-    public  void quickSort(int[] arr, int left, int right){
+    public void quickSort(int[] arr, int left, int right) {
 
-        int l = left,r = right;
+        int l = left, r = right;
         int mid = arr[(l + r) / 2];
 
-        while (l < r){
+        while (l < r) {
 
-            while (arr[l] < mid){
+            while (arr[l] < mid) {
                 l++;
             }
 
-            while (arr[r] > mid){
+            while (arr[r] > mid) {
                 r--;
             }
 
-            if(l >= r) break;
+            if (l >= r) break;
 
-            swap(arr,l,r);
+            swap(arr, l, r);
 
-            if(arr[l] == mid){
+            if (arr[l] == mid) {
                 r--;
             }
 
-            if(arr[r] == mid){
+            if (arr[r] == mid) {
                 l++;
             }
 
         }
 
-        if(l == r){
+        if (l == r) {
             l++;
             r--;
         }
 
-        if(l < right){
-            quickSort(arr,l,right);
+        if (l < right) {
+            quickSort(arr, l, right);
         }
 
-        if(left < r){
-            quickSort(arr,left,r);
+        if (left < r) {
+            quickSort(arr, left, r);
         }
 
     }
@@ -143,22 +142,19 @@ public class Main {
 
     }
 
-    public void insertSort(int arr[]){
+    public void insertSort(int arr[]) {
 
         for (int i = 1; i < arr.length; i++) {
 
             int pre = i;
-            while (pre >= 1 && arr[pre] < arr[pre-1]){
-                swap(arr,pre,pre-1);
+            while (pre >= 1 && arr[pre] < arr[pre - 1]) {
+                swap(arr, pre, pre - 1);
                 pre--;
             }
 
         }
 
     }
-
-
-
 
 
     public void swap(int arr[], int i, int j) {
@@ -177,9 +173,8 @@ public class Main {
         boolean success = true;
 
         for (int i = 0; i < testTime; i++) {
-            int[] arr1 = generateRandomArray(maxSize,maxSize);
+            int[] arr1 = generateRandomArray(maxSize, maxSize);
             int[] arr2 = copyArray(arr1);
-
 
 
         }
@@ -194,8 +189,6 @@ public class Main {
     private static int[] generateRandomArray(int maxSize, int maxSize1) {
         return new int[0];
     }
-
-
 
 
 }
@@ -219,5 +212,22 @@ class RandomListNode {
 
     RandomListNode(int label) {
         this.label = label;
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode() {
+    }
+
+    ListNode(int val) {
+        this.val = val;
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 }
