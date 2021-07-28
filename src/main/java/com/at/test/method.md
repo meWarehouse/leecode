@@ -301,7 +301,119 @@ public ReturnData process(Node head) {
 
 
 
+### 公共祖先
 
+```
+  HashMap<Node, Node> conn = new HashMap<>();
+
+    public Node lca(Node head,Node o1,Node o2){
+
+        conn.put(head,head);
+        //找到所有节点的父节点
+        process(head);
+
+        //存储 o1 节点的所有父节点
+        HashSet<Node> setConn = new HashSet<>();
+        Node curr = o1;
+        while (curr != conn.get(curr)){
+            setConn.add(curr);
+            curr = conn.get(curr);
+        }
+        setConn.add(head);
+
+        curr = o2;
+        while (!setConn.contains(curr)){
+            curr = conn.get(curr);
+        }
+
+        return curr;
+
+
+
+    }
+    
+    public void process(Node head){
+
+        if(head == null) return;
+
+        conn.put(head.left,head);
+        conn.put(head.right,head);
+
+        process(head.left);
+        process(head.right);
+
+    }
+
+    public Node lca(Node head,Node o1,Node o2){
+
+        if(head == null || head == o1 || head == o2) return head;
+
+        Node left = lca(head.left, o1, o2);
+        Node rigth = lca(head.right, o1, o2);
+
+        if(left != null && rigth != null){
+            return head;
+        }
+
+        return left != null ? left : rigth;
+
+    }
+
+```
+
+
+
+后继节点
+
+```java
+class Node {
+    public int value;
+    public Node left;
+    public Node right;
+    public Node parent;
+}
+
+
+public Node getSuccessorNode(Node node){
+
+    /*
+            后继节点
+                中序遍历中节点的下一个节点 最后一个节点为 null
+         */
+    if(node == null) return null;
+
+    if(node.right != null){
+        //后继为 右子树的最后一个 左节点  或第一个右节点
+        return getLeftMost(node);
+    }else {
+
+        Node parent = node.parent;
+        if(parent != null && parent.left != null){
+            node = parent;
+            parent = node.parent;
+        }
+
+        return parent;
+
+    }
+
+
+
+}
+
+public Node getLeftMost(Node node){
+
+    if(node == null) return null;
+
+    while (node.left != null){
+        node = node.left;
+    }
+    return node;
+
+}
+
+
+```
 
 
 

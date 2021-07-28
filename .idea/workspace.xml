@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef944291-a59e-446f-a1de-24ce056fcb96" name="Default Changelist" comment="二叉树1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/bean/ListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/bean/RandomListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/bean/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/lc/lc_236.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Main1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Main1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/test/method.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/test/method.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/ShellSort.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ25.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/DfsAndBfs.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/Prim.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/Kmp.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/MergeSort.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/lc/lc_91.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/HeapSort.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN19.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/MT_2021_9_1.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ24.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN59.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://E:/devsoft/Java/jdk1.8.0_131/jre/lib/rt.jar!/java/util/List.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://E:/devsoft/Java/jdk1.8.0_131/src.zip!/java/util/LinkedList.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/AL_2021_1.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ18.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/MT_2021_10_2.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main1.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN92.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main2.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/BubbleSort.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/devsoft/maven/apache-maven-3.6.3-bin/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="E:\devsoft\maven\apache-maven-3.6.3-bin\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1rTv9Rm3duSakvah0Cdjnuyg9zc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../vip/projects/realtime-training-data-master-8b774a503119c6cbbe7467751fa8f78fba8bcbb8" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.at.leecode" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="HeapSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.at.test.HeapSort" />
+      <module name="leecode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.at.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.at.Main1" />
+      <module name="leecode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.at.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.at.Main2" />
+      <module name="leecode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.at.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.at.TT" />
+      <module name="leecode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.at.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.at.Test" />
+      <module name="leecode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.at.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main2" />
+        <item itemvalue="Application.TT" />
+        <item itemvalue="Application.Main1" />
+        <item itemvalue="Application.HeapSort" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef944291-a59e-446f-a1de-24ce056fcb96" name="Default Changelist" comment="" />
+      <created>1619012745379</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619012745379</updated>
+      <workItem from="1619012746633" duration="2328000" />
+      <workItem from="1619016767032" duration="64321000" />
+      <workItem from="1619314515304" duration="9051000" />
+      <workItem from="1619359968203" duration="2345000" />
+      <workItem from="1619443518157" duration="164000" />
+      <workItem from="1619595456785" duration="2961000" />
+      <workItem from="1619599038927" duration="11348000" />
+      <workItem from="1619770962275" duration="635000" />
+      <workItem from="1619870276614" duration="617000" />
+      <workItem from="1619918950552" duration="3702000" />
+      <workItem from="1620378910034" duration="2811000" />
+      <workItem from="1620393317721" duration="24331000" />
+      <workItem from="1620625707368" duration="54000" />
+      <workItem from="1620699768675" duration="6077000" />
+      <workItem from="1620715868122" duration="252000" />
+      <workItem from="1620716174191" duration="56000" />
+      <workItem from="1620716245849" duration="37000" />
+      <workItem from="1620716295607" duration="49000" />
+      <workItem from="1620716710913" duration="955000" />
+      <workItem from="1620738971008" duration="29000" />
+      <workItem from="1620881814045" duration="2007000" />
+      <workItem from="1620890222644" duration="11566000" />
+      <workItem from="1620963671567" duration="3460000" />
+      <workItem from="1621152068938" duration="8096000" />
+      <workItem from="1621247891934" duration="5581000" />
+      <workItem from="1621511030015" duration="879000" />
+      <workItem from="1621673012545" duration="6308000" />
+      <workItem from="1621777774957" duration="10543000" />
+      <workItem from="1622017413219" duration="17556000" />
+      <workItem from="1622118796857" duration="87000" />
+      <workItem from="1622120611752" duration="3612000" />
+      <workItem from="1622277352347" duration="6744000" />
+      <workItem from="1622289902962" duration="77000" />
+      <workItem from="1622525347590" duration="1249000" />
+      <workItem from="1622632807069" duration="14000" />
+      <workItem from="1622795336812" duration="4096000" />
+      <workItem from="1622858093100" duration="37000" />
+      <workItem from="1622860088093" duration="527000" />
+      <workItem from="1622860630896" duration="196000" />
+      <workItem from="1622861023932" duration="205000" />
+      <workItem from="1622861328620" duration="4984000" />
+      <workItem from="1622884683202" duration="14270000" />
+      <workItem from="1623045421703" duration="9699000" />
+      <workItem from="1623151661618" duration="659000" />
+      <workItem from="1623239245028" duration="15453000" />
+      <workItem from="1623330270457" duration="6146000" />
+      <workItem from="1623742679893" duration="2242000" />
+      <workItem from="1623768830001" duration="74260000" />
+      <workItem from="1624341714925" duration="30266000" />
+      <workItem from="1624445327582" duration="3381000" />
+      <workItem from="1624536438168" duration="34732000" />
+      <workItem from="1624629337441" duration="1003000" />
+      <workItem from="1624687418610" duration="627000" />
+      <workItem from="1624688686076" duration="34000" />
+      <workItem from="1624688731367" duration="86000" />
+      <workItem from="1624688830060" duration="640000" />
+      <workItem from="1625125831005" duration="5956000" />
+      <workItem from="1625147961956" duration="274000" />
+      <workItem from="1625398858888" duration="4029000" />
+      <workItem from="1625754964399" duration="1194000" />
+      <workItem from="1625903563697" duration="69000" />
+      <workItem from="1626788596403" duration="9601000" />
+      <workItem from="1626874023937" duration="1905000" />
+      <workItem from="1626961123771" duration="2429000" />
+      <workItem from="1627098850850" duration="2245000" />
+      <workItem from="1627220157661" duration="19995000" />
+    </task>
+    <task id="LOCAL-00001" summary="s">
+      <created>1620527501205</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620527501205</updated>
+    </task>
+    <task id="LOCAL-00002" summary="s">
+      <created>1620625721428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620625721429</updated>
+    </task>
+    <task id="LOCAL-00003" summary="s">
+      <created>1620893823268</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620893823268</updated>
+    </task>
+    <task id="LOCAL-00004" summary="11">
+      <created>1621673758101</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621673758101</updated>
+    </task>
+    <task id="LOCAL-00005" summary="11">
+      <created>1621673766044</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621673766044</updated>
+    </task>
+    <task id="LOCAL-00006" summary="jz21">
+      <created>1622279169220</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622279169220</updated>
+    </task>
+    <task id="LOCAL-00007" summary="jz23">
+      <created>1622893187054</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622893187054</updated>
+    </task>
+    <task id="LOCAL-00008" summary="jz26">
+      <created>1623045438521</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623045438521</updated>
+    </task>
+    <task id="LOCAL-00009" summary="jz31">
+      <created>1623397803372</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623397803373</updated>
+    </task>
+    <task id="LOCAL-00010" summary="jz31">
+      <created>1624105211896</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624105211896</updated>
+    </task>
+    <task id="LOCAL-00011" summary="leecode 189">
+      <created>1624168298354</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1624168298354</updated>
+    </task>
+    <task id="LOCAL-00012" summary="leecode 91">
+      <created>1624249712311</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624249712311</updated>
+    </task>
+    <task id="LOCAL-00013" summary="leecode 91">
+      <created>1624288696218</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624288696218</updated>
+    </task>
+    <task id="LOCAL-00014" summary="leecode 120">
+      <created>1624366706128</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1624366706128</updated>
+    </task>
+    <task id="LOCAL-00015" summary="leecode 120">
+      <created>1624371279757</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1624371279757</updated>
+    </task>
+    <task id="LOCAL-00016" summary="堆排序 快排优化">
+      <created>1624432771860</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1624432771860</updated>
+    </task>
+    <task id="LOCAL-00017" summary="堆排序 快排优化">
+      <created>1624500299651</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1624500299651</updated>
+    </task>
+    <task id="LOCAL-00018" summary="二叉树">
+      <created>1627314777028</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1627314777028</updated>
+    </task>
+    <task id="LOCAL-00019" summary="二叉树1">
+      <created>1627478992155</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1627478992155</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="s" />
+    <MESSAGE value="11" />
+    <MESSAGE value="jz21" />
+    <MESSAGE value="jz23" />
+    <MESSAGE value="jz26" />
+    <MESSAGE value="jz31" />
+    <MESSAGE value="leecode 189" />
+    <MESSAGE value="leecode 91" />
+    <MESSAGE value="leecode 120" />
+    <MESSAGE value="堆排序 快排优化" />
+    <MESSAGE value="二叉树" />
+    <MESSAGE value="二叉树1" />
+    <option name="LAST_COMMIT_MESSAGE" value="二叉树1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN19.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN127.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN127.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/at/test/Main.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/at/Main.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/at/lc/lc_62.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="key" />
+        <PinnedItemInfo parentTag="com.at.ListNode" memberName="next" />
+        <PinnedItemInfo parentTag="com.at.ListNode" memberName="val" />
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
+        <PinnedItemInfo parentTag="java.lang.String" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="l2" />
+        <watch expression="h" />
+        <watch expression="head.val" />
+        <watch expression="conn.entrySet().toArray()[0]" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

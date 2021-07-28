@@ -1,7 +1,12 @@
 package com.at;
 
 
+import com.at.bean.TreeNode;
+import com.at.test.HeapSort;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sun.org.apache.regexp.internal.RE;
+import com.sun.xml.internal.fastinfoset.util.ValueArrayResourceException;
+import javafx.scene.control.CustomMenuItem;
 
 import javax.management.NotificationEmitter;
 import javax.xml.stream.FactoryConfigurationError;
@@ -47,20 +52,34 @@ public class Main2 {
     }
 
 
-    class Node {
-        public int value;
-        public Node left;
-        public Node right;
+    class ReturnData{
+        public int nodes;
+        public ReturnData(int n){
+            this.nodes = n;
+        }
     }
 
-    public int preVal = Integer.MIN_VALUE;
+    public int countNodes(TreeNode root) {
 
-    public boolean isCBT(Node head) {
+        return process(root);
+
+    }
 
 
+    public int  process(TreeNode head){
+
+        if(head == null) return 0;
+
+        int leftData = process(head.left);
+        int rightData = process(head.right);
+
+        return leftData + rightData + 1;
 
 
     }
+
+
+
 
 
 }
