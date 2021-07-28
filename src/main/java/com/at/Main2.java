@@ -52,33 +52,6 @@ public class Main2 {
     }
 
 
-    class ReturnData{
-        public int nodes;
-        public ReturnData(int n){
-            this.nodes = n;
-        }
-    }
-
-    public int countNodes(TreeNode root) {
-
-        return process(root);
-
-
-
-    }
-
-
-    public int  process(TreeNode head){
-
-        if(head == null) return 0;
-
-        int leftData = process(head.left);
-        int rightData = process(head.right);
-
-        return leftData + rightData + 1;
-
-
-    }
 
 
 
