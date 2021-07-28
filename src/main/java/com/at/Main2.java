@@ -53,35 +53,12 @@ public class Main2 {
         public Node right;
     }
 
-    public boolean isFullTree(Node head) {
-        /*
-            2^高度 - 1 = 二叉树的节点个数
-         */
-        ReturnData data = process(head);
-        return data.nodes == (1 << data.height - 1);
-    }
+    public int preVal = Integer.MIN_VALUE;
 
-    class ReturnData {
-        public int height; //高度
-        public int nodes; // 个数
+    public boolean isCBT(Node head) {
 
-        public ReturnData(int height, int nodes) {
-            this.height = height;
-            this.nodes = nodes;
-        }
-    }
 
-    public ReturnData process(Node head) {
 
-        if (head == null) return new ReturnData(0, 0);
-
-        ReturnData leftData = process(head.left);
-        ReturnData rightData = process(head.right);
-
-        int height = Math.max(leftData.height, rightData.height) + 1;
-        int nodes = leftData.nodes + rightData.nodes + 1;
-
-        return new ReturnData(height, nodes);
 
     }
 

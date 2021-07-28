@@ -4,6 +4,14 @@
 
 ## 二叉树
 
+
+
+树形DP
+
+向左要信息 向右要信息
+
+
+
 ```
 class Node{
     public int value;
