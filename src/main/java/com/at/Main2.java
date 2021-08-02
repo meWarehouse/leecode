@@ -2,17 +2,15 @@ package com.at;
 
 
 import com.at.bean.TreeNode;
-import com.at.test.HeapSort;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.org.apache.regexp.internal.RE;
-import com.sun.xml.internal.fastinfoset.util.ValueArrayResourceException;
-import javafx.scene.control.CustomMenuItem;
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+import com.sun.corba.se.impl.orbutil.graph.Node;
+import com.sun.crypto.provider.HmacPKCS12PBESHA1;
+import com.sun.deploy.pings.Pings;
+import com.sun.javafx.geom.Edge;
+import sun.reflect.generics.tree.Tree;
 
-import javax.management.NotificationEmitter;
-import javax.xml.stream.FactoryConfigurationError;
-import java.lang.annotation.Target;
-import java.net.Inet4Address;
-import java.security.cert.TrustAnchor;
+import javax.lang.model.element.VariableElement;
+import java.nio.channels.Pipe;
 import java.util.*;
 
 /**
@@ -47,14 +45,31 @@ public class Main2 {
         r.add(l3);
         r.add(l4);
 
-//        new Main2().minimumTotal(r);
+
+        TreeNode t1 = new TreeNode(1);
+        TreeNode t2 = new TreeNode(2);
+        TreeNode t3 = new TreeNode(3);
+
+        t1.right = t2;
+        t2.left = t3;
+
 
     }
 
 
 
 
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

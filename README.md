@@ -1483,6 +1483,51 @@ public int  process(TreeNode head){
 
 
 
+## [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)
+
+```java
+
+Map<Integer,Integer> cache = new HashMap<Integer,Integer>();
+
+public int numTrees(int n) {
+
+    return dfs(n);
+
+    //        int[] dp = new int[n];
+    //
+    //        dp[0] = 1;
+    //        dp[1] = 1;
+    //
+    //        for (int i = 2; i <= n; i++) {
+    //            for (int j = 1; j <= i; j++) {
+    //                dp[i] = dp[j-1]  * dp[i-j];
+    //            }
+    //        }
+    //
+    //        return dp[n];
+
+}
+
+public int dfs(int n){
+    if(n <= 1){
+        return 1;
+    }else if(cache.containsKey(n)){
+        return cache.get(n);
+    }else {
+        int c = 0;
+        for (int i = 0; i < n; i++) {
+            c+= dfs(i) * dfs(n-i-1);
+        }
+        cache.put(n,c);
+        return c;
+    }
+}
+
+```
+
+
+
+## [95. 不同的二叉搜索树 II](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)  x
 
 
 
@@ -1490,30 +1535,146 @@ public int  process(TreeNode head){
 
 
 
+## [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree)
+
+```java
+class ReturnData{
+        public int maxDep;
+        public ReturnData(int deep){
+            this.maxDep = deep;
+        }
+    }
+
+
+    public ReturnData process(TreeNode root){
+
+        if(root == null) return new ReturnData(0);
+
+        ReturnData leftData = process(root.left);
+        ReturnData rightData = process(root.right);
+
+        int maxDep = Math.max(leftData.maxDep, rightData.maxDep) + 1;
+
+        return new ReturnData(maxDep);
+    }
+
+    public int process1(TreeNode root){
+
+        if(root == null) return 0;
+
+        int lD = process1(root.left);
+        int rD = process1(root.right);
+
+        int max = Math.max(lD,rD) + 1;
+
+        return max;
+
+    }
+
+    public int maxDepth(TreeNode root) {
+        return process1(root);
+    }
+```
 
 
 
 
 
+## [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal)
+
+```java
+public List<List<Integer>> levelOrder(TreeNode root) {
+
+    List<List<Integer>> list = new ArrayList<>();
+
+    if (root == null) return list;
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (!queue.isEmpty()) {
+
+        int size = queue.size();
+
+        List<Integer> level = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+
+            TreeNode curr = queue.poll();
+
+            level.add(curr.val);
+
+            if (curr.left != null) {
+                queue.add(curr.left);
+            }
+            if (curr.right != null) {
+                queue.add(curr.right);
+            }
+        }
+
+        list.add(level);
+
+    }
+
+    return list;
+
+}
+
+```
+
+
+
+## [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal) x
 
 
 
 
 
+## [105. 从前序与中序遍历序列构造二叉](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+
+```java
+Map<Integer, Integer> map = new HashMap<>(); // k:value v:index
+
+public TreeNode buildTree(int[] preorder, int[] inorder) {
+
+    int preLen = preorder.length;
+    int inLen = inorder.length;
+
+    if(preLen != inLen){
+        return null;
+    }
+
+    for (int i = 0; i < inLen; i++) {
+        map.put(inorder[i],i);
+    }
 
 
+    return builds(preorder, 0, preLen - 1, inorder, 0, inLen - 1);
+}
+
+public TreeNode builds(int[] preOrder, int preLeft, int preRight,
+                       int[] inOrder, int inLeft, int inRight) {
+
+    if(preLeft > preRight || inLeft > inRight){
+        return null;
+    }
 
 
+    int rootVal = preOrder[preLeft];
+    TreeNode root = new TreeNode(rootVal);
+
+    Integer pivot = map.get(rootVal);
 
 
+    root.left = builds(preOrder,preLeft+1,pivot-inLeft + preLeft,inOrder,inLeft,pivot-1);
+
+    root.right = builds(preOrder,pivot-inLeft+preLeft+1,preRight,inOrder,pivot+1,inRight);
+
+    return root;
 
 
-
-
-
-
-
-
+}
+```
 
 
 

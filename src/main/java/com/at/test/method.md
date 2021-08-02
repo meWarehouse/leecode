@@ -417,13 +417,220 @@ public Node getLeftMost(Node node){
 
 
 
+## 图
+
+### 结构模板
+
+```java
+class Graph{
+
+    public HashMap<Integer, Node> nodes;  // HashMap<点的编号, 点对象>  ex:
+    public HashSet<Edge> edges;
+    public Graph(){
+        nodes = new HashMap<>();
+        edges = new HashSet<>();
+    }
+}
+
+class Node{
+
+    public int value;
+    public int in; //点的入度
+    public int out; //出度
+    public ArrayList<Node> nexts; //当前节点发散出去的边直接连接的节点
+    public ArrayList<Edge> edges; //当前点发散出去的边
+    public Node(int value){
+        this.value = value;
+        in = 0;
+        out = 0;
+        nexts = new ArrayList<>();
+        edges = new ArrayList<>();
+    }
+
+}
+class Edge{
+
+    public int weight;
+    public Node from;
+    public Node to;
+
+    public Edge(int weight, Node from, Node to) {
+        this.weight = weight;
+        this.from = from;
+        this.to = to;
+    }
+}
+
+```
 
 
 
+### 接口
+
+```java
+public Graph createGraph(Integer[][] matrix){
+
+        Graph graph = new Graph();
+
+        for (int i = 0; i < matrix.length; i++) {
+
+            // matrix[0][0] => from
+            // matrix[0][1] => to
+            // matrix[0][2] => weight
+            Integer from = matrix[i][0];
+            Integer to = matrix[i][1];
+            Integer weight = matrix[i][2];
+
+            if(!graph.nodes.containsKey(from)){
+                graph.nodes.put(from,new Node(from));
+            }
+
+            if(!graph.nodes.containsKey(to)){
+                graph.nodes.put(to,new Node(to));
+            }
+
+            Node fromNode = graph.nodes.get(from);
+            Node toNode = graph.nodes.get(to);
+
+            Edge newEdge = new Edge(weight, fromNode, toNode);
+
+            fromNode.nexts.add(toNode);
+            fromNode.out++;
+            toNode.in++;
+
+            fromNode.edges.add(newEdge);
+
+            graph.edges.add(newEdge);
+
+
+        }
+
+        return graph;
+
+    }
+```
 
 
 
+### 深度优先 DFS
 
+```java
+/*
+        深度优先 =》 栈
+     */
+public void DFS(Node node){
+
+    if(node == null) return;
+
+    Stack<Node> stack = new Stack<>();
+    HashSet<Node> set = new HashSet<>();
+
+    stack.add(node);
+    set.add(node);
+    System.out.println(node);
+
+    while (!stack.isEmpty()){
+
+        Node curr = stack.pop();
+        for (Node elem : curr.nexts) {
+            if(!set.contains(elem)){
+
+                //重新压入 curr
+                stack.push(curr);
+
+                stack.push(elem);
+                set.add(elem);
+                System.out.println(node.value);
+
+                // 只处理当前的 相邻节点的 一个元素
+                break;
+
+            }
+        }
+    }
+}
+```
+
+
+
+### 广度优先 BFS
+
+```java
+/*
+        宽度优先 =》 队列
+     */
+public void BFS(Node node){
+
+    // 从 node 节点开始宽度优先遍历
+
+    if(node == null) return;
+
+    LinkedList<Node> queue = new LinkedList<>();
+    HashSet<Node> set = new HashSet<>(); //去重 保存已处理过的元素
+
+    queue.add(node);
+    set.add(node);
+    while (!queue.isEmpty()){
+
+        Node curr = queue.poll();
+
+        //处理逻辑
+        System.out.println(curr);
+
+        for (Node elem : curr.nexts) {
+            if (!set.contains(elem)) {
+                queue.add(elem);
+                set.add(elem);
+            }
+        }
+    }
+}
+```
+
+
+
+### 拓扑排序
+
+```java
+//拓扑排序
+public List<Node> sortedTopology(Graph graph){
+
+    // key：某一个节点
+    // value：剩余的入度
+    HashMap<Node, Integer> inMap = new HashMap<>();
+
+    // 入度为 0 的节点队列
+    Queue<Node> zeroInQueue = new LinkedList<>();
+
+    for (Node node : graph.nodes.values()) {
+        //遍历所有节点
+        inMap.put(node,node.in);
+        if(node.in == 0){
+            zeroInQueue.add(node);
+        }
+    }
+
+    //拓扑排序的结果，依次加入 result
+    List<Node> result = new LinkedList<>();
+    while (!zeroInQueue.isEmpty()){
+
+        Node curr = zeroInQueue.poll();
+        result.add(curr);
+
+        //将当前入度为0的节点的直接相邻节点的入度-1
+        for (Node elem : curr.nexts) {
+            inMap.put(elem,inMap.get(elem)-1);    
+            if(inMap.get(elem) == 0){
+                zeroInQueue.add(elem);
+            }
+        }
+
+    }
+
+    return result;
+
+}
+```
 
 
 
