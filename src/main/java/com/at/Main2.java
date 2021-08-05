@@ -1,6 +1,7 @@
 package com.at;
 
 
+import com.at.bean.ListNode;
 import com.at.bean.TreeNode;
 import com.sun.corba.se.impl.orbutil.graph.Graph;
 import com.sun.corba.se.impl.orbutil.graph.Node;
@@ -54,8 +55,13 @@ public class Main2 {
         t2.left = t3;
 
 
-    }
+        ListNode h = new ListNode(-1);
+        h.next = new ListNode(0);
 
+
+
+
+    }
 
 
 
