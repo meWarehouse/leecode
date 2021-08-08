@@ -1053,6 +1053,57 @@ public int maxProduct(int[] nums) {
 
 
 
+## [817. 链表组件](https://leetcode-cn.com/problems/linked-list-components)
+
+
+
+```java
+ public int numComponents(com.at.bean.ListNode head, int[] nums) {
+
+        int res = 0;
+
+        if(head == null || nums == null || nums.length ==0) return res;
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int elem : nums) {
+            set.add(elem);
+        }
+
+        ListNode curr = head;
+
+//        while (curr != null){
+//
+//            if(set.contains(curr.val)){
+//                res +=1;
+//                curr = curr.next;
+//                while (curr != null && set.contains(curr.val)){
+//                    curr = curr.next;
+//                }
+//
+//            }else {
+//                curr = curr.next;
+//            }
+//
+//
+//        }
+
+        while (curr != null){
+            if(set.contains(curr.val) && (curr.next == null || set.contains(curr.next.val))){
+                res+=1;
+            }
+            curr = curr.next;
+        }
+
+        return res;
+
+
+    }
+
+```
+
+
+
 
 
 ## [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
@@ -1678,62 +1729,115 @@ public TreeNode builds(int[] preOrder, int preLeft, int preRight,
 
 
 
-## [817. 链表组件](https://leetcode-cn.com/problems/linked-list-components)
-
-
+## [100. 相同的树](https://leetcode-cn.com/problems/same-tree)
 
 ```java
- public int numComponents(com.at.bean.ListNode head, int[] nums) {
+ public boolean isSameTree1(TreeNode p, TreeNode q) {
 
-        int res = 0;
+        if (p == null && q == null) return true;
 
-        if(head == null || nums == null || nums.length ==0) return res;
+        if (p == null || q == null) return false;
 
-        HashSet<Integer> set = new HashSet<>();
+        if (p.val != q.val) return false;
 
-        for (int elem : nums) {
-            set.add(elem);
-        }
 
-        ListNode curr = head;
-
-//        while (curr != null){
-//
-//            if(set.contains(curr.val)){
-//                res +=1;
-//                curr = curr.next;
-//                while (curr != null && set.contains(curr.val)){
-//                    curr = curr.next;
-//                }
-//
-//            }else {
-//                curr = curr.next;
-//            }
-//
-//
-//        }
-
-        while (curr != null){
-            if(set.contains(curr.val) && (curr.next == null || set.contains(curr.next.val))){
-                res+=1;
-            }
-            curr = curr.next;
-        }
-
-        return res;
+        return isSameTree1(p.left, q.left) && isSameTree1(p.right, q.right);
 
 
     }
 
+
+
+
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+
+
+        if (p == null && q == null) return true;
+
+        if ((p == null && q != null) || (p != null && q == null) || p.val != q.val) return false;
+
+
+        Queue<TreeNode> queueP = new LinkedList<>();
+        Queue<TreeNode> queueQ = new LinkedList<>();
+
+        queueP.add(p);
+        queueQ.add(q);
+
+        while (!queueP.isEmpty() && !queueQ.isEmpty()) {
+
+            TreeNode currP = queueP.poll();
+            TreeNode currQ = queueQ.poll();
+
+            if (currP.val != currQ.val) {
+                return false;
+            }
+
+            if ((currP.left != null && currQ.left != null) || (currP.left == null && currQ.left == null)) {
+                if (currP.left != null) {
+                    queueP.add(currP.left);
+                    queueQ.add(currQ.left);
+                }
+            } else {
+                return false;
+            }
+
+            if ((currP.right != null && currQ.right != null) || (currP.right == null && currQ.right == null)) {
+                if (currP.right != null) {
+                    queueP.add(currP.right);
+                    queueQ.add(currQ.right);
+                }
+            } else {
+                return false;
+            }
+
+
+        }
+
+        return true;
+
+
+    }
 ```
 
 
 
+## [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree)
+
+```java
+//中序遍历过程中，记录错误两个错误排序节点，最后进行交换
+
+TreeNode t1, t2, pre;
+
+public void inOrder(TreeNode root) {
+
+    if (root == null) return;
+
+    inOrder(root.left);
+
+    if (pre != null && pre.val > root.val) {
+        if (t1 == null) t1 = pre;
+        t2 = root;
+    }
+
+    pre = root;
+
+    inOrder(root.right);
+
+}
 
 
+public void recoverTree(TreeNode root) {
 
+    if (root == null) return;
 
+    inOrder(root);
 
+    TreeNode tmp = t1;
+    t1 = t2;
+    t2 = tmp;
+
+}
+```
 
 
 
