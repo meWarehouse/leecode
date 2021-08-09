@@ -636,13 +636,188 @@ public List<Node> sortedTopology(Graph graph){
 
 
 
+## 贪心策略
+
+堆 栈
+
+### 哈夫曼编码问题
+
+```java
+
+public int lessMony(int[] arr){
+
+    PriorityQueue<Integer> pQ = new PriorityQueue<>();
+
+    //将所有数据放入 小根堆
+    for (int i = 0; i < arr.length ; i++) {
+        pQ.add(arr[i]);
+    }
+
+    int sum = 0;
+    int curr = 0;
+
+    while (pQ.size() > 1){
+
+        //弹出两个最小的数 并相加
+        curr = pQ.poll() + pQ.poll();
+        sum += curr;
+        //在将结果值放回 小根堆
+        pQ.add(sum);
+
+    }
+
+    return sum;
+
+}
+```
 
 
 
+### 最小花费
+
+```java
+class Node{
+    public int p; //项目利润
+    public int c; //项目花费
+    public Node(int p,int c){
+        this.p = p;
+        this.c = c;
+    }
+}
+
+/**
+     * 花费 小根堆
+     *  按 花费 将 项目(Node) 排成一个小根堆 --》 项目 花费 小的在上面
+     */
+class MinCostComparator implements Comparator<Node>{
+    @Override
+    public int compare(Node o1, Node o2) {
+        return o1.c = o2.c;
+    }
+}
+
+/**
+     * 利润大根堆
+     */
+class MaxProfitComparator implements Comparator<Node>{
+    @Override
+    public int compare(Node o1, Node o2) {
+        return o2.p-o1.p;
+    }
+}
+
+/**
+     *
+     * 成本为 w 最多可做 k 个项目   最大收益？？？
+     *
+     *      1.先将 成本 与 利润 组成一个 Node
+     *      2.再将Node 按 成本 组织成一个 小根堆
+     *      3.从小根对中取出 成本 < w 的项目 将其放如一个 由Node节点 的利润组织的大根堆
+     *      
+     *
+     *
+     * @param k     最多可做k个项目
+     * @param w    成本
+     * @param profits     每个项目的利润
+     * @param captial     每个项目的成本
+     * @return
+     */
+public int findMaximizedCapital(int k,int w,int[] profits,int[] captial){
+
+    PriorityQueue<Node> minCostQ = new PriorityQueue<>(new MinCostComparator());
+    PriorityQueue<Node> maxProfitQ = new PriorityQueue<>(new MaxProfitComparator());
+
+    //将所有的项目放入被锁池中，使用花费 组织小根堆
+    for (int i = 0; i < profits.length; i++) {
+        minCostQ.add(new Node(profits[i],captial[i]));
+    }
+
+    //进行 K 轮
+    for (int i = 0; i < k; i++) {
+        //将可以做的项目放入 解锁池中
+        while (!minCostQ.isEmpty() && minCostQ.peek().c <= w){
+            maxProfitQ.add(minCostQ.poll());
+        }
+
+        if(maxProfitQ.isEmpty()){
+            return w;
+        }
+
+        w+=maxProfitQ.poll().p;
+
+    }
+
+    return w;
+
+}
+
+```
 
 
 
+###  数据流中随时取中位数
 
+```
+1.准备一个大根堆 一个小根堆
+2.第一个数直接入大根堆
+3.接下来进来的数为 curr
+	curr <= 大根堆 ? 大根堆 ： 小根堆
+4.比较大根堆与小根堆的size
+	如果相差=2 则 size 大的弹出一个给size小的
+5.重复3 4 步
+	
+	
+	
+```
+
+
+
+### 八皇后
+
+```java
+public int num(int n){
+
+        if(n < 1) return 0;
+
+        int[] recode = new int[n];
+
+        return process(0,recode,n);
+
+    }
+
+    private int process(int i, int[] recode, int n) {
+
+        if(i == n) return 1;
+
+
+        int res = 0;
+
+        for (int j = 0; j < n; j++) {
+            //当前 i 行的皇后，放在 j 列 会不会和前 (0... i-1) 的皇后 共行 共列 共斜线
+            //如果是 则不能放在此处
+            if(!isValid(recode,i,j)){
+                recode[i] = j;
+                res += process(i+1,recode,n);
+            }
+
+        }
+
+        return res;
+
+    }
+
+    private boolean isValid(int[] recode, int i, int j) {
+
+        for (int k = 0; k < i; k++) {
+            if(j == recode[k] || Math.abs(recode[k]-j) == Math.abs(i-k)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+```
 
 
 
