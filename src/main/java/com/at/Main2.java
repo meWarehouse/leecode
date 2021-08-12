@@ -69,58 +69,15 @@ public class Main2 {
 
 
         char[][] te = {
-                        {'1','1','1','1','0'},
-                        {'1','1','0','1','0'},
-                        {'1','1','0','0','0'},
-                        {'0','0','0','0','0'}
-                      };
-
-
+                {'1', '1', '1', '1', '0'},
+                {'1', '1', '0', '1', '0'},
+                {'1', '1', '0', '0', '0'},
+                {'0', '0', '0', '0', '0'}
+        };
 
 
     }
 
-    public int num(int n){
-
-        if(n < 1) return 0;
-
-        int[] recode = new int[n];
-
-        return process(0,recode,n);
-
-    }
-
-    private int process(int i, int[] recode, int n) {
-
-        if(i == n) return 1;
-
-
-        int res = 0;
-
-        for (int j = 0; j < n; j++) {
-            //当前 i 行的皇后，放在 j 列 会不会和前 (0... i-1) 的皇后 共行 共列 共斜线
-            //如果是 则不能放在此处
-            if(!isValid(recode,i,j)){
-                recode[i] = j;
-                res += process(i+1,recode,n);
-            }
-
-        }
-
-        return res;
-
-    }
-
-    private boolean isValid(int[] recode, int i, int j) {
-
-        for (int k = 0; k < i; k++) {
-            if(j == recode[k] || Math.abs(recode[k]-j) == Math.abs(i-k)){
-                return false;
-            }
-        }
-
-        return true;
-    }
 
 
 }
