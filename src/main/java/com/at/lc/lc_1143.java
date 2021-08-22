@@ -11,6 +11,8 @@ public class lc_1143 {
 
             https://leetcode-cn.com/problems/longest-common-subsequence/
 
+            https://blog.csdn.net/hrn1216/article/details/51534607
+
      */
 
     public int longestCommonSubsequence(String text1, String text2) {
