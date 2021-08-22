@@ -508,7 +508,130 @@ public String longestPalindrome(String s) {
 
 ```
 
+## [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber)
 
+```
+ /**
+     * 198. 打家劫舍
+     * <p>
+     * https://leetcode-cn.com/problems/house-robber/
+     */
+
+    public static void main(String[] args) {
+
+    }
+
+
+    /**
+     * 不能抢劫邻近住户，如果抢劫了第 i -1 个住户，那么就不能再抢劫第 i 个住户，所以
+     * dp[i] = max(nums[i]+dp[i-2],dp[i-1])
+     */
+
+
+//    public int rob(int[] nums) {
+//
+//        if (nums == null || nums.length < 1) return 0;
+//
+//        int len = nums.length;
+//
+//        if(len == 1) return nums[0];
+//
+//        int[] dp = new int[len];
+//
+//        dp[0] = nums[0];
+//        dp[1] = Math.max(nums[0],nums[1]);
+//
+//        for (int i = 2; i < len; i++) {
+//            //max(偷当前房间,不偷当前房间)
+//            dp[i] = Math.max(nums[i] + dp[i-2],dp[i-1]);
+//
+//        }
+//
+//        return dp[len-1];
+//
+//    }
+
+
+    public int rob(int[] nums) {
+
+        if (nums == null || nums.length < 1) return 0;
+
+        // 不偷       偷
+        int p1 = 0, p2 = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int curr = Math.max(nums[i] + p2, p1);
+            p2 = p1;
+            p1 = curr;
+        }
+
+        return p1;
+
+    }
+```
+
+## [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
+
+```java
+/*
+
+            213. 打家劫舍 II
+                https://leetcode-cn.com/problems/house-robber-ii/submissions/
+
+     */
+
+
+public int rob(int[] nums) {
+
+    if(nums == null || nums.length < 1) return 0;
+
+    int len = nums.length;
+
+    if(len == 1) return nums[0];
+
+    return Math.max(process(nums,0,len-2),process(nums,1,len-1));
+}
+
+public int process(int[] nums,int s,int e){
+    int p1 = 0,p2 = 0;
+
+    for (int i = s; i <=e; i++) {
+
+        int curr = Math.max(nums[i]+p2,p1);
+        p2 = p1;
+        p1 = curr;
+
+    }
+
+    return p1;
+}
+
+```
+
+
+
+## [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable)
+
+```java
+class NumArray {
+
+    int[] res;
+
+    public NumArray(int[] nums) {
+        res = new int[nums.length+1];
+        for (int i = 1; i <= nums.length; i++) {
+            res[i] = res[i-1] + nums[i-1];
+        }
+    }
+
+    public int sumRange(int left, int right) {
+
+        return res[right+1] - res[left];
+
+    }
+}
+
+```
 
 
 
