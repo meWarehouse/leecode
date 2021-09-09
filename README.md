@@ -10,6 +10,14 @@ typora-root-url: images
 
 
 
+
+
+股票问题
+
+https://leetcode-cn.com/circle/article/qiAgHn/
+
+
+
 ## 121 [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)  
 
 ```java
@@ -23,43 +31,80 @@ typora-root-url: images
      *
      *
      */
+//1.
+public int maxProfit_1(int[] prices) {
 
-    public int maxProfit_1(int[] prices) {
+    int maxProfit = 0;
 
-        int maxProfit = 0;
+    for (int i = 0; i < prices.length; i++) {
+        for (int j = i+1; j < prices.length; j++) {
 
-        for (int i = 0; i < prices.length; i++) {
-            for (int j = i+1; j < prices.length; j++) {
-
-                if(prices[j] - prices[i] > maxProfit){
-                    maxProfit = prices[j] - prices[i];
-                }
+            if(prices[j] - prices[i] > maxProfit){
+                maxProfit = prices[j] - prices[i];
             }
         }
-
-        return maxProfit;
     }
 
-    public int maxProfit(int[] prices) {
+    return maxProfit;
+}
+//2.
+public int maxProfit(int[] prices) {
 
-        //找到一个最小值及它后面的最大值
-        int maxProfit = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+    //找到一个最小值及它后面的最大值
+    int maxProfit = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
 
-        for (int i = 0; i < prices.length; i++) {
-            if(min > prices[i]){
-                min = prices[i];
-            }
-
-            if(prices[i] - min > maxProfit){
-                maxProfit = prices[i] - min;
-            }
-
+    for (int i = 0; i < prices.length; i++) {
+        if(min > prices[i]){
+            min = prices[i];
         }
 
-        return maxProfit;
+        if(prices[i] - min > maxProfit){
+            maxProfit = prices[i] - min;
+        }
 
     }
+
+    return maxProfit;
+
+}
+
+//3.
+
+public int maxProfit(int[] prices) {
+
+    if (prices == null || prices.length == 0) return 0;
+    int len = prices.length;
+
+    /*
+        int[][] dp = new int[len][2];
+
+        dp[0][0] = 0; //第一天不持有股票
+        dp[0][1] = -prices[0]; //第一天持有股票
+
+        for (int i = 1; i < len; i++) {
+
+            //当天不持有股票 = max(前一天不持有股票,前一天持有股票今天卖出了)
+            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[i]);
+            //当天持有股票 = max(前一天持有股票,前一天不持有股票今天买入了)
+            dp[i][1] = Math.max(dp[i-1][1], -prices[i]);
+
+        }
+        return dp[len-1][0];
+        */
+
+
+    //第 i 天的最大收益只和第 i - 1 天的最大收益相关
+    int p0 = 0, p1 = -prices[0];
+    for (int i = 1; i < len; i++) {
+
+        p0 = Math.max(p0, p1 + prices[i]);
+        p1 = Math.max(p1, -prices[i]);
+
+    }
+    return p0;
+
+}
 
 ```
 
@@ -68,7 +113,7 @@ typora-root-url: images
 ## 122 [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)  
 
 ```java
-    /*
+/*
         122 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
 
         股票买卖获取最大利益(可交易多次)
@@ -76,70 +121,301 @@ typora-root-url: images
         股票每天的价格曲线就是一个折线图 想要获取最大利益
         只需要在一段单调递增的最低点买入并且在最高点卖出
      */
-  public int maxProfit_1(int[] prices) {
+public int maxProfit_1(int[] prices) {
 
-        int maxProfit = 0;
+    int maxProfit = 0;
 
-        for (int i = 1; i < prices.length; i++) {
+    for (int i = 1; i < prices.length; i++) {
 
-            if(prices[i] - prices[i-1] > 0){
-                maxProfit = maxProfit + prices[i] - prices[i-1];
-            }
+        if(prices[i] - prices[i-1] > 0){
+            maxProfit = maxProfit + prices[i] - prices[i-1];
         }
-        return maxProfit;
     }
+    return maxProfit;
+}
 
-    public int maxProfit(int[] prices) {
- 		 int n = prices.length;
-        int[][] dp = new int[n][2];
+public int maxProfit(int[] prices) {
+
+    if (prices == null || prices.length == 0) return 0;
+
+    int len = prices.length;
+
+    /*
+        int[][] dp = new int[len][2];
         dp[0][0] = 0;
         dp[0][1] = -prices[0];
-        for (int i = 1; i < n; ++i) {
+
+        for (int i = 1; i < len; i++) {
             dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
             dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
         }
-        return dp[n - 1][0];
+
+        return dp[len][0];
+        */
+
+    int p0 = 0, p1 = -prices[0];
+
+    for (int i = 1; i < len; i++) {
+        int np0 = Math.max(p0, p1 + prices[i]);
+        int np1 = Math.max(p1, p0 - prices[i]);
+        p0 = np0;
+        p1 = np1;
     }
+
+    return p0;
+}
 ```
 
 
 
-## [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) x
+## [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+
+```java
+
+public int maxProfit(int[] prices) {
+
+
+    if (prices == null || prices.length == 0) return 0;
+
+    int len = prices.length;
+
+
+    /*
+        int[][][] dp = new int[len][3][2];
+
+        dp[0][1][0] = 0;
+        dp[0][1][1] = -prices[0];
+        dp[0][2][0] = 0;
+        dp[0][2][1] = -prices[0];
+
+        for (int i = 1; i < len; i++) {
+
+            //当天交易两次不持有股票 = max(前一天交易两次不持有股票,前一天交易两次持有一股今天卖出)
+            dp[i][2][0] = Math.max(dp[i - 1][2][0], dp[i - 1][2][1] + prices[i]);
+            //当天交易两次持有一股 = max(前一天交易两次持有一股,前一天交易一次不持有股票今天买入)
+            dp[i][2][1] = Math.max(dp[i - 1][2][1], dp[i - 1][1][0] - prices[i]);
+            //当前交易一次不持有 = max(前一天交易一次不持有,前一天交易一次持有一股今天卖出)
+            dp[i][1][0] = Math.max(dp[i - 1][1][0], dp[i - 1][1][1] + prices[i]);
+            //当天交易一次持有 = max(前一天交易一次持有,前一天不交易没有股票今天买入)
+            dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i]);
+
+
+        }
+
+        return dp[len - 1][2][0];
+        */
+
+
+    int pT0 = 0, pT1 = -prices[0], pO0 = 0, pO1 = -prices[0];
+
+    for (int i = 1; i < len; i++) {
+
+        pT0 = Math.max(pT0, pT1 + prices[i]);
+        pT1 = Math.max(pT1, pO0 - prices[i]);
+        pO0 = Math.max(pO0, pO1 + prices[i]);
+        pO1 = Math.max(pO1,  -prices[i]);
+
+    }
+
+    return pT0;
+
+
+}
+
+
+```
+
+
+
+## [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) 
 
 ```java
 public int maxProfit(int k, int[] prices) {
 
-    if(prices == null || k < 1) return 0;
+    /*
+            一个有收益的交易至少需要两天（在前一天买入，在后一天卖出，前提是买入价格低于卖出价格）。
+            如果股票价格数组的长度为 n，则有收益的交易的数量最多为 n / 2（整数除法）。
+            因此 k 的临界值是 n / 2。如果给定的 k 不小于临界值，即 k >= n / 2，则可以将 k 扩展为正无穷，此时问题等价于情况二
+
+
+         */
+
+    if (prices == null || prices.length == 0) return 0;
 
     int len = prices.length;
-    if(len == 1) return 0;
 
-    int[] max = new int[len];
-    int m = 0;
+    //
+    if (k >= len / 2) return maxProfit(prices);
 
-    for (int i = 0; i < len; i++) {
-        m = 0;
-        for (int j = i+1; j < len; j++) {
+    //
+    /*
+        int[][][] dp = new int[len][k + 1][2];
+        for (int i = 1; i <= k; i++) {
+            dp[0][i][0] = 0;
+            dp[0][i][1] = -prices[0];
+        }
 
-            int p = prices[j] - prices[i];
-            m = Math.max(m,p);
+        for (int i = 1; i < len; i++) {
+            for (int j = k; j >0 ; j--) {
+                dp[i][j][0] = Math.max(dp[i-1][j][0],dp[i-1][j][1] + prices[i]);
+                dp[i][j][1] = Math.max(dp[i-1][j][1],dp[i-1][j-1][0] - prices[i]);
+            }
+        }
+
+        return dp[len-1][k][0];
+        */
+    int[][] dp = new int[k+1][2];
+    for (int i = 1; i <=k ; i++) {
+        dp[i][0] = 0;
+        dp[i][1] = -prices[0];
+    }
+
+    for (int i = 1; i < len; i++) {
+        for (int j = k; j > 0 ; j--) {
+
+            dp[j][0] = Math.max(dp[j][0],dp[j][1] + prices[i]);
+            dp[j][1] = Math.max(dp[j][1],dp[j-1][0] - prices[i]);
 
         }
-        max[i] = m;
     }
 
-    Arrays.sort(max);
+    return dp[k][0];
 
-    int p = len-1;
-    m = 0;
-    while (k-- > 0){
-        m+=max[p--];
-    }
-
-    return m;
 
 }
+
+public int maxProfit(int[] prices) {
+
+    //        int max = 0;
+    //
+    //        for (int i = 1; i < prices.length; i++) {
+    //            if (prices[i] > prices[i - 1]) {
+    //                max = max + prices[i] - prices[i - 1];
+    //            }
+    //        }
+    //
+    //        return max;
+
+    int len = prices.length;
+
+    //        int[][] dp = new int[len][2];
+    //
+    //        dp[0][0] = 0;
+    //        dp[0][1] = -prices[0];
+    //
+    //        for (int i = 1; i < len; i++) {
+    //            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+    //            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+    //        }
+    //
+    //        return dp[len - 1][0];
+
+    int p0 = 0, p1 = -prices[0];
+
+    for (int i = 1; i < len; i++) {
+        int np0 = Math.max(p0, p1 + prices[i]);
+        int np1 = Math.max(p1, p0 - prices[i]);
+        p0 = np0;
+        p1 = np1;
+    }
+
+    return p0;
+}
+
 ```
+
+## [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+
+```java
+public int maxProfit(int[] prices) {
+
+    /*
+        但是在有「冷却时间」的情况下，
+        如果在第 i - 1 天卖出了股票，就不能在第 i 天买入股票。因此，如果要在第 i 天买入股票，
+        第二个状态转移方程中就不能使用 T[i - 1][k][0]，而应该使用 T[i - 2][k][0]
+
+         */
+
+    if (prices == null || prices.length == 0) return 0;
+
+    int len = prices.length;
+
+    /*
+        int[][] dp = new int[len][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+
+        for (int i = 1; i < len; i++) {
+
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            //当天持有 = max(前一天持有,今天买了)
+            dp[i][1] = Math.max(dp[i - 1][1], (i > 1 ? dp[i - 2][0] : 0) - prices[i]);
+        }
+
+        return dp[len - 1][0];
+        */
+
+    int preP0 = 0, p0 = 0, p1 = -prices[0];
+
+    for (int i = 1; i < len; i++) {
+
+        int nextP0 = Math.max(p0, p1 + prices[i]);
+        int nextP1 = Math.max(p1, preP0 - prices[i]);
+
+        preP0 = p0;
+        p0 = nextP0;
+        p1 = nextP1;
+
+    }
+
+    return p0;
+}
+
+```
+
+
+
+## [714. 买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+
+```java
+public int maxProfit(int[] prices, int fee) {
+
+    if (prices == null || prices.length == 0) return 0;
+
+    int len = prices.length;
+
+    /*
+        int[][] dp = new int[len][2];
+
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0] - fee;
+
+        for (int i = 1; i < len; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i] - fee);
+        }
+
+        return dp[len - 1][0];
+        */
+
+    int p0 = 0, p1 = -prices[0] - fee;
+
+    for (int i = 1; i < len; i++) {
+        int np0 = Math.max(p0, p1 + prices[i]);
+        int np1 = Math.max(p1, p0 - prices[i] - fee);
+
+        p0 = np0;
+        p1 = np1;
+
+    }
+    return p0;
+}
+
+
+
+```
+
+
 
 
 
@@ -390,6 +666,82 @@ public String longestPalindrome(String s) {
     }
 
 ```
+
+## [最长公共子串](https://www.nowcoder.com/practice/f33f5adc55f444baa0e0ca87ad8a6aac?tpId=188&&tqId=38644&rp=1&ru=/ta/job-code-high-week&qru=/ta/job-code-high-week/question-ranking)
+
+```java
+//滑动窗口
+public String LCS (String str1, String str2) {
+
+
+    if(str1 == null || str2 == null ) return "";
+
+    StringBuffer buffer = new StringBuffer();
+
+    int s = 0,e = 1;
+
+    while (e < str1.length() + 1){
+
+        String substring = str1.substring(s, e);
+        if(str2.contains(substring)){
+            if(e-s > buffer.length()){
+                buffer.delete(0,buffer.length());
+                buffer.append(str1,s,e);
+            }
+        }else {
+            s++;
+        }
+        e++;
+    }
+
+    return buffer.length() == 0? "" : buffer.toString();
+
+
+}
+
+//dp
+public String LCS(String str1, String str2) {
+
+    if (str1 == null || str2 == null) return "";
+
+    int n1 = str1.length(), n2 = str2.length();
+
+    if (n1 == 0 || n2 == 0) return "";
+
+    int[][] dp = new int[n1 + 1][n2 + 1];
+
+    int maxL = 0, x = 0;
+
+
+    for (int i = 1; i <= n1; i++) {
+        char ch1 = str1.charAt(i - 1);
+        for (int j = 1; j <= n2; j++) {
+            char ch2 = str2.charAt(j - 1);
+            if (ch1 == ch2) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+                if (maxL < dp[i][j]) {
+                    maxL = dp[i][j];
+                    x = i;
+                }
+            }
+        }
+
+    }
+
+
+    return maxL == 0 ? "" : str1.substring(x - maxL, x);
+
+}
+
+
+
+```
+
+
+
+
+
+
 
 
 
