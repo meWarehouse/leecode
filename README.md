@@ -660,6 +660,30 @@ public String longestPalindrome(String s) {
                 }
             }
         }
+        
+        
+        StringBuffer buffer = new StringBuffer(dp[m][n]);
+
+        while (m != 0 && n != 0){
+
+            if(text1.charAt(m-1) == text2.charAt(n-1)){
+                buffer.append(text1.charAt(m-1));
+                m--;
+                n--;
+            }else {
+                if(dp[m][n-1] > dp[m-1][n]){
+                    n--;
+                }else {
+                    m--;
+                }
+            }
+
+        }
+
+
+//        if(buffer.length() == 0) return "";
+//        return buffer.reverse().toString();
+
 
         return dp[m][n];
 
@@ -741,49 +765,43 @@ public String LCS(String str1, String str2) {
 
 
 
-
-
-
-
-
-
 ## [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching)
 
 ```java
-    public boolean isMatch(String s, String p) {
+public boolean isMatch(String s, String p) {
 
-        //https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
-        int sL = s.length();
-        int pL = p.length();
-
-
-        boolean[][] dp = new boolean[sL + 1][pL + 1];
-        dp[0][0] = true;
-
-        for (int i = 1; i < pL + 1; i++) {
-            if (p.charAt(i - 1) == '*') dp[0][i] = dp[0][i - 2];
-        }
+    //https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
+    int sL = s.length();
+    int pL = p.length();
 
 
-        for (int i = 1; i < sL + 1; i++) {
-            for (int j = 1; j < pL + 1; j++) {
+    boolean[][] dp = new boolean[sL + 1][pL + 1];
+    dp[0][0] = true;
 
-                if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else if (p.charAt(j - 1) == '*') {
-                    if (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') {
-                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 2] || dp[i - 1][j];
-                    } else {
-                        dp[i][j] = dp[i][j - 2];
-                    }
-                }
-
-            }
-        }
-
-        return dp[sL][pL];
-
+    for (int i = 1; i < pL + 1; i++) {
+        if (p.charAt(i - 1) == '*') dp[0][i] = dp[0][i - 2];
     }
+
+
+    for (int i = 1; i < sL + 1; i++) {
+        for (int j = 1; j < pL + 1; j++) {
+
+            if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else if (p.charAt(j - 1) == '*') {
+                if (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') {
+                    dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 2] || dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i][j - 2];
+                }
+            }
+
+        }
+    }
+
+    return dp[sL][pL];
+
+}
 
 ```
 
@@ -841,64 +859,73 @@ public String LCS(String str1, String str2) {
 ```java
 
 //https://leetcode-cn.com/problems/longest-valid-parentheses/solution/zui-chang-you-xiao-gua-hao-by-leetcode-solution/
- public int longestValidParentheses(String s) {
+public int longestValidParentheses(String s) {
 
-        if (s == null || s.length() == 0) return 0;
+    if (s == null || s.length() == 0) return 0;
 
+    int len = s.length();
+    int max = 0;
+    int[] dp = new int[len];
 
-        int max = 0;
+    for (int i = 1; i < len; i++) {
 
-        int[] dp = new int[s.length()];
+        if (s.charAt(i) == ')') {
 
-        for (int i = 1; i < s.length(); i++) {
+            // ....()
+            if (s.charAt(i - 1) == '(') {
+                dp[i] = (i >= 2 ? dp[i - 2] : 0) + 2;
+            } else if (i - dp[i - 1] > 0 && s.charAt(i - dp[i - 1] - 1) == '(') {
 
-            if (s.charAt(i) == ')') {
-                if (s.charAt(i - 1) == '(') {
-                    dp[i] = (i >= 2 ? dp[i - 2] : 0) + 2;
-                } else if (i - dp[i - 1] > 0 && s.charAt(i - dp[i - 1] - 1) == '(') {
-                    dp[i] = dp[i - 1] + ((i - dp[i - 1]) >= 2 ? dp[i - dp[i - 1] - 2] : 0) + 2;
-                }
+                // (....)) i-dp[i-1]<=0
+                // ...(...)) i-dp[i-1]>0
+                // ...((...)) i-dp[i-1]>0 s.charAt(i-dp[i-1]-1)=='('
 
-                max = Math.max(max, dp[i]);
+                dp[i] = dp[i-1] + ((i-dp[i-1]) >= 2 ? dp[i-dp[i-1]-2] : 0) + 2;
+
             }
+
+            max = Math.max(max,dp[i]);
 
         }
 
 
-        return max;
-
     }
+
+    return max;
+
+
+}
 
 //=====================================
 
-    public int longestValidParentheses(String s) {
+public int longestValidParentheses(String s) {
 
-        if (s == null || s.length() == 0) return 0;
+    if (s == null || s.length() == 0) return 0;
 
-        int max = 0;
+    int max = 0;
 
-        Stack<Integer> stack = new Stack<>();
-        stack.push(-1);
+    Stack<Integer> stack = new Stack<>();
+    stack.push(-1);
 
-        for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++) {
 
-            if (s.charAt(i) == '(') {
+        if (s.charAt(i) == '(') {
+            stack.push(i);
+        } else {
+
+            stack.pop();
+            if (stack.isEmpty()) {
                 stack.push(i);
             } else {
-
-                stack.pop();
-                if (stack.isEmpty()) {
-                    stack.push(i);
-                } else {
-                    max = Math.max(max, i - stack.peek());
-                }
+                max = Math.max(max, i - stack.peek());
             }
         }
-
-
-        return max;
-
     }
+
+
+    return max;
+
+}
 
 
 ```

@@ -10,6 +10,7 @@ import com.sun.deploy.pings.Pings;
 import com.sun.javafx.geom.Edge;
 import com.sun.media.sound.RIFFInvalidDataException;
 import com.sun.org.apache.regexp.internal.RE;
+import sun.java2d.opengl.WGLGraphicsConfig;
 import sun.reflect.generics.tree.Tree;
 import sun.rmi.transport.proxy.CGIHandler;
 
@@ -80,8 +81,34 @@ public class Main2 {
         };
 
 
+
+
     }
 
+
+
+    public int rob(int[] nums) {
+
+        if(nums == null || nums.length == 0) return 0;
+
+        int len = nums.length;
+
+//        int[] dp = new int[len];
+//
+//        dp[0] = nums[0];
+//        dp[1] = Math.max(nums[1],dp[0]);
+//
+//        for (int i = 2; i < len; i++) {
+//
+//            dp[i] = Math.max(nums[i] + dp[i-2],dp[i-1]);
+//
+//        }
+//
+//        return dp[len-1];
+//
+
+
+    }
 
 
 
