@@ -1,13 +1,9 @@
 package com.at;
 
 
-import jdk.internal.util.xml.impl.Input;
-
 import java.io.IOException;
-import java.net.SocketImpl;
-import java.util.*;
 
-public class Main {
+public class MainTest {
     public static void main(String[] args) throws IOException {
 
 //        int[] ints = {3, 5, 7, 1, 0, 9, 4, 2, 6, 8};
@@ -16,7 +12,7 @@ public class Main {
 //        System.out.println(new Main().PrintMinNumber(new int[]{3,32,321}));
 
 
-        System.out.println(new Main().majorityElement(new int[]{2, 2, 1, 1, 1, 1, 2, 2}));
+        System.out.println(new MainTest().majorityElement(new int[]{2, 2, 1, 1, 1, 1, 2, 2}));
 
 
     }

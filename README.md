@@ -10,6 +10,48 @@ typora-root-url: images
 
 
 
+| 动态规划 |                               |
+| -------- | ----------------------------- |
+|          | 121、122、123、188、309、714/ |
+|          |                               |
+|          |                               |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 股票问题
@@ -1003,24 +1045,30 @@ public int longestValidParentheses(String s) {
      */
 
 
+
 public int rob(int[] nums) {
 
-    if(nums == null || nums.length < 1) return 0;
+    if (nums == null || nums.length == 0) return 0;
 
     int len = nums.length;
 
     if(len == 1) return nums[0];
 
-    return Math.max(process(nums,0,len-2),process(nums,1,len-1));
+
+    return Math.max(process(nums,0,len-1),process(nums,1,len));
+
 }
 
-public int process(int[] nums,int s,int e){
-    int p1 = 0,p2 = 0;
 
-    for (int i = s; i <=e; i++) {
+public int process(int[] arr,int s,int e){
 
-        int curr = Math.max(nums[i]+p2,p1);
-        p2 = p1;
+    int p0 = 0,p1 = 0;
+
+    for (int i = s; i < e; i++) {
+
+        int curr = Math.max(p1,p0 + arr[i]);
+
+        p0 = p1;
         p1 = curr;
 
     }
@@ -1179,6 +1227,8 @@ class NumArray {
 
 ## [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
 
+[剑指 Offer 10- II. 青蛙跳台阶问题](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
+
 ```java
 /*
         70 https://leetcode-cn.com/problems/climbing-stairs/
@@ -1214,6 +1264,111 @@ class NumArray {
     }
 
 ```
+
+
+
+## [剑指 Offer 10- I. 斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/)
+
+```java
+
+public int fib(int n) {
+
+    // 0 1 2 ... i=(i-1)+(i-2) ... n
+
+    final int MOD = 1000000007;
+
+    if(n == 0) return 0;
+
+    if(n == 1 || n == 2) return 1;
+
+    int prePre = 1,pre = 1;
+
+    for (int i = 3; i <= n; i++) {
+        int curr = pre + prePre;
+        prePre = pre;
+        pre = curr%MOD;
+    }
+    return pre;
+
+}
+```
+
+## [面试题 08.01. 三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci/)
+
+```java
+public int waysToStep(int n) {
+
+    final int MOD = 1000000007;
+
+    if(n == 1) return 1;
+    if(n == 2) return 2;
+    if(n == 3) return 4;
+
+    int p1 = 1,p2 = 2,p3 = 4;
+
+    for (int i = 4; i <= n ; i++) {
+        int curr = ((p1 + p2)  % MOD  + p3 ) % MOD;
+        p1 = p2 ;
+        p2 = p3 ;
+        p3 = curr ;
+    }
+
+    return p3  ;
+}
+```
+
+## [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)
+
+```java
+public int fib(int n) {
+
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+
+    int prePre = 0,pre = 1;
+
+    for (int i = 2; i < n ; i++) {
+        int curr = pre + prePre;
+        prePre = pre;
+        pre = curr;
+    }
+
+    return pre;
+
+
+}
+
+```
+
+
+
+## [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
+
+```java
+public int minCostClimbingStairs(int[] cost) {
+
+    if(cost == null || cost.length == 0) return 0;
+
+    int len = cost.length;
+
+    int[] dp = new int[len + 1];
+
+    dp[0] = dp[1] = 0;
+
+    for (int i = 2; i <= len ; i++) {
+        dp[i] = Math.min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2]);
+    }
+
+    return dp[len];
+
+}
+```
+
+### [1137. 第 N 个泰波那契数](https://leetcode-cn.com/problems/n-th-tribonacci-number/)
+
+
+
+
 
 
 

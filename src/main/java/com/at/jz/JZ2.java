@@ -1,7 +1,5 @@
 package com.at.jz;
 
-import com.at.Main;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
