@@ -80,41 +80,127 @@ public class Main2 {
                 {'0', '0', '0', '0', '0'}
         };
 
+        //"cabefgecdaecf"
+        //"cae"
+
+        System.out.println(new Main2().minWindow("DOABECODEBANC", "ABC"));
 
     }
 
+    //need
+    HashMap<Character, Integer> ori = new HashMap<>();
+    HashMap<Character, Integer> cnt = new HashMap<>();
 
-    public int minPathSum(int[][] grid) {
+    public String minWindow1(String s, String t) {
 
-        if(grid == null || grid.length == 0) return 0;
+        int tLen = t.length();
 
-        int m = grid.length;
-        int n = grid[0].length;
-
-        int[][] dp = new int[m][n];
-
-        dp[0][0] = grid[0][0];
-
-        for (int i = 1; i < n; i++) {
-            dp[0][i] = dp[0][i-1] + grid[0][i];
+        //need
+        for (int i = 0; i < tLen; i++) {
+            char c = t.charAt(i);
+            ori.put(c, ori.getOrDefault(c, 0) + 1);
         }
 
-        for (int i = 1; i < m; i++) {
-            dp[i][0] = dp[i-1][0] + grid[i][0];
-        }
+        int l = 0, r = -1;
+        int len = Integer.MAX_VALUE, ansL = -1, ansR = -1;
 
-        for (int i = 1; i < m; i++) {
-            for (int j = 1; j < n; j++) {
+        int sLen = s.length();
 
-                dp[i][j] = Math.min(dp[i-1][j],dp[i][j-1]) + grid[i][j];
+        while (r < sLen) {
+            ++r;
+            if (r < sLen && ori.containsKey(s.charAt(r))) {
+                cnt.put(s.charAt(r), cnt.getOrDefault(s.charAt(r), 0) + 1);
+            }
 
+            while (check() && l <= r) {
+                if (r - l + 1 < len) {
+                    len = r - 1 + 1;
+                    ansL = 1;
+                    ansR = l + len;
+                }
+                if (ori.containsKey(s.charAt(l))) {
+                    cnt.put(s.charAt(l), cnt.getOrDefault(s.charAt(l), 0) - 1);
+                }
+                ++l;
             }
         }
 
-        return dp[m-1][n-1];
+        return ansL == -1 ? "" : s.substring(ansL, ansR);
 
 
     }
+
+    private boolean check() {
+        Iterator<Map.Entry<Character, Integer>> iterator = ori.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry entry = iterator.next();
+            Character key = (Character) entry.getKey();
+            Integer val = (Integer) entry.getValue();
+            if (cnt.getOrDefault(key, 0) < val) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public String minWindow(String s, String t) {
+
+        //https://leetcode-cn.com/problems/minimum-window-substring/solution/tong-su-qie-xiang-xi-de-miao-shu-hua-dong-chuang-k/
+        //76. 最小覆盖子串
+
+        int sLen = s.length();
+        int tlen = t.length();
+
+        Map<Character, Integer> need = new HashMap<>();
+        for (int i = 0; i < tlen; i++) {
+            char c = t.charAt(i);
+            need.put(c, need.getOrDefault(c, 0) + 1);
+        }
+        int needCnt = tlen;
+
+
+        int I = 0, J = sLen + 1;
+        int L = 0, R = 0;
+
+        while (R < sLen) {
+
+            char cR = s.charAt(R);
+            if (need.getOrDefault(cR, 0) > 0) {
+                needCnt -= 1;
+            }
+            need.put(cR, need.getOrDefault(cR, 0) - 1);
+
+
+            if (needCnt == 0) {
+                //L -> R 上包含所有 t 上的字符串
+                // 从 左 向右收缩
+                while (L <= R && need.get(s.charAt(L)) != 0) {
+                    char cL = s.charAt(L);
+                    need.put(cL, need.get(cL) + 1);
+                    L++;
+                }
+
+                if (R - L < J - I) {
+                    J = R;
+                    I = L;
+                }
+
+                need.put(s.charAt(L), need.get(s.charAt(L)) + 1);
+                needCnt += 1;
+                L++;
+
+            }
+
+            R--;
+        }
+
+        return J - I > sLen ? "" : s.substring(I, J + 1);
+
+
+    }
+
 
 }
 

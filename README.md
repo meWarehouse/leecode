@@ -1094,7 +1094,7 @@ public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 ## [面试题 01.05. 一次编辑](https://leetcode-cn.com/problems/one-away-lcci/)
 
-```
+```java
   public boolean oneEditAway_1(String first, String second) {
 
         int f = first.length();
@@ -1170,6 +1170,70 @@ public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 
 ## [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) x
+
+![Snipaste_2021-09-16_14-26-52](/Snipaste_2021-09-16_14-26-52.jpg)
+
+
+
+```java
+public String minWindow(String s, String t) {
+
+    int sLen = s.length();
+    int tLen = t.length();
+
+    Map<Character, Integer> need = new HashMap<>();
+    int needCnt = tLen;
+
+    for (int i = 0; i < tLen; i++) {
+        char c = t.charAt(i);
+        need.put(c, need.getOrDefault(c, 0) + 1);
+    }
+
+    int I = 0, J = sLen + 1;
+
+
+    int L = 0, R = 0;
+
+    while (R < sLen) {
+        char cR = s.charAt(R);
+        if (need.getOrDefault(cR, 0) > 0) {
+            needCnt--;
+        }
+        need.put(cR, need.getOrDefault(cR, 0) - 1);
+
+        if (needCnt == 0) {
+
+            while (L <= R && need.get(s.charAt(L)) != 0) {
+                char cL = s.charAt(L);
+
+                need.put(cL, need.get(cL) + 1);
+
+                L++;
+            }
+
+            if (R - L < J - I) {
+                J = R;
+                I = L;
+            }
+
+            need.put(s.charAt(L), need.get(s.charAt(L)) + 1);
+            needCnt += 1;
+            L += 1;
+        }
+        R++;
+
+    }
+
+    return J - I > sLen ? "" : s.substring(I, J + 1);
+
+
+}
+
+
+
+```
+
+
 
 
 
