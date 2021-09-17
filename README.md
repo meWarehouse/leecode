@@ -50,7 +50,7 @@ typora-root-url: images
 
 
 
-
+# 动态规划
 
 
 
@@ -60,7 +60,7 @@ https://leetcode-cn.com/circle/article/qiAgHn/
 
 
 
-## 121 [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)  
+### 121 [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock)  (dp)
 
 ```java
 /**
@@ -152,7 +152,7 @@ public int maxProfit(int[] prices) {
 
 
 
-## 122 [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)  
+### 122 [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii)  
 
 ```java
 /*
@@ -210,7 +210,7 @@ public int maxProfit(int[] prices) {
 
 
 
-## [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+### [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
 
 ```java
 
@@ -269,7 +269,7 @@ public int maxProfit(int[] prices) {
 
 
 
-## [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) 
+### [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) 
 
 ```java
 public int maxProfit(int k, int[] prices) {
@@ -366,7 +366,7 @@ public int maxProfit(int[] prices) {
 
 ```
 
-## [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+### [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
 
 ```java
 public int maxProfit(int[] prices) {
@@ -417,7 +417,7 @@ public int maxProfit(int[] prices) {
 
 
 
-## [714. 买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+### [714. 买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
 
 ```java
 public int maxProfit(int[] prices, int fee) {
@@ -461,7 +461,7 @@ public int maxProfit(int[] prices, int fee) {
 
 
 
-## [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
+### [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
 
 ```java
 
@@ -670,7 +670,7 @@ public String longestPalindrome(String s) {
 
 
 
-## [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence)
+### [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence)
 
 ```java
 
@@ -733,7 +733,7 @@ public String longestPalindrome(String s) {
 
 ```
 
-## [最长公共子串](https://www.nowcoder.com/practice/f33f5adc55f444baa0e0ca87ad8a6aac?tpId=188&&tqId=38644&rp=1&ru=/ta/job-code-high-week&qru=/ta/job-code-high-week/question-ranking)
+### [最长公共子串](https://www.nowcoder.com/practice/f33f5adc55f444baa0e0ca87ad8a6aac?tpId=188&&tqId=38644&rp=1&ru=/ta/job-code-high-week&qru=/ta/job-code-high-week/question-ranking)
 
 ```java
 //滑动窗口
@@ -807,7 +807,7 @@ public String LCS(String str1, String str2) {
 
 
 
-## [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching)
+### [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching)
 
 ```java
 public boolean isMatch(String s, String p) {
@@ -851,7 +851,7 @@ public boolean isMatch(String s, String p) {
 
 
 
-## [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
+### [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
 
 ```java
     /*
@@ -910,7 +910,7 @@ public boolean isMatch(String s, String p) {
 
 ```
 
-## [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)
+### [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)
 
 ```java
 public int uniquePathsWithObstacles(int[][] obstacleGrid) {
@@ -977,7 +977,7 @@ public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 
 
-## [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)
+### [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)
 
 ```java
     public int minPathSum_1(int[][] grid) {
@@ -1042,7 +1042,7 @@ public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 
 
-## [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
+### [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
 
 ```java
     /*
@@ -1092,7 +1092,7 @@ public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 
 
-## [面试题 01.05. 一次编辑](https://leetcode-cn.com/problems/one-away-lcci/)
+### [面试题 01.05. 一次编辑](https://leetcode-cn.com/problems/one-away-lcci/)
 
 ```java
   public boolean oneEditAway_1(String first, String second) {
@@ -1169,124 +1169,9 @@ public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
 
 
-## [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) x
-
-![Snipaste_2021-09-16_14-26-52](/Snipaste_2021-09-16_14-26-52.jpg)
 
 
-
-```java
-public String minWindow(String s, String t) {
-
-    int sLen = s.length();
-    int tLen = t.length();
-
-    Map<Character, Integer> need = new HashMap<>();
-    int needCnt = tLen;
-
-    for (int i = 0; i < tLen; i++) {
-        char c = t.charAt(i);
-        need.put(c, need.getOrDefault(c, 0) + 1);
-    }
-
-    int I = 0, J = sLen + 1;
-
-
-    int L = 0, R = 0;
-
-    while (R < sLen) {
-        char cR = s.charAt(R);
-        if (need.getOrDefault(cR, 0) > 0) {
-            needCnt--;
-        }
-        need.put(cR, need.getOrDefault(cR, 0) - 1);
-
-        if (needCnt == 0) {
-
-            while (L <= R && need.get(s.charAt(L)) != 0) {
-                char cL = s.charAt(L);
-
-                need.put(cL, need.get(cL) + 1);
-
-                L++;
-            }
-
-            if (R - L < J - I) {
-                J = R;
-                I = L;
-            }
-
-            need.put(s.charAt(L), need.get(s.charAt(L)) + 1);
-            needCnt += 1;
-            L += 1;
-        }
-        R++;
-
-    }
-
-    return J - I > sLen ? "" : s.substring(I, J + 1);
-
-
-}
-
-
-
-```
-
-
-
-
-
-## [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses)
-
-```java
- /*
-        https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/
-
-        当前左右括号都有大于 00 个可以使用的时候，才产生分支；
-        产生左分支的时候，只看当前是否还有左括号可以使用；
-        产生右分支的时候，还受到左分支的限制，右边剩余可以使用的括号数量一定得在严格大于左边剩余的数量的时候，才可以产生分支；
-        在左边和右边剩余的括号数都等于 00 的时候结算。
-
-
-
-     */
-
-    List<String> res = new ArrayList<>();
-
-    public List<String> generateParenthesis(int n) {
-
-        if (n < 1) return res;
-
-        dfs("",n,n);
-
-        return res;
-
-    }
-
-    public void dfs(String currStr, int left, int right) {
-
-        if (left == 0 && right == 0) {
-            res.add(currStr);
-            return;
-        }
-
-        // 左 （ 剩余的数量 一定是严格意义上大于 ） 剩余数量
-        if (left > right) return;
-
-        if (left > 0) dfs(currStr + "(", left - 1, right);
-
-        if (right > 0) dfs(currStr + ")", left, right - 1);
-
-
-    }
-
-
-```
-
-
-
-## [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses)
+### [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses)
 
 ```java
 
@@ -1362,7 +1247,7 @@ public int longestValidParentheses(String s) {
 
 ```
 
-## [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber)
+### [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber)
 
 ```
  /**
@@ -1424,7 +1309,7 @@ public int longestValidParentheses(String s) {
     }
 ```
 
-## [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
+### [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii)
 
 ```java
 /*
@@ -1470,485 +1355,9 @@ public int process(int[] arr,int s,int e){
 
 
 
-## [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable)
 
-```java
-class NumArray {
 
-    int[] res;
-
-    public NumArray(int[] nums) {
-        res = new int[nums.length+1];
-        for (int i = 1; i <= nums.length; i++) {
-            res[i] = res[i-1] + nums[i-1];
-        }
-    }
-
-    public int sumRange(int left, int right) {
-
-        return res[right+1] - res[left];
-
-    }
-}
-
-```
-
-
-
-## [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
-
-```java
-    /*
-        11 https://leetcode-cn.com/problems/container-with-most-water/
-
-        一个容器能盛多少水取决于最短的边及两条边的距离（最短的木板*距离）
-     */
-
-
-    public int maxArea_1(int[] height) {
-        int maxArea = 0;
-        //固定最左边 移动右边
-        for (int i = 0; i < height.length; i++) {
-            for (int j = i + 1; j < height.length; j++) {
-
-                int area = Math.min(height[i], height[j]) * (j - i);
-
-                maxArea = Math.max(maxArea, area);
-            }
-        }
-
-        return maxArea;
-    }
-
-    public int maxArea(int[] height) {
-
-        int l = 0, r = height.length - 1;
-        int maxArea = 0;
-
-        //固定长边 移动短边
-        while (l < r) {
-            int area = 0;
-            if (height[r] > height[l]) {
-                area = height[l] * (r - l);
-                l++;
-            } else {
-                area = height[r] * (r - l);
-                r--;
-            }
-            maxArea = maxArea > area ? maxArea : area;
-        }
-        return maxArea;
-    }
-
-```
-
-
-
-
-
-## [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
-
-```java
-
-    /*
-        26 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
-
-        在数组基础上修改不能使用额外的内存
-
-        去除重复的数
-        找到重复的数用后面不是重复的数将其覆盖掉
-
-     */
-    public int removeDuplicates(int[] nums) {
-        int pre = 0;
-        int next = 1;
-
-        while (next < nums.length) {
-
-            if (nums[pre] != nums[next]) {
-                nums[++pre] = nums[next];
-            }
-
-            next++;
-        }
-
-        return pre + 1;
-    }
-```
-
-
-
-## [66. 加一](https://leetcode-cn.com/problems/plus-one/)
-
-```
- /*
-        66. https://leetcode-cn.com/problems/plus-one/
-        
-        遇 9 进位 
-        特殊的需要扩容
-
-    */
-
-    public int[] plusOne(int[] digits) {
-
-        int index = digits.length - 1;
-        while (index >= 0) {
-            int val = digits[index] + 1;
-            if (val >= 10) {
-                digits[index] = val % 10;
-                if (index == 0) {
-                    digits = new int[digits.length + 1];
-                    digits[0] = 1;
-                }
-                index--;
-            } else {
-                digits[index] = val;
-                break;
-            }
-        }
-
-        return digits;
-
-    }
-
-```
-
-
-
-## [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
-
-[剑指 Offer 10- II. 青蛙跳台阶问题](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
-
-```java
-/*
-        70 https://leetcode-cn.com/problems/climbing-stairs/
-
-     */
-    public int climbStairs_1(int n) {
-
-        if(n < 3) return n;
-        int[] step = new int[n + 1];
-
-        step[1] = 1;
-        step[2] = 2;
-        for (int i = 3; i <= n; i++) {
-            step[i] = step[i - 1] + step[i - 2];
-
-        }
-
-        return step[n];
-
-    }
-
-    public int climbStairs(int n) {
-        if(n < 3) return n;
-
-        int prr = 1;
-        int pr = 2;
-
-        for (int i = 2; i < n; i++) {
-            pr = prr + pr;
-            prr = pr - prr;
-        }
-        return pr;
-    }
-
-```
-
-
-
-## [剑指 Offer 10- I. 斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/)
-
-```java
-
-public int fib(int n) {
-
-    // 0 1 2 ... i=(i-1)+(i-2) ... n
-
-    final int MOD = 1000000007;
-
-    if(n == 0) return 0;
-
-    if(n == 1 || n == 2) return 1;
-
-    int prePre = 1,pre = 1;
-
-    for (int i = 3; i <= n; i++) {
-        int curr = pre + prePre;
-        prePre = pre;
-        pre = curr%MOD;
-    }
-    return pre;
-
-}
-```
-
-## [面试题 08.01. 三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci/)
-
-```java
-public int waysToStep(int n) {
-
-    final int MOD = 1000000007;
-
-    if(n == 1) return 1;
-    if(n == 2) return 2;
-    if(n == 3) return 4;
-
-    int p1 = 1,p2 = 2,p3 = 4;
-
-    for (int i = 4; i <= n ; i++) {
-        int curr = ((p1 + p2)  % MOD  + p3 ) % MOD;
-        p1 = p2 ;
-        p2 = p3 ;
-        p3 = curr ;
-    }
-
-    return p3  ;
-}
-```
-
-## [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)
-
-```java
-public int fib(int n) {
-
-    if(n == 0) return 0;
-    if(n == 1) return 1;
-
-    int prePre = 0,pre = 1;
-
-    for (int i = 2; i < n ; i++) {
-        int curr = pre + prePre;
-        prePre = pre;
-        pre = curr;
-    }
-
-    return pre;
-
-
-}
-
-```
-
-
-
-## [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
-
-```java
-public int minCostClimbingStairs(int[] cost) {
-
-    if(cost == null || cost.length == 0) return 0;
-
-    int len = cost.length;
-
-    int[] dp = new int[len + 1];
-
-    dp[0] = dp[1] = 0;
-
-    for (int i = 2; i <= len ; i++) {
-        dp[i] = Math.min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2]);
-    }
-
-    return dp[len];
-
-}
-```
-
-## [1137. 第 N 个泰波那契数](https://leetcode-cn.com/problems/n-th-tribonacci-number/)
-
-
-
-
-
-
-
-## [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
-
-```java
-	/*
-        88 https://leetcode-cn.com/problems/merge-sorted-array/
-
-        归并
-        逆向归避免覆盖num1中的数据
-
-     */
-
-    public void merge_1(int[] nums1, int m, int[] nums2, int n) {
-
-        if (m == 0 && n == 0 || n == 0) return;
-
-        if (m == 0) {
-            for (int i = 0; i < n; i++) {
-                nums1[i] = nums2[i];
-            }
-            return;
-        }
-
-        int[] sort = new int[n + m];
-
-        int p1 = 0, p2 = 0, k = 0;
-
-        while (p1 < m || p2 < n) {
-
-            if (p1 == m) {
-                sort[k] = nums2[p2++];
-            } else if (p2 == n) {
-                sort[k] = nums1[p1++];
-            } else if (nums1[p1] <= nums2[p2]) {
-                sort[k] = nums1[p1++];
-            } else {
-                sort[k] = nums2[p2++];
-            }
-
-            k++;
-        }
-
-        for (int i = 0; i < sort.length; i++) {
-            nums1[i] = sort[i];
-        }
-
-    }
-
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        if (m == 0 && n == 0 || n == 0) return;
-
-        if (m == 0) {
-            for (int i = 0; i < n; i++) {
-                nums1[i] = nums2[i];
-            }
-            return;
-        }
-
-        int p1 = m - 1, p2 = n - 1, k = nums1.length - 1;
-
-        while (p1 >= 0  || p2 >= 0){
-
-            if(p1 < 0){
-                nums1[k] = nums2[p2--];
-            }else if(p2 < 0){
-                nums1[k] = nums1[p1--];
-            }else if(nums1[p1] <= nums2[p2]){
-                nums1[k] = nums2[p2--];
-            }else {
-                nums1[k] = nums1[p1--];
-            }
-
-            k--;
-        }
-    }
-```
-
-
-
-
-
-## [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/)
-
-```java
- /*
-
-    189 https://leetcode-cn.com/problems/rotate-array/
-
-     */
-
-    public void rotate_1(int[] nums, int k) {
-
-        //将后面的k个元素先放入一个新的数组中，再将原来的数组中的 nums.length-k 个数组后移k位
-        //最后将后面的k个元素添加到 nums 数组中
-
-        int len = nums.length;
-
-        if(nums == null || len < 2) return;
-
-        if(k >= len) k = k % len;
-
-        if(k == 0) return;
-
-        int[] tail = new int[k];
-        int j = 0;
-        for (int i = len-k; i < len ; i++) {
-            tail[j++] = nums[i];
-        }
-
-        for (int i = len - k - 1; i  >= 0 ; i--) {
-            nums[i + k] = nums[i];
-        }
-
-        for (int i = 0; i < k; i++) {
-            nums[i] = tail[i];
-        }
-
-
-    }
-
-    public void rotate_2(int[] nums, int k) {
-
-        int len = nums.length;
-
-        if(nums == null || len < 2) return;
-
-        if(k >= len) k = k % len;
-
-        if(k == 0) return;
-
-       while (k-- > 0){
-
-           int t = nums[len-1];
-           for (int i = len-2; i >=0 ; i--) {
-               nums[i+1] = nums[i];
-           }
-           nums[0] = t;
-
-       }
-
-    }
-
-    public void rotate(int[] nums, int k) {
-
-        //数组反转  
-        int len = nums.length;
-
-        if(nums == null || len < 2 || k % len == 0) return;
-
-        if(k >= len) k = k % len;
-
-
-        revorse(nums,0,len-1);
-        revorse(nums,0,k-1);
-        revorse(nums,k,len-1);
-
-    }
-
-    public void revorse(int[] arr,int start,int end){
-        while (start < end){
-            arr[start] = arr[start] ^ arr[end];
-            arr[end] = arr[start] ^ arr[end];
-            arr[start] = arr[start] ^ arr[end];
-
-            start++;
-            end--;
-        }
-
-    }
-```
-
-
-
-
-
-
-
-## [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/) x                                                                                                       
-
-
-
-
-
-
-
-
-
-## [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/)
+### [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/)
 
 ```java
 /*
@@ -2080,7 +1489,7 @@ public boolean isValid(String str, int index) {
 
 
 
-## [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
+### [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
 
 ```java
 /*
@@ -2146,7 +1555,7 @@ public boolean isValid(String str, int index) {
 
 
 
-## [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
+### [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
 
 ```java
 /*
@@ -2189,7 +1598,508 @@ public int maxProduct(int[] nums) {
 
 
 
-## [817. 链表组件](https://leetcode-cn.com/problems/linked-list-components)
+
+
+# 滑动窗口&双指针&中心扩散
+
+
+
+### [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) （window）
+
+![Snipaste_2021-09-16_14-26-52](/Snipaste_2021-09-16_14-26-52.jpg)
+
+
+
+```java
+public String minWindow(String s, String t) {
+
+    int sLen = s.length();
+    int tLen = t.length();
+
+    Map<Character, Integer> need = new HashMap<>();
+    int needCnt = tLen;
+
+    for (int i = 0; i < tLen; i++) {
+        char c = t.charAt(i);
+        need.put(c, need.getOrDefault(c, 0) + 1);
+    }
+
+    int I = 0, J = sLen + 1;
+
+
+    int L = 0, R = 0;
+
+    while (R < sLen) {
+        char cR = s.charAt(R);
+        if (need.getOrDefault(cR, 0) > 0) {
+            needCnt--;
+        }
+        need.put(cR, need.getOrDefault(cR, 0) - 1);
+
+        if (needCnt == 0) {
+
+            while (L <= R && need.get(s.charAt(L)) != 0) {
+                char cL = s.charAt(L);
+
+                need.put(cL, need.get(cL) + 1);
+
+                L++;
+            }
+
+            if (R - L < J - I) {
+                J = R;
+                I = L;
+            }
+
+            need.put(s.charAt(L), need.get(s.charAt(L)) + 1);
+            needCnt += 1;
+            L += 1;
+        }
+        R++;
+
+    }
+
+    return J - I > sLen ? "" : s.substring(I, J + 1);
+
+
+}
+
+
+
+```
+
+
+
+
+
+### [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)(double index)
+
+```java
+    /*
+        11 https://leetcode-cn.com/problems/container-with-most-water/
+
+        一个容器能盛多少水取决于最短的边及两条边的距离（最短的木板*距离）
+     */
+
+
+    public int maxArea_1(int[] height) {
+        int maxArea = 0;
+        //固定最左边 移动右边
+        for (int i = 0; i < height.length; i++) {
+            for (int j = i + 1; j < height.length; j++) {
+
+                int area = Math.min(height[i], height[j]) * (j - i);
+
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+
+        return maxArea;
+    }
+
+    public int maxArea(int[] height) {
+
+        int l = 0, r = height.length - 1;
+        int maxArea = 0;
+
+        //固定长边 移动短边
+        while (l < r) {
+            int area = 0;
+            if (height[r] > height[l]) {
+                area = height[l] * (r - l);
+                l++;
+            } else {
+                area = height[r] * (r - l);
+                r--;
+            }
+            maxArea = maxArea > area ? maxArea : area;
+        }
+        return maxArea;
+    }
+
+```
+
+
+
+### [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
+
+```
+动态规划
+```
+
+
+
+
+
+# bfs&dfs
+
+### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses)（dfs）
+
+```java
+ /*
+        https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/
+
+        当前左右括号都有大于 00 个可以使用的时候，才产生分支；
+        产生左分支的时候，只看当前是否还有左括号可以使用；
+        产生右分支的时候，还受到左分支的限制，右边剩余可以使用的括号数量一定得在严格大于左边剩余的数量的时候，才可以产生分支；
+        在左边和右边剩余的括号数都等于 00 的时候结算。
+
+
+
+     */
+
+    List<String> res = new ArrayList<>();
+
+    public List<String> generateParenthesis(int n) {
+
+        if (n < 1) return res;
+
+        dfs("",n,n);
+
+        return res;
+
+    }
+
+    public void dfs(String currStr, int left, int right) {
+
+        if (left == 0 && right == 0) {
+            res.add(currStr);
+            return;
+        }
+
+        // 左 （ 剩余的数量 一定是严格意义上大于 ） 剩余数量
+        if (left > right) return;
+
+        if (left > 0) dfs(currStr + "(", left - 1, right);
+
+        if (right > 0) dfs(currStr + ")", left, right - 1);
+
+
+    }
+
+
+```
+
+
+
+### 《岛屿问题（dfs）》
+
+### [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands)
+
+```java
+题解
+https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/
+
+
+public int numIslands(char[][] grid) {
+
+        if (grid == null) return 0;
+
+        int res = 0;
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == '1') {
+                    res += 1;
+                    process(grid, i, j);
+                }
+            }
+        }
+
+        return res;
+
+    }
+
+    public void process(char[][] grid, int r, int c) {
+
+        //判断点是否在网格内
+        if (!inArea(grid, r, c)) return;
+
+        //判断是否是 陆地
+        if (grid[r][c] != '1') return;
+
+        //标记遍历过的 点
+        grid[r][c] = '2';
+
+        //上 -> 右 -> 下 -> 左
+        process(grid, r - 1, c);
+
+        process(grid, r, c + 1);
+
+        process(grid, r + 1, c);
+
+        process(grid, r, c - 1);
+
+
+    }
+
+
+    public boolean inArea(char[][] grid, int r, int c) {
+
+        return r >= 0 && r < grid.length
+                && c >= 0 && c < grid[0].length;
+
+    }
+
+```
+
+
+
+
+
+### [463. 岛屿的周长](https://leetcode-cn.com/problems/island-perimeter/) 
+
+```java
+public int islandPerimeter(int[][] grid) {
+
+    if (grid == null) return 0;
+
+
+    for (int i = 0; i < grid.length; i++) {
+        for (int j = 0; j < grid[i].length; j++) {
+            if (grid[i][j] == 1) {
+                return process(grid, i, j);
+            }
+        }
+    }
+
+    return 1;
+
+}
+
+public int process(int[][] grid, int r, int c) {
+
+    //边界 +1
+    if (!inArea(grid, r, c)) return 1;
+
+    //海洋 +1
+    if (grid[r][c] == 0) return 1;
+
+    //陆地 +0
+    if (grid[r][c] == 2) return 0;
+
+    grid[r][c] = 2;
+
+    return process(grid, r - 1, c)
+        + process(grid, r + 1, c)
+        + process(grid, r, c - 1)
+        + process(grid, r, c + 1);
+
+
+}
+
+public boolean inArea(int[][] grid, int r, int c) {
+    return r >= 0 && r < grid.length && c >= 0 && c < grid[0].length;
+}
+
+```
+
+
+
+### [695. 岛屿最大面积](https://leetcode-cn.com/problems/max-area-of-island/) 
+
+```java
+ public int maxAreaOfIsland(int[][] grid) {
+
+        if(grid == null) return 0;
+
+        int max = 0;
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if(grid[i][j] == 1){
+                    int process = process(grid, i, j);
+                    max = Math.max(process,max);
+                }
+            }
+        }
+
+        return max;
+
+    }
+
+
+    public int process(int[][] grid, int r, int c) {
+
+        if (!inArea(grid, r, c) || grid[r][c] != 1) return 0;
+
+        grid[r][c] = 2;
+
+        return 1 + process(grid, r-1, c)
+                + process(grid, r+1, c)
+                + process(grid, r, c-1)
+                + process(grid, r, c+1);
+
+
+
+    }
+
+    public boolean inArea(int[][] grid, int r, int c) {
+        return r >= 0 && r < grid.length && c >= 0 && c < grid[0].length;
+    }
+
+```
+
+
+
+### [827. 最大人工岛](https://leetcode-cn.com/problems/making-a-large-island/) x
+
+
+
+
+
+
+
+# 斐波那契数列
+
+### [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)（斐波那契数列）
+
+[剑指 Offer 10- II. 青蛙跳台阶问题](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)
+
+```java
+/*
+        70 https://leetcode-cn.com/problems/climbing-stairs/
+
+     */
+    public int climbStairs_1(int n) {
+
+        if(n < 3) return n;
+        int[] step = new int[n + 1];
+
+        step[1] = 1;
+        step[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            step[i] = step[i - 1] + step[i - 2];
+
+        }
+
+        return step[n];
+
+    }
+
+    public int climbStairs(int n) {
+        if(n < 3) return n;
+
+        int prr = 1;
+        int pr = 2;
+
+        for (int i = 2; i < n; i++) {
+            pr = prr + pr;
+            prr = pr - prr;
+        }
+        return pr;
+    }
+
+```
+
+
+
+### [剑指 Offer 10- I. 斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/)
+
+```java
+
+public int fib(int n) {
+
+    // 0 1 2 ... i=(i-1)+(i-2) ... n
+
+    final int MOD = 1000000007;
+
+    if(n == 0) return 0;
+
+    if(n == 1 || n == 2) return 1;
+
+    int prePre = 1,pre = 1;
+
+    for (int i = 3; i <= n; i++) {
+        int curr = pre + prePre;
+        prePre = pre;
+        pre = curr%MOD;
+    }
+    return pre;
+
+}
+```
+
+### [面试题 08.01. 三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci/)
+
+```java
+public int waysToStep(int n) {
+
+    final int MOD = 1000000007;
+
+    if(n == 1) return 1;
+    if(n == 2) return 2;
+    if(n == 3) return 4;
+
+    int p1 = 1,p2 = 2,p3 = 4;
+
+    for (int i = 4; i <= n ; i++) {
+        int curr = ((p1 + p2)  % MOD  + p3 ) % MOD;
+        p1 = p2 ;
+        p2 = p3 ;
+        p3 = curr ;
+    }
+
+    return p3  ;
+}
+```
+
+### [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)
+
+```java
+public int fib(int n) {
+
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+
+    int prePre = 0,pre = 1;
+
+    for (int i = 2; i < n ; i++) {
+        int curr = pre + prePre;
+        prePre = pre;
+        pre = curr;
+    }
+
+    return pre;
+
+
+}
+
+```
+
+
+
+### [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
+
+```java
+public int minCostClimbingStairs(int[] cost) {
+
+    if(cost == null || cost.length == 0) return 0;
+
+    int len = cost.length;
+
+    int[] dp = new int[len + 1];
+
+    dp[0] = dp[1] = 0;
+
+    for (int i = 2; i <= len ; i++) {
+        dp[i] = Math.min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2]);
+    }
+
+    return dp[len];
+
+}
+```
+
+### [1137. 第 N 个泰波那契数](https://leetcode-cn.com/problems/n-th-tribonacci-number/) （斐波那契数列）
+
+
+
+
+
+# 链表
+
+### [817. 链表组件](https://leetcode-cn.com/problems/linked-list-components)
 
 
 
@@ -2242,7 +2152,7 @@ public int maxProduct(int[] nums) {
 
 
 
-## [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+### [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
 
 ```java
 试用递归
@@ -2273,7 +2183,7 @@ public ListNode reverseList_1(ListNode head) {
 }
 ```
 
-## [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 
 ```java
 public boolean hasCycle_1(ListNode head) {
@@ -2320,7 +2230,7 @@ public boolean hasCycle(ListNode head) {
 
 
 
-## [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+### [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 
   ```java
 
@@ -2372,7 +2282,7 @@ public ListNode detectCycle(ListNode head) {
 }
   ```
 
-## [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+### [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
 
 ```java
 /*
@@ -2444,7 +2354,7 @@ public ListNode mergeTwoLists(ListNode l1, ListNode l2){
 
 
 
-## [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+### [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 
 ```java
 /*
@@ -2556,7 +2466,9 @@ public ListNode swapPairs(ListNode head){
 
 
 
-## [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree)
+# 树
+
+### [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree)
 
 ```java
 
@@ -2617,7 +2529,7 @@ public ListNode swapPairs(ListNode head){
 
 
 
-## [222. 完全二叉树的节点个数](https://leetcode-cn.com/problems/count-complete-tree-nodes)
+### [222. 完全二叉树的节点个数](https://leetcode-cn.com/problems/count-complete-tree-nodes)
 
 ```java
 
@@ -2670,7 +2582,7 @@ public int  process(TreeNode head){
 
 
 
-## [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)
+### [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)（dfs）
 
 ```java
 
@@ -2714,7 +2626,7 @@ public int dfs(int n){
 
 
 
-## [95. 不同的二叉搜索树 II](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)  x
+### [95. 不同的二叉搜索树 II](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)  x
 
 
 
@@ -2722,7 +2634,7 @@ public int dfs(int n){
 
 
 
-## [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree)
+### [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree)
 
 ```java
 class ReturnData{
@@ -2767,7 +2679,7 @@ class ReturnData{
 
 
 
-## [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal)
+### [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal)
 
 ```java
 public List<List<Integer>> levelOrder(TreeNode root) {
@@ -2811,13 +2723,13 @@ public List<List<Integer>> levelOrder(TreeNode root) {
 
 
 
-## [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal) x
+### [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal) x
 
 
 
 
 
-## [105. 从前序与中序遍历序列构造二叉](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+### [105. 从前序与中序遍历序列构造二叉](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
 
 ```java
 Map<Integer, Integer> map = new HashMap<>(); // k:value v:index
@@ -2865,7 +2777,7 @@ public TreeNode builds(int[] preOrder, int preLeft, int preRight,
 
 
 
-## [100. 相同的树](https://leetcode-cn.com/problems/same-tree)
+### [100. 相同的树](https://leetcode-cn.com/problems/same-tree)
 
 ```java
  public boolean isSameTree1(TreeNode p, TreeNode q) {
@@ -2937,7 +2849,7 @@ public TreeNode builds(int[] preOrder, int preLeft, int preRight,
 
 
 
-## [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree)
+### [99. 恢复二叉搜索树](https://leetcode-cn.com/problems/recover-binary-search-tree)
 
 ```java
 //中序遍历过程中，记录错误两个错误排序节点，最后进行交换
@@ -2979,61 +2891,92 @@ public void recoverTree(TreeNode root) {
 
 
 
-## [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands)
+
+
+# other
+
+### [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable)
 
 ```java
+class NumArray {
 
-题解
-https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/
+    int[] res;
 
+    public NumArray(int[] nums) {
+        res = new int[nums.length+1];
+        for (int i = 1; i <= nums.length; i++) {
+            res[i] = res[i-1] + nums[i-1];
+        }
+    }
 
-public int numIslands(char[][] grid) {
+    public int sumRange(int left, int right) {
 
-        if (grid == null) return 0;
+        return res[right+1] - res[left];
 
-        int res = 0;
+    }
+}
 
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == '1') {
-                    res += 1;
-                    process(grid, i, j);
+```
+
+### [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
+```java
+    /*
+        26 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+
+        在数组基础上修改不能使用额外的内存
+
+        去除重复的数
+        找到重复的数用后面不是重复的数将其覆盖掉
+
+     */
+    public int removeDuplicates(int[] nums) {
+        int pre = 0;
+        int next = 1;
+
+        while (next < nums.length) {
+
+            if (nums[pre] != nums[next]) {
+                nums[++pre] = nums[next];
+            }
+
+            next++;
+        }
+
+        return pre + 1;
+    }
+```
+
+### [66. 加一](https://leetcode-cn.com/problems/plus-one/)
+
+```
+ /*
+        66. https://leetcode-cn.com/problems/plus-one/
+        
+        遇 9 进位 
+        特殊的需要扩容
+
+    */
+
+    public int[] plusOne(int[] digits) {
+
+        int index = digits.length - 1;
+        while (index >= 0) {
+            int val = digits[index] + 1;
+            if (val >= 10) {
+                digits[index] = val % 10;
+                if (index == 0) {
+                    digits = new int[digits.length + 1];
+                    digits[0] = 1;
                 }
+                index--;
+            } else {
+                digits[index] = val;
+                break;
             }
         }
 
-        return res;
-
-    }
-
-    public void process(char[][] grid, int r, int c) {
-
-        //判断点是否在网格内
-        if (!inArea(grid, r, c)) return;
-
-        //判断是否是 陆地
-        if (grid[r][c] != '1') return;
-
-        //标记遍历过的 点
-        grid[r][c] = '2';
-
-        //上 -> 右 -> 下 -> 左
-        process(grid, r - 1, c);
-
-        process(grid, r, c + 1);
-
-        process(grid, r + 1, c);
-
-        process(grid, r, c - 1);
-
-
-    }
-
-
-    public boolean inArea(char[][] grid, int r, int c) {
-
-        return r >= 0 && r < grid.length
-                && c >= 0 && c < grid[0].length;
+        return digits;
 
     }
 
@@ -3043,109 +2986,185 @@ public int numIslands(char[][] grid) {
 
 
 
-## [463. 岛屿的周长](https://leetcode-cn.com/problems/island-perimeter/) 
+
+
+### [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
 
 ```java
+	/*
+        88 https://leetcode-cn.com/problems/merge-sorted-array/
 
-public int islandPerimeter(int[][] grid) {
+        归并
+        逆向归避免覆盖num1中的数据
 
-    if (grid == null) return 0;
+     */
 
+    public void merge_1(int[] nums1, int m, int[] nums2, int n) {
 
-    for (int i = 0; i < grid.length; i++) {
-        for (int j = 0; j < grid[i].length; j++) {
-            if (grid[i][j] == 1) {
-                return process(grid, i, j);
+        if (m == 0 && n == 0 || n == 0) return;
+
+        if (m == 0) {
+            for (int i = 0; i < n; i++) {
+                nums1[i] = nums2[i];
             }
+            return;
         }
+
+        int[] sort = new int[n + m];
+
+        int p1 = 0, p2 = 0, k = 0;
+
+        while (p1 < m || p2 < n) {
+
+            if (p1 == m) {
+                sort[k] = nums2[p2++];
+            } else if (p2 == n) {
+                sort[k] = nums1[p1++];
+            } else if (nums1[p1] <= nums2[p2]) {
+                sort[k] = nums1[p1++];
+            } else {
+                sort[k] = nums2[p2++];
+            }
+
+            k++;
+        }
+
+        for (int i = 0; i < sort.length; i++) {
+            nums1[i] = sort[i];
+        }
+
     }
 
-    return 1;
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        if (m == 0 && n == 0 || n == 0) return;
 
-}
+        if (m == 0) {
+            for (int i = 0; i < n; i++) {
+                nums1[i] = nums2[i];
+            }
+            return;
+        }
 
-public int process(int[][] grid, int r, int c) {
+        int p1 = m - 1, p2 = n - 1, k = nums1.length - 1;
 
-    //边界 +1
-    if (!inArea(grid, r, c)) return 1;
+        while (p1 >= 0  || p2 >= 0){
 
-    //海洋 +1
-    if (grid[r][c] == 0) return 1;
+            if(p1 < 0){
+                nums1[k] = nums2[p2--];
+            }else if(p2 < 0){
+                nums1[k] = nums1[p1--];
+            }else if(nums1[p1] <= nums2[p2]){
+                nums1[k] = nums2[p2--];
+            }else {
+                nums1[k] = nums1[p1--];
+            }
 
-    //陆地 +0
-    if (grid[r][c] == 2) return 0;
-
-    grid[r][c] = 2;
-
-    return process(grid, r - 1, c)
-        + process(grid, r + 1, c)
-        + process(grid, r, c - 1)
-        + process(grid, r, c + 1);
-
-
-}
-
-public boolean inArea(int[][] grid, int r, int c) {
-    return r >= 0 && r < grid.length && c >= 0 && c < grid[0].length;
-}
-
+            k--;
+        }
+    }
 ```
 
 
 
-## [695. 岛屿最大面积](https://leetcode-cn.com/problems/max-area-of-island/) 
+
+
+### [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/)
 
 ```java
- public int maxAreaOfIsland(int[][] grid) {
+ /*
 
-        if(grid == null) return 0;
+    189 https://leetcode-cn.com/problems/rotate-array/
 
-        int max = 0;
+     */
 
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if(grid[i][j] == 1){
-                    int process = process(grid, i, j);
-                    max = Math.max(process,max);
-                }
-            }
+    public void rotate_1(int[] nums, int k) {
+
+        //将后面的k个元素先放入一个新的数组中，再将原来的数组中的 nums.length-k 个数组后移k位
+        //最后将后面的k个元素添加到 nums 数组中
+
+        int len = nums.length;
+
+        if(nums == null || len < 2) return;
+
+        if(k >= len) k = k % len;
+
+        if(k == 0) return;
+
+        int[] tail = new int[k];
+        int j = 0;
+        for (int i = len-k; i < len ; i++) {
+            tail[j++] = nums[i];
         }
 
-        return max;
+        for (int i = len - k - 1; i  >= 0 ; i--) {
+            nums[i + k] = nums[i];
+        }
 
-    }
-
-
-    public int process(int[][] grid, int r, int c) {
-
-        if (!inArea(grid, r, c) || grid[r][c] != 1) return 0;
-
-        grid[r][c] = 2;
-
-        return 1 + process(grid, r-1, c)
-                + process(grid, r+1, c)
-                + process(grid, r, c-1)
-                + process(grid, r, c+1);
-
+        for (int i = 0; i < k; i++) {
+            nums[i] = tail[i];
+        }
 
 
     }
 
-    public boolean inArea(int[][] grid, int r, int c) {
-        return r >= 0 && r < grid.length && c >= 0 && c < grid[0].length;
+    public void rotate_2(int[] nums, int k) {
+
+        int len = nums.length;
+
+        if(nums == null || len < 2) return;
+
+        if(k >= len) k = k % len;
+
+        if(k == 0) return;
+
+       while (k-- > 0){
+
+           int t = nums[len-1];
+           for (int i = len-2; i >=0 ; i--) {
+               nums[i+1] = nums[i];
+           }
+           nums[0] = t;
+
+       }
+
     }
 
+    public void rotate(int[] nums, int k) {
+
+        //数组反转  
+        int len = nums.length;
+
+        if(nums == null || len < 2 || k % len == 0) return;
+
+        if(k >= len) k = k % len;
+
+
+        revorse(nums,0,len-1);
+        revorse(nums,0,k-1);
+        revorse(nums,k,len-1);
+
+    }
+
+    public void revorse(int[] arr,int start,int end){
+        while (start < end){
+            arr[start] = arr[start] ^ arr[end];
+            arr[end] = arr[start] ^ arr[end];
+            arr[start] = arr[start] ^ arr[end];
+
+            start++;
+            end--;
+        }
+
+    }
 ```
 
 
 
-## [827. 最大人工岛](https://leetcode-cn.com/problems/making-a-large-island/) x
 
 
 
 
-
-
+### [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/) x                                                                                                       
 
 
 
