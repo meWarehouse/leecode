@@ -1362,127 +1362,104 @@ public int process(int[] arr,int s,int e){
 ```java
 /*
         91 https://leetcode-cn.com/problems/decode-ways/
+        https://leetcode-cn.com/problems/decode-ways/solution/san-chong-jie-fa-xiang-xi-tu-jie-91-jie-6vh2k/
 
      */
 
-public int dfs(String s, int index) {
 
-    if (cache.containsKey(index)) return cache.get(index);
 
-    if (index >= s.length()) return 1;
+Map<Integer,Integer> cache = new HashMap<>();
 
-    int one = 0;
-    int two = 0;
+public int numDecodings(String s) {
 
-    if (s.charAt(index) != '0') {
-        one = dfs(s, index + 1);
+    if(s == null || s.length() == 0 || s.charAt(0) == '0') return 0;
+
+    return dfs(s,0);
+
+}
+
+public int dfs(String str,int index){
+
+    if(index >= str.length()) return 1;
+    if(cache.containsKey(index)) return cache.get(index);
+
+    int one = 0, two = 0;
+
+    if(str.charAt(index) != '0'){
+        one = dfs(str,index+1);
     }
 
-    if (index + 1 < s.length() && s.charAt(index) != '0' && isValidNum(s, index)) {
-        two = dfs(s, index + 2);
+    if(index + 1 < str.length() && str.charAt(index) != '0' && isVaild(str,index)){
+        two = dfs(str,index+2);
     }
 
-    cache.put(index, one + two);
+    cache.put(index,one+two);
+
     return cache.get(index);
 
 }
 
-public boolean isValidNum(String s, int index) {
+private boolean isVaild(String str, int index) {
 
-    int a = s.charAt(index) - 48;
-    int b = s.charAt(index + 1) - 48;
+    int a = str.charAt(index) - 48;
+    int b = str.charAt(index + 1) - 48;
 
     int res = a * 10 + b;
 
-    return res >= 10 && res <= 26;
 
+    return res>=10 && res <= 26;
 }
-
-//=============================
-
-
-public int numDecodings_2(String s) {
-
-
-    if (s == null || s.length() == 0 || s.charAt(0) == '0') return 0;
-
-    int len = s.length();
-
-    if (len == 1) return 1;
-
-    int[] dp = new int[len];
-    dp[0] = 1;
-
-    //第二个数为 '0'
-    if (s.charAt(1) != '0') {
-        dp[1] = 1;
-    }
-
-    //第二个数可以与前一个数组合
-    if (isValid(s, 1)) {
-        dp[1] = dp[1] + dp[0];
-    }
-
-    for (int i = 2; i < len; i++) {
-
-        if (s.charAt(i) != '0') {
-            dp[i] = dp[i - 1];
-        }
-
-        if (isValid(s, i)) {
-            dp[i] = dp[i] + dp[i - 2];
-        }
-
-    }
-
-    return dp[len - 1];
-
-
-}
-
+=========================================================================
 public int numDecodings(String s) {
 
     if (s == null || s.length() == 0 || s.charAt(0) == '0') return 0;
 
     int len = s.length();
+    //
+    //        int[] dp = new int[len+1];
+    //        dp[0] = 1;
+    //
+    //        for (int i = 1; i < len + 1; i++) {
+    //            if(s.charAt(i-1) != '0'){
+    //                dp[i] = dp[i-1] + dp[i];
+    //            }
+    //            if(i-2>=0 && s.charAt(i-2) != '0' && isValid(s,i)){
+    //                dp[i] = dp[i-2] + dp[i];
+    //            }
+    //        }
+    //
+    //        return dp[len];
 
-    if (len == 1) return 1;
 
-    int pre = 1;
-    int curr = 0;
+    // a = f[i-2], b = f[i-1], c=f[i]
+    int a = 0,b = 1,c = 0;
 
-    if (s.charAt(1) != '0') {
-        curr = 1;
-    }
+    for (int i = 1; i < len + 1; i++) {
 
-    if (isValid(s, 1)) {
-        curr = curr + pre;
-    }
-
-    for (int i = 2; i < len; i++) {
-        int temp = 0;
-        if (s.charAt(i) != '0') {
-            temp = curr;
+        c = 0;
+        if(s.charAt(i-1) != '0'){
+            c+=b;
         }
-        if (isValid(s, i)) {
-            temp += pre;
+        if(i-2>=0 && s.charAt(i-2) != '0' && isValid(s,i)){
+            c+=a;
         }
-        pre = curr;
-        curr = temp;
+        a = b;
+        b = c;
     }
 
-    return curr;
+    return c;
 
 }
 
 
 public boolean isValid(String str, int index) {
 
+    int a = str.charAt(index - 2) - '0';
+    int b = str.charAt(index - 1) - '0';
+    int res = a * 10 + b;
 
-    int a = str.charAt(index - 1) - 48;
-    int b = str.charAt(index) - 48;
-    int t = a * 10 + b;
-    return t >= 10 && t <= 26;
+    return res >= 10 && res <= 26;
+
 }
 
 ```
@@ -1495,60 +1472,67 @@ public boolean isValid(String str, int index) {
 /*
     120 https://leetcode-cn.com/problems/triangle/
      */
-    
-    public int minimumTotal_1(ArrayList<ArrayList<Integer>> triangle) {
 
-        int m = triangle.size();
-
-        int[][] dp = new int[m][m];
-
-        dp[0][0] = triangle.get(0).get(0);
-
-        for (int i = 1; i < m; i++) {
-
-            List<Integer> tar = triangle.get(i);
-
-            dp[i][0] = tar.get(0) + dp[i - 1][0];
-
-            for (int j = 1; j < tar.size(); j++) {
+public int minimumTotal(List<List<Integer>> triangle) {
 
 
-                if (j == tar.size() - 1) {
-                    dp[i][j] = tar.get(j) + dp[i - 1][j - 1];
-                } else {
-                    dp[i][j] = tar.get(j) + Math.min(dp[i - 1][j], dp[i - 1][j - 1]);
-                }
+    if (triangle == null || triangle.size() == 0) return 0;
 
+    int m = triangle.size();
+    int n = triangle.get(m - 1).size();
+
+    //        int[][] dp = new int[m][n];
+    //        dp[0][0] = triangle.get(0).get(0);
+    //
+    //
+    //        for (int i = 1; i < m; i++) {
+    //            List<Integer> tar = triangle.get(i);
+    //            int size = tar.size();
+    //            dp[i][0] = tar.get(0) + dp[i - 1][0];
+    //            for (int j = 1; j < size; j++) {
+    //
+    //                if (j == size - 1) {
+    //                    dp[i][j] = tar.get(j) + dp[i - 1][j - 1];
+    //                } else {
+    //                    dp[i][j] = tar.get(j) + Math.min(dp[i - 1][j - 1], dp[i - 1][j]);
+    //                }
+    //
+    //            }
+    //        }
+    //
+    //        Arrays.sort(dp[m - 1]);
+    //
+    //        return dp[m - 1][0];
+
+    int[] dp = new int[n];
+    dp[0] = triangle.get(0).get(0);
+
+    for (int i = 1; i < m; i++) {
+
+        List<Integer> tar = triangle.get(i);
+        int size = tar.size();
+
+        //从后往前避免覆盖前面的元素
+        //            dp[0] = dp[0] + tar.get(0);
+
+        for (int j = size - 1; j > 0; j--) {
+
+            if (j == size - 1) {
+                dp[j] = dp[j - 1] + tar.get(j);
+            } else {
+                dp[j] = tar.get(j) + Math.min(dp[j], dp[j - 1]);
             }
         }
 
-        int min = dp[m - 1][0];
-        for (int i = 1; i < dp[m - 1].length; i++) {
-            min = Math.min(dp[m - 1][i], min);
-        }
-
-
-        return min;
-
-
+        dp[0] = dp[0] + tar.get(0);
     }
 
+    Arrays.sort(dp);
 
-    public int minimumTotal(ArrayList<ArrayList<Integer>> triangle) {
+    return dp[0];
 
-        int m = triangle.size();
+}
 
-        int[][] dp = new int[m+1][m+1];
-
-        for (int i = m-1; i >= 0 ; i--) {
-            for (int j = 0; j <= i; j++) {
-                dp[i][j] = Math.min(dp[i+1][j],dp[i+1][j+1] + triangle.get(i).get(j));
-            }
-        }
-
-        return dp[0][0];
-
-    }
 ```
 
 
@@ -1719,7 +1703,7 @@ public String minWindow(String s, String t) {
 
 ```
 
-
+### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)（快慢指针）
 
 ### [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
 
@@ -1779,6 +1763,16 @@ public String minWindow(String s, String t) {
 
 
 ```
+
+
+
+### [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/)
+
+~~~~
+动态规划
+~~~~
+
+
 
 
 
