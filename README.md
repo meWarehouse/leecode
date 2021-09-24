@@ -2824,48 +2824,85 @@ public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 ### [105. 从前序与中序遍历序列构造二叉](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
 
 ```java
-Map<Integer, Integer> map = new HashMap<>(); // k:value v:index
+
+// 题解：https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solution/qian-xu-bian-li-python-dai-ma-java-dai-ma-by-liwei/
+// value,index
+Map<Integer, Integer> cache = new HashMap<>();
 
 public TreeNode buildTree(int[] preorder, int[] inorder) {
 
-    int preLen = preorder.length;
-    int inLen = inorder.length;
-
-    if(preLen != inLen){
-        return null;
+    if (preorder == null || inorder == null) return null;
+    if(preorder.length != inorder.length){
+        throw new RuntimeException("数据异常！！！！");
     }
 
-    for (int i = 0; i < inLen; i++) {
-        map.put(inorder[i],i);
+    for (int i = 0; i < inorder.length; i++) {
+        cache.put(inorder[i], i);
     }
 
+    return buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
 
-    return builds(preorder, 0, preLen - 1, inorder, 0, inLen - 1);
+
 }
 
-public TreeNode builds(int[] preOrder, int preLeft, int preRight,
-                       int[] inOrder, int inLeft, int inRight) {
+public TreeNode buildTree(int[] preorder, int pL, int pR,
+                          int[] inorder, int iL, int iR) {
 
-    if(preLeft > preRight || inLeft > inRight){
+    if (pL > pR || iL > iR) {
         return null;
     }
 
+    int head = preorder[pL];
+    TreeNode root = new TreeNode(head);
+    Integer p = cache.get(head);
 
-    int rootVal = preOrder[preLeft];
-    TreeNode root = new TreeNode(rootVal);
-
-    Integer pivot = map.get(rootVal);
-
-
-    root.left = builds(preOrder,preLeft+1,pivot-inLeft + preLeft,inOrder,inLeft,pivot-1);
-
-    root.right = builds(preOrder,pivot-inLeft+preLeft+1,preRight,inOrder,pivot+1,inRight);
+    root.left = buildTree(preorder, pL + 1, pL + p - iL, inorder, iL, p - 1);
+    root.right = buildTree(preorder, pL + p - iL + 1, pR, inorder, p + 1, iR);
 
     return root;
 
 
 }
+
 ```
+
+
+
+### [106. 从中序与后序遍历序列构造二叉](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
+
+```java
+Map<Integer, Integer> map = new HashMap<>();
+
+public TreeNode buildTree(int[] inorder, int[] postorder) {
+
+    for (int i = 0; i < inorder.length; i++) {
+        map.put(inorder[i], i);
+    }
+
+    return buildTree(inorder,0,inorder.length-1, postorder,0,postorder.length-1);
+
+}
+
+
+public TreeNode buildTree(int[] inorder, int iL, int iR,
+                          int[] postorder, int pL, int pR) {
+
+    if (iL > iR || pL > pR) return null;
+
+    int headVal = postorder[pR];
+    TreeNode root = new TreeNode(headVal);
+    Integer p = map.get(headVal);
+
+    root.left = buildTree(inorder, iL, p - 1, postorder, pL, pR+p-iR);
+    root.right = buildTree(inorder, p + 1, iR, postorder, pR+p-iR-1, pR - 1);
+
+
+    return root;
+
+}
+```
+
+
 
 
 
@@ -2980,6 +3017,45 @@ public void recoverTree(TreeNode root) {
 ```
 
 
+
+```java
+    Map<Integer, Integer> map = new HashMap<>();
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+
+        if (inorder == null || postorder == null) return null;
+        if (inorder.length != postorder.length) {
+            throw new RuntimeException("数据异常");
+        }
+
+        for (int i = 0; i < inorder.length; i++) {
+            map.put(inorder[i], i);
+        }
+
+        return buildTree(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
+
+    }
+
+    public TreeNode buildTree(int[] inorder, int iL, int iR,
+                              int[] postorder, int pL, int pR) {
+
+        if (iL > iR || pL > pR) return null;
+
+        int headVal = postorder[pR];
+        TreeNode root = new TreeNode(headVal);
+        Integer p = map.get(headVal);
+
+//        root.left = buildTree(inorder, iL, p - 1, postorder, pL, pR + p - iR);
+//        root.right = buildTree(inorder, p + 1, iR, postorder, pR + p + 1 - iR, pR-1);
+//
+        root.left = buildTree(inorder, iL, p - 1, postorder, pL, pL + p - 1 - iL);
+        root.right = buildTree(inorder, p + 1, iR, postorder, pL + p - iL, pR-1);
+
+        return root;
+
+    }
+
+```
 
 
 
