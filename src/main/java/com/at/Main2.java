@@ -10,10 +10,12 @@ import com.sun.deploy.pings.Pings;
 import com.sun.javafx.geom.Edge;
 import com.sun.media.sound.RIFFInvalidDataException;
 import com.sun.org.apache.regexp.internal.RE;
+import jdk.nashorn.internal.ir.ThrowNode;
 import sun.java2d.opengl.WGLGraphicsConfig;
 import sun.reflect.generics.tree.Tree;
 import sun.rmi.transport.proxy.CGIHandler;
 
+import javax.lang.model.element.Element;
 import javax.lang.model.element.VariableElement;
 import java.awt.*;
 import java.nio.channels.Pipe;
@@ -87,51 +89,7 @@ public class Main2 {
     }
 
 
-    public int maxAreaOfIsland(int[][] grid) {
 
-        if (grid == null || grid.length == 0) return 0;
-
-        int m = grid.length;
-        int n = grid[0].length;
-
-
-        int max = 0;
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-
-                if (grid[i][j] == 1) {
-                    int process = process(grid, i, j);
-                    max = Math.max(max, process);
-                }
-
-            }
-        }
-
-        return max;
-
-    }
-
-
-    public int process(int[][] grid, int m, int n) {
-
-        if (isVaild(grid, m, n)) return 0;
-
-        if (grid[m][n] == 0) return 0;
-
-        grid[m][n] = 0;
-
-        return 1 + process(grid, m - 1, n) +
-                process(grid, m + 1, n) +
-                process(grid, m, n - 1) +
-                process(grid, m, n + 1);
-
-    }
-
-
-    public boolean isVaild(int[][] grid, int m, int n) {
-        return m >= 0 && m < grid.length && n >= 0 && n < grid[0].length;
-    }
 
 }
 

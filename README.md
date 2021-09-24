@@ -26,6 +26,8 @@ typora-root-url: images
 
 
 
+[TOC]
+
 
 
 
@@ -1535,52 +1537,7 @@ public int minimumTotal(List<List<Integer>> triangle) {
 
 ```
 
-
-
-
-
-### [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
-
-```java
-/*
-         152  https://leetcode-cn.com/problems/maximum-product-subarray/
-     */
-public int maxProduct(int[] nums) {
-
-    if (nums == null || nums.length == 0) return 0;
-    if (nums.length == 1) return nums[0];
-
-    int m = nums.length;
-
-
-    int max = Integer.MIN_VALUE;
-    int imax = 1,imin  = 1;
-
-    for (int i = 0; i < nums.length; i++) {
-
-        if(nums[i] < 0){
-            imax = imin ^ imax;
-            imin = imin ^ imax;
-            imax = imin ^ imax;
-        }
-
-        imax = Math.max(nums[i],nums[i]*imax);
-        imin = Math.min(nums[i],nums[i]*imin);
-
-        max = Math.max(max,imax);
-
-    }
-
-
-
-    return max;
-
-
-}
-
-```
-
-
+[96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)
 
 
 
@@ -2175,6 +2132,29 @@ public ListNode reverseList_1(ListNode head) {
     return head;
 
 }
+
+==================
+ public ListNode reverseList(ListNode head) {
+
+
+        ListNode curr = head;
+        ListNode newHead = new ListNode(-1);
+        newHead.next = head;
+
+        while (curr.next != null && curr.next != null){
+
+            ListNode tmp  = curr.next;
+
+            curr.next = tmp.next;
+            tmp.next = newHead.next;
+            newHead.next = tmp;
+
+
+        }
+
+
+        return newHead.next;
+    }
 ```
 
 ### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
@@ -2456,6 +2436,34 @@ public ListNode swapPairs(ListNode head){
     return head;
 
 }
+
+//===============================================
+public ListNode swapPairs(ListNode head) {
+
+    if(head == null || head.next == null) return head;
+
+
+    ListNode tmpH = new ListNode();
+    ListNode curr = tmpH;
+
+    curr.next = head;
+
+    while (curr.next == null || curr.next.next == null){
+
+        ListNode node1 = curr.next;
+        ListNode node2 = curr.next.next;
+
+        curr.next = node1;
+        node1.next = node2.next;
+        node2.next = node1;
+
+        curr = node1;
+
+    }
+
+    return tmpH.next;
+
+}
 ```
 
 
@@ -2466,6 +2474,8 @@ public ListNode swapPairs(ListNode head){
 
 ```java
 
+
+//存储父节点
     HashMap<TreeNode, TreeNode> conn = new HashMap<>();
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -2504,6 +2514,7 @@ public ListNode swapPairs(ListNode head){
     }
 
 
+//递归
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q){
 
         if(root == null || root == p || root == q) return root;
@@ -2576,7 +2587,7 @@ public int  process(TreeNode head){
 
 
 
-### [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)（dfs）
+### [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)
 
 ```java
 
@@ -2620,7 +2631,46 @@ public int dfs(int n){
 
 
 
-### [95. 不同的二叉搜索树 II](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)  x
+### [95. 不同的二叉搜索树 II](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)  
+
+```java
+public List<TreeNode> generateTrees(int n) {
+
+    if (n == 0) return new LinkedList<>();
+
+    return generateTrees(1,n);
+}
+
+public List<TreeNode> generateTrees(int start, int end) {
+
+    List<TreeNode> allTree = new LinkedList<>();
+    if (start > end) {
+        allTree.add(null);
+        return allTree;
+    }
+
+    for (int i = start; i <= end; i++) {
+
+        List<TreeNode> leftTrees = generateTrees(start, i - 1);
+        List<TreeNode> rightTrees = generateTrees(i + 1, end);
+
+        for (TreeNode leftTree : leftTrees) {
+            for (TreeNode rightTree : rightTrees) {
+                TreeNode currTree = new TreeNode(i);
+                currTree.left = leftTree;
+                currTree.right = rightTree;
+                allTree.add(currTree);
+            }
+        }
+
+    }
+
+    return allTree;
+
+
+}
+
+```
 
 
 
@@ -2717,7 +2767,55 @@ public List<List<Integer>> levelOrder(TreeNode root) {
 
 
 
-### [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal) x
+### [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal) 
+
+```java
+public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+
+    List<List<Integer>> list = new ArrayList<>();
+    if(root == null) return list;
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+
+    //true 从 -> 出 ，false 从 <- 出
+    boolean getOrder = true;
+
+    while (!queue.isEmpty()){
+
+        int size = queue.size();
+        Deque<Integer> levelDeque = new LinkedList<>();
+
+        for (int i = 0; i < size; i++) {
+
+            TreeNode pollNode = queue.poll();
+            if(getOrder){
+                levelDeque.addLast(pollNode.val);
+            }else {
+                levelDeque.addFirst(pollNode.val);
+            }
+
+            if(pollNode.left != null){
+                queue.add(pollNode.left);
+            }
+            if(pollNode.right != null){
+                queue.add(pollNode.right);
+            }
+
+        }
+
+        list.add(new LinkedList<>(levelDeque));
+        getOrder = !getOrder;
+
+    }
+
+    return list;
+
+}
+
+```
+
+
 
 
 
@@ -3150,6 +3248,51 @@ class NumArray {
         }
 
     }
+```
+
+
+
+
+
+### [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
+
+```java
+/*
+         152  https://leetcode-cn.com/problems/maximum-product-subarray/
+     */
+public int maxProduct(int[] nums) {
+
+    if (nums == null || nums.length == 0) return 0;
+    if (nums.length == 1) return nums[0];
+
+    int m = nums.length;
+
+
+    int max = Integer.MIN_VALUE;
+    int imax = 1,imin  = 1;
+
+    for (int i = 0; i < nums.length; i++) {
+
+        if(nums[i] < 0){
+            imax = imin ^ imax;
+            imin = imin ^ imax;
+            imax = imin ^ imax;
+        }
+
+        imax = Math.max(nums[i],nums[i]*imax);
+        imin = Math.min(nums[i],nums[i]*imin);
+
+        max = Math.max(max,imax);
+
+    }
+
+
+
+    return max;
+
+
+}
+
 ```
 
 
