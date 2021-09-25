@@ -92,6 +92,37 @@ public class Main2 {
     }
 
 
+    public void recoverTree(TreeNode root) {
+
+        inOrder(root);
+
+        TreeNode tmp = t1;
+        t1 = t2;
+        t2 = tmp;
+
+    }
+
+    TreeNode t1, t2, pre;
+
+    public void inOrder(TreeNode head) {
+
+        if(head == null) return;
+
+        inOrder(head.left);
+
+        if(pre != null && pre.val > head.val){
+            if(t1 == null) t1 = pre;
+            t2 = head;
+        }
+
+        pre = head;
+
+
+        inOrder(head.right);
+
+    }
+
+
 }
 
 
