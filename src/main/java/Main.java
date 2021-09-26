@@ -1,61 +1,49 @@
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Main {
 
+    //https://www.nowcoder.com/questionTerminal/3f4867e9cbe54403ac5df55b8e678df9
 
-    public void head(int[] arr) {
+    //https://www.nowcoder.com/test/question/done?tid=48426020&qid=141064#summary
 
-        for (int i = 0; i < arr.length; i++) {
-            heapInsert(arr, i);
+
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(reader.readLine());
+
+        int[] arr = new int[n];
+
+        String[] splits = reader.readLine().split(" ");
+        for (int i = 0; i < splits.length; i++) {
+            arr[i] = Integer.parseInt(splits[i]);
         }
 
-        int heapSize = arr.length;
+        int max = 0;
 
-        swap(arr, 0, --heapSize);
-
-        while (heapSize > 0) {
-            heapify(arr, 0, heapSize);
-            swap(arr, 0, --heapSize);
-        }
-    }
-
-    private void heapify(int[] arr, int index, int heapSize) {
-
-        int left = index * 2 + 1;
-
-        while (left < heapSize) {
-
-            int largest = left + 1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
-
-            largest = arr[largest] > arr[index] ? largest : index;
-
-            if (largest == index) break;
-
-            swap(arr, index, largest);
-
-            left = index * 2 + 1;
+        for (int i = 0; i < n; i++) {
+            int sum = arr[i], value = arr[i], left = i - 1, right = i + 1;
+            while (left >= 0 && arr[left] >= value) {
+                sum += arr[left];
+                left--;
+            }
+            while (right < n && arr[right] >= value) {
+                sum += arr[right];
+                right++;
+            }
+            max = Math.max(max, value * sum);
         }
 
-    }
 
+        System.out.println(max);
 
-    private void heapInsert(int[] arr, int index) {
-
-        //子节点大于父节点
-        while (arr[index] > arr[(index - 1) / 2]) {
-            swap(arr, index, (index - 1) / 2);
-            index = (index - 1) / 2;
-        }
 
     }
 
-    public void swap(int[] arr, int s, int e) {
-        if (s != e) {
-            arr[s] = arr[s] ^ arr[e];
-            arr[e] = arr[s] ^ arr[e];
-            arr[s] = arr[s] ^ arr[e];
-        }
 
-
-    }
 }
