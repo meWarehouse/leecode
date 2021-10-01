@@ -1,49 +1,78 @@
+
+
+//1 2 1 2 输入数据
+//2 聚拢数据
+
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
 public class Main {
 
-    //https://www.nowcoder.com/questionTerminal/3f4867e9cbe54403ac5df55b8e678df9
-
-    //https://www.nowcoder.com/test/question/done?tid=48426020&qid=141064#summary
-
-
-
+    //    public static void main(String[] args) throws Exception {
+//
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//
+//        int n = Integer.parseInt(reader.readLine());
+//
+//        String[] splits = reader.readLine().split(" ");
+//
+//        int k = Integer.parseInt(reader.readLine());
+//
+//
+//
+//
+//
+//
+//    }
     public static void main(String[] args) throws IOException {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        FileInputStream inputStream = new FileInputStream(new File("D:\\workspace\\workspace2021\\python\\py-test\\爬虫\\animal_images\\dog"));
+//
+//        int read = inputStream.read();
+//        System.out.println(read);
 
-        int n = Integer.parseInt(reader.readLine());
+        File file = new File("D:\\workspace\\workspace2021\\python\\py-test\\论文\\data\\animals2\\test");
+        String dirPath = file.getAbsolutePath();
+        File[] files = file.listFiles();
 
-        int[] arr = new int[n];
+        int index = 0;
+        for (File f : files) {
 
-        String[] splits = reader.readLine().split(" ");
-        for (int i = 0; i < splits.length; i++) {
-            arr[i] = Integer.parseInt(splits[i]);
+
+            BufferedImage imageMsg = ImageIO.read(f);
+
+            int pixelSize = imageMsg.getColorModel().getPixelSize();
+            String fileName = f.getName();
+
+//            if(pixelSize < 24){
+//                System.out.println(fileName);
+//            }
+
+
+
+
+
+            String substring = fileName.substring(fileName.indexOf("."));
+
+//            Math.round(500)
+//            String newName = (int)(Math.random() * 500000) + substring;
+            String newName = (index++) + substring;
+
+            File fds = new File("D:\\workspace\\workspace2021\\python\\py-test\\论文\\data\\animals2\\sheep" + "/" + newName);
+
+            f.renameTo(fds);
+
+            System.out.println(fds.getName());
+
+
         }
-
-        int max = 0;
-
-        for (int i = 0; i < n; i++) {
-            int sum = arr[i], value = arr[i], left = i - 1, right = i + 1;
-            while (left >= 0 && arr[left] >= value) {
-                sum += arr[left];
-                left--;
-            }
-            while (right < n && arr[right] >= value) {
-                sum += arr[right];
-                right++;
-            }
-            max = Math.max(max, value * sum);
-        }
-
-
-        System.out.println(max);
 
 
     }
-
 
 }

@@ -20,12 +20,16 @@ import sun.rmi.transport.proxy.CGIHandler;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.VariableElement;
+import javax.swing.text.html.HTMLWriter;
+import javax.xml.stream.FactoryConfigurationError;
 import java.awt.*;
 import java.nio.channels.Pipe;
 import java.nio.file.Paths;
 import java.security.PublicKey;
+import java.time.chrono.MinguoDate;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.function.DoublePredicate;
 
 /**
@@ -88,47 +92,25 @@ public class Main2 {
         //"cabefgecdaecf"
         //"cae"
 
+        char[][] b = new char[][]{
+                {'A','B','C','E'},
+                {'S','F','C','S'},
+                {'A','D','E','E'}
+        };
+        char[][] b1 = {
+                {'C','A','A'},
+                {'A','A','A'},
+                {'B','C','D'}
+        };
+
 
     }
 
 
-    public void recoverTree(TreeNode root) {
 
-        inOrder(root);
-
-        TreeNode tmp = t1;
-        t1 = t2;
-        t2 = tmp;
-
-    }
-
-    TreeNode t1, t2, pre;
-
-    public void inOrder(TreeNode head) {
-
-        if(head == null) return;
-
-        inOrder(head.left);
-
-        if(pre != null && pre.val > head.val){
-            if(t1 == null) t1 = pre;
-            t2 = head;
-        }
-
-        pre = head;
-
-
-        inOrder(head.right);
-
-    }
 
 
 }
-
-
-
-
-
 
 
 
