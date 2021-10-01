@@ -1,36 +1,8 @@
 package com.at;
 
 
-import com.at.bean.ListNode;
-import com.at.bean.TreeNode;
-import com.sun.corba.se.impl.orbutil.graph.Graph;
-import com.sun.corba.se.impl.orbutil.graph.Node;
-import com.sun.crypto.provider.HmacPKCS12PBESHA1;
-import com.sun.deploy.pings.Pings;
-import com.sun.javafx.geom.Edge;
-import com.sun.media.sound.RIFFInvalidDataException;
-import com.sun.org.apache.bcel.internal.generic.INEG;
-import com.sun.org.apache.bcel.internal.generic.IREM;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.org.apache.regexp.internal.RE;
-import jdk.nashorn.internal.ir.ThrowNode;
-import sun.java2d.opengl.WGLGraphicsConfig;
-import sun.reflect.generics.tree.Tree;
-import sun.rmi.transport.proxy.CGIHandler;
-
-import javax.lang.model.element.Element;
-import javax.lang.model.element.VariableElement;
-import javax.swing.text.html.HTMLWriter;
-import javax.xml.stream.FactoryConfigurationError;
-import java.awt.*;
-import java.nio.channels.Pipe;
-import java.nio.file.Paths;
-import java.security.PublicKey;
-import java.time.chrono.MinguoDate;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.function.DoublePredicate;
 
 /**
  * @author zero
@@ -40,68 +12,51 @@ public class Main2 {
 
     public static void main(String[] args) {
 
+        Node n1 = new Node(-1);
+//        Node n2 = new Node(2);
+//        n1.next = n2;
+//        n1.random = n2;
+//        n2.random = n2;
+//        n2.next = null;
+        n1.random = null;
 
-//        new Main2().minPathSum(new int[][]{{1,3,1},{1,5,1},{4,2,1}});
-
-        List<Integer> l1 = new ArrayList<>();
-        l1.add(2);
-        List<Integer> l2 = new ArrayList<>();
-        l2.add(3);
-        l2.add(4);
-        List<Integer> l3 = new ArrayList<>();
-        l3.add(6);
-        l3.add(5);
-        l3.add(7);
-        List<Integer> l4 = new ArrayList<>();
-        l4.add(4);
-        l4.add(1);
-        l4.add(8);
-        l4.add(3);
-
-        List<List<Integer>> r = new ArrayList<>();
-        r.add(l1);
-        r.add(l2);
-        r.add(l3);
-        r.add(l4);
+        new Main2().copyRandomList(n1);
 
 
-        TreeNode t1 = new TreeNode(1);
-        TreeNode t2 = new TreeNode(2);
-        TreeNode t3 = new TreeNode(3);
+    }
 
-        TreeNode t4 = new TreeNode(4);
-        TreeNode t5 = new TreeNode(5);
-        TreeNode t6 = new TreeNode(6);
+    public Node copyRandomList(Node head) {
 
-        t5.left = t2;
-        t5.right = t6;
+        if(head == null)  return  null;
 
-        t2.left = t1;
-        t2.right = t4;
+        Node curr = head;
+        while (curr != null){
+            Node newNode = new Node(curr.val);
+            newNode.next = curr.next;
+            curr.next = newNode;
+            curr = curr.next.next;
+        }
 
-        t1.right = t3;
+        curr = head;
+        while (curr != null){
+            Node node = curr.next;
+            node.random = curr.random == null ? null : curr.random.next;
+            curr = curr.next.next;
+        }
 
 
-        char[][] te = {
-                {'1', '1', '1', '1', '0'},
-                {'1', '1', '0', '1', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '0', '0', '0'}
-        };
+        curr = head.next;
+        Node pre = head,res = head.next;
 
-        //"cabefgecdaecf"
-        //"cae"
+        while (curr.next != null){
+            pre.next = pre.next.next;
+            curr.next = curr.next.next;
+            pre = pre.next;
+            curr = curr.next;
+        }
+        pre.next = null;
 
-        char[][] b = new char[][]{
-                {'A','B','C','E'},
-                {'S','F','C','S'},
-                {'A','D','E','E'}
-        };
-        char[][] b1 = {
-                {'C','A','A'},
-                {'A','A','A'},
-                {'B','C','D'}
-        };
+        return res;
 
 
     }
@@ -109,11 +64,62 @@ public class Main2 {
 
 
 
+        public Node copyRandomList1(Node head) {
+
+        Node curr = head;
+
+        while (curr != null){
+
+            Node newNode = new Node(curr.val);
+            newNode.next = curr.next;
+            curr.next = newNode;
+
+            curr = curr.next.next;
+
+        }
+
+        curr = head;
+
+        while (curr != null && curr.next != null){
+
+            curr.next.random = curr.random == null ? null : curr.random.next;
+
+            curr = curr.next.next;
+
+        }
+
+
+        curr = head.next;
+        Node copyHead = curr;
+
+        while (curr != null && curr.next != null){
+            curr.next = curr.next.next;
+            curr = curr.next;
+        }
+
+
+        return copyHead;
+
+
+
+    }
+
+
 
 }
 
 
+class Node {
+    int val;
+    Node next;
+    Node random;
 
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
 
 
 
