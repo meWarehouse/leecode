@@ -281,6 +281,199 @@ public String replaceSpace(String s) {
 }
 ```
 
+###  53 - I. 在排序数组中查找数字 I
+
+```java
+//https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
+//二分
+
+public int search(int[] nums, int target) {
+
+    if(nums == null || nums.length == 0) return -1;
+    int len = nums.length;
+    if(nums[0] > target || nums[len-1] < target) return -1;
+
+
+    int L = 0,R = len -1;
+    int count = 0;
+    while (L <= R){
+
+        int mid = L + ((R-L) >> 1);
+
+        if(nums[mid] > target){
+            R = mid - 1;
+        }else if(nums[mid] < target){
+            L = mid + 1;
+        }else {
+            int i = mid-1;
+            while (mid <= R && nums[mid] == target){
+                count+=1;
+                mid++;
+            }
+            while (i >= L && nums[i] == target ){
+                count+=1;
+                i--;
+            }
+            break;
+        }
+
+
+    }
+
+
+    return count;
+
+}
+```
+
+###  53 - II. 0～n-1中缺失的数字
+
+```java
+//https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/
+public int missingNumber(int[] nums) {
+
+    int L = 0,R = nums.length-1;
+
+    while (L <= R){
+        int mid = L + ((R - L) >> 1);
+        if(nums[mid] == mid){
+            L = mid + 1;
+        }else {
+            R = mid -1;
+        }
+    }
+
+    return L;
+
+
+}
+```
+
+### 26. 树的子结构
+
+```java
+//https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
+//https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/solution/yi-pian-wen-zhang-dai-ni-chi-tou-dui-che-uhgs/
+public boolean isSubStructure(TreeNode A, TreeNode B) {
+
+
+    if(A == null || B == null) return false;
+
+    return isSub(A, B) || isSubStructure(A.left,B) || isSubStructure(A.right, B);
+
+
+}
+
+public boolean isSub(TreeNode A,TreeNode B){
+
+    if(B == null) return true;
+
+    if(A == null || A.val != B.val) return false;
+
+
+    return isSub(A.left,B.left) && isSub(A.right,B.right);
+
+}
+
+```
+
+### 27. 二叉树的镜像
+```java
+//https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
+    public TreeNode mirrorTree(TreeNode root) {
+
+        preOrder(root);
+
+        return root;
+
+    }
+
+
+    public void preOrder(TreeNode root){
+
+        if(root == null) return;
+
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+
+        if(root.left != null) preOrder(root.left);
+
+        if(root.right != null) preOrder(root.right);
+
+
+
+    }
+
+```
+
+###  28. 对称的二叉树
+
+```java
+//https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/
+public boolean isSymmetric(TreeNode root) {
+
+    if(root == null) return true;
+
+    return isSym(root.left,root.right);
+
+}
+
+public boolean isSym(TreeNode L,TreeNode R){
+
+    if(L == null && R == null) return true;
+
+    if(L == null || R == null || L.val != R.val) return false;
+
+    return isSym(L.left, R.right) && isSym(L.right, R.left);
+
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

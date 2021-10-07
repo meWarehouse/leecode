@@ -36,7 +36,7 @@ public class Main {
 //        int read = inputStream.read();
 //        System.out.println(read);
 
-        File file = new File("D:\\workspace\\workspace2021\\python\\py-test\\论文\\data\\animals2\\test");
+        File file = new File("C:\\Users\\zero\\Desktop\\qq\\tiger\\");
         String dirPath = file.getAbsolutePath();
         File[] files = file.listFiles();
 
@@ -44,15 +44,15 @@ public class Main {
         for (File f : files) {
 
 
-            BufferedImage imageMsg = ImageIO.read(f);
+//            BufferedImage imageMsg = ImageIO.read(f);
 
-            int pixelSize = imageMsg.getColorModel().getPixelSize();
+//            int pixelSize = imageMsg.getColorModel().getPixelSize();
             String fileName = f.getName();
-
+//
 //            if(pixelSize < 24){
 //                System.out.println(fileName);
+//                continue;
 //            }
-
 
 
 
@@ -60,10 +60,15 @@ public class Main {
             String substring = fileName.substring(fileName.indexOf("."));
 
 //            Math.round(500)
-//            String newName = (int)(Math.random() * 500000) + substring;
+//            String newName = (int)(Math.random() * 500000000) + substring;
             String newName = (index++) + substring;
+//            String newName = (index++) + ".jpg";
 
-            File fds = new File("D:\\workspace\\workspace2021\\python\\py-test\\论文\\data\\animals2\\sheep" + "/" + newName);
+//            if(index % 2 != 0){
+//                continue;
+//            }
+
+            File fds = new File("C:\\Users\\zero\\Desktop\\qq\\a" + "/" + newName);
 
             f.renameTo(fds);
 
