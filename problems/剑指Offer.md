@@ -204,7 +204,7 @@ public int minArray(int[] numbers) {
 
 ```
 
-##  12. 矩阵中的路径
+## 12. 矩阵中的路径
 
 ```java
 
@@ -255,7 +255,7 @@ public int minArray(int[] numbers) {
 
 ```
 
-### 05. 替换空格
+## 05. 替换空格
 ```java
 //https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/
 public String replaceSpace(String s) {
@@ -281,7 +281,235 @@ public String replaceSpace(String s) {
 }
 ```
 
-###  53 - I. 在排序数组中查找数字 I
+## 46. 把数字翻译成字符串
+
+```java
+//https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/
+public int translateNum(int num) {
+
+    String res = String.valueOf(num);
+
+//        int a = 1, b =1;
+//
+//        for (int i = 2; i <= res.length(); i++) {
+//
+//            String tmp = res.substring(i-2,i);
+//            int c = tmp.compareTo("10")>=0 && tmp.compareTo("25")<=0 ? a + b : b;
+//
+//            a = b;
+//            b = c;
+//
+//        }
+//        return b;
+
+    int len = res.length();
+
+    int[] dp = new int[len+1];
+    dp[0] = 1;
+
+    for (int i = 1; i <= len ; i++) {
+        dp[i] = dp[i-1]; //第一个
+        if(i > 1){
+            int t = (res.charAt(i-2) - '0') * 10 + res.charAt(i-1) - '0';
+            if(t >= 10 && t <= 25){
+                dp[i]+=dp[i-2];
+            }
+        }
+    }
+
+    return dp[len];
+
+}
+
+```
+
+## 48. 最长不含重复字符的子字符串
+```java
+//https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/
+public int lengthOfLongestSubstring(String s) {
+
+    if(s == null || s.length() == 0) return 0;
+
+    int len = s.length();
+    if(len == 1) return 1;
+    int L = 0,R = -1;
+
+    HashSet<Character> set = new HashSet<>();
+    int max = 0;
+
+    while (++R  < len){
+        char c = s.charAt(R);
+        while (set.contains(c)){
+            max = Math.max(max,set.size());
+            set.remove(s.charAt(L));
+            L++;
+        }
+
+        set.add(c);
+
+    }
+
+    return max < set.size() ? set.size() : max;
+}
+
+
+```
+
+## 18. 删除链表的节点
+```java
+//https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/
+public ListNode deleteNode(ListNode head, int val) {
+
+    if(head.val == val){
+        return head.next;
+    }
+
+    ListNode curr = head;
+
+    while (curr != null){
+        if(curr.next != null && curr.next.val == val){
+            curr.next = curr.next.next;
+            break;
+        }
+        curr = curr.next;
+
+    }
+
+
+    return head;
+
+
+}
+
+```
+
+## 22. 链表中倒数第k个节点
+```java
+//https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/
+    public ListNode getKthFromEnd(ListNode head, int k) {
+
+        ListNode S = head, F = head;
+
+//        while (F != null && k > 0){
+//            F = F.next;
+//            k--;
+//        }
+//
+//        while (F != null){
+//            F = F.next;
+//            S = S.next;
+//        }
+
+//        return S;
+        
+        while (F != null){
+
+            if(k > 0){
+                k--;
+            }else {
+                S = S.next;
+            }
+            F = F.next;
+
+        }
+
+        return S;
+        
+    }
+
+```
+
+##  25. 合并两个排序的链表
+
+````java
+//https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
+ public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+//
+//        if(l1 == null || l2 == null){
+//            return l1 != null ? l1 : l2;
+//        }
+//
+//        if(l1.val < l2.val){
+//            l1.next = mergeTwoLists(l1.next,l2);
+//            return l1;
+//        }else {
+//            l2.next = mergeTwoLists(l1,l2.next);
+//            return l2;
+//        }
+//
+
+        ListNode head = new ListNode(-1);
+
+        ListNode one = l1,two = l2,curr = head;
+
+        while (one != null && two != null){
+            if(one.val < two.val){
+                curr.next = one;
+                one = one.next;
+            }else {
+                curr.next = two;
+                two = two.next;
+            }
+            curr = curr.next;
+        }
+        
+        curr.next = one != null ? one : two;
+
+        return head.next;
+
+
+    }
+````
+
+##  52. 两个链表的第一个公共节点
+
+https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/
+
+```java
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+
+//        HashSet<ListNode> set = new HashSet<>();
+//
+//        ListNode curr = headA;
+//
+//        while (curr != null){
+//            set.add(curr);
+//            curr = curr.next;
+//        }
+//
+//        curr = headB;
+//
+//        while (curr != null){
+//            if(set.contains(curr)){
+//                return curr;
+//            }
+//            curr = curr.next;
+//        }
+//
+//        return null;
+
+
+        if(headA == null || headB == null) return null;
+
+        ListNode pA = headA,pB = headB;
+
+        while (pA != pB){
+
+           pA = pA == null ? headB : pA.next;
+           pB = pB == null ? headA : pB.next;
+
+
+        }
+
+        return pA;
+
+    }
+
+```
+
+
+
+##  53 - I. 在排序数组中查找数字 I
 
 ```java
 //https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
@@ -326,7 +554,7 @@ public int search(int[] nums, int target) {
 }
 ```
 
-###  53 - II. 0～n-1中缺失的数字
+##  53 - II. 0～n-1中缺失的数字
 
 ```java
 //https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/
@@ -349,7 +577,7 @@ public int missingNumber(int[] nums) {
 }
 ```
 
-### 26. 树的子结构
+## 26. 树的子结构
 
 ```java
 //https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
@@ -377,7 +605,7 @@ public boolean isSub(TreeNode A,TreeNode B){
 
 ```
 
-### 27. 二叉树的镜像
+## 27. 二叉树的镜像
 ```java
 //https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
     public TreeNode mirrorTree(TreeNode root) {
@@ -407,7 +635,7 @@ public boolean isSub(TreeNode A,TreeNode B){
 
 ```
 
-###  28. 对称的二叉树
+##  28. 对称的二叉树
 
 ```java
 //https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/
@@ -432,24 +660,740 @@ public boolean isSym(TreeNode L,TreeNode R){
 
 ```
 
+##  42. 连续子数组的最大和
+```java
+//https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
+    public int maxSubArray(int[] nums) {
+
+        if (nums == null || nums.length == 0) return 0;
+
+        int len = nums.length;
+//        int[] dp = new int[len];
+//        dp[0] = nums[0];
+//        int max = dp[0];
+//        for (int i = 1; i < len; i++) {
+//            int tmp = dp[i - 1] + nums[i];
+//            dp[i] = Math.max(tmp, nums[i]);
+//            max = Math.max(dp[i], max);
+//        }
+//
+//
+//        return max;
+
+
+        int max = nums[0];
+
+        for (int i = 1; i < len; i++) {
+            nums[i] = nums[i-1] > 0 ? nums[i-1] + nums[i] : nums[i];
+            max = Math.max(nums[i],max);
+        }
+
+        return max;
+
+    }
 
 
 
+```
+
+## 13. 机器人的运动范围
+
+https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
+
+```java
+
+// dfs
+boolean[][] visited;
+int m, n, k;
+
+public int movingCount(int m, int n, int k) {
+
+    this.m = m;
+    this.n = n;
+    this.k = k;
+    visited = new boolean[m][n];
+
+    return dfs(0, 0);
+
+}
+
+public int dfs(int x, int y) {
+
+    if (!isValid(x, y) || (get(x) + get(y)) > k || visited[x][y]) return 0;
+
+    visited[x][y] = true;
+
+    return 1 + dfs(x + 1, y) + dfs(x, y + 1);
+
+}
+
+public int get(int x) {
+    int res = 0;
+    while (x != 0) {
+        res = res + x % 10;
+        x = x / 10;
+    }
+    return res;
+}
+
+public boolean isValid(int x, int y) {
+    return x >= 0 && x < m && y >= 0 && y < n;
+}
+
+
+//bfs
+public int movingCount(int m, int n, int k) {
+
+    boolean[][] visited = new boolean[m][n];
+    int res = 0;
+
+    Queue<int[]> queue = new LinkedList<>();
+    //x y
+    queue.add(new int[]{0,0});
+
+    while (!queue.isEmpty()){
+
+        int[] arr = queue.poll();
+        int x = arr[0],y = arr[1];
+
+        if(x>=m || y >= n || visited[x][y] || (get(x) + get(y)) > k) continue;
+
+        visited[x][y] = true;
+        res++;
+
+        queue.add(new int[]{x+1,y});
+        queue.add(new int[]{x,y+1});
+
+    }
+
+    return res;
+
+}
+
+public int get(int a){
+    int res = 0;
+    while (a != 0){
+        res = res + a % 10;
+        a = a / 10;
+    }
+    return res;
+}
+
+
+```
 
 
 
+## 07. 重建二叉树
+
+https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/
+
+```java
+
+Map<Integer,Integer> map = new HashMap<>();
+public TreeNode buildTree(int[] preorder, int[] inorder) {
+
+    for (int i = 0; i < inorder.length; i++) {
+        map.put(inorder[i],i);
+    }
+
+    return build(preorder,0,preorder.length-1,inorder,0,inorder.length-1);
+
+}
+
+public TreeNode build(int[] preorder,int pL,int pR,
+                      int[] inorder,int iL,int iR){
+
+    if(pL > pR || iL > iR) return null;
+
+    int headVal = preorder[pL];
+    TreeNode head = new TreeNode(headVal);
+
+    int pivot = map.get(headVal);
+
+    head.left = build(preorder,pL+1,pivot-iL+pL,inorder,iL,pivot-1);
+    head.right = build(preorder,pivot-iL+pL+1,pR,inorder,pivot+1,iR);
+
+    return head;
+
+}
+
+```
+
+## 14- I. 剪绳子
+
+https://leetcode-cn.com/problems/jian-sheng-zi-lcof/
+
+```java
+public int cuttingRope(int n) {
+
+    /*
+        我们想要求长度为n的绳子剪掉后的最大乘积，可以从前面比n小的绳子转移而来
+        用一个dp数组记录从0到n长度的绳子剪掉后的最大乘积，也就是dp[i]表示长度为i的绳子剪成m段后的最大乘积，初始化dp[2] = 1
+        我们先把绳子剪掉第一段（长度为j），如果只剪掉长度为1，对最后的乘积无任何增益，所以从长度为2开始剪
+        剪了第一段后，剩下(i - j)长度可以剪也可以不剪。如果不剪的话长度乘积即为j * (i - j)；如果剪的话长度乘积即为j * dp[i - j]。取两者最大值max(j * (i - j), j * dp[i - j])
+        第一段长度j可以取的区间为[2,i)，对所有j不同的情况取最大值，因此最终dp[i]的转移方程为
+        dp[i] = max(dp[i], max(j * (i - j), j * dp[i - j]))
+        最后返回dp[n]即可
+
+     */
+//        int[] dp = new int[n + 1];
+//        dp[2] = 1;
+//        for (int i = 3; i < n + 1; i++) {
+//            for (int j = 2; j < i; j++) {
+//                dp[i] = Math.max(dp[i], Math.max(j * (i - j), j * dp[i - j]));
+//            }
+//        }
+//        return dp[n];
+
+    //https://leetcode-cn.com/problems/jian-sheng-zi-lcof/solution/mian-shi-ti-14-i-jian-sheng-zi-tan-xin-si-xiang-by/
+    if (n < 4) return n - 1;
+    int res = 1;
+    while (n > 4) {
+        res *= 3;
+        n -= 3;
+    }
+    return res * n;
+
+
+}
+```
+
+##  14-II. 剪绳子 II
+
+https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/
+
+```java
+    public int cuttingRope(int n) {
+
+        int MOD = 1000000007;
+
+//        if(n < 4) return n-1;
+//
+//        long res = 1;
+//
+//        while (n > 4){
+//
+//            res = res * 3 % MOD;
+//            n = n - 3;
+//
+//        }
+//
+//        return (int) (res*n%MOD);
 
 
 
+        if(n < 4) return n-1;
+
+        BigInteger[] dp = new BigInteger[n +1];
+        Arrays.fill(dp,BigInteger.valueOf(1));
+        dp[2] = BigInteger.valueOf(2);
+
+        for (int i = 3; i < n + 1; i++) {
+            for (int j = 2; j < i ; j++) {
+                dp[i] = dp[i].max(BigInteger.valueOf(j * (i-j)).max(BigInteger.valueOf(j).multiply(dp[i-j])));
+            }
+        }
+
+        return dp[n].mod(BigInteger.valueOf(MOD)).intValue();
+
+    }
+```
+
+## 21. 调整数组顺序使奇数位于偶数前面
+
+https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/
+
+```java
+    public int[] exchange(int[] nums) {
+
+        if (nums == null || nums.length == 0) return nums;
+
+//        Deque<Integer> queue = new LinkedList<>();
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] % 2 == 0) {
+//                queue.addLast(nums[i]);
+//            } else {
+//                queue.addFirst(nums[i]);
+//            }
+//        }
+//
+//        int index = 0;
+//
+//        while (!queue.isEmpty()) {
+//            nums[index++] = queue.pollFirst();
+//        }
+
+        int len = nums.length;
+        int L = 0,R = -1;
+
+        while (++R < len){
+
+            if(nums[R] % 2 == 1) {
+                swap(nums, L, R);
+                L++;
+            }
+        }
+
+        return nums;
+
+    }
+
+
+    public void swap(int[] arr,int L,int R){
+        if(L != R){
+            arr[L] = arr[L] ^ arr[R];
+            arr[R] = arr[L] ^ arr[R];
+            arr[L] = arr[L] ^ arr[R];
+        }
+    }
+
+```
+
+##  57. 和为s的两个数字
+
+https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/
+
+```java
+    public int[] twoSum(int[] nums, int target) {
+
+//        HashSet<Integer> set = new HashSet<>();
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            int tmp = target - nums[i];
+//            if(set.contains(tmp)){
+//                return new int[]{tmp,nums[i]};
+//            }
+//            set.add(nums[i]);
+//        }
+
+
+        int L = 0,R = nums.length -1;
+
+        while (L < R){
+
+            int tmp = nums[L] + nums[R];
+
+            if(tmp > target){
+                R--;
+            }else if(tmp < target) {
+                L++;
+            }else {
+                return new int[]{nums[L],nums[R]};
+            }
+
+        }
+
+        return new int[0];
+
+
+    }
+```
+
+## 58 - I. 翻转单词顺序
+
+https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/
+
+```java
+    public String reverseWords(String s) {
+
+        s = s.trim();
+
+        int i = s.length() - 1,j = i;
+        StringBuilder builder = new StringBuilder();
+
+        while (i >= 0){
+
+            while (i >= 0 && s.charAt(i) != ' ') i--;
+            builder.append(s.substring(i+1,j+1)).append(" ");
+
+            while (i>=0 && s.charAt(i) == ' ') i--;
+            j=i;
+
+        }
+
+        return builder.toString().trim();
+
+
+    }
+```
+
+## 34. 二叉树中和为某一值的路径
+
+https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
+
+```java
+    List<List<Integer>> list = new ArrayList<>();
+    Deque<Integer> path = new LinkedList<>();
+
+    public List<List<Integer>> pathSum(TreeNode root, int target) {
+
+        dfs(root,target);
+        return list;
+    }
+
+
+    public void dfs(TreeNode root,int target){
+
+        if(root == null) return;
+
+        path.addLast(root.val);
+        target-=root.val;
+        if (root.left == null && root.right == null && target == 0){
+            list.add(new LinkedList<>(path));
+        }
+        dfs(root.left,target);
+        dfs(root.right,target);
+        path.pollLast();
+
+    }
+    
+//=======================================================
+    
+List<List<Integer>> list = new LinkedList<>();
+    Map<TreeNode,TreeNode> map = new HashMap<>();
+
+    public List<List<Integer>> pathSum(TreeNode root, int target) {
+
+        if (root == null) return list;
+        
+        Queue<TreeNode> queueNode = new LinkedList<>();
+        Queue<Integer> queueSum = new LinkedList<>();
+        
+        queueNode.offer(root);
+        queueSum.offer(0);
+        
+        while (!queueNode.isEmpty()){
+
+            TreeNode node = queueNode.poll();
+            
+            int res = queueSum.poll() + node.val;
+            
+            if(node.left == null && node.right == null){
+                if(res == target){
+                    getPath(node);
+                }
+            }else {
+                if(node.left != null){
+                    map.put(node.left,node);
+                    queueNode.offer(node.left);
+                    queueSum.offer(res);
+                }
+                
+                if(node.right != null){
+                    map.put(node.right,node);
+                    queueNode.offer(node.right);
+                    queueSum.offer(res);
+                }
+            }
+        }
+
+        return list;
+
+    }
+
+    private void getPath(TreeNode node) {
+        List<Integer> tmp = new LinkedList<>();
+        while (node != null){
+            tmp.add(node.val);
+            node = map.get(node);
+        }
+        Collections.reverse(tmp);
+        list.add(tmp);
+    }
+
+```
+
+##  36. 二叉搜索树与双向链表
+
+https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/
+
+```java
+    Node pre,head;
+    public Node treeToDoublyList(Node root) {
+
+        if(root == null) return null;
+        dfs(root);
+
+        head.left = pre;
+        pre.right = head;
+
+        return head;
+
+    }
+
+    public void dfs(Node curr){
+
+        if(curr == null) return;
+
+        dfs(curr.left);
+
+        //code
+        if(pre != null) pre.right = curr;
+        else head = curr;
+
+        curr.left = pre;
+        pre = curr;
+
+        dfs(curr.right);
+
+    }
+
+//=====================================
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val,Node _left,Node _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+}
+
+
+```
+
+##  54. 二叉搜索树的第k大节点
+
+https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/
+
+```java
+    int res,k;
+    public int kthLargest(TreeNode root, int k) {
+        this.k = k;
+        dfs(root);
+        return res;
+
+    }
+
+    public void dfs(TreeNode curr){
+
+      if(curr == null) return;
+
+      dfs(curr.right);
+
+      if(k == 0) return;
+      if(--k == 0) res = curr.val;
+
+
+      dfs(curr.left);
+
+
+    }
+```
+
+## 45. 把数组排成最小的数
+
+https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/
+
+```java
+    public String minNumber(int[] nums) {
+
+        int len = nums.length;
+        String[] arr = new String[len];
+
+        for (int i = 0; i < len; i++) {
+            arr[i] = String.valueOf(nums[i]);
+        }
+
+        sort(arr, 0, len - 1);
+
+        StringBuilder res = new StringBuilder();
+
+        for (String s : arr) {
+            res.append(s);
+        }
+        return res.toString();
+    }
+
+
+    public void sort(String[] arr, int left, int right) {
+
+        if (left < right) {
+
+            int random = left + (int) (Math.random() * (right - left + 1));
+
+            swap(arr, random, right);
+
+
+            int[] p = process(arr, left, right);
+
+            sort(arr, left, p[0] - 1);
+            sort(arr, p[1] + 1, right);
+
+
+        }
+
+    }
+
+    private int[] process(String[] arr, int left, int right) {
+
+        int L = left - 1, R = right;
+
+        while (left < R) {
+
+            if ((arr[left] + arr[right]).compareTo(arr[right] + arr[left]) < 0) {
+                swap(arr, ++L, left++);
+            } else if ((arr[left] + arr[right]).compareTo(arr[right] + arr[left]) > 0) {
+                swap(arr, left, --R);
+            } else {
+                left++;
+            }
+
+        }
+
+        swap(arr, R, right);
+
+        return new int[]{L + 1, R};
+    }
+
+    public void swap(String[] arr, int a, int b) {
+        if (a != b) {
+            String tmp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = tmp;
+        }
+    }
+
+
+```
+
+##  61. 扑克牌中的顺子
+
+https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/
+
+```java
+    public boolean isStraight(int[] nums) {
+
+
+        HashSet<Integer> set = new HashSet<>();
+
+        int max = 0,min = 14;
+
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] == 0) continue;
+
+            min = Math.min(min,nums[i]);
+            max = Math.max(max,nums[i]);
+
+            if(set.contains(nums[i])) return false;
+
+            set.add(nums[i]);
+
+        }
+
+        return max - min < 5;
+
+
+    }
 
 
 
+```
+
+##  40. 最小的k个数
+
+https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
+
+```java
+    public int[] getLeastNumbers(int[] arr, int k) {
+
+        int[] res = new int[k];
+
+        if(k == 0) return res;
+
+        //大根堆
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2-o1;
+            }
+        });
+
+        for (int i = 0; i < k; i++) {
+            queue.add(arr[i]);
+        }
 
 
+        for (int i = k; i < arr.length; i++) {
+
+            if(arr[i] < queue.peek()){
+                queue.poll();
+                queue.add(arr[i]);
+            }
+        }
+
+        for (int i = 0; i < k; i++) {
+            res[i] = queue.poll();
+        }
 
 
+        return res;
+
+    }
+```
+
+##  41. 数据流中的中位数
+
+https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
+
+```java
+
+class MedianFinder {
+
+    // 小顶堆，保存较大的一半
+    PriorityQueue<Integer> minHeap;
+    // 大顶堆，保存较小的一半
+    PriorityQueue<Integer> maxHeap;
+
+    /**
+     * initialize your data structure here.
+     */
+    public MedianFinder() {
+        minHeap = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                //小顶堆
+                return o1 - o2;
+            }
+        });
+        maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                //大顶堆
+                return o2 - o1;
+            }
+        });
+    }
+
+    public void addNum(int num) {
+
+        if(minHeap.size() != maxHeap.size()){
+            minHeap.add(num);
+            maxHeap.add(minHeap.poll());
+        }else{
+            maxHeap.add(num);
+            minHeap.add(maxHeap.poll());
+        }
 
 
+    }
+
+    public double findMedian() {
+        return minHeap.size() != maxHeap.size() ? minHeap.peek() : (minHeap.peek()+ maxHeap.peek())/2.0;
+    }
+}
+
+```
 
 
 

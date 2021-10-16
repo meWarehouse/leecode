@@ -1,5 +1,7 @@
 package com.at.test;
 
+import com.at.Main2;
+
 import java.util.Arrays;
 
 public class HeapSort {
@@ -7,9 +9,13 @@ public class HeapSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {1, 9, 8, 3, 0, -1, 2, 4, 7};
+        int[] arr = {12, 32, 49, 68, 48, 28, 37, 18, 93, 61};
 
-        System.out.println(Arrays.toString(new HeapSort().heapSort(arr)));
+        new HeapSort().heap(arr);
+
+        for (int i : arr) {
+            System.out.println(i);
+        }
 
     }
 
@@ -95,6 +101,8 @@ public class HeapSort {
             if (largest == index) break;
 
             swap(arr, index, largest);
+
+            index = largest;
 
             left = index * 2 + 1;
 
