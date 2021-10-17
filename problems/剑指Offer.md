@@ -1395,7 +1395,57 @@ class MedianFinder {
 
 ```
 
+## 20. 表示数值的字符串
 
+https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/
+
+```java
+  public boolean isNumber(String s) {
+        /*
+            【.】 之前不能有 【.】【e】
+            【e】 之前不能有 【e】 e的前后必须有数字
+            【+-】 第一个位置或e后的第一个位置
+            
+         */
+
+
+        if (s == null || s.length() == 0) return false;
+
+        boolean num = false, dot = false, e = false;
+
+        char[] charArray = s.trim().toCharArray();
+
+        for (int i = 0; i < charArray.length; i++) {
+            
+            if(charArray[i] >= '0' && charArray[i] <= '9'){
+                num = true;
+            }else if(charArray[i] == '.'){
+                // . 之前不能有 . e
+                if(dot || e) return false;
+                
+                dot = true;
+                
+            }else if(charArray[i] == 'e' || charArray[i] == 'E'){
+                // e 之前不能有e 并且前面必须有数字
+                if (e || !num) return false;
+                
+                e = true;
+                //123e   123e+
+                num = false;
+                
+            }else if(charArray[i] == '+' || charArray[i] == '-'){
+                // +- 只能在第一个位置或者 e 的后面
+                if(i != 0 && charArray[i-1] != 'e'  && charArray[i-1] != 'E' ) return false;
+            }else {
+                return false;
+            }
+            
+        }
+        
+        return num;
+
+    }
+```
 
 
 
