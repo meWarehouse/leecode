@@ -1447,7 +1447,212 @@ https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/
     }
 ```
 
+## 55 - I. 二叉树的深度
 
+https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/
+
+```java
+
+    public int maxDepth(TreeNode root) {
+
+//        return dfs(root);
+        return bfs(root);
+    }
+
+
+    public int dfs(TreeNode head){
+
+        if(head == null) return 0;
+
+        int leftDeep = 1 + dfs(head.left);
+        int rightDeep = 1 + dfs(head.right);
+
+        return 1 + Math.max(leftDeep,rightDeep);
+
+    }
+
+    public int bfs(TreeNode head){
+
+        if(head == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(head);
+        int deep = 0;
+
+        while (!queue.isEmpty()){
+
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if(node.left != null) queue.add(node.left);
+                if(node.right != null) queue.add(node.right);
+            }
+
+            deep+=1;
+
+        }
+        return deep;
+    }
+
+```
+
+## 55 - II. 平衡二叉树
+
+https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/
+
+```java
+
+    class BalancedTree{
+        boolean isBalanced;
+        int height;
+        public BalancedTree(boolean isBalanced,int height){
+            this.isBalanced = isBalanced;
+            this.height = height;
+        }
+    }
+
+    public boolean isBalanced(TreeNode root) {
+
+        return process(root).isBalanced;
+
+    }
+
+    public BalancedTree process(TreeNode head){
+
+
+        if(head == null) return new BalancedTree(true,0);
+
+        BalancedTree leftTree = process(head.left);
+        BalancedTree rightTree = process(head.right);
+
+        int height = Math.max(leftTree.height, rightTree.height) + 1;
+
+        boolean isBalance = true;
+        if(!leftTree.isBalanced || !rightTree.isBalanced || Math.abs(leftTree.height- rightTree.height) > 1){
+            isBalance = false;
+        }
+
+        return new BalancedTree(isBalance,height);
+
+    }
+//====================================================================
+
+
+    public boolean isBalanced(TreeNode root) {
+        
+        return process(root) != -1;
+        
+    }
+
+    
+    public int process(TreeNode head){
+        
+        if(head == null) return 0;
+        
+        int left = process(head.left);
+        if(left == -1) return -1;
+
+        int right = process(head.right);
+        if(right == -1) return -1;
+        
+        return Math.abs(left-right) < 2 ? Math.max(left,right)+1 : -1;
+
+    }
+    
+```
+
+##  68 - I. 二叉搜索树的最近公共祖先
+
+https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/
+
+```java
+
+    HashMap<TreeNode,TreeNode> map = new HashMap<>();
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+        map.put(root,root);
+        preOrder(root);
+
+        HashSet<TreeNode> set = new HashSet<>();
+        TreeNode curr = p;
+        while (curr != map.get(curr)){
+            set.add(curr);
+            curr = map.get(curr);
+        }
+        set.add(curr);
+
+        curr  = q;
+        while (!set.contains(curr)){
+            curr = map.get(curr);
+        }
+
+        return curr;
+
+    }
+
+    public void preOrder(TreeNode head){
+
+        if(head == null) return;
+
+        map.put(head.left,head);
+        map.put(head.right, head);
+
+        preOrder(head.left);
+        preOrder(head.right);
+
+
+    }
+//========================================================================
+    
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
+
+        if(root == null || p == root || q == root) return root;
+
+        TreeNode left = lowestCommonAncestor(root.left,p,q);
+        TreeNode right = lowestCommonAncestor(root.right,p,q);
+
+        if(left != null && right != null){
+            return root;
+        }
+
+        return left != null ? left : right;
+
+    }
+
+```
+
+## 16. 数值的整数次方
+
+https://leetcode-cn.com/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/
+
+```java
+    public double myPow(double x, int n) {
+
+        if(x == 0) return 0;
+        if(n == 0) return 1;
+
+        long b = n;
+        double res = 1.0;
+
+        if(b < 0){
+            x  = 1/x;
+            b = -b;
+        }
+
+        while (b > 0){
+            if((b&1) == 1) {
+                res *= x;
+            }
+            x *=x;
+            b >>= 1;
+        }
+
+        return res;
+
+
+    }
+
+```
 
 
 

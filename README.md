@@ -2721,6 +2721,53 @@ class ReturnData{
 
 
 
+### [110. 平衡二叉树](https://leetcode-cn.com/problems/balanced-binary-tree/)
+
+```java
+class ReturnData{
+        public boolean isBalance;
+        public int height;
+        public ReturnData(boolean isB,int height){
+            this.isBalance = isB;
+            this.height = height;
+        }
+    }
+    
+    
+    public ReturnData process(TreeNode root){
+        
+        if(root == null) return new ReturnData(true,0);
+
+        ReturnData leftData = process(root.left);
+        ReturnData rigthData = process(root.right);
+        
+        int height = Math.max(leftData.height, rigthData.height) + 1;
+        
+        boolean isBalance = true;
+        
+       if(!leftData.isBalance || !rigthData.isBalance || Math.abs(leftData.height-rigthData.height)>1 ){
+           isBalance = false;
+       }
+        
+        
+        return new ReturnData(isBalance,height);
+
+    }
+    
+    public boolean isBalanced(TreeNode root) {
+
+        return process(root).isBalance;
+        
+        
+    }
+```
+
+
+
+
+
+
+
 
 
 ### [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal)
