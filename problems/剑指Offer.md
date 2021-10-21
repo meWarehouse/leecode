@@ -1654,12 +1654,164 @@ https://leetcode-cn.com/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/
 
 ```
 
+## 33. 二叉搜索树的后序遍历序列
+
+https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/
+
+```java
+ public boolean verifyPostorder(int[] postorder) {
+
+        //根节点 > 所有左节点
+        //根节点 < 所有右节点
+
+//        return process(postorder,0,postorder.length-1);
+
+
+        Stack<Integer> stack = new Stack<>();
+        int root = Integer.MAX_VALUE;
+
+        for (int i = postorder.length-1; i >=0; i--) {
+
+            if(postorder[i] > root) return false;
+
+            while (!stack.isEmpty() && stack.peek() > postorder[i]){
+                root = stack.pop();
+            }
+
+            stack.add(postorder[i]);
+
+        }
+
+        return true;
+
+
+    }
+
+
+    public boolean process(int[] arr,int L,int R){
+
+        if(L >= R) return true;
+
+        int p = L;
+        while (arr[p] < arr[R]) p++;
+
+        int m = p;
+        while (arr[p] < arr[R]) p++;
+
+        return p == R && process(arr,L,m-1) && process(arr, m,R-1);
+
+    }
+
+```
+
+## 15. 二进制中1的个数
+
+https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/
+
+```java
+    public int hammingWeight(int n) {
+
+        int count = 0;
+
+        /*
+        String binaryString = Integer.toBinaryString(n);
+        for (int i = 0; i < binaryString.length(); i++) {
+            if (binaryString.charAt(i) == '1') count += 1;
+        }
+        */
+
+        /*
+        for (int i = 0; i < 32; i++) {
+            if ((n & (i << i)) != 0) {
+                count++;
+            }
+        }
+        */
+
+        while (n != 0){
+            n = n & n-1;
+            count++;
+        }
 
 
 
+        return count;
+    }
 
 
+```
 
+##  65. 不用加减乘除做加法
+
+https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/
+
+```java
+    public int add(int a, int b) {
+
+        while (b != 0){
+
+            int c = (a & b) << 1;
+            a = a ^ b;
+            b = c;
+
+        }
+
+        return a;
+
+    }
+```
+
+## 56 - I. 数组中数字出现的次数
+
+https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
+
+```java
+    public int[] singleNumbers(int[] nums) {
+
+        int tmp = 0;
+
+        for (int num : nums) {
+            tmp = tmp ^ num;
+        }
+
+        //此时 tmp = a ^ b
+        //且 tmp != 0
+        //说明 tmp 的二进制数中必定至少有一位为1
+
+        //去出做左边的1
+        int rightOne = tmp & (~tmp + 1);
+
+        int onlyOne = 0;
+        for (int num : nums) {
+            if ((num & rightOne) == 0) {
+                onlyOne = onlyOne ^ num;
+            }
+        }
+
+
+        return new int[]{onlyOne, tmp ^ onlyOne};
+
+    }
+
+```
+
+##  56 - II. 数组中数字出现的次数 II
+
+https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
+
+```java
+    public int singleNumber(int[] nums) {
+
+        int one = 0,two = 0;
+
+        for (int num : nums) {
+            one = one ^ num & ~two;
+            two = two ^ num & ~one;
+        }
+
+        return one;
+    }
+```
 
 
 
