@@ -21,6 +21,9 @@ public class Main2 {
     }
 
 
+    public int[] constructArr(int[] a) {
+
+    }
 
 
 

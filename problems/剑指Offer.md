@@ -3,6 +3,14 @@
 
 //D:\workspace\workspace2021\leecode\images
 
+
+
+[TOC]
+
+
+
+
+
 ## 09. 用两个栈实现队列
 
 ![](../images/966aebd484002e620d88676847273a061ab9ab6d863ab5079ab347a643461e24-09.gif)
@@ -1813,8 +1821,48 @@ https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
     }
 ```
 
+##  39. 数组中出现次数超过一半的数字
+
+https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
+
+```java
+    public int majorityElement(int[] nums) {
+
+        /*
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num,map.getOrDefault(num,0) + 1);
+        }
+
+        Map.Entry<Integer, Integer> res = null;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+
+            if(res == null || res.getValue() < entry.getValue()){
+                res = entry;
+            }
+            
+        }
+        return res.getKey();
+        */
+        
+        
+
+        int x = 0,votes = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+
+            if(votes == 0) x = nums[i];
+
+            votes = votes + (x == nums[i] ? 1 : -1);
+
+        }
+
+        return x;
+
+    }
 
 
+```
 
 
 
