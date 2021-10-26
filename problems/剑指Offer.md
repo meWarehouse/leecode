@@ -1893,6 +1893,44 @@ https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/
     }
 ```
 
+## 57 - II. 和为s的连续正数序列
+
+https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
+
+```java
+    public int[][] findContinuousSequence(int target) {
+
+
+        int i = 1,j = 1,sum = 0;
+
+        List<int[]> res = new ArrayList<>();
+
+        while (i <= target /2){
+
+            if(sum < target){
+                sum+=j;
+                j++;
+            }else if(sum > target) {
+                sum-=i;
+                i++;
+            }else {
+                int[] arr = new int[j-i];
+                for (int k = i; k < j; k++) {
+                    arr[k-i] = k;
+                }
+                res.add(arr);
+                sum-=i;
+                i++;
+            }
+
+        }
+
+        return res.toArray(new int[res.size()][]);
+
+    }
+
+
+```
 
 
 
