@@ -1966,7 +1966,95 @@ https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lco
 
 ```
 
+##  29. 顺时针打印矩阵
 
+https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
+
+```java
+
+    public int[] spiralOrder(int[][] matrix) {
+
+        if(matrix == null || matrix.length == 0) return new int[0];
+
+        int left = 0,top = 0,right = matrix[0].length-1,bottom = matrix.length-1;
+//        int[] arr = new int[(right+1) * (bottom+1)];
+        int index = 0;
+
+        List<Integer> list = new ArrayList<>();
+
+////        while (right >= left && top <= bottom){
+//        while (top <= bottom && right >= left){
+//
+//
+//            //→
+//            for (int i = left; i <= right; i++) {
+////                arr[index++] = matrix[top][i];
+//                list.add(matrix[top][i]);
+//            }
+//            top++;
+//
+//            //↓
+//            for (int i = top; i <= bottom ; i++) {
+////                arr[index++] = matrix[i][right];
+//                list.add(matrix[i][right]);
+//            }
+//            right--;
+//
+//            //←
+//            for (int i = right; i >=left ; i--) {
+////                arr[index++] = matrix[bottom][i];
+//                list.add(matrix[bottom][i]);
+//            }
+//            bottom--;
+//
+//            //↑
+//            for (int i = bottom; i >=top ; i--) {
+////                arr[index++] = matrix[i][left];
+//                list.add(matrix[i][left]);
+//            }
+//            left++;
+//
+//        }
+        while (top <= bottom && left <= right){
+
+            //上 →
+            for (int i = left; i <= right ; i++) {
+                list.add(matrix[top][i]);
+            }
+            top+=1;
+            //右 ↓
+            for (int i = top; i <= bottom ; i++) {
+                list.add(matrix[i][right]);
+            }
+            right-=1;
+
+            if(!(left <= right && top <= bottom)) break;
+
+            //下 ←
+            for (int i = right; i >= left ; i--) {
+                list.add(matrix[bottom][i]);
+            }
+            bottom-=1;
+
+            //左 ↑
+            for (int i = bottom; i >= top; i--) {
+                list.add(matrix[i][left]);
+            }
+            left+=1;
+        }
+
+
+        int[] arr = new int[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+
+        return arr;
+
+    }
+
+```
 
 
 
