@@ -2091,7 +2091,44 @@ https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/
 
 ```
 
+##  67. 把字符串转换成整数
 
+https://leetcode-cn.com/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/
+
+```java
+  public int strToInt(String str) {
+
+        //去掉前后的空格
+        str = str.trim();
+
+        //如果为空，直接返回0
+        if(str.length() == 0) return 0;
+
+        //sign 符号，1是正数，-1是负数，默认为正数
+        int index = 0,res = 0,sign = 1,len = str.length();
+
+        if(str.charAt(index) == '-' || str.charAt(index) == '+')
+            sign = str.charAt(index++) == '+' ? 1: -1;
+
+        for(;index < len;index++){
+
+            int digit = str.charAt(index) - '0';
+
+            if(digit < 0 | digit > 9) break;
+
+            if(res > Integer.MAX_VALUE/10 || (res == Integer.MAX_VALUE/10 && digit > Integer.MAX_VALUE%10)){
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }else {
+                res = res * 10 + digit;
+            }
+
+        }
+
+        return sign * res;
+
+    }
+
+```
 
 
 
