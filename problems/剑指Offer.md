@@ -1932,7 +1932,39 @@ https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
 
 ```
 
+## 62. 圆圈中最后剩下的数字
 
+https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
+
+```java
+    public int lastRemaining(int n, int m) {
+
+/*        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(i);
+        }
+
+        int idx = 0;
+
+        while (n > 1){
+            idx = (idx + m - 1) % n;
+            list.remove(idx);
+            n--;
+        }
+
+        return list.get(0);*/
+
+        int idx  = 0;
+        for (int i = 2; i <= n ; i++) {
+            idx = (idx + m) % i;
+        }
+
+        return idx;
+
+    }
+
+
+```
 
 
 
