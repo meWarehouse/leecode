@@ -2056,7 +2056,40 @@ https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
 
 ```
 
+##  31. 栈的压入、弹出序列
 
+https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/
+
+```java
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+
+
+        if(popped.length != popped.length) return false;
+        if(popped.length == 0) return true;
+
+        int index = 0;
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < pushed.length; i++) {
+
+            stack.push(pushed[i]);
+
+            while (!stack.isEmpty() && stack.peek() == popped[index]){
+                stack.pop();
+                index+=1;
+            }
+
+        }
+
+
+        return index == popped.length && stack.isEmpty();
+
+
+    }
+
+
+```
 
 
 
