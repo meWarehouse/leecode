@@ -1,6 +1,9 @@
 package com.at;
 
 
+import com.at.bean.ListNode;
+import javafx.scene.input.Mnemonic;
+
 import javax.xml.stream.FactoryConfigurationError;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +18,9 @@ public class Main2 {
 
     public static void main(String[] args) {
 
+
     }
+
 
 
 

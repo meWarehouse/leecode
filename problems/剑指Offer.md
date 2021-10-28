@@ -289,6 +289,48 @@ public String replaceSpace(String s) {
 }
 ```
 
+## 58 - II. 左旋转字符串
+
+https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
+
+```java
+    public String reverseLeftWords(String s, int n) {
+
+        int len = s.length();
+        StringBuffer bufferStr = new StringBuffer(s);
+        bufferStr = reverse(bufferStr, 0, len - 1);
+        bufferStr = reverse(bufferStr, 0, len - 1-n);
+        bufferStr = reverse(bufferStr, len-n, len - 1);
+
+        return bufferStr.toString();
+
+    }
+
+
+    public StringBuffer reverse(StringBuffer str,int s,int e){
+
+        while (s < e){
+            char c = str.charAt(s);
+            str.replace(s,s+1,str.charAt(e)+"");
+            str.replace(e,e+1,c+"");
+            s++;
+            e--;
+        }
+
+        return str;
+
+      //  if (s == null || s.length() == 0 || n < 0) return null;
+//
+//        n = n %s.length();
+//        String substring = s.substring(0, n);
+//
+//        return s.substring(n) + substring;
+
+    }
+
+
+```
+
 ## 46. 把数字翻译成字符串
 
 ```java

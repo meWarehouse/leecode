@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef944291-a59e-446f-a1de-24ce056fcb96" name="Default Changelist" comment="二叉树1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/bean/ListNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/bean/RandomListNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/bean/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/at/lc/lc_236.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Main1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Main1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problems/剑指Offer.md" beforeDir="false" afterPath="$PROJECT_DIR$/problems/剑指Offer.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/at/test/method.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/at/test/method.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,27 +38,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/ShellSort.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ25.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/DfsAndBfs.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/Prim.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/Kmp.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/MergeSort.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/lc/lc_91.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/HeapSort.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN19.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/MT_2021_9_1.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ24.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN59.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://E:/devsoft/Java/jdk1.8.0_131/jre/lib/rt.jar!/java/util/List.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://E:/devsoft/Java/jdk1.8.0_131/src.zip!/java/util/LinkedList.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/AL_2021_1.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ18.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/MT_2021_10_2.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main1.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/leecode/CN92.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main2.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ18.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/Main1.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/BubbleSort.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ24.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/lc/lc_91.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/jz/JZ25.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/HeapSort.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/MergeSort.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/Kmp.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/Prim.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/at/test/DfsAndBfs.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -104,7 +88,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -114,7 +98,7 @@
       <recent name="com.at.leecode" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main2">
     <configuration name="HeapSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.at.test.HeapSort" />
       <module name="leecode" />
@@ -180,21 +164,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main2" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.TT" />
         <item itemvalue="Application.Main1" />
         <item itemvalue="Application.HeapSort" />
@@ -275,6 +261,7 @@
       <workItem from="1626961123771" duration="2429000" />
       <workItem from="1627098850850" duration="2245000" />
       <workItem from="1627220157661" duration="19995000" />
+      <workItem from="1635381621086" duration="3068000" />
     </task>
     <task id="LOCAL-00001" summary="s">
       <created>1620527501205</created>
