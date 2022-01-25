@@ -12,11 +12,105 @@
 
 
 
+### 6. Z 字形变换
+    https://leetcode-cn.com/problems/zigzag-conversion/
+    将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
+    比如输入字符串为 "PAYPALISHIRING" 行数为 3 时，排列如下：
+    
+    P   A   H   N
+    A P L S I I G
+    Y   I   R
+    之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如："PAHNAPLSIIGYIR"。
+    
+    请你实现这个将字符串进行指定行数变换的函数：
+    string convert(string s, int numRows);
+    
+    示例 1：
+    输入：s = "PAYPALISHIRING", numRows = 3
+    输出："PAHNAPLSIIGYIR"
+    
+    示例 2：
+    输入：s = "PAYPALISHIRING", numRows = 4
+    输出："PINALSIGYAHRPI"
+    解释：
+    P     I    N
+    A   L S  I G
+    Y A   H R
+    P     I
+    
+    示例 3：
+    输入：s = "A", numRows = 1
+    输出："A"
+```java
+    public String convert(String s, int numRows) {
+        
+        //https://leetcode-cn.com/problems/zigzag-conversion/solution/zzi-xing-bian-huan-by-jyd/
+
+        if (numRows < 2) return s;
+        List<StringBuilder> rows = new ArrayList<StringBuilder>();
+        for (int i = 0; i < numRows; i++) rows.add(new StringBuilder());
+        
+        int i = 0, flag = -1;
+        for (char c : s.toCharArray()) {
+            rows.get(i).append(c);
+            if (i == 0 || i == numRows - 1) flag = -flag;
+            i += flag;
+        }
+        
+        StringBuilder res = new StringBuilder();
+        for (StringBuilder row : rows) res.append(row);
+        return res.toString();
+
+
+    }
+```
 
 
 
+### 9. 回文数
+    https://leetcode-cn.com/problems/palindrome-number/
+    给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
+    
+    回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
 
 
+​     
+    示例 1：
+    输入：x = 121
+    输出：true
+    
+    示例 2：
+    输入：x = -121
+    输出：false
+    解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+    
+    示例 3：
+    输入：x = 10
+    输出：false
+    解释：从右向左读, 为 01 。因此它不是一个回文数。
+    
+    示例 4：
+    输入：x = -101
+    输出：false
+```java
+    public boolean isPalindrome(int x) {
+
+        if(x < 0) return false;
+
+        if(x < 10) return true;
+
+        String str = String.valueOf(x);
+        int len = str.length();
+
+        int s = 0,e =len -1;
+
+        while(s < e){
+            if(str.charAt(s++) != str.charAt(e--)) return false;
+        }
+
+        return true;
+    }
+```
 
 
 
@@ -31,9 +125,10 @@
     给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
     
     注意：答案中不可以包含重复的三元组。
-    
-     
-    
+
+
+​     
+​    
     示例 1：
     
     输入：nums = [-1,0,1,2,-1,-4]
@@ -90,13 +185,14 @@
 
 ### 23. 合并K个升序链表
     https://leetcode-cn.com/problems/merge-k-sorted-lists/
-
+    
     给你一个链表数组，每个链表都已经按升序排列。
     
     请你将所有链表合并到一个升序链表中，返回合并后的链表。
-    
-     
-    
+
+
+​     
+​    
     示例 1：
     输入：lists = [[1,4,5],[1,3,4],[2,6]]
     输出：[1,1,2,3,4,4,5,6]
@@ -160,17 +256,18 @@
 ### 46. 全排列
     https://leetcode-cn.com/problems/permutations/
     给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
-    
-     
-    
+
+
+​     
+​    
     示例 1：
     输入：nums = [1,2,3]
     输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-
+    
     示例 2：
     输入：nums = [0,1]
     输出：[[0,1],[1,0]]
-
+    
     示例 3：
     输入：nums = [1]
     输出：[[1]]
@@ -289,21 +386,22 @@
     如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
     
     必须 原地 修改，只允许使用额外常数空间。
-    
-     
-    
+
+
+​     
+​    
     示例 1：
     输入：nums = [1,2,3]
     输出：[1,3,2]
-
+    
     示例 2：
     输入：nums = [3,2,1]
     输出：[1,2,3]
-
+    
     示例 3：
     输入：nums = [1,1,5]
     输出：[1,5,1]
-
+    
     示例 4：
     输入：nums = [1]
     输出：[1]

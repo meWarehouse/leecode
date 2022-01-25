@@ -37,12 +37,11 @@ public class Main {
 
         System.out.println(queue.poll());
 
-        new Main().nextPermutation(new int[]{1, 5, 1});
-
-        Arrays.stream(args).filter(t -> t.equals(1)).collect(Collectors.toMap(t -> t, t -> t));
+        new Main().convert("PAYPALISHIRING", 4);
 
 
     }
+
 
 
 
