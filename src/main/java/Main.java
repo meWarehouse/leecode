@@ -1,6 +1,7 @@
 import com.at.bean.ListNode;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -8,76 +9,71 @@ import java.util.*;
  */
 public class Main {
 
+
+    List<List<Integer>> res = new ArrayList();
+    ArrayList<Integer> list = new ArrayList();
+
+    public List<List<Integer>> permute(int[] nums) {
+
+        if (nums == null || nums.length == 0) return res;
+
+        for (int n : nums) list.add(n);
+
+        dfs(0);
+
+        return res;
+
+    }
+
     public static void main(String[] args) {
 
-        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1 - o2;
-            }
-        });
+        ArrayList<Integer> list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
 
-        queue.add(3);
-        queue.add(0);
-        queue.add(50);
-        queue.add(-1);
-        queue.add(9);
 
-        System.out.println(queue.poll());
+        reverse(list,0+1,3);
 
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+    }
+    public static void reverse(List<Integer> list,int s,int e){
+
+        while(s < e){
+            int t = list.get(s);
+            list.remove(s);
+
+            list.add(s,);
+            list.remove(e);
+            list.add(e,t);
+            s++;
+            e--;
+
+        }
 
     }
 
 
-    public void nextPermutation(int[] nums) {
-        /**
-         * 下一个排列
-         *    1.从头到尾，找到第一个相邻的顺序对， i i+1 a[i]<a[i+1]
-         *      - 如果不存在这样的顺序对。则这个串是递减的，这个串是最大的串，没有下一个排列，reverse 这个串
-         *    2.从头到尾，找到下一个下标j 满足 i<j 且 a[i]<a[j], j 至少存在一个（i+1）
-         *    3.交换 a[i],a[j]
-         *    4.将 a[i+1] 到末尾的这段 reverse 一下
-         *
-         */
+    public void dfs(int index) {
 
-        if(nums == null || nums.length == 0) return;
-
-        int n = nums.length;
-
-        int i = n - 2; // a[i] < a[i+1]
-        while (i >= 0 && nums[i] < nums[i+1]) i--;
-
-        if(i == -1){
-            //没有下一个排列
-            reverse(nums,0);
+        if (index == list.size() - 1) {
+            res.add(new ArrayList(list));
             return;
         }
 
-        int j = n-1;
-        while (nums[j] <= nums[i]) j--;
+        for (int i = index; i < list.size(); i++) {
 
-        swap(nums,nums[j],nums[i]);
+            Collections.swap(list, index, i);
 
-        reverse(nums,0 + i + 1);
+            dfs(index + 1);
 
-    }
-
-    public void reverse(int[] arr,int start){
-        int l = start,r = arr.length - 1;
-        while (l < r){
-            swap(arr,l++,r--);
+            Collections.swap(list, index, i);
         }
     }
-
-    public  void  swap(int[] arr,int i,int j){
-        if(i != j){
-            arr[i] = arr[i] ^ arr[j];
-            arr[j] = arr[i] ^ arr[j];
-            arr[i] = arr[i] ^ arr[j];
-        }
-    }
-
-
 
 
 }
