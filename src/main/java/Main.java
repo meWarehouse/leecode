@@ -28,6 +28,9 @@ public class Main {
         int[] a = new int[3];
         List<int[]> ints = Arrays.asList(a);
 
+        new HashMap<>().containsKey(
+
+        )
 
         queue.add(3);
         queue.add(0);
@@ -39,6 +42,26 @@ public class Main {
 
         new Main().combinationSum(new int[]{2, 3, 6, 7}, 7);
 
+
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+
+        if (nums == null || nums.length == 0) return new int[]{};
+
+        Map<Integer, Integer> map = new HashMap();
+
+        int len = nums.length;
+
+        for (int i = 0; i < len; i++) {
+            int t = target - nums[i];
+            if (map.containsKey(t)) {
+                return new int[]{map.get(t), i};
+            }
+            map.put(nums[i], i);
+        }
+
+        return new int[]{};
 
     }
 
