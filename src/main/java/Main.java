@@ -37,12 +37,42 @@ public class Main {
 
         System.out.println(queue.poll());
 
-        new Main().searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8);
+        new Main().combinationSum(new int[]{2, 3, 6, 7}, 7);
 
 
     }
 
 
+    List<List<Integer>> res = new ArrayList();
+    List<Integer> list = new ArrayList();
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+
+        if (candidates == null || candidates.length == 0) return res;
+
+        dfs(candidates, target, 0, 0);
+
+        return res;
+
+    }
+
+
+    public void dfs(int[] arr, int target, int curr, int sum) {
+
+        if (curr == arr.length || sum == target) {
+            if (sum == target) res.add(new ArrayList(list));
+            return;
+        }
+
+        dfs(arr, target, curr + 1, sum);
+
+        if (arr[curr] + sum <= target) {
+            list.add(arr[curr]);
+            dfs(arr, target, curr, sum + arr[curr]);
+            list.remove(list.size() - 1);
+        }
+
+    }
 
 
 }
