@@ -182,6 +182,59 @@
     }
 ```
 
+### 17. 电话号码的字母组合
+     https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+    给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+    给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+     
+    
+    示例 1：
+    输入：digits = "23"
+    输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+    示例 2：
+    输入：digits = ""
+    输出：[]
+
+    示例 3：
+    输入：digits = "2"
+    输出：["a","b","c"]
+```java
+    final List<String> list = Arrays.asList("abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz");
+    List<String> res = new ArrayList();
+
+    public List<String> letterCombinations(String digits) {
+
+        if (digits == null || digits.length() == 0) return res;
+
+        dfs(digits, 0, "");
+
+        return res;
+
+    }
+
+
+    public void dfs(String digits, int index, String resStr) {
+
+        if (index >= digits.length()) {
+            if (resStr == null) return;
+            res.add(resStr);
+            return;
+        }
+
+        int j = digits.charAt(index) - '0' - 2;
+        String s = list.get(j);
+
+
+        for (int i = 0; i < s.length(); i++) {
+
+            dfs(digits, index + 1, resStr + s.charAt(i));
+
+        }
+
+    }
+```
+
 
 ### 23. 合并K个升序链表
     https://leetcode-cn.com/problems/merge-k-sorted-lists/
@@ -452,6 +505,167 @@ public void nextPermutation(int[] nums) {
         }
     }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 34. 在排序数组中查找元素的第一个和最后一个位置
+    https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+    给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+    如果数组中不存在目标值 target，返回 [-1, -1]。
+    
+    进阶：
+    你可以设计并实现时间复杂度为 O(log n) 的算法解决此问题吗？
+
+    示例 1：
+    输入：nums = [5,7,7,8,8,10], target = 8
+    输出：[3,4]
+
+    示例 2：
+    输入：nums = [5,7,7,8,8,10], target = 6
+    输出：[-1,-1]
+
+    示例 3：
+    输入：nums = [], target = 0
+    输出：[-1,-1]
+
+```java
+    public int[] searchRange(int[] nums, int target) {
+
+        if (nums == null || nums.length < 1) return new int[]{-1, -1};
+
+        int leftIndex = binaryLeft(nums, target); // 第一次出现
+        int rightIndex = binaryRight(nums, target); //最后一次出现
+
+
+        return new int[]{leftIndex, rightIndex};
+
+
+    }
+
+    public int binaryRight(int[] nums, int target) {
+
+        int left = 0, right = nums.length - 1, ans = -1;
+
+        while (left <= right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] <= target) { // ... 8,mid,8,8,8 -> target=8
+                ans = mid;
+                left = mid + 1;
+            } else { // nums[mid] > target
+                right = mid - 1;
+            }
+        }
+        if (ans == -1 || nums[ans] != target) return -1;
+
+        return ans;
+
+    }
+
+    public int binaryLeft(int[] nums, int target) {
+
+        int left = 0, right = nums.length - 1, ans = -1;
+
+        while (left <= right) {
+
+            int mid = (left + right) >> 1;
+
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else { // num[mid] >= target   ...8,mid,8,8,8 -> target=8
+                ans = mid;
+                right = mid - 1;
+            }
+        }
+
+        if (ans == -1 || nums[ans] != target) return -1;
+
+        return ans;
+
+    }
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 39. 组合总和
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -37,11 +37,10 @@ public class Main {
 
         System.out.println(queue.poll());
 
-        new Main().convert("PAYPALISHIRING", 4);
+        new Main().searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8);
 
 
     }
-
 
 
 
