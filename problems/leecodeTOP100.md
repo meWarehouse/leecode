@@ -180,7 +180,40 @@
     示例 5：
     输入：nums1 = [2], nums2 = []
     输出：2.00000
+```java
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
+        int th1 = nums1.length;
+        int th2 = nums2.length;
+
+        int a = (th1 + th1 + 1) / 2, b = (th1 + th2 + 2) / 2;
+        
+        int v1 = findK(nums1, 0, nums2, 0, a);
+        int v2 = findk(nums1, 0, nums2, 0, b);
+
+        return (v1 + v2) / 2.0;
+
+    }
+
+    private int findK(int[] nums1, int s1, int[] nums2, int s2, int k) {
+
+        if (s1 >= nums1.length) return nums2[s2 - 1 + k];
+        if (s2 >= nums2.length) return nums1[s1 - 1 + k];
+
+        if (k == 1) return Math.min(nums1[s1], nums2[s2]);
+
+
+        int minVal_1 = s1 + k / 2 - 1 < nums1.length ? nums1[s1 + k / 2 - 1] : Integer.MAX_VALUE;
+        int minVal_2 = s2 + k / 2 - 1 < nums2.length ? nums2[s2 + k / 2 - 1] : Integer.MAX_VALUE;
+
+        if (minVal_1 < minVal_2) {
+            return findK(nums1, s1 + k / 2, nums2, s2, k - k / 2);
+        } else {
+            return findK(nums1, s1, nums2, s2 + k / 2, k - k / 2);
+        }
+
+    }
+```
 
 
 
