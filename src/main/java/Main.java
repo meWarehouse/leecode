@@ -9,6 +9,32 @@ import java.util.stream.Collectors;
  */
 public class Main {
 
+    public List<List<String>> groupAnagrams(String[] strs) {
+
+        List<List<String>> res = new ArrayList<>();
+
+        if (strs == null || strs.length == 0) return res;
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String str : strs) {
+
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+
+            String key = new String(chars);
+
+            List<String> orDefault = map.getOrDefault(key, new ArrayList<>());
+            orDefault.add(str);
+            map.put(key, orDefault);
+
+        }
+
+        return new ArrayList<>(map.values());
+
+    }
+
+
     public static void main(String[] args) {
 
         PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
@@ -18,9 +44,16 @@ public class Main {
             }
         });
 
-        String[] s = new String[8];
+        String[] strs = new String[8];
 
-        List<String> list = Arrays.asList(s);
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+            ;
+        }
+
+        List<String> list = Arrays.asList(strs);
 
         Integer i[] = new Integer[3];
         List<Integer> integers = Arrays.asList(i);
@@ -28,9 +61,6 @@ public class Main {
         int[] a = new int[3];
         List<int[]> ints = Arrays.asList(a);
 
-        new HashMap<>().containsKey(
-
-        )
 
         queue.add(3);
         queue.add(0);
