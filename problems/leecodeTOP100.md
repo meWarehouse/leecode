@@ -215,10 +215,65 @@
     }
 ```
 
+### 5. 最长回文子串
+    https://leetcode-cn.com/problems/longest-palindromic-substring/
+    给你一个字符串 s，找到 s 中最长的回文子串。
+    
+    示例 1：
+    输入：s = "babad"
+    输出："bab"
+    解释："aba" 同样是符合题意的答案。
+    
+    示例 2：
+    输入：s = "cbbd"
+    输出："bb"
+    
+    示例 3：
+    输入：s = "a"
+    输出："a"
+    
+    示例 4：
+    输入：s = "ac"
+    输出："a"
+```java
+    public String longestPalindrome(String s) {
+
+        if (s == null || s.length() < 1) return "";
+
+        int len = s.length();
+        String res = s.substring(0, 1);
+        boolean flag = false;
+
+        if (len < 2) return res;
+
+        for (int i = 0; i < len; ) {
+
+            if (len - i <= res.length() / 2) break;
+
+            int l = i, r = i;
+            flag = false;
+            while (r + 1 < len && s.charAt(i) == s.charAt(r + 1)) {
+                r++;
+                flag = true;
+            }
+            i = r + 1;
+            while (l > 0 && r + 1 < len && s.charAt(l - 1) == s.charAt(r + 1)) {
+                l--;
+                r++;
+                flag = true;
+            }
+
+            if (flag && res.length() < r - l + 1) {
+                res = s.substring(l, r + 1);
+            }
+
+        }
 
 
+        return res;
+    }
 
-
+```
 
 ### 6. Z 字形变换
     https://leetcode-cn.com/problems/zigzag-conversion/
