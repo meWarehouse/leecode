@@ -925,10 +925,132 @@ public void nextPermutation(int[] nums) {
 
 
 
+### 53. 最大子数组和
+    https://leetcode-cn.com/problems/maximum-subarray/
+    给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+    
+    子数组 是数组中的一个连续部分。
+    
+    示例 1：
+    输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+    输出：6
+    解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+    
+    示例 2：
+    输入：nums = [1]
+    输出：1
+    
+    示例 3：
+    输入：nums = [5,4,-1,7,8]
+    输出：23
+```java
+    public int maxSubArray(int[] nums) {
+        
+        int sum = 0,res = Integer.MIN_VALUE,len = nums.length;
+
+        for (int i = 0; i < len; i++) {
+            
+            sum = sum + nums[i];
+            
+            res = Math.max(res,sum);
+            
+            if(sum <= 0) sum = 0;
+            
+        }
+        
+        return res;
+        
+    }
+```
 
 
 
+### 55. 跳跃游戏
+    https://leetcode-cn.com/problems/jump-game/
+    给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
+    
+    数组中的每个元素代表你在该位置可以跳跃的最大长度。
+    
+    判断你是否能够到达最后一个下标。
+    
+    示例 1：
+    输入：nums = [2,3,1,1,4]
+    输出：true
+    解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
+    
+    示例 2：
+    输入：nums = [3,2,1,0,4]
+    输出：false
+    解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。
 
+```java
+    public boolean canJump(int[] nums) {
+
+        int len = nums.length;
+        int l = 0, r = 0;
+
+        while (r < len - 1) {
+
+        int upBound = l + nums[l];
+        r = Math.max(upBound, r);
+
+        if (l == r) break;
+
+        l++;
+
+        }
+
+        return r >= len - 1;
+
+        }
+```
+
+### 56. 合并区间
+    https://leetcode-cn.com/problems/merge-intervals/
+    以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。
+    
+     
+    
+    示例 1：
+    输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
+    输出：[[1,6],[8,10],[15,18]]
+    解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
+    
+    示例 2：
+    
+    输入：intervals = [[1,4],[4,5]]
+    输出：[[1,5]]
+    解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。
+
+```java
+    public int[][] merge(int[][] intervals) {
+
+        if (intervals == null || intervals.length == 0) return new int[0][2];
+
+        Arrays.sort(intervals, ((o1, o2) -> o1[0] - o2[0]));
+
+        int L = intervals[0][0], R = intervals[0][1];
+
+        List<int[]> res = new ArrayList<>();
+
+        for (int i = 1; i < intervals.length; i++) {
+
+            if (intervals[i][0] > R) {
+                res.add(new int[]{L, R});
+                L = intervals[i][0];
+                R = intervals[i][1];
+            } else {
+                R = Math.max(R, intervals[i][1]);
+            }
+
+        }
+
+        res.add(new int[]{L, R});
+
+        return res.toArray(new int[res.size()][]);
+
+    }
+```
 
 
 
