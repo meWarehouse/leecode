@@ -218,13 +218,13 @@
 ### 5. 最长回文子串
     https://leetcode-cn.com/problems/longest-palindromic-substring/
     给你一个字符串 s，找到 s 中最长的回文子串。
-
+    
     示例 1：
     输入：s = "babad"
     输出："bab"
     解释："aba" 同样是符合题意的答案。
     
-    示例 2：~~~~
+    示例 2：
     输入：s = "cbbd"
     输出："bb"
     
@@ -238,47 +238,41 @@
 ```java
     public String longestPalindrome(String s) {
 
-        if (s == null || s.length() == 0) return "";
+        if (s == null || s.length() < 1) return "";
 
         int len = s.length();
-
-        if (len == 1) return s;
-
         String res = s.substring(0, 1);
-
-        int index = 0;
         boolean flag = false;
 
-        while (index < len) {
+        if (len < 2) return res;
 
-            if (len - index <= res.length() / 2) break;
+        for (int i = 0; i < len; ) {
 
-            int L = index, R = index;
+            if (len - i <= res.length() / 2) break;
+
+            int l = i, r = i;
             flag = false;
-
-            while (R + 1 < len && s.charAt(index) == s.charAt(R + 1)) {
-                R++;
+            while (r + 1 < len && s.charAt(i) == s.charAt(r + 1)) {
+                r++;
+                flag = true;
+            }
+            i = r + 1;
+            while (l > 0 && r + 1 < len && s.charAt(l - 1) == s.charAt(r + 1)) {
+                l--;
+                r++;
                 flag = true;
             }
 
-            index = R + 1;
-
-            while (L - 1 >= 0 && R + 1 < len && s.charAt(L - 1) == s.charAt(R + 1)) {
-                L--;
-                R++;
-                flag = true;
+            if (flag && res.length() < r - l + 1) {
+                res = s.substring(l, r + 1);
             }
-
-
-            if (flag && res.length() < R - L + 1) {
-                res = s.substring(L, R + 1);
-            }
-
 
         }
 
+
         return res;
     }
+
 ```
 
 ### 6. Z 字形变换
@@ -334,172 +328,7 @@
     }
 ```
 
-### 7. 整数反转
-    https://leetcode-cn.com/problems/reverse-integer/
-    给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
-    
-    如果反转后整数超过 32 位的有符号整数的范围 [−231,  231 − 1] ，就返回 0。
-    
-    假设环境不允许存储 64 位整数（有符号或无符号）。
-    
-    示例 1：
-    输入：x = 123
-    输出：321
-    
-    示例 2：
-    输入：x = -123
-    输出：-321
-    
-    示例 3：
-    输入：x = 120
-    输出：21
-    
-    示例 4：
-    输入：x = 0
-    输出：0
-```java
-    public int reverse(int x) {
 
-        int res = 0;
-
-        while (x != 0) {
-
-            if (res > Integer.MAX_VALUE / 10 || res < Integer.MIN_VALUE / 10) return 0;
-
-            int t = x % 10;
-            x = x / 10;
-
-            res = res * 10 + t;
-
-        }
-
-        return res;
-
-    }
-```
-
-### 8. 字符串转换整数 (atoi)
-    https://leetcode-cn.com/problems/string-to-integer-atoi/
-    请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
-    
-    函数 myAtoi(string s) 的算法如下：
-    
-    读入字符串并丢弃无用的前导空格
-    检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。
-    读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。
-    将前面步骤读入的这些数字转换为整数（即，"123" -> 123， "0032" -> 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。
-    如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。
-    返回整数作为最终结果。
-    注意：
-    
-    本题中的空白字符只包括空格字符 ' ' 。
-    除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
-    
-    
-    示例 1：
-    输入：s = "42"
-    输出：42
-    解释：加粗的字符串为已经读入的字符，插入符号是当前读取的字符。
-    第 1 步："42"（当前没有读入字符，因为没有前导空格）
-    ^
-    第 2 步："42"（当前没有读入字符，因为这里不存在 '-' 或者 '+'）
-    ^
-    第 3 步："42"（读入 "42"）
-    ^
-    解析得到整数 42 。
-    由于 "42" 在范围 [-231, 231 - 1] 内，最终结果为 42 。
-    
-    示例 2：
-    输入：s = "   -42"
-    输出：-42
-    解释：
-    第 1 步："   -42"（读入前导空格，但忽视掉）
-    ^
-    第 2 步："   -42"（读入 '-' 字符，所以结果应该是负数）
-    ^
-    第 3 步："   -42"（读入 "42"）
-    ^
-    解析得到整数 -42 。
-    由于 "-42" 在范围 [-231, 231 - 1] 内，最终结果为 -42 。
-    
-    示例 3：
-    输入：s = "4193 with words"
-    输出：4193
-    解释：
-    第 1 步："4193 with words"（当前没有读入字符，因为没有前导空格）
-    ^
-    第 2 步："4193 with words"（当前没有读入字符，因为这里不存在 '-' 或者 '+'）
-    ^
-    第 3 步："4193 with words"（读入 "4193"；由于下一个字符不是一个数字，所以读入停止）
-    ^
-    解析得到整数 4193 。
-    由于 "4193" 在范围 [-231, 231 - 1] 内，最终结果为 4193 。
-    
-    示例 4：
-    输入：s = "words and 987"
-    输出：0
-    解释：
-    第 1 步："words and 987"（当前没有读入字符，因为没有前导空格）
-    ^
-    第 2 步："words and 987"（当前没有读入字符，因为这里不存在 '-' 或者 '+'）
-    ^
-    第 3 步："words and 987"（由于当前字符 'w' 不是一个数字，所以读入停止）
-    ^
-    解析得到整数 0 ，因为没有读入任何数字。
-    由于 0 在范围 [-231, 231 - 1] 内，最终结果为 0 。
-    
-    示例 5：
-    输入：s = "-91283472332"
-    输出：-2147483648
-    解释：
-    第 1 步："-91283472332"（当前没有读入字符，因为没有前导空格）
-    ^
-    第 2 步："-91283472332"（读入 '-' 字符，所以结果应该是负数）
-    ^
-    第 3 步："-91283472332"（读入 "91283472332"）
-    ^
-    解析得到整数 -91283472332 。
-    由于 -91283472332 小于范围 [-231, 231 - 1] 的下界，最终结果被截断为 -231 = -2147483648 。
-```java
-    public int myAtoi(String s) {
-
-        if (s == null) return 0;
-
-        s = s.trim();
-
-        int len = s.length();
-        if (len == 0) return 0;
-
-        int index = 0, sign = 1;
-
-        char firstChar = s.charAt(index);
-
-        if (firstChar == '+') {
-            index++;
-        } else if (firstChar == '-') {
-            index++;
-            sign = -1;
-        } else if (!Character.isDigit(firstChar)) {
-            return 0;
-        }
-
-        int num = 0;
-
-        while (index < len && Character.isDigit(s.charAt(index))) {
-
-            num = num * 10 + Integer.parseInt(String.valueOf(s.charAt(index)));
-
-            if (num * sign < Integer.MIN_VALUE) return Integer.MIN_VALUE;
-            if (num * sign > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-
-            index++;
-
-        }
-
-        return (int) (num * sign);
-
-    }
-```
 
 ### 9. 回文数
     https://leetcode-cn.com/problems/palindrome-number/
