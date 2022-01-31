@@ -1295,19 +1295,140 @@ public void nextPermutation(int[] nums) {
         return dp[m][n];
 
     }
-```    
+```
+
+
+
+
+### 75. 颜色分类
+    https://leetcode-cn.com/problems/sort-colors/
+    给定一个包含红色、白色和蓝色、共 n 个元素的数组 nums ，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
     
+    我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
     
+    必须在不使用库的sort函数的情况下解决这个问题。
+    
+     
+    
+    示例 1：
+    输入：nums = [2,0,2,1,1,0]
+    输出：[0,0,1,1,2,2]
+    
+    示例 2：
+    输入：nums = [2,0,1]
+    输出：[0,1,2]
+    
+```java
+    public void sortColors(int[] nums) {
+
+        if (nums == null || nums.length == 0) return;
+
+        int len = nums.length;
+        int L = 0, R = len - 1, i = 0;
+
+        while (i <= R) {
+
+            if (nums[i] == 2) {
+                while (R < i && nums[R] == 2) R--;
+
+                if (R == i) break;
+
+                swap(nums, i, R);
+                R--;
+
+            } else if (nums[i] == 0) {
+
+                swap(nums, L, i);
+                L++;
+                i++;
+
+            } else if (nums[i] == 1) {
+                i++;
+            }
+        }
+
+    }
 
 
+    public void swap(int[] arr, int i, int j) {
+        if (i != j) {
+            arr[i] = arr[i] ^ arr[j];
+            arr[j] = arr[i] ^ arr[j];
+            arr[i] = arr[i] ^ arr[j];
+        }
+    }
+```
+
+### 76. 最小覆盖子串
+    https://leetcode-cn.com/problems/minimum-window-substring/
+    给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
+
+    注意：
+    对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。
+    如果 s 中存在这样的子串，我们保证它是唯一的答案。
+
+    示例 1：
+    输入：s = "ADOBECODEBANC", t = "ABC"
+    输出："BANC"
+
+    示例 2：
+    输入：s = "a", t = "a"
+    输出："a"
+
+    示例 3:
+    输入: s = "a", t = "aa"
+    输出: ""
+    解释: t 中两个字符 'a' 均应包含在 s 的子串中，
+    因此没有符合条件的子字符串，返回空字符串。
+```java
+    public String minWindow(String s, String t) {
+
+        if (s == null || s.length() == 0) return "";
+        if (t == null || t.length() == 0) return "";
+
+        int sLen = s.length(), tLen = t.length();
+
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : t.toCharArray()) map.put(c, map.getOrDefault(c, 0) + 1);
+
+        int ctn = tLen;
+
+        int I = 0, J = sLen + 1, L = 0, R = 0;
+
+        while (R < sLen) {
+
+            char c = s.charAt(R);
+
+            if (map.getOrDefault(c, 0) > 0) ctn--;
+            map.put(c, map.getOrDefault(c, 0) - 1);
 
 
+            if (ctn == 0) {
 
+                while (L <= R && map.get(s.charAt(L)) != 0) {
+                    map.put(s.charAt(L), map.get(s.charAt(L)) + 1);
+                    L++;
+                }
 
+                if (J - I > R - L) {
+                    J = R;
+                    I = L;
+                }
 
+                map.put(s.charAt(L), map.get(s.charAt(L)) + 1);
+                L++;
+                ctn++;
 
+            }
 
+            R++;
 
+        }
+
+        return J - I > sLen ? "" : s.substring(I, J + 1);
+
+    }
+```
 
 
 
