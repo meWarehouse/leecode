@@ -1,23 +1,37 @@
-import com.at.bean.ListNode;
+import com.at.bean.TreeNode;
 import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.org.apache.regexp.internal.RE;
 
+import javax.xml.ws.EndpointReference;
 import java.util.*;
-import java.util.stream.Collectors;
 
-/**
- * @create 2022/1/17 8:54
- */
-public class Main {
+class Main {
+    public static void main(String[] args) {
 
+//        LRUCache lruCache = new LRUCache(2);
+//
+//        lruCache.put(1,1);
+//        lruCache.put(2,2);
+//
+//        System.out.println(lruCache.get(1));
+//
+//        lruCache.put(3,3);
+//
+//        System.out.println(lruCache.get(2));
+//
+//        lruCache.put(4,4);
+//
+//        System.out.println(lruCache.get(1));
+//        System.out.println(lruCache.get(3));
+//        System.out.println(lruCache.get(4));
+
+
+        LRUCache lruCache = new LRUCache(1);
+        lruCache.put(2, 1);
+        System.out.println(lruCache.get(2));
+
+    }
 
 
 
 
 }
-
-
-
-
-
-

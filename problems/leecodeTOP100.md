@@ -9,18 +9,19 @@
     你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
     
     你可以按任意顺序返回答案。
-    
-     
-    
-    示例 1：
-    输入：nums = [2,7,11,15], target = 9
-    输出：[0,1]
-    解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
-    
-    示例 2：
-    输入：nums = [3,2,4], target = 6
-    输出：[1,2]
-    
+
+
+​     
+​    
+​    示例 1：
+​    输入：nums = [2,7,11,15], target = 9
+​    输出：[0,1]
+​    解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+​    
+​    示例 2：
+​    输入：nums = [3,2,4], target = 6
+​    输出：[1,2]
+​    
     示例 3：
     输入：nums = [3,3], target = 6
     输出：[0,1]
@@ -54,20 +55,21 @@
     
     你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 
-    
-    示例 1：
-    输入：l1 = [2,4,3], l2 = [5,6,4]
-    输出：[7,0,8]
-    解释：342 + 465 = 807.
 
-    示例 2：
-    输入：l1 = [0], l2 = [0]
-    输出：[0]
-    示例 3：
-    
+​    
+​    示例 1：
+​    输入：l1 = [2,4,3], l2 = [5,6,4]
+​    输出：[7,0,8]
+​    解释：342 + 465 = 807.
+​    
+​    示例 2：
+​    输入：l1 = [0], l2 = [0]
+​    输出：[0]
+​    示例 3：
+​    
     输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
     输出：[8,9,9,9,0,0,0,1]
-    
+
 ```java
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
@@ -102,19 +104,20 @@
 ### 3. 无重复字符的最长子串
     https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
     给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
-    
-     
-    
-    示例 1:
-    输入: s = "abcabcbb"
-    输出: 3
-    解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
-    
-    示例 2:
-    输入: s = "bbbbb"
-    输出: 1
-    解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
-    
+
+
+​     
+​    
+​    示例 1:
+​    输入: s = "abcabcbb"
+​    输出: 3
+​    解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+​    
+​    示例 2:
+​    输入: s = "bbbbb"
+​    输出: 1
+​    解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+​    
     示例 3:
     输入: s = "pwwkew"
     输出: 3
@@ -156,19 +159,20 @@
     给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
     
     算法的时间复杂度应该为 O(log (m+n)) 。
-    
-     
-    
-    示例 1：
-    输入：nums1 = [1,3], nums2 = [2]
-    输出：2.00000
-    解释：合并数组 = [1,2,3] ，中位数 2
-    
-    示例 2：
-    输入：nums1 = [1,2], nums2 = [3,4]
-    输出：2.50000
-    解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
-    
+
+
+​     
+​    
+​    示例 1：
+​    输入：nums1 = [1,3], nums2 = [2]
+​    输出：2.00000
+​    解释：合并数组 = [1,2,3] ，中位数 2
+​    
+​    示例 2：
+​    输入：nums1 = [1,2], nums2 = [3,4]
+​    输出：2.50000
+​    解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+​    
     示例 3：
     输入：nums1 = [0,0], nums2 = [0,0]
     输出：0.00000
@@ -338,20 +342,20 @@
 
 
 ​     
-    示例 1：
-    输入：x = 121
-    输出：true
-    
-    示例 2：
-    输入：x = -121
-    输出：false
-    解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
-    
-    示例 3：
-    输入：x = 10
-    输出：false
-    解释：从右向左读, 为 01 。因此它不是一个回文数。
-    
+​    示例 1：
+​    输入：x = 121
+​    输出：true
+​    
+​    示例 2：
+​    输入：x = -121
+​    输出：false
+​    解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+​    
+​    示例 3：
+​    输入：x = 10
+​    输出：false
+​    解释：从右向左读, 为 01 。因此它不是一个回文数。
+​    
     示例 4：
     输入：x = -101
     输出：false
@@ -392,16 +396,16 @@
 
 ​     
 ​    
-    示例 1：
-    
-    输入：nums = [-1,0,1,2,-1,-4]
-    输出：[[-1,-1,2],[-1,0,1]]
-    示例 2：
-    
-    输入：nums = []
-    输出：[]
-    示例 3：
-    
+​    示例 1：
+​    
+​    输入：nums = [-1,0,1,2,-1,-4]
+​    输出：[[-1,-1,2],[-1,0,1]]
+​    示例 2：
+​    
+​    输入：nums = []
+​    输出：[]
+​    示例 3：
+​    
     输入：nums = [0]
     输出：[]
 ```java
@@ -449,16 +453,17 @@
      https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
     给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
     给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
-     
-    
-    示例 1：
-    输入：digits = "23"
-    输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
-    示例 2：
-    输入：digits = ""
-    输出：[]
 
+​    
+​    示例 1：
+​    输入：digits = "23"
+​    输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+​    
+​    示例 2：
+​    输入：digits = ""
+​    输出：[]
+​    
     示例 3：
     输入：digits = "2"
     输出：["a","b","c"]
@@ -509,25 +514,25 @@
 
 ​     
 ​    
-    示例 1：
-    输入：lists = [[1,4,5],[1,3,4],[2,6]]
-    输出：[1,1,2,3,4,4,5,6]
-    解释：链表数组如下：
-    [
-    1->4->5,
-    1->3->4,
-    2->6
-    ]
-    将它们合并到一个有序链表中得到。
-    1->1->2->3->4->4->5->6
-    
-    示例 2：
-    输入：lists = []
-    输出：[]
-    
-    示例 3：
-    输入：lists = [[]]
-    输出：[2
+​    示例 1：
+​    输入：lists = [[1,4,5],[1,3,4],[2,6]]
+​    输出：[1,1,2,3,4,4,5,6]
+​    解释：链表数组如下：
+​    [
+​    1->4->5,
+​    1->3->4,
+​    2->6
+​    ]
+​    将它们合并到一个有序链表中得到。
+​    1->1->2->3->4->4->5->6
+​    
+​    示例 2：
+​    输入：lists = []
+​    输出：[]
+​    
+​    示例 3：
+​    输入：lists = [[]]
+​    输出：[2
 ```java
     class Node {
         int val;
@@ -574,19 +579,19 @@
     给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 
 
-​     
+​     
 ​    
-    示例 1：
-    输入：nums = [1,2,3]
-    输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-    
-    示例 2：
-    输入：nums = [0,1]
-    输出：[[0,1],[1,0]]
-    
-    示例 3：
-    输入：nums = [1]
-    输出：[[1]]
+​    示例 1：
+​    输入：nums = [1,2,3]
+​    输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+​    
+​    示例 2：
+​    输入：nums = [0,1]
+​    输出：[[0,1],[1,0]]
+​    
+​    示例 3：
+​    输入：nums = [1]
+​    输出：[[1]]
 ```java
     List<List<Integer>> res = new ArrayList();
     List<Integer> list = new ArrayList();
@@ -706,18 +711,18 @@
 
 ​     
 ​    
-    示例 1：
-    输入：nums = [1,2,3]
-    输出：[1,3,2]
-    
-    示例 2：
-    输入：nums = [3,2,1]
-    输出：[1,2,3]
-    
-    示例 3：
-    输入：nums = [1,1,5]
-    输出：[1,5,1]
-    
+​    示例 1：
+​    输入：nums = [1,2,3]
+​    输出：[1,3,2]
+​    
+​    示例 2：
+​    输入：nums = [3,2,1]
+​    输出：[1,2,3]
+​    
+​    示例 3：
+​    输入：nums = [1,1,5]
+​    输出：[1,5,1]
+​    
     示例 4：
     输入：nums = [1]
     输出：[1]
@@ -792,15 +797,15 @@ public void nextPermutation(int[] nums) {
     
     进阶：
     你可以设计并实现时间复杂度为 O(log n) 的算法解决此问题吗？
-
+    
     示例 1：
     输入：nums = [5,7,7,8,8,10], target = 8
     输出：[3,4]
-
+    
     示例 2：
     输入：nums = [5,7,7,8,8,10], target = 6
     输出：[-1,-1]
-
+    
     示例 3：
     输入：nums = [], target = 0
     输出：[-1,-1]
@@ -870,21 +875,22 @@ public void nextPermutation(int[] nums) {
     candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
     
     对于给定的输入，保证和为 target 的不同组合数少于 150 个。
-    
-     
-    
-    示例 1：
-    输入：candidates = [2,3,6,7], target = 7
-    输出：[[2,2,3],[7]]
-    解释：
-    2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
-    7 也是一个候选， 7 = 7 。
-    仅有这两种组合。
 
-    示例 2：
-    输入: candidates = [2,3,5], target = 8
-    输出: [[2,2,2,2],[2,3,3],[3,5]]
 
+​     
+​    
+​    示例 1：
+​    输入：candidates = [2,3,6,7], target = 7
+​    输出：[[2,2,3],[7]]
+​    解释：
+​    2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
+​    7 也是一个候选， 7 = 7 。
+​    仅有这两种组合。
+​    
+​    示例 2：
+​    输入: candidates = [2,3,5], target = 8
+​    输出: [[2,2,2,2],[2,3,3],[3,5]]
+​    
     示例 3：
     输入: candidates = [2], target = 1
     输出: []
@@ -921,6 +927,111 @@ public void nextPermutation(int[] nums) {
         
     }
 ```
+
+
+
+
+
+### 48. 旋转图像
+
+```
+https://leetcode-cn.com/problems/rotate-image/
+给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+
+你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
+```
+
+​     
+
+```
+示例 1：
+输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+输出：[[7,4,1],[8,5,2],[9,6,3]]
+
+示例 2：
+输入：matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+输出：[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+```
+
+```java
+    public void rotate(int[][] matrix) {
+
+        if (matrix == null || matrix.length == 0) return;
+
+        int n = matrix.length;
+
+        for (int x = 0; x < n / 2; x++) {
+            for (int y = 0; y < (n + 1) / 2; y++) {
+
+                int tmp = matrix[x][y];
+
+                matrix[x][y] = matrix[n - 1 - y][x];
+                matrix[n - 1 - y][x] = matrix[n - 1 - x][n - 1 - y];
+                matrix[n - 1 - x][n - 1 - y] = matrix[y][n - 1 - x];
+                matrix[y][n - 1 - x] = tmp;
+
+            }
+        }
+
+    }
+```
+
+### 49. 字母异位词分组
+
+```
+https://leetcode-cn.com/problems/group-anagrams/
+给你一个字符串数组，请你将 字母异位词 组合在一起。可以按任意顺序返回结果列表。
+
+字母异位词 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。
+```
+
+​     
+​    
+
+```
+示例 1:
+输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+示例 2:
+输入: strs = [""]
+输出: [[""]]
+
+示例 3:
+输入: strs = ["a"]
+输出: [["a"]]
+```
+
+```java
+    public List<List<String>> groupAnagrams(String[] strs) {
+
+        List<List<String>> res = new ArrayList<>();
+
+        if (strs == null || strs.length == 0) return res;
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String str : strs) {
+
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+
+            String key = new String(chars);
+
+            List<String> orDefault = map.getOrDefault(key, new ArrayList<>());
+            orDefault.add(str);
+            map.put(key, orDefault);
+
+        }
+
+        return new ArrayList<>(map.values());
+
+    }
+```
+
+
+
+
 
 
 
@@ -1008,16 +1119,17 @@ public void nextPermutation(int[] nums) {
 ### 56. 合并区间
     https://leetcode-cn.com/problems/merge-intervals/
     以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。
-    
-     
-    
-    示例 1：
-    输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
-    输出：[[1,6],[8,10],[15,18]]
-    解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
-    
-    示例 2：
-    
+
+
+​     
+​    
+​    示例 1：
+​    输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
+​    输出：[[1,6],[8,10],[15,18]]
+​    解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
+​    
+​    示例 2：
+​    
     输入：intervals = [[1,4],[4,5]]
     输出：[[1,5]]
     解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。
@@ -1060,22 +1172,23 @@ public void nextPermutation(int[] nums) {
     机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
     
     问总共有多少条不同的路径？
-    
-     
-    
-    示例 1：
-    输入：m = 3, n = 7
-    输出：28
-    
-    示例 2：
-    输入：m = 3, n = 2
-    输出：3
-    解释：
-    从左上角开始，总共有 3 条路径可以到达右下角。
-    1. 向右 -> 向下 -> 向下
-    2. 向下 -> 向下 -> 向右
-    3. 向下 -> 向右 -> 向下 
-       
+
+
+​     
+​    
+​    示例 1：
+​    输入：m = 3, n = 7
+​    输出：28
+​    
+​    示例 2：
+​    输入：m = 3, n = 2
+​    输出：3
+​    解释：
+​    从左上角开始，总共有 3 条路径可以到达右下角。
+​    1. 向右 -> 向下 -> 向下
+​    2. 向下 -> 向下 -> 向右
+​    3. 向下 -> 向右 -> 向下 
+​       
     示例 3：
     输入：m = 7, n = 3
     输出：28
@@ -1130,17 +1243,18 @@ public void nextPermutation(int[] nums) {
     给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
     
     说明：每次只能向下或者向右移动一步。
-    
-     
-    
-    示例 1：
-    输入：grid = [[1,3,1],[1,5,1],[4,2,1]]
-    输出：7
-    解释：因为路径 1→3→1→1→1 的总和最小。
-    
-    示例 2：
-    输入：grid = [[1,2,3],[4,5,6]]
-    输出：12
+
+
+​     
+​    
+​    示例 1：
+​    输入：grid = [[1,3,1],[1,5,1],[4,2,1]]
+​    输出：7
+​    解释：因为路径 1→3→1→1→1 的总和最小。
+​    
+​    示例 2：
+​    输入：grid = [[1,2,3],[4,5,6]]
+​    输出：12
 
 ```java
     public int minPathSum(int[][] grid) {
@@ -1246,25 +1360,26 @@ public void nextPermutation(int[] nums) {
     插入一个字符
     删除一个字符
     替换一个字符
-    
-    
-    示例 1：
-    输入：word1 = "horse", word2 = "ros"
-    输出：3
-    解释：
-    horse -> rorse (将 'h' 替换为 'r')
-    rorse -> rose (删除 'r')
-    rose -> ros (删除 'e')
 
-    示例 2：
-    输入：word1 = "intention", word2 = "execution"
-    输出：5
-    解释：
-    intention -> inention (删除 't')
-    inention -> enention (将 'i' 替换为 'e')
-    enention -> exention (将 'n' 替换为 'x')
-    exention -> exection (将 'n' 替换为 'c')
-    exection -> execution (插入 'u')
+
+​    
+​    示例 1：
+​    输入：word1 = "horse", word2 = "ros"
+​    输出：3
+​    解释：
+​    horse -> rorse (将 'h' 替换为 'r')
+​    rorse -> rose (删除 'r')
+​    rose -> ros (删除 'e')
+​    
+​    示例 2：
+​    输入：word1 = "intention", word2 = "execution"
+​    输出：5
+​    解释：
+​    intention -> inention (删除 't')
+​    inention -> enention (将 'i' 替换为 'e')
+​    enention -> exention (将 'n' 替换为 'x')
+​    exention -> exection (将 'n' 替换为 'c')
+​    exection -> execution (插入 'u')
 ```java
     public int minDistance(String word1, String word2) {
 
@@ -1307,17 +1422,18 @@ public void nextPermutation(int[] nums) {
     我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
     
     必须在不使用库的sort函数的情况下解决这个问题。
-    
-     
-    
-    示例 1：
-    输入：nums = [2,0,2,1,1,0]
-    输出：[0,0,1,1,2,2]
-    
-    示例 2：
-    输入：nums = [2,0,1]
-    输出：[0,1,2]
-    
+
+
+​     
+​    
+​    示例 1：
+​    输入：nums = [2,0,2,1,1,0]
+​    输出：[0,0,1,1,2,2]
+​    
+​    示例 2：
+​    输入：nums = [2,0,1]
+​    输出：[0,1,2]
+
 ```java
     public void sortColors(int[] nums) {
 
@@ -1359,22 +1475,22 @@ public void nextPermutation(int[] nums) {
     }
 ```
 
-### 76. 最小覆盖子串
+### 76. [最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
     https://leetcode-cn.com/problems/minimum-window-substring/
     给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
-
+    
     注意：
     对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。
     如果 s 中存在这样的子串，我们保证它是唯一的答案。
-
+    
     示例 1：
     输入：s = "ADOBECODEBANC", t = "ABC"
     输出："BANC"
-
+    
     示例 2：
     输入：s = "a", t = "a"
     输出："a"
-
+    
     示例 3:
     输入: s = "a", t = "aa"
     输出: ""
@@ -1431,114 +1547,814 @@ public void nextPermutation(int[] nums) {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 48. 旋转图像
-    https://leetcode-cn.com/problems/rotate-image/
-    给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+### 78. [子集](https://leetcode-cn.com/problems/subsets/)
+    https://leetcode-cn.com/problems/subsets/
+    给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
     
-    你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
+    解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
     
-     
     示例 1：
-    输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
-    输出：[[7,4,1],[8,5,2],[9,6,3]]
-
-    示例 2：
-    输入：matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-    输出：[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+    输入：nums = [1,2,3]
+    输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
     
+    示例 2：
+    输入：nums = [0]
+    输出：[[],[0]]
 ```java
-    public void rotate(int[][] matrix) {
+    List<List<Integer>> res = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
+    
+    public List<List<Integer>> subsets(int[] nums) {
 
-        if (matrix == null || matrix.length == 0) return;
+        if (nums == null || nums.length == 0) return res;
 
-        int n = matrix.length;
+        dfs(nums, 0);
 
-        for (int x = 0; x < n / 2; x++) {
-            for (int y = 0; y < (n + 1) / 2; y++) {
+        return res;
+    }
 
-                int tmp = matrix[x][y];
 
-                matrix[x][y] = matrix[n - 1 - y][x];
-                matrix[n - 1 - y][x] = matrix[n - 1 - x][n - 1 - y];
-                matrix[n - 1 - x][n - 1 - y] = matrix[y][n - 1 - x];
-                matrix[y][n - 1 - x] = tmp;
+    public void dfs(int[] arr, int index) {
 
+        if (index >= arr.length) {
+            res.add(new ArrayList<>(list));
+            return;
+        }
+        
+        dfs(arr, index + 1);
+
+        list.add(arr[index]);
+        dfs(arr, index + 1);
+
+        list.remove(list.size() - 1);
+    }
+```
+
+### 79. [单词搜索](https://leetcode-cn.com/problems/word-search/)
+     给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
+    单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+    
+    示例 1：
+    输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+    输出：true
+    
+    示例 2：
+    输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
+    输出：true
+    
+    示例 3：
+    输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+    输出：false
+```java
+    public boolean exist(char[][] board, String word) {
+
+        int m = board.length;
+        int n = board[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (dfs(board, i, j, word, 0)) return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean dfs(char[][] board, int x, int y, String word, int index) {
+
+        if (!inArea(board, x, y) || board[x][y] == '-' || board[x][y] != word.charAt(index)) return false;
+
+        if (index == word.length() - 1) return true;
+
+        char tmp = board[x][y];
+        board[x][y] = '-';
+
+        boolean flag = dfs(board,x+1,y,word,index+1)
+                || dfs(board, x-1, y, word, index+1)
+                || dfs(board, x, y+1, word, index+1)
+                || dfs(board, x, y-1, word, index+1);
+
+        board[x][y] = tmp;
+
+        return flag;
+    }
+
+    public boolean inArea(char[][] chars, int x, int y) {
+        return x >= 0 && x < chars.length && y >= 0 && y < chars[0].length;
+    }
+
+
+```
+
+
+### [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+```java
+    public int largestRectangleArea(int[] heights) {
+
+        if (heights == null || heights.length == 0) return 0;
+
+        int len = heights.length;
+        if (len == 1) return heights[0];
+
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < len; i++) {
+
+            int r = i + 1;
+            while (r < len && heights[i] <= heights[r]) r++;
+
+            int l = i - 1;
+            while (l >= 0 && heights[i] <= heights[l]) l--;
+
+
+            max = Math.max((r - l - 1) * heights[i], max);
+
+        }
+
+        return max;
+
+    }
+```
+
+### [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+    给你一个二叉树的根节点 root ，判断其是否是一个有效的二叉搜索树。
+    
+    有效 二叉搜索树定义如下：
+    
+    节点的左子树只包含 小于 当前节点的数。
+    节点的右子树只包含 大于 当前节点的数。
+    所有左子树和右子树自身必须也是二叉搜索树。
+    
+    示例 1：
+    输入：root = [2,1,3]
+    输出：true
+    
+    示例 2：
+    输入：root = [5,1,4,null,null,3,6]
+    输出：false
+    解释：根节点的值是 5 ，但是右子节点的值是 4 。
+
+```java
+    public boolean isValidBST(TreeNode root) {
+
+        return dfs(root,Long.MIN_VALUE,Long.MAX_VALUE);
+
+    }
+
+    public boolean dfs(TreeNode root,long lower,long upper){
+
+        if(root == null) return true;
+
+        if(root.val <= lower || root.val >= upper) return false;
+
+        return dfs(root.left,lower,root.val) && dfs(root.right,root.val,upper);
+
+    }
+```
+
+### [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/)
+    给你一个二叉树的根节点 root ， 检查它是否轴对称。
+    
+    示例 1：
+    输入：root = [1,2,2,3,4,4,3]
+    输出：true
+    
+    示例 2：
+    输入：root = [1,2,2,null,3,null,3]
+    输出：false
+
+```java
+    public boolean isSymmetric(TreeNode root) {
+
+        if(root == null ) return true;
+
+        return dfs(root.left,root.right);
+    }
+
+    public boolean dfs(TreeNode L,TreeNode R){
+
+        if(L == null && R == null) return true;
+
+        if(L == null || R == null || L.val != R.val) return false;
+
+        return dfs(L.left,R.right) && dfs(L.right,R.left);
+
+    }
+```
+
+### [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+    给定一个二叉树，找出其最大深度。
+    
+    二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
+    
+    说明: 叶子节点是指没有子节点的节点。
+    
+    示例：
+    给定二叉树 [3,9,20,null,null,15,7]，
+    
+    3
+    / \
+    9  20
+    /  \
+    15   7
+    返回它的最大深度 3 。
+```java
+   public int maxDepth(TreeNode root) {
+
+        return dfs(root);
+    }
+
+    public int dfs(TreeNode root){
+
+        if(root == null) return 0;
+
+        int leftDeep = dfs(root.left);
+        int rightDeep = dfs(root.right);
+
+        return Math.max(leftDeep,rightDeep) + 1;
+
+    }
+
+```
+
+### [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+    给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点。
+    
+    示例 1:
+    输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+    输出: [3,9,20,null,null,15,7]
+    
+    示例 2:
+    输入: preorder = [-1], inorder = [-1]
+    输出: [-1]
+```java
+    Map<Integer,Integer> map = new HashMap();
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+
+        if(preorder == null || inorder == null) return null;
+
+        if(preorder.length != inorder.length) return null;
+
+
+        for(int i = 0;i < inorder.length;i++) map.put(inorder[i],i);
+
+        return dfs(preorder,0,preorder.length-1,inorder,0,inorder.length-1);
+
+    }
+
+    public TreeNode dfs(int[] preorder,int pL,int pR,int[] inorder,int iL,int iR){
+
+        if(pL > pR || iL > iR) return null;
+
+        int rootVal = preorder[pL];
+        TreeNode root = new TreeNode(rootVal);
+
+        int pivot = map.get(rootVal);
+
+        root.left = dfs(preorder,pL+1,pivot-iL+pL,inorder,iL,pivot-1);
+        root.right = dfs(preorder,pivot-iL+pL+1,pR,inorder,pivot+1,iR);
+
+
+        return root;
+
+    }
+```
+
+### [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+    给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并返回这颗 二叉树 。
+    
+    示例 1:
+    输入：inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
+    输出：[3,9,20,null,null,15,7]
+    
+    示例 2:
+    输入：inorder = [-1], postorder = [-1]
+    输出：[-1]
+```java
+    Map<Integer,Integer> map = new HashMap();
+
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+
+        if(inorder == null || postorder == null) return null;
+        if(inorder.length != postorder.length) return null;
+
+        for(int i = 0;i < inorder.length;i++) map.put(inorder[i],i);
+
+        return dfs(inorder,0,inorder.length-1,postorder,0,postorder.length-1);
+
+    }
+
+    public TreeNode dfs(int[] inorder,int oL,int oR,int[] postorder,int pL,int pR){
+
+        if(pL > pR || oL > oR) return null;
+
+        int rootVal = postorder[pR];
+        TreeNode root = new TreeNode(rootVal);
+
+        int pivot = map.get(rootVal);
+
+        root.left = dfs(inorder,oL,pivot-1,postorder,pL,pL+pivot-oL-1);
+        root.right = dfs(inorder,pivot+1,oR,postorder,pR-oR+pivot,pR-1);
+
+
+        return root;
+    }
+
+```
+
+### [114. 二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)
+    给你二叉树的根结点 root ，请你将它展开为一个单链表：
+    
+    展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null 。
+    展开后的单链表应该与二叉树 先序遍历 顺序相同。
+    
+    示例 1：
+    输入：root = [1,2,5,3,4,null,6]
+    输出：[1,null,2,null,3,null,4,null,5,null,6]
+    
+    示例 2：
+    输入：root = []
+    输出：[]
+    
+    示例 3：
+    输入：root = [0]
+    输出：[0]
+```java
+    TreeNode curr;
+
+    public void flatten(TreeNode root) {
+
+        TreeNode head = new TreeNode(-1);
+        curr = head;
+        dfs(root);
+    }
+
+    public void dfs(TreeNode root){
+
+        if(root == null) return;
+
+        // curr = root;
+        curr.left = null;
+        curr.right = root;
+
+        curr = root;
+
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+
+        dfs(left);
+        dfs(right);
+
+    }
+```
+
+### [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+    给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
+    
+    你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
+    
+    返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
+    
+    示例 1：
+    输入：[7,1,5,3,6,4]
+    输出：5
+    解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+    注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+    
+    示例 2：
+    输入：prices = [7,6,4,3,1]
+    输出：0
+    解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
+```java
+    public int maxProfit(int[] prices) {
+
+        if(prices == null || prices.length == 0) return 0;
+
+        int len = prices.length;
+        int min = Integer.MAX_VALUE;
+        int maxProfit = Integer.MIN_VALUE;
+
+        
+        for(int i = 0;i < len;i++){
+
+            if(min > prices[i]) min = prices[i];
+
+            if(prices[i] - min > maxProfit) maxProfit = prices[i] - min;
+
+        }
+
+        return maxProfit;
+
+
+    }
+```
+
+### [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+    给定一个数组 prices ，其中 prices[i] 表示股票第 i 天的价格。
+    
+    在每一天，你可能会决定购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以购买它，然后在 同一天 出售。
+    返回 你能获得的 最大 利润 。
+    
+    示例 1:
+    输入: prices = [7,1,5,3,6,4]
+    输出: 7
+    解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+    随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。
+    
+    示例 2:
+    输入: prices = [1,2,3,4,5]
+    输出: 4
+    解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+    注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+       
+    示例 3:
+    输入: prices = [7,6,4,3,1]
+    输出: 0
+    解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+```java
+    public int maxProfit(int[] prices) {
+
+        if(prices == null || prices.length == 0) return 0;
+
+        int len = prices.length;
+
+        int maxProfit = 0;
+
+        for(int i = 1;i < len;i++){
+
+            if(prices[i] - prices[i-1] > 0){
+                maxProfit+=prices[i]-prices[i-1];
+            }
+
+        }
+
+        return maxProfit;
+
+    }
+```
+
+### [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+    给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+    
+    设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+    
+    注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+    
+    示例1:
+    输入：prices = [3,3,5,0,0,3,1,4]
+    输出：6
+    解释：在第 4 天（股票价格 = 0）的时候买入，在第 6 天（股票价格 = 3）的时候卖出，这笔交易所能获得利润 = 3-0 = 3 。
+    随后，在第 7 天（股票价格 = 1）的时候买入，在第 8 天 （股票价格 = 4）的时候卖出，这笔交易所能获得利润 = 4-1 = 3 。
+    
+    示例 2：
+    输入：prices = [1,2,3,4,5]
+    输出：4
+    解释：在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+    注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。
+    因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+    
+    示例 3：
+    输入：prices = [7,6,4,3,1]
+    输出：0
+    解释：在这个情况下, 没有交易完成, 所以最大利润为 0。
+    
+    示例 4：
+    输入：prices = [1]
+    输出：0
+```java
+    public int maxProfit(int[] prices) {
+
+        if(prices == null || prices.length == 0) return 0;
+
+        int len = prices.length;
+
+        int[][][] dp = new int[len+1][3][2];
+
+        dp[1][1][0] = 0;
+        dp[1][1][1] = -prices[0];
+        dp[1][2][0] = 0;
+        dp[1][2][1] = -prices[0];
+
+
+        for(int i = 2;i <= len;i++){
+
+            dp[i][2][0] = Math.max(dp[i-1][2][0],dp[i-1][2][1] + prices[i-1]);
+            dp[i][2][1] = Math.max(dp[i-1][2][1],dp[i-1][1][0] - prices[i-1]);
+            dp[i][1][0] = Math.max(dp[i-1][1][0],dp[i-1][1][1] + prices[i-1]);
+            dp[i][1][1] = Math.max(dp[i-1][1][1],dp[i-1][0][0] - prices[i-1]);
+
+        }
+        
+
+        return dp[len][2][0];
+
+    }
+```
+
+### [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+    路径 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个 节点，且不一定经过根节点。
+    
+    路径和 是路径中各节点值的总和。
+    
+    给你一个二叉树的根节点 root ，返回其 最大路径和 。
+    
+    示例 1：
+    输入：root = [1,2,3]
+    输出：6
+    解释：最优路径是 2 -> 1 -> 3 ，路径和为 2 + 1 + 3 = 6
+    
+    示例 2：
+    输入：root = [-10,9,20,null,null,15,7]
+    输出：42
+    解释：最优路径是 15 -> 20 -> 7 ，路径和为 15 + 20 + 7 = 42
+```java
+    int res = Integer.MIN_VALUE;
+
+    public int maxPathSum(TreeNode root) {
+
+        dfs(root);
+
+        return res;
+    }
+
+    public int dfs(TreeNode root) {
+
+        if (root == null) return 0;
+
+        int L = dfs(root.left);
+        if (L < 0) L = 0;
+
+        int R = dfs(root.right);
+        if (R < 0) R = 0;
+
+        res = Math.max(res, root.val + L + R);
+
+        return root.val + Math.max(L, R);
+
+    }
+
+```
+
+
+
+### [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
+    给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
+    
+    请你设计并实现时间复杂度为 O(n) 的算法解决此问题。
+    
+    示例 1：
+    输入：nums = [100,4,200,1,3,2]
+    输出：4
+    解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
+    
+    示例 2：
+    输入：nums = [0,3,7,2,5,8,4,6,0,1]
+    输出：9
+```java
+    public int longestConsecutive(int[] nums) {
+
+        Set<Integer> set = new HashSet<>();
+
+        for (int n : nums) set.add(n);
+        int res = 0;
+        for (Integer x : set) {
+            if (!set.contains(x - 1)) {
+                int y = x;
+                while (set.contains(y + 1)) y++;
+                res = Math.max(res, y - x + 1);
             }
         }
 
+        return res;
+
     }
 ```
 
-### 49. 字母异位词分组
-    https://leetcode-cn.com/problems/group-anagrams/
-    给你一个字符串数组，请你将 字母异位词 组合在一起。可以按任意顺序返回结果列表。
+
+### [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
+    给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
     
-    字母异位词 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。
+    说明：
     
-     
-    
+    你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
     示例 1:
-    输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-    输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
+    输入: [2,2,1]
+    输出: 1
     
-    示例 2:
-    输入: strs = [""]
-    输出: [[""]]
-    
-    示例 3:
-    输入: strs = ["a"]
-    输出: [["a"]]
-
+    示例2:
+    输入: [4,1,2,1,2]
+    输出: 4
 ```java
-    public List<List<String>> groupAnagrams(String[] strs) {
+    public int singleNumber(int[] nums) {
 
-        List<List<String>> res = new ArrayList<>();
+        int res = nums[0];
 
-        if (strs == null || strs.length == 0) return res;
+        if(nums.length == 1) return res;
 
-        Map<String, List<String>> map = new HashMap<>();
+        for(int i = 1;i < nums.length;i++){
+            res = res ^ nums[i];
+        }
 
-        for (String str : strs) {
+        return res;
 
-            char[] chars = str.toCharArray();
-            Arrays.sort(chars);
+    }
+```
 
-            String key = new String(chars);
+### [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii/)
+    给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
+    
+    示例 1：
+    输入：nums = [2,2,3,2]
+    输出：3
+    
+    示例 2：
+    输入：nums = [0,1,0,1,0,1,99]
+    输出：99
+    
+```java
+    public int singleNumber(int[] nums) {
 
-            List<String> orDefault = map.getOrDefault(key, new ArrayList<>());
-            orDefault.add(str);
-            map.put(key, orDefault);
+        int res = 0;
+
+        for(int i = 0;i < 32;i++){
+
+            int oneCount = 0;
+
+            for(int j = 0;j < nums.length;j++){
+                
+                if(((nums[j] >>> i) & 1 )== 1) oneCount+=1;
+                // oneCount+= (nums[j] >>> i) & 1;
+            }
+
+            if(oneCount % 3 == 1) res = res | 1 << i;
 
         }
 
-        return new ArrayList<>(map.values());
+        return res;
 
     }
 ```
 
+### [139. 单词拆分](https://leetcode-cn.com/problems/word-break/)
+    给你一个字符串 s 和一个字符串列表 wordDict 作为字典。请你判断是否可以利用字典中出现的单词拼接出 s 。
+    
+    注意：不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。
+    
+    示例 1：
+    输入: s = "leetcode", wordDict = ["leet", "code"]
+    输出: true
+    解释: 返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。
+    
+    示例 2：
+    输入: s = "applepenapple", wordDict = ["apple", "pen"]
+    输出: true
+    解释: 返回 true 因为 "applepenapple" 可以由 "apple" "pen" "apple" 拼接成。
+    注意，你可以重复使用字典中的单词。
+    
+    示例 3：
+    输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
+    输出: false
+```java
+    Map<Integer, Boolean> map = new HashMap<>();
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+        return dfs(s, wordDict, 0);
+    }
+
+    public boolean dfs(String s, List<String> wordDict, int index) {
+
+        if (index >= s.length()) return true;
+        if (map.containsKey(index)) return map.get(index);
+
+        for (String w : wordDict) {
+            if (w.length() + index > s.length()) continue;
+            String ss = s.substring(index, index + w.length());
+            if (w.equals(ss)) {
+                map.put(index, dfs(s, wordDict, index + w.length()));
+                if (map.get(index)) return true;
+            }
+        }
+
+        return false;
+
+    }
+
+```
+
+### [146. LRU 缓存](https://leetcode-cn.com/problems/lru-cache/)
+    请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
+    实现 LRUCache 类：
+    LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
+    int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。
+    void put(int key, int value) 如果关键字 key 已经存在，则变更其数据值 value ；如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。
+    函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
+
+    
+    示例：
+    
+    输入
+    ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+    [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+    输出
+    [null, null, null, 1, null, -1, null, -1, 3, 4]
+    
+    解释
+    LRUCache lRUCache = new LRUCache(2);
+    lRUCache.put(1, 1); // 缓存是 {1=1}
+    lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}
+    lRUCache.get(1);    // 返回 1
+    lRUCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+    lRUCache.get(2);    // 返回 -1 (未找到)
+    lRUCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}
+    lRUCache.get(1);    // 返回 -1 (未找到)
+    lRUCache.get(3);    // 返回 3
+    lRUCache.get(4);    // 返回 4
+
+```java
+     class LRUCache {
+
+        class Node {
+            int key, val;
+            Node pre, next;
+
+            public Node(int key, int val) {
+                this.key = key;
+                this.val = val;
+            }
+        }
+
+        int c;
+        Node head, tail;
+        Map<Integer, Node> map;
+
+        public LRUCache(int capacity) {
+            if (capacity < 0) throw new RuntimeException();
+            this.c = capacity;
+            head = new Node(-1, -1);
+            tail = new Node(-1, -1);
+            head.next = tail;
+            tail.pre = head;
+            map = new HashMap<>();
+        }
+
+        public int get(int key) {
+
+            if (!map.containsKey(key)) return -1;
+
+            Node node = map.get(key);
+
+            //remove
+            remove(node);
+            //add
+            add(node);
+
+            return node.val;
+
+        }
+
+        public void put(int key, int value) {
+            Node node = new Node(key, value);
+
+            if (!map.containsKey(key)) {
+                //add new node
+                if (map.size() == c) remove(tail.pre);
+                add(node);
+                return;
+            }
+
+            //update node
+            remove(map.get(key));
+            add(node);
+
+        }
+
+        public void remove(Node node) {
+
+            map.remove(node.key);
+
+            node.pre.next = node.next;
+            node.next.pre = node.pre;
+
+            node.next = null;
+            node.pre = null;
+
+            //help gc
+
+
+        }
+
+        public void add(Node node) {
+
+            map.put(node.key, node);
+
+            head.next.pre = node;
+            node.next = head.next;
+            head.next = node;
+            node.pre = head;
+
+        }
+
+    }
+```
 
 
 
