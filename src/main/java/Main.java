@@ -45,3 +45,54 @@ class Main {
 
 }
 
+class Trie {
+
+    class Node{
+        Node node[];
+        boolean flag;
+        public Node(){
+            node = new Node[26];
+            flag = false;
+        }
+    }
+
+    Node root;
+
+    public Trie() {
+        root = new Node();
+    }
+
+    public void insert(String word) {
+        Node curr = root;
+        for(char c : word.toCharArray()){
+
+            int id = c - 'a';
+            if(curr.node[id] == null) curr.node[id] = new Node();
+
+            curr = curr.node[id];
+        }
+        curr.flag = true;
+    }
+
+    public boolean search(String word) {
+        Node curr = root;
+        for(char c : word.toCharArray()){
+            int id = c - 'a';
+            if(curr.node[id] == null) return false;
+            curr = curr.node[id];
+        }
+
+        return curr.flag;
+    }
+
+    public boolean startsWith(String prefix) {
+        Node curr = root;
+        for(char c : prefix.toCharArray()){
+            int id = c - 'a';
+            if(curr[id] == null) return false;
+            curr = curr.node[id];
+        }
+
+        return true;
+    }
+}
