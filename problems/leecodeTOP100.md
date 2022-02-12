@@ -2886,6 +2886,97 @@ class Trie {
 
 ```
 
+### [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+    给定一个含有 n 个正整数的数组和一个正整数 target 。
+    
+    找出该数组中满足其和 ≥ target 的长度最小的 连续子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。
+    
+    示例 1：
+    输入：target = 7, nums = [2,3,1,2,4,3]
+    输出：2
+    解释：子数组 [4,3] 是该条件下的长度最小的子数组。
+    
+    示例 2：
+    输入：target = 4, nums = [1,4,4]
+    输出：1
+    
+    示例 3：
+    输入：target = 11, nums = [1,1,1,1,1,1,1,1]
+    输出：0
+
+````java
+    public int minSubArrayLen(int target, int[] nums) {
+
+        if(nums == null || nums.length == 0 ) return 0;
+
+        int len = nums.length;
+
+        int min = len + 1;
+
+        int L = 0,R = -1,sum = 0;
+
+        while(++R < len){
+
+            sum+=nums[R];
+
+            while(sum >= target){
+                min = Math.min(min,R - L + 1);
+                sum-=nums[L++];
+            }
+        }
+
+        return min > len ? 0 : min;
+
+    }
+````
+
+### [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+    给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+    
+    请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+    
+    示例 1:
+    输入: [3,2,1,5,6,4] 和 k = 2
+    输出: 5
+    
+    示例 2:
+    输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
+    输出: 4
+
+```java
+    public int findKthLargest(int[] nums, int k) {
+
+        int len = nums.length;
+
+        PriorityQueue<Integer> queue = new PriorityQueue(k, ((o1, o2) -> (int) o1 - (int) o2));
+
+        for (int n : nums) {
+
+            if (queue.size() < k) {
+                queue.add(n);
+            } else {
+                if (n > queue.peek()) {
+                    queue.poll();
+                    queue.add(n);
+                }
+            }
+
+        }
+
+        return queue.peek();
+
+    }
+```
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -9,90 +9,41 @@ import java.util.stream.Collectors;
 class Main {
 
 
-    Map<Integer,Boolean> map = new HashMap();
+    public static void main(String[] args) {
 
-    public boolean wordBreak(String s, List<String> wordDict) {
+        int state = 0;
 
-        if(s == null || s.length() == 0 || wordDict == null || wordDict.size() == 0) return true;
-
-        return dfs(s,wordDict,0);
-
+        state|=1;
+//        System.out.println(state|1);
+        System.out.println(state|2);
+        System.out.println(state|2);
+        System.out.println(state|2);
+        System.out.println(state|100);
 
     }
 
-    public boolean dfs(String s, List<String> wordDict,int index){
+    public int findKthLargest(int[] nums, int k) {
 
-        if(index >= s.length()) return true;
-        if(map.containsKey(index)) return map.get(index);
+        int len = nums.length;
 
+        PriorityQueue<Integer> queue = new PriorityQueue(k, ((o1, o2) -> (int) o1 - (int) o2));
 
-        for(int i = 0;i < wordDict.size();i++){
-            String w = wordDict.get(i);
-            if(index+w.length() > s.length()) continue;
-            String ss = s.subtring(index,index+w.length());
+        for (int n : nums) {
 
-            if(w.equals(ss)){
-                map.put(index,dfs(s,wordDict,index+w.length()));
-                if(map.get(index)) return true;
+            if (queue.size() < k) {
+                queue.add(n);
+            } else {
+                if (n > queue.peek()) {
+                    queue.poll();
+                    queue.add(n);
+                }
             }
 
         }
 
-        return false;
+        return queue.peek();
 
     }
 
 
-}
-
-class Trie {
-
-    class Node{
-        Node node[];
-        boolean flag;
-        public Node(){
-            node = new Node[26];
-            flag = false;
-        }
-    }
-
-    Node root;
-
-    public Trie() {
-        root = new Node();
-    }
-
-    public void insert(String word) {
-        Node curr = root;
-        for(char c : word.toCharArray()){
-
-            int id = c - 'a';
-            if(curr.node[id] == null) curr.node[id] = new Node();
-
-            curr = curr.node[id];
-        }
-        curr.flag = true;
-    }
-
-    public boolean search(String word) {
-        Node curr = root;
-        for(char c : word.toCharArray()){
-            int id = c - 'a';
-            if(curr.node[id] == null) return false;
-            curr = curr.node[id];
-        }
-
-        return curr.flag;
-    }
-
-    public boolean startsWith(String prefix) {
-        Node curr = root;
-        for(char c : prefix.toCharArray()){
-            int id = c - 'a';
-            if(curr[id] == null) return false;
-            curr = curr.node[id];
-        }
-
-        return true;
-    }
 }
