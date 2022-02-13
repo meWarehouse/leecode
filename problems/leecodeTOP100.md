@@ -2968,16 +2968,116 @@ class Trie {
     }
 ```
 
+### [221. 最大正方形](https://leetcode-cn.com/problems/maximal-square/)
+    在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
+    
+    示例 1：
+    输入：matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+    输出：4
+    
+    示例 2：
+    输入：matrix = [["0","1"],["1","0"]]
+    输出：1
+    
+    示例 3：
+    输入：matrix = [["0"]]
+    输出：0
+```java
+   public int maximalSquare(char[][] matrix) {
 
+        if(matrix == null || matrix.length == 0) return 0;
 
+        int m = matrix.length,n = matrix[0].length;
+        int max = 0;
+        
+        int dp[][] = new int[m+1][n+1];
 
+        for(int i = 1;i <= m;i++){
 
+            for(int j = 1;j <= n;j++){
 
+                if(matrix[i-1][j-1] == '0') continue;
 
+                dp[i][j] = 1 + Math.min(dp[i-1][j],Math.min(dp[i-1][j-1],dp[i][j-1]));
 
+                max = Math.max(max,dp[i][j]);
+            }
+        }
 
+        return max * max;
+        
+    }
+```
 
+### [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/submissions/)
 
+```java
+    public TreeNode invertTree(TreeNode root) {
+
+        if(root == null) return root;
+
+        TreeNode L = root.left;
+        root.left = root.right;
+        root.right = L;
+
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return root;
+
+    }
+```
+
+### [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
+    给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
+    
+    示例 1：
+    输入：head = [1,2,2,1]
+    输出：true
+    
+    示例 2：
+    输入：head = [1,2]
+    输出：false
+```java
+   public boolean isPalindrome(ListNode head) {
+
+        int len = 0;
+
+        ListNode p = head;
+
+        while(p != null){
+            len+=1;
+            p = p.next;
+        }
+
+        int half = len / 2;
+
+        p = null;
+        ListNode q = head;
+
+        for(int i = 0;i < half;i++){
+
+            ListNode t = q.next;
+
+            q.next = p;
+
+            p = q;
+            q = t;
+
+        }
+
+        if((len & 1) == 1) q = q.next;
+
+        while(q != null){
+            if(p.val != q.val) return false;
+            p = p.next;
+            q = q.next;
+        } 
+
+        return true;
+
+    }
+```
 
 
 

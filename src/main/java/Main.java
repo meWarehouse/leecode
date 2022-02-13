@@ -1,4 +1,5 @@
 import com.at.bean.TreeNode;
+import com.at.lc.ListNode;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import sun.misc.LRUCache;
 
@@ -11,39 +12,48 @@ class Main {
 
     public static void main(String[] args) {
 
-        int state = 0;
+        ListNode listNode = new ListNode(1, new ListNode(2,new ListNode(3,new ListNode(4))));
 
-        state|=1;
-//        System.out.println(state|1);
-        System.out.println(state|2);
-        System.out.println(state|2);
-        System.out.println(state|2);
-        System.out.println(state|100);
+        new Main().isPalindrome(listNode);
 
     }
 
-    public int findKthLargest(int[] nums, int k) {
+    public boolean isPalindrome(ListNode head) {
 
-        int len = nums.length;
+        int len = 0;
 
-        PriorityQueue<Integer> queue = new PriorityQueue(k, ((o1, o2) -> (int) o1 - (int) o2));
+        ListNode p = head;
 
-        for (int n : nums) {
+        while (p == null) {
+            len += 1;
+            p = p.next;
+        }
 
-            if (queue.size() < k) {
-                queue.add(n);
-            } else {
-                if (n > queue.peek()) {
-                    queue.poll();
-                    queue.add(n);
-                }
-            }
+        int half = len / 2;
+
+        p = null;
+        ListNode q = head;
+
+        for (int i = 0; i < half; i++) {
+
+            ListNode t = q.next;
+
+            q.next = p;
+
+            p = q;
+            q = t;
 
         }
 
-        return queue.peek();
+        if ((len & 1) == 1) q = q.next;
+
+        while (q != null && p != null) {
+            if (p.val != q.val) return false;
+            p = p.next;
+            q = q.next;
+        }
+
+        return true;
 
     }
-
-
 }
