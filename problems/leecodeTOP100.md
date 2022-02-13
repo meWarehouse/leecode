@@ -3079,6 +3079,114 @@ class Trie {
     }
 ```
 
+### [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+    给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+    
+    百度百科中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+    
+    示例 1：
+    输入：root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+    输出：3
+    解释：节点 5 和节点 1 的最近公共祖先是节点 3 。
+    
+    示例 2：
+    输入：root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+    输出：5
+    解释：节点 5 和节点 4 的最近公共祖先是节点 5 。因为根据定义最近公共祖先节点可以为节点本身。
+    
+    示例 3：
+    输入：root = [1,2], p = 1, q = 2
+    输出：1
+
+
+```java
+    Map<TreeNode, TreeNode> map = new HashMap();
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        
+        process(root);
+        map.put(root, root);
+
+        TreeNode curr = p;
+        Set<TreeNode> set = new HashSet();
+
+        while (curr != map.get(curr)) {
+            set.add(curr);
+            curr = map.get(curr);
+        }
+        set.add(curr);
+
+        curr = q;
+
+        while (!set.contains(curr)) curr = map.get(curr);
+
+        return curr;
+        
+    }
+
+    public void process(TreeNode root) {
+
+        if (root == null) return;
+
+        map.put(root.left, root);
+        map.put(root.right, root);
+
+        process(root.left);
+        process(root.right);
+
+    }
+```
+
+### [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)
+    给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积 。
+    
+    题目数据 保证 数组 nums之中任意元素的全部前缀元素和后缀的乘积都在  32 位 整数范围内。
+    
+    请不要使用除法，且在 O(n) 时间复杂度内完成此题。
+    
+    示例 1:
+    输入: nums = [1,2,3,4]
+    输出: [24,12,8,6]
+    
+    示例 2:
+    输入: nums = [-1,1,0,-3,3]
+    输出: [0,0,9,0,0]
+```java
+    public int[] productExceptSelf(int[] nums) {
+
+        if(nums == null || nums.length == 0) return null;
+
+        int len = nums.length;
+
+        int p[] = new int[len];
+
+        int t = 1;
+        for(int i = 0; i < len;i++){
+            p[i] = t;
+            t*=nums[i];
+        }
+
+        t = 1;
+        for(int i = len - 1;i >=0 ;i--){
+
+            p[i] = p[i] * t;
+            t*=nums[i];
+        }
+
+        return p;
+
+    }
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
