@@ -3255,7 +3255,100 @@ class Trie {
 
 ```
 
+### [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/submissions/)
+    序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
+    
+    请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。
+    
+    提示: 输入输出格式与 LeetCode 目前使用的方式一致，详情请参阅 LeetCode 序列化二叉树的格式。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。
+    
+    示例 1：
+    输入：root = [1,2,3,null,null,4,5]
+    输出：[1,2,3,null,null,4,5]
 
+```java
+
+public class Codec {
+
+    int N = 20000;
+    char[] buf = new char[N];
+    int length;
+    int curr;
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+
+        length = 0;
+
+        dfs(root);
+
+        buf[length] = 0;
+
+        return String.valueOf(buf,0,length);
+
+    }
+
+
+    public void dfs(TreeNode root){
+
+        if(length != 0) buf[length++] = ',';
+        if(root == null){
+            buf[length++] = '#';
+            return;
+        }
+
+        String val = String.valueOf(root.val);
+        for(char c : val.toCharArray()) buf[length++] = c;
+
+        dfs(root.left);
+        dfs(root.right);
+
+
+    }
+
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        int curr = 0;
+        return gen(data);
+    }
+
+
+    public TreeNode gen(String data){
+
+        if(curr >= data.length()) return null;
+
+        if(data.charAt(curr) == '#'){
+            curr+=2; // "#,?"
+            return null;
+        }
+
+        int flag = 1,val = 0;
+
+        if(data.charAt(curr) == '-') {
+            flag = -1;
+            curr++;
+        }
+
+        while (curr < data.length() && Character.isDigit(data.charAt(curr))){
+            val = val * 10 + data.charAt(curr) - '0';
+            curr++;
+        }
+
+
+        TreeNode root = new TreeNode(flag * val);
+
+        curr++; //"?,"
+
+        root.left = gen(data);
+        root.right = gen(data);
+
+        return root;
+
+    }
+    
+}
+```
 
 
 
