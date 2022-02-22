@@ -13,9 +13,7 @@ public class HeapSort {
 
         new HeapSort().heap(arr);
 
-        for (int i : arr) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(arr));
 
     }
 

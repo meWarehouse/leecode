@@ -13,7 +13,7 @@ public class QuickSort {
         int[] arr = {12, 32, 49, 68, 48, 28, 37, 18, 93, 61};
 
 
-        new QuickSort().quickSort(arr,0, arr.length-1);
+        new QuickSort().quick(arr,0, arr.length-1);
 
         System.out.println(Arrays.toString(arr));
 

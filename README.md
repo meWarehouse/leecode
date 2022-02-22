@@ -3429,12 +3429,144 @@ public int maxProduct(int[] nums) {
 
 
 
+===========================
+
+### [451. 根据字符出现频率排序](https://leetcode-cn.com/problems/sort-characters-by-frequency/)
+    给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
+
+    示例 1
+    输入:
+    "tree"
+    输出:
+    "eert"
+    
+    解释:
+    'e'出现两次，'r'和't'都只出现一次。
+    因此'e'必须出现在'r'和't'之前。此外，"eetr"也是一个有效的答案。
+
+    示例 2:
+    输入:
+    "cccaaa"
+    输出:
+    "cccaaa"
+    
+    解释:
+    'c'和'a'都出现三次。此外，"aaaccc"也是有效的答案。
+    注意"cacaca"是不正确的，因为相同的字母必须放在一起。
+
+    示例 3:
+    输入:
+    "Aabb"
+    输出:
+    "bbAa"
+    
+    解释:
+    此外，"bbaA"也是一个有效的答案，但"Aabb"是不正确的。
+    注意'A'和'a'被认为是两种不同的字符。
+    通过次数91,651提交次数128,362
+
+```java
+    public String frequencySort(String s) {
+
+        if(s == null || s.length() == 0) return "";
+
+        Map<Character,Integer> map = new HashMap();
+        for(char c : s.toCharArray()) map.put(c,map.getOrDefault(c,0) + 1);
+
+        List<Character> keys = new ArrayList(map.keySet());
+
+        Collections.sort(keys,(o1,o2) -> map.get(o2) - map.get(o1));
+
+        StringBuffer res = new StringBuffer();
+
+        for(char c : keys){
+            int keyNums = map.get(c);
+            for(int i = 0;i < keyNums;i++) res.append(c);
+        }
+
+        return res.toString();
 
 
+    }
+```
 
 
+### [380. O(1) 时间插入、删除和获取随机元素](https://leetcode-cn.com/problems/insert-delete-getrandom-o1/submissions/)
+    实现RandomizedSet 类：
+    
+    RandomizedSet() 初始化 RandomizedSet 对象
+    bool insert(int val) 当元素 val 不存在时，向集合中插入该项，并返回 true ；否则，返回 false 。
+    bool remove(int val) 当元素 val 存在时，从集合中移除该项，并返回 true ；否则，返回 false 。
+    int getRandom() 随机返回现有集合中的一项（测试用例保证调用此方法时集合中至少存在一个元素）。每个元素应该有 相同的概率 被返回。
+    你必须实现类的所有函数，并满足每个函数的 平均 时间复杂度为 O(1) 。
+    
+    
+    
+    示例：
+    
+    输入
+    ["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]
+    [[], [1], [2], [2], [], [1], [2], []]
+    输出
+    [null, true, false, true, 2, true, false, 2]
+    
+    解释
+    RandomizedSet randomizedSet = new RandomizedSet();
+    randomizedSet.insert(1); // 向集合中插入 1 。返回 true 表示 1 被成功地插入。
+    randomizedSet.remove(2); // 返回 false ，表示集合中不存在 2 。
+    randomizedSet.insert(2); // 向集合中插入 2 。返回 true 。集合现在包含 [1,2] 。
+    randomizedSet.getRandom(); // getRandom 应随机返回 1 或 2 。
+    randomizedSet.remove(1); // 从集合中移除 1 ，返回 true 。集合现在包含 [2] 。
+    randomizedSet.insert(2); // 2 已在集合中，所以返回 false 。
+    randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom 总是返回 2 。
+```java
+class RandomizedSet {
 
+    Map<Integer, Integer> map;
+    List<Integer> list;
+    Random random = new Random();
 
+    public RandomizedSet() {
+        map = new HashMap<>();
+        list = new ArrayList<>();
+    }
+
+    
+    public boolean insert(int val) {
+
+        if (map.containsKey(val)) return false;
+
+        map.put(val, list.size());
+        list.add(list.size(), val);
+
+        return true;
+
+    }
+
+    public boolean remove(int val) {
+
+        if (!map.containsKey(val)) return false;
+
+        Integer removeValIndex = map.get(val);
+
+        Integer lastElem = list.get(list.size() - 1);
+        //list.add(removeValIndex, lastElem);
+        list.set(removeValIndex, lastElem);
+        map.put(lastElem, removeValIndex);
+
+        list.remove(list.size() - 1);
+        map.remove(val);
+
+        return true;
+
+    }
+
+    public int getRandom() {
+        return list.get(random.nextInt(list.size()));
+    }
+
+}
+```
 
 
 
