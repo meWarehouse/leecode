@@ -4,14 +4,14 @@
 
 ### 1. 两数之和
     https://leetcode-cn.com/problems/two-sum/
-    给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+    给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那两个整数，并返回它们的数组下标。
     
     你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
     
     你可以按任意顺序返回答案。
 
 
-​     
+​    
 ​    
 ​    示例 1：
 ​    输入：nums = [2,7,11,15], target = 9
@@ -49,11 +49,11 @@
 
 ### 2. 两数相加
     https://leetcode-cn.com/problems/add-two-numbers/
-    给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+    给你两个非空 的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
     
     请你将两个数相加，并以相同形式返回一个表示和的链表。
     
-    你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+    你可以假设除了数字 0 之外，这两个数都不会以 0开头。
 
 
 ​    
@@ -103,12 +103,12 @@
 
 ### 3. 无重复字符的最长子串
     https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
-    给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
+    给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
 
 
-​     
 ​    
-​    示例 1:
+​    
+​    示例1:
 ​    输入: s = "abcabcbb"
 ​    输出: 3
 ​    解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
@@ -121,8 +121,8 @@
 ​    示例 3:
 ​    输入: s = "pwwkew"
 ​    输出: 3
-​    解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
-​    请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+​    解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
+​    请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
 ​    
 ​    示例 4:
 ​    输入: s = ""
@@ -156,7 +156,7 @@
 
 ### 4. 寻找两个正序数组的中位数
     https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
-    给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+    给定两个大小分别为 m 和 n 的正序（从小到大）数组nums1 和nums2。请你找出并返回这两个正序数组的 中位数 。
     
     算法的时间复杂度应该为 O(log (m+n)) 。
 
@@ -281,8 +281,8 @@
 
 ### 6. Z 字形变换
     https://leetcode-cn.com/problems/zigzag-conversion/
-    将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
-    比如输入字符串为 "PAYPALISHIRING" 行数为 3 时，排列如下：
+    将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行Z 字形排列。
+    比如输入字符串为 "PAYPALISHIRING"行数为 3 时，排列如下：
     
     P   A   H   N
     A P L S I I G
@@ -341,12 +341,12 @@
     回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
 
 
-​     
+​    
 ​    示例 1：
 ​    输入：x = 121
 ​    输出：true
 ​    
-​    示例 2：
+​    示例2：
 ​    输入：x = -121
 ​    输出：false
 ​    解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
@@ -389,7 +389,7 @@
 
 ### 15. 三数之和
     https://leetcode-cn.com/problems/3sum/
-    给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+    给你一个包含 n 个整数的数组nums，判断nums中是否存在三个元素 a，b，c ，使得a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
     
     注意：答案中不可以包含重复的三元组。
          
@@ -452,7 +452,7 @@
 
 ### 17. 电话号码的字母组合
      https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
-    给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+    给定一个仅包含数字2-9的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
     给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
         
     ​    示例 1：
@@ -794,16 +794,16 @@ public void nextPermutation(int[] nums) {
 ### 34. 在排序数组中查找元素的第一个和最后一个位置
     https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
     给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
-    如果数组中不存在目标值 target，返回 [-1, -1]。
+    如果数组中不存在目标值 target，返回[-1, -1]。
     
     进阶：
-    你可以设计并实现时间复杂度为 O(log n) 的算法解决此问题吗？
+    你可以设计并实现时间复杂度为O(log n)的算法解决此问题吗？
     
     示例 1：
     输入：nums = [5,7,7,8,8,10], target = 8
     输出：[3,4]
     
-    示例 2：
+    示例2：
     输入：nums = [5,7,7,8,8,10], target = 6
     输出：[-1,-1]
     
@@ -871,16 +871,16 @@ public void nextPermutation(int[] nums) {
 
 ### 39. 组合总和
     https://leetcode-cn.com/problems/combination-sum/
-    给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，找出 candidates 中可以使数字和为目标数 target 的 所有 不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
+    给你一个 无重复元素 的整数数组candidates 和一个目标整数target，找出candidates中可以使数字和为目标数target 的 所有不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
     
     candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
     
-    对于给定的输入，保证和为 target 的不同组合数少于 150 个。
+    对于给定的输入，保证和为target 的不同组合数少于 150 个。
 
 
-​     
 ​    
-​    示例 1：
+​    
+​    示例1：
 ​    输入：candidates = [2,3,6,7], target = 7
 ​    输出：[[2,2,3],[7]]
 ​    解释：
@@ -888,7 +888,7 @@ public void nextPermutation(int[] nums) {
 ​    7 也是一个候选， 7 = 7 。
 ​    仅有这两种组合。
 ​    
-​    示例 2：
+​    示例2：
 ​    输入: candidates = [2,3,5], target = 8
 ​    输出: [[2,2,2,2],[2,3,3],[3,5]]
 ​    
@@ -937,12 +937,12 @@ public void nextPermutation(int[] nums) {
 
 ```
 https://leetcode-cn.com/problems/rotate-image/
-给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+给定一个 n×n 的二维矩阵matrix 表示一个图像。请你将图像顺时针旋转 90 度。
 
 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
 ```
 
-​     
+​    
 
 ```
 示例 1：
@@ -1046,7 +1046,7 @@ https://leetcode-cn.com/problems/group-anagrams/
     示例 1：
     输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
     输出：6
-    解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+    解释：连续子数组[4,-1,2,1] 的和最大，为6 。
     
     示例 2：
     输入：nums = [1]
@@ -1079,18 +1079,18 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 55. 跳跃游戏
     https://leetcode-cn.com/problems/jump-game/
-    给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
+    给定一个非负整数数组nums ，你最初位于数组的 第一个下标 。
     
     数组中的每个元素代表你在该位置可以跳跃的最大长度。
     
     判断你是否能够到达最后一个下标。
     
-    示例 1：
+    示例1：
     输入：nums = [2,3,1,1,4]
     输出：true
     解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。
     
-    示例 2：
+    示例2：
     输入：nums = [3,2,1,0,4]
     输出：false
     解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。
@@ -1119,17 +1119,17 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 56. 合并区间
     https://leetcode-cn.com/problems/merge-intervals/
-    以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回 一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间 。
+    以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
 
 
-​     
+​    
 ​    
 ​    示例 1：
 ​    输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
 ​    输出：[[1,6],[8,10],[15,18]]
 ​    解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
 ​    
-​    示例 2：
+​    示例2：
 ​    
 ​    输入：intervals = [[1,4],[4,5]]
 ​    输出：[[1,5]]
@@ -1168,14 +1168,14 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 62. 不同路径
     https://leetcode-cn.com/problems/unique-paths/
-    一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
+    一个机器人位于一个 m x n网格的左上角 （起始点在下图中标记为 “Start” ）。
     
     机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
     
     问总共有多少条不同的路径？
 
 
-​     
+​    
 ​    
 ​    示例 1：
 ​    输入：m = 3, n = 7
@@ -1241,12 +1241,12 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 64. 最小路径和
     https://leetcode-cn.com/problems/minimum-path-sum/
-    给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+    给定一个包含非负整数的 mxn网格grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
     
     说明：每次只能向下或者向右移动一步。
 
 
-​     
+​    
 ​    
 ​    示例 1：
 ​    输入：grid = [[1,3,1],[1,5,1],[4,2,1]]
@@ -1305,7 +1305,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 70. 爬楼梯
     https://leetcode-cn.com/problems/climbing-stairs/
-    假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+    假设你正在爬楼梯。需要 n阶你才能到达楼顶。
     
     每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
     
@@ -1354,7 +1354,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 72. 编辑距离
     https://leetcode-cn.com/problems/edit-distance/
-    给你两个单词 word1 和 word2， 请返回将 word1 转换成 word2 所使用的最少操作数  。
+    给你两个单词word1 和word2， 请返回将word1转换成word2 所使用的最少操作数 。
     
     你可以对一个单词进行如下三种操作：
     
@@ -1364,7 +1364,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 
 ​    
-​    示例 1：
+​    示例1：
 ​    输入：word1 = "horse", word2 = "ros"
 ​    输出：3
 ​    解释：
@@ -1372,7 +1372,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ​    rorse -> rose (删除 'r')
 ​    rose -> ros (删除 'e')
 ​    
-​    示例 2：
+​    示例2：
 ​    输入：word1 = "intention", word2 = "execution"
 ​    输出：5
 ​    解释：
@@ -1418,14 +1418,14 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 75. 颜色分类
     https://leetcode-cn.com/problems/sort-colors/
-    给定一个包含红色、白色和蓝色、共 n 个元素的数组 nums ，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
+    给定一个包含红色、白色和蓝色、共n 个元素的数组nums，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
     
-    我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
+    我们使用整数 0、1 和 2 分别表示红色、白色和蓝色。
     
     必须在不使用库的sort函数的情况下解决这个问题。
 
 
-​     
+​    
 ​    
 ​    示例 1：
 ​    输入：nums = [2,0,2,1,1,0]
@@ -1550,7 +1550,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### 78. [子集](https://leetcode-cn.com/problems/subsets/)
     https://leetcode-cn.com/problems/subsets/
-    给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+    给你一个整数数组nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
     
     解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
     
@@ -1592,7 +1592,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### 79. [单词搜索](https://leetcode-cn.com/problems/word-search/)
-     给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
+     给定一个m x n 二维字符网格board 和一个字符串单词word 。如果word 存在于网格中，返回 true ；否则，返回 false 。
     单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
     
     示例 1：
@@ -1746,7 +1746,7 @@ https://leetcode-cn.com/problems/group-anagrams/
     
     二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
     
-    说明: 叶子节点是指没有子节点的节点。
+    说明:叶子节点是指没有子节点的节点。
     
     示例：
     给定二叉树 [3,9,20,null,null,15,7]，
@@ -1756,7 +1756,7 @@ https://leetcode-cn.com/problems/group-anagrams/
     9  20
     /  \
     15   7
-    返回它的最大深度 3 。
+    返回它的最大深度3 。
 ```java
    public int maxDepth(TreeNode root) {
 
@@ -1777,7 +1777,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
-    给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点。
+    给定两个整数数组preorder 和 inorder，其中preorder 是二叉树的先序遍历， inorder是同一棵树的中序遍历，请构造二叉树并返回其根节点。
     
     示例 1:
     输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
@@ -1821,7 +1821,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
-    给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并返回这颗 二叉树 。
+    给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并返回这颗二叉树。
     
     示例 1:
     输入：inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
@@ -1909,7 +1909,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
-    给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
+    给定一个数组 prices ，它的第i 个元素prices[i] 表示一支给定股票第 i 天的价格。
     
     你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
     
@@ -1950,10 +1950,10 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
-    给定一个数组 prices ，其中 prices[i] 表示股票第 i 天的价格。
+    给定一个数组 prices ，其中prices[i] 表示股票第 i 天的价格。
     
-    在每一天，你可能会决定购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以购买它，然后在 同一天 出售。
-    返回 你能获得的 最大 利润 。
+    在每一天，你可能会决定购买和/或出售股票。你在任何时候最多只能持有 一股 股票。你也可以购买它，然后在 同一天 出售。
+    返回 你能获得的 最大 利润。
     
     示例 1:
     输入: prices = [7,1,5,3,6,4]
@@ -1967,7 +1967,7 @@ https://leetcode-cn.com/problems/group-anagrams/
     解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
        
-    示例 3:
+    示例3:
     输入: prices = [7,6,4,3,1]
     输出: 0
     解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
@@ -1996,7 +1996,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ### [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
     给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
     
-    设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+    设计一个算法来计算你所能获取的最大利润。你最多可以完成两笔交易。
     
     注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
     
@@ -2051,6 +2051,45 @@ https://leetcode-cn.com/problems/group-anagrams/
     }
 ```
 
+### [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+    给定一个整数数组prices，其中第prices[i]表示第i天的股票价格 。​
+    
+    设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
+    
+    卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
+    注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+    示例 1:
+    
+    输入: prices = [1,2,3,0,2]
+    输出: 3
+    解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
+    示例 2:
+    
+    输入: prices = [1]
+    输出: 0
+```java
+    public int maxProfit(int[] prices) {
+
+        int len = prices.length;
+
+        if(len == 1) return 0;
+
+        int[][] dp = new int[len+1][2];
+
+        dp[1][0] = 0;
+        dp[1][1] = -prices[0];
+
+        for(int i = 2;i <= len;i++){
+            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1] + prices[i-1]);
+            dp[i][1] = Math.max(dp[i-1][1],dp[i-2][0] - prices[i-1]);
+        }
+
+        return dp[len][0];
+
+    }
+```
+
 ### [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
     路径 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个 节点，且不一定经过根节点。
     
@@ -2100,7 +2139,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ### [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
     给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
     
-    请你设计并实现时间复杂度为 O(n) 的算法解决此问题。
+    请你设计并实现时间复杂度为O(n) 的算法解决此问题。
     
     示例 1：
     输入：nums = [100,4,200,1,3,2]
@@ -2161,7 +2200,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii/)
-    给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
+    给你一个整数数组nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
     
     示例 1：
     输入：nums = [2,2,3,2]
@@ -2242,11 +2281,11 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [146. LRU 缓存](https://leetcode-cn.com/problems/lru-cache/)
-    请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
+    请你设计并实现一个满足 LRU (最近最少使用) 缓存 约束的数据结构。
     实现 LRUCache 类：
-    LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
+    LRUCache(int capacity) 以 正整数 作为容量capacity 初始化 LRU 缓存
     int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。
-    void put(int key, int value) 如果关键字 key 已经存在，则变更其数据值 value ；如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。
+    void put(int key, int value)如果关键字key 已经存在，则变更其数据值value ；如果不存在，则向缓存中插入该组key-value 。如果插入操作导致关键字数量超过capacity ，则应该 逐出 最久未使用的关键字。
     函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
 
 
@@ -2360,17 +2399,17 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 ### [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
 
-    给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
+    给你一个整数数组 nums，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
     示例 1:
     
     输入: [2,3,-2,4]
     输出: 6
-    解释: 子数组 [2,3] 有最大乘积 6。
+    解释:子数组 [2,3] 有最大乘积 6。
     示例 2:
     
     输入: [-2,0,-1]
     输出: 0
-    解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
+    解释:结果不能为 2, 因为 [-2,-1] 不是子数组。
 
 ```java
     public int maxProduct(int[] nums) {
@@ -2406,8 +2445,8 @@ https://leetcode-cn.com/problems/group-anagrams/
     设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
     
     push(x) —— 将元素 x 推入栈中。
-    pop() —— 删除栈顶的元素。
-    top() —— 获取栈顶元素。
+    pop()—— 删除栈顶的元素。
+    top()—— 获取栈顶元素。
     getMin() —— 检索栈中的最小元素。
     示例:
     
@@ -2478,7 +2517,7 @@ class MinStack {
 ```
 
 ### [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
-    给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
+    给你两个单链表的头节点headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
     
     图示两个链表在节点 c1 开始相交：
     
@@ -2504,14 +2543,14 @@ class MinStack {
     从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,6,1,8,4,5]。
     在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。
     
-    示例 2：
-    输入：intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+    示例2：
+    输入：intersectVal= 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
     输出：Intersected at '2'
     解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。
     从各自的表头开始算起，链表 A 为 [1,9,1,2,4]，链表 B 为 [3,2,4]。
     在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。
     
-    示例 3
+    示例3
     输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
     输出：null
     解释：从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。
@@ -2534,15 +2573,15 @@ class MinStack {
 ```
 
 ### [169. 多数元素](https://leetcode-cn.com/problems/majority-element/)
-    给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。
+    给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数 大于⌊ n/2 ⌋的元素。
     
     你可以假设数组是非空的，并且给定的数组总是存在多数元素。
     
-    示例 1：
+    示例1：
     输入：[3,2,3]
     输出：3
     
-    示例 2：
+    示例2：
     输入：[2,2,1,1,1,2,2]
     输出：2
 ```java
@@ -2626,7 +2665,7 @@ class MinStack {
 
 ### [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 
-    给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
+    给你一个由'1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
     
     岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
     
@@ -2752,7 +2791,7 @@ class MinStack {
 
     给你一个大小为 m x n 的二进制矩阵 grid 。
     
-    岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设 grid 的四个边缘都被 0（代表水）包围着。
+    岛屿是由一些相邻的1(代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设grid 的四个边缘都被 0（代表水）包围着。
     
     岛屿的面积是岛上值为 1 的单元格的数目。
     
@@ -2813,7 +2852,7 @@ class MinStack {
     Trie() 初始化前缀树对象。
     void insert(String word) 向前缀树中插入字符串 word 。
     boolean search(String word) 如果字符串 word 在前缀树中，返回 true（即，在检索之前已经插入）；否则，返回 false 。
-    boolean startsWith(String prefix) 如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。
+    boolean startsWith(String prefix) 如果之前已经插入的字符串word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。
     示例：
     
     输入
@@ -2887,14 +2926,14 @@ class Trie {
 ```
 
 ### [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
-    给定一个含有 n 个正整数的数组和一个正整数 target 。
+    给定一个含有n个正整数的数组和一个正整数 target 。
     
-    找出该数组中满足其和 ≥ target 的长度最小的 连续子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。
+    找出该数组中满足其和 ≥ target 的长度最小的 连续子数组[numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。
     
     示例 1：
     输入：target = 7, nums = [2,3,1,2,4,3]
     输出：2
-    解释：子数组 [4,3] 是该条件下的长度最小的子数组。
+    解释：子数组[4,3]是该条件下的长度最小的子数组。
     
     示例 2：
     输入：target = 4, nums = [1,4,4]
@@ -2939,7 +2978,7 @@ class Trie {
     输入: [3,2,1,5,6,4] 和 k = 2
     输出: 5
     
-    示例 2:
+    示例2:
     输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
     输出: 4
 
@@ -3138,11 +3177,11 @@ class Trie {
 ```
 
 ### [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/)
-    给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积 。
+    给你一个整数数组nums，返回 数组answer，其中answer[i]等于nums中除nums[i]之外其余各元素的乘积。
     
-    题目数据 保证 数组 nums之中任意元素的全部前缀元素和后缀的乘积都在  32 位 整数范围内。
+    题目数据 保证 数组nums之中任意元素的全部前缀元素和后缀的乘积都在 32 位 整数范围内。
     
-    请不要使用除法，且在 O(n) 时间复杂度内完成此题。
+    请不要使用除法，且在O(n) 时间复杂度内完成此题。
     
     示例 1:
     输入: nums = [1,2,3,4]
@@ -3181,7 +3220,7 @@ class Trie {
 ### [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
     给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
     
-    请注意 ，必须在不复制数组的情况下原地对数组进行操作。
+    请注意，必须在不复制数组的情况下原地对数组进行操作。
     
     示例 1:
     输入: nums = [0,1,0,3,12]
@@ -3213,9 +3252,9 @@ class Trie {
 ```
 
 ### [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)
-    给定一个包含 n + 1 个整数的数组 nums ，其数字都在 [1, n] 范围内（包括 1 和 n），可知至少存在一个重复的整数。
+    给定一个包含n + 1 个整数的数组nums ，其数字都在[1, n]范围内（包括 1 和 n），可知至少存在一个重复的整数。
     
-    假设 nums 只有 一个重复的整数 ，返回 这个重复的数 。
+    假设 nums 只有 一个重复的整数 ，返回这个重复的数 。
     
     你设计的解决方案必须 不修改 数组 nums 且只用常量级 O(1) 的额外空间。
     
@@ -3260,7 +3299,7 @@ class Trie {
     
     请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。
     
-    提示: 输入输出格式与 LeetCode 目前使用的方式一致，详情请参阅 LeetCode 序列化二叉树的格式。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。
+    提示: 输入输出格式与 LeetCode 目前使用的方式一致，详情请参阅LeetCode 序列化二叉树的格式。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。
     
     示例 1：
     输入：root = [1,2,3,null,null,4,5]
@@ -3354,7 +3393,7 @@ public class Codec {
     
     给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
     
-    子序列 是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
+    子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
     
     示例 1：
     输入：nums = [10,9,2,5,3,7,101,18]
