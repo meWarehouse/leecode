@@ -1,4 +1,5 @@
 import com.sun.javafx.robot.FXRobotImage;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import com.sun.org.apache.bcel.internal.generic.LUSHR;
 
 import javax.swing.plaf.metal.MetalIconFactory;
@@ -18,91 +19,97 @@ class Main {
 
     }
 
-
+    List<String> res = new ArrayList<>();
     List<int[]> data = new ArrayList<>();
     int maxLen;
-    List<String> ans = new ArrayList<>();
 
     public List<String> removeInvalidParentheses(String s) {
 
-        int sum = 0, r = 0;
-        int cnt = 0;
-        for (int i = 0; i < s.length(); i++) {
+        int len = s.length();
 
-            if (i == 0 || s.charAt(i) == s.charAt(i - 1)) {
-                cnt++;
-            } else {
+        int countS = 0, r = 0;
+        int cnt = 0;
+        for (int i = 0; i < len; i++) {
+
+            if (i == 0 || s.charAt(i) == s.charAt(i - 1)) cnt++;
+            else {
                 data.add(new int[]{s.charAt(i - 1), cnt});
                 cnt = 1;
             }
 
-            if (s.charAt(i) == '(') sum++;
+            if (s.charAt(i) == '(') countS += 1;
             else if (s.charAt(i) == ')') {
-                if (sum == 0) r++;
-                else sum--;
+                if (countS == 0) r += 1;
+                else countS -= 1;
             }
 
         }
 
-        data.add(new int[]{s.charAt(s.length() - 1), cnt});
+        data.add(new int[]{s.charAt(len - 1), cnt});
 
+        //删除无法元素后剩余的最大长度
+        maxLen = len - (countS + r);
 
-        maxLen = s.length() - (sum + r);
+        List<int[]> ans = new ArrayList<>();
+        dfs(0, 0, 0, ans);
 
-        List<int[]> ret = new ArrayList<>();
-
-        dfs(0, 0, 0, ret);
-
-        return ans;
-
-
+        return res;
     }
 
-    private void dfs(int curr, int sum, int len, List<int[]> ret) {
+    //index 当前遍历到了那段字符串
+    private void dfs(int index, int sum, int currLen, List<int[]> ans) {
 
-        if (curr == data.size()) {
-            if (sum == 0 && len == maxLen) {
-                ans.add(gen(ret));
+        if (index == data.size()) {
+            if (sum == 0 && currLen == maxLen) {
+                res.add(gen(ans));
             }
             return;
         }
 
-        if (data.get(curr)[0] != ')' && data.get(curr)[0] != '(') {
-            if (len + data.get(curr)[1] > maxLen) return;
+        int[] currData = data.get(index);
 
-            ret.add(new int[]{data.get(curr)[0], data.get(curr)[1]});
+        //不是 (  )
+        if (currData[0] != '(' && currData[0] != ')') {
+            if (currLen + currData[1] > maxLen) return;
 
-            dfs(curr + 1, sum, len + data.get(curr)[1], ret);
+            ans.add(new int[]{currData[0], currData[1]});
 
-            ret.remove(ret.size() - 1);
+            dfs(index + 1, sum, currLen + currData[1], ans);
+
+            ans.remove(ans.size() - 1);
 
             return;
 
         }
 
-        ret.add(new int[]{data.get(curr)[0], data.get(curr)[1]});
-        for (int i = 0; i <= data.get(curr)[1]; i++) {
-            if (data.get(curr)[0] == '(') {
-                if (len + i <= maxLen) {
-                    ret.get(curr)[1] = i;
-                    dfs(curr + 1, sum + i, len + i, ret);
+
+        ans.add(new int[]{currData[0], currData[1]});
+
+        for (int i = 0; i <= currData[1]; i++) {
+            if (currData[0] == '(') {
+
+                if (currLen + i <= maxLen) {
+                    ans.get(index)[1] = i;
+                    dfs(index + 1, sum + i, currLen + i, ans);
                 }
-            } else {
-                if (sum >= i && len + i <= maxLen) {
-                    ret.get(curr)[1] = i;
-                    dfs(curr + 1, sum - i, len + i, ret);
+
+            } else if (currData[0] == ')') {
+                if (sum >= i && currLen + i <= maxLen) {
+                    ans.get(index)[1] = i;
+                    dfs(index + 1, sum - i, currLen + i, ans);
                 }
             }
         }
 
-        ret.remove(ret.size() - 1);
+
+        ans.remove(ans.size() - 1);
 
     }
 
-    private String gen(List<int[]> ret) {
+    private String gen(List<int[]> ans) {
         StringBuffer r = new StringBuffer();
 
-        for (int[] ints : ret) {
+        for (int[] ints : ans) {
             for (int i = 0; i < ints[1]; i++) {
                 r.append((char) ints[0]);
             }
@@ -110,6 +117,7 @@ class Main {
 
         return r.toString();
     }
+
 }
 
 
