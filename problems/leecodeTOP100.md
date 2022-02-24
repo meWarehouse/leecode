@@ -3470,6 +3470,218 @@ public class Codec {
     }
 ```
 
+### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
+    给定一个只包括 '('，')'，'{'，'}'，'['，']'的字符串 s ，判断字符串是否有效。
+    
+    有效字符串需满足：
+    
+    左括号必须用相同类型的右括号闭合。
+    左括号必须以正确的顺序闭合。
+
+    示例 1： 
+    输入：s = "()"
+    输出：true
+
+    示例2
+    输入：s = "()[]{}"
+    输出：true
+
+    示例3：
+    输入：s = "(]"
+    输出：false
+
+    示例4：
+    输入：s = "([)]"
+    输出：false
+
+    示例5：
+    输入：s = "{[]}"
+    输出：true
+```java
+public boolean isValid(String s) {
+
+        Map<Character,Character> map = new HashMap<>(3);
+        map.put(')','(');
+        map.put('}','{');
+        map.put(']','[');
+
+        Stack<Character> stack = new Stack();
+
+        for (char c : s.toCharArray()) {
+
+            if (stack.isEmpty()) {
+                stack.push(c);
+            } else {
+                if (map.get(c) == stack.peek()) {
+                    stack.pop();
+                } else {
+                    stack.push(c);
+                }
+            }
+        }
+
+        return stack.isEmpty();
+
+    }
+```
+
+### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+    数字 n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+
+    示例 1：
+    输入：n = 3
+    输出：["((()))","(()())","(())()","()(())","()()()"]
+    
+    示例 2：
+    输入：n = 1
+    输出：["()"]
+```java
+    List<String> res = new ArrayList();
+
+    public List<String> generateParenthesis(int n) {
+        dfs(n,n,"");
+        return res;
+    }
+
+    public void dfs(int L,int R,String ans){
+
+        if(L == 0 && R == 0 && ans != ""){
+            res.add(new String(ans));
+            return;
+        }
+
+        if(L > R) return;
+
+        if(L > 0) dfs(L-1,R,ans+"(");
+        if(R > 0) dfs(L,R-1,ans+")");
+
+    }
+
+```
+
+### [301. 删除无效的括号](https://leetcode-cn.com/problems/remove-invalid-parentheses/)
+    给你一个由若干括号和字母组成的字符串 s ，删除最小数量的无效括号，使得输入的字符串有效。
+    
+    返回所有可能的结果。答案可以按 任意顺序 返回。
+    
+    示例 1：
+    
+    输入：s = "()())()"
+    输出：["(())()","()()()"]
+    示例 2：
+    
+    输入：s = "(a)())()"
+    输出：["(a())()","(a)()()"]
+    示例 3：
+    
+    输入：s = ")("
+    输出：[""]
+```java
+ List<int[]> data = new ArrayList<>();
+    int maxLen;
+    List<String> ans = new ArrayList<>();
+
+    public List<String> removeInvalidParentheses(String s) {
+
+        int sum = 0, r = 0;
+        int cnt = 0;
+        for (int i = 0; i < s.length(); i++) {
+
+            if (i == 0 || s.charAt(i) == s.charAt(i - 1)) {
+                cnt++;
+            } else {
+                data.add(new int[]{s.charAt(i - 1), cnt});
+                cnt = 1;
+            }
+
+            if (s.charAt(i) == '(') sum++;
+            else if (s.charAt(i) == ')') {
+                if (sum == 0) r++;
+                else sum--;
+            }
+
+        }
+
+        data.add(new int[]{s.charAt(s.length() - 1), cnt});
+
+
+        maxLen = s.length() - (sum + r);
+
+        List<int[]> ret = new ArrayList<>();
+
+        dfs(0, 0, 0, ret);
+
+        return ans;
+
+
+    }
+
+    private void dfs(int curr, int sum, int len, List<int[]> ret) {
+
+        if (curr == data.size()) {
+            if (sum == 0 && len == maxLen) {
+                ans.add(gen(ret));
+            }
+            return;
+        }
+
+        if (data.get(curr)[0] != ')' && data.get(curr)[0] != '(') {
+            if (len + data.get(curr)[1] > maxLen) return;
+
+            ret.add(new int[]{data.get(curr)[0], data.get(curr)[1]});
+
+            dfs(curr + 1, sum, len + data.get(curr)[1], ret);
+
+            ret.remove(ret.size() - 1);
+
+            return;
+
+        }
+
+        ret.add(new int[]{data.get(curr)[0], data.get(curr)[1]});
+        for (int i = 0; i <= data.get(curr)[1]; i++) {
+            if (data.get(curr)[0] == '(') {
+                if (len + i <= maxLen) {
+                    ret.get(curr)[1] = i;
+                    dfs(curr + 1, sum + i, len + i, ret);
+                }
+            } else {
+                if (sum >= i && len + i <= maxLen) {
+                    ret.get(curr)[1] = i;
+                    dfs(curr + 1, sum - i, len + i, ret);
+                }
+            }
+        }
+
+        ret.remove(ret.size() - 1);
+
+    }
+
+    private String gen(List<int[]> ret) {
+        StringBuffer r = new StringBuffer();
+
+        for (int[] ints : ret) {
+            for (int i = 0; i < ints[1]; i++) {
+                r.append((char) ints[0]);
+            }
+        }
+
+        return r.toString();
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
