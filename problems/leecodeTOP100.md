@@ -2,29 +2,25 @@
 
 
 
-### 1. 两数之和
-    https://leetcode-cn.com/problems/two-sum/
+### [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
     给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那两个整数，并返回它们的数组下标。
     
     你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
     
     你可以按任意顺序返回答案。
 
-
-​    
-​    
-​    示例 1：
-​    输入：nums = [2,7,11,15], target = 9
-​    输出：[0,1]
-​    解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
-​    
-​    示例 2：
-​    输入：nums = [3,2,4], target = 6
-​    输出：[1,2]
-​    
-​    示例 3：
-​    输入：nums = [3,3], target = 6
-​    输出：[0,1]
+    示例 1：
+    输入：nums = [2,7,11,15], target = 9
+    输出：[0,1]
+    解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+    
+    示例 2：
+    输入：nums = [3,2,4], target = 6
+    输出：[1,2]
+    
+    示例 3：
+    输入：nums = [3,3], target = 6
+    输出：[0,1]
 ```java
     public int[] twoSum(int[] nums, int target) {
 
@@ -47,28 +43,25 @@
     }
 ```
 
-### 2. 两数相加
-    https://leetcode-cn.com/problems/add-two-numbers/
+### [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
     给你两个非空 的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
     
     请你将两个数相加，并以相同形式返回一个表示和的链表。
     
     你可以假设除了数字 0 之外，这两个数都不会以 0开头。
 
-
-​    
-​    示例 1：
-​    输入：l1 = [2,4,3], l2 = [5,6,4]
-​    输出：[7,0,8]
-​    解释：342 + 465 = 807.
-​    
-​    示例 2：
-​    输入：l1 = [0], l2 = [0]
-​    输出：[0]
-​    示例 3：
-​    
-​    输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-​    输出：[8,9,9,9,0,0,0,1]
+    示例 1：
+    输入：l1 = [2,4,3], l2 = [5,6,4]
+    输出：[7,0,8]
+    解释：342 + 465 = 807.
+    
+    示例 2：
+    输入：l1 = [0], l2 = [0]
+    输出：[0]
+    示例 3：
+    
+    输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+    输出：[8,9,9,9,0,0,0,1]
 
 ```java
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -101,32 +94,28 @@
     }
 ```
 
-### 3. 无重复字符的最长子串
-    https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+### [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
     给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
 
-
-​    
-​    
-​    示例1:
-​    输入: s = "abcabcbb"
-​    输出: 3
-​    解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
-​    
-​    示例 2:
-​    输入: s = "bbbbb"
-​    输出: 1
-​    解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
-​    
-​    示例 3:
-​    输入: s = "pwwkew"
-​    输出: 3
-​    解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
-​    请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
-​    
-​    示例 4:
-​    输入: s = ""
-​    输出: 0
+    示例1:
+    输入: s = "abcabcbb"
+    输出: 3
+    解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+    
+    示例 2:
+    输入: s = "bbbbb"
+    输出: 1
+    解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+    
+    示例 3:
+    输入: s = "pwwkew"
+    输出: 3
+    解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
+    请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
+    
+    示例 4:
+    输入: s = ""
+    输出: 0
 ```java
     public int lengthOfLongestSubstring(String s) {
 
@@ -154,32 +143,29 @@
     }
 ```
 
-### 4. 寻找两个正序数组的中位数
-    https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+### [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
     给定两个大小分别为 m 和 n 的正序（从小到大）数组nums1 和nums2。请你找出并返回这两个正序数组的 中位数 。
     
     算法的时间复杂度应该为 O(log (m+n)) 。
 
-
-​    
-​    示例 1：
-​    输入：nums1 = [1,3], nums2 = [2]
-​    输出：2.00000
-​    解释：合并数组 = [1,2,3] ，中位数 2
-​    
-​    示例 2：
-​    输入：nums1 = [1,2], nums2 = [3,4]
-​    输出：2.50000
-​    解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
-​    
-​    示例 3：
-​    输入：nums1 = [0,0], nums2 = [0,0]
-​    输出：0.00000
-​    
-​    示例 4：
-​    输入：nums1 = [], nums2 = [1]
-​    输出：1.00000
-​    
+    示例 1：
+    输入：nums1 = [1,3], nums2 = [2]
+    输出：2.00000
+    解释：合并数组 = [1,2,3] ，中位数 2
+    
+    示例 2：
+    输入：nums1 = [1,2], nums2 = [3,4]
+    输出：2.50000
+    解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+    
+    示例 3：
+    输入：nums1 = [0,0], nums2 = [0,0]
+    输出：0.00000
+    
+    示例 4：
+    输入：nums1 = [], nums2 = [1]
+    输出：1.00000
+    
 
     示例 5：
     输入：nums1 = [2], nums2 = []
@@ -219,8 +205,7 @@
     }
 ```
 
-### 5. 最长回文子串
-    https://leetcode-cn.com/problems/longest-palindromic-substring/
+### [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
     给你一个字符串 s，找到 s 中最长的回文子串。
     
     示例 1：
@@ -279,8 +264,7 @@
 
 ```
 
-### 6. Z 字形变换
-    https://leetcode-cn.com/problems/zigzag-conversion/
+### [6. Z 字形变换](https://leetcode-cn.com/problems/zigzag-conversion/)
     将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行Z 字形排列。
     比如输入字符串为 "PAYPALISHIRING"行数为 3 时，排列如下：
     
@@ -334,31 +318,27 @@
 
 
 
-### 9. 回文数
-    https://leetcode-cn.com/problems/palindrome-number/
+### [9. 回文数](https://leetcode-cn.com/problems/palindrome-number/)
     给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
     
-    回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
 
-
-​    
-​    示例 1：
-​    输入：x = 121
-​    输出：true
-​    
-​    示例2：
-​    输入：x = -121
-​    输出：false
-​    解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
-​    
-​    示例 3：
-​    输入：x = 10
-​    输出：false
-​    解释：从右向左读, 为 01 。因此它不是一个回文数。
-​    
-​    示例 4：
-​    输入：x = -101
-​    输出：false
+    示例 1：
+    输入：x = 121
+    输出：true
+    
+    示例2：
+    输入：x = -121
+    输出：false
+    解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+    
+    示例 3：
+    输入：x = 10
+    输出：false
+    解释：从右向左读, 为 01 。因此它不是一个回文数。
+    
+    示例 4：
+    输入：x = -101
+    输出：false
 ```java
     public boolean isPalindrome(int x) {
 
@@ -379,35 +359,23 @@
     }
 ```
 
-
-
-
-
-
-
-
-
-### 15. 三数之和
-    https://leetcode-cn.com/problems/3sum/
+### [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
     给你一个包含 n 个整数的数组nums，判断nums中是否存在三个元素 a，b，c ，使得a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
     
     注意：答案中不可以包含重复的三元组。
-         
-    ​    
-    ​    示例 1：
-    ​    
-    ​    输入：nums = [-1,0,1,2,-1,-4]
-    ​    输出：[[-1,-1,2],[-1,0,1]]
-    ​    示例 2：
-    ​    
-    ​    输入：nums = []
-    ​    输出：[]
-    ​    示例 3：
-    ​    
-    ​    输入：nums = [0]
-    ​    输出：[]
-
-
+        
+    示例 1：
+    
+    输入：nums = [-1,0,1,2,-1,-4]
+    输出：[[-1,-1,2],[-1,0,1]]
+    示例 2：
+    
+    输入：nums = []
+    输出：[]
+    示例 3：
+    
+    输入：nums = [0]
+    输出：[]
 
 ```java
 
@@ -450,22 +418,21 @@
     }
 ```
 
-### 17. 电话号码的字母组合
-     https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+### [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
     给定一个仅包含数字2-9的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
     给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
         
-    ​    示例 1：
-    ​    输入：digits = "23"
-    ​    输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
-    ​    
-    ​    示例 2：
-    ​    输入：digits = ""
-    ​    输出：[]
-    ​    
-    ​    示例 3：
-    ​    输入：digits = "2"
-    ​    输出：["a","b","c"]
+    示例 1：
+    输入：digits = "23"
+    输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+    
+    示例 2：
+    输入：digits = ""
+    输出：[]
+    
+    示例 3：
+    输入：digits = "2"
+    输出：["a","b","c"]
 
 
 
@@ -506,34 +473,30 @@
 ```
 
 
-### 23. 合并K个升序链表
-    https://leetcode-cn.com/problems/merge-k-sorted-lists/
-    
+### [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
     给你一个链表数组，每个链表都已经按升序排列。
     
     请你将所有链表合并到一个升序链表中，返回合并后的链表。
       示例 1：
-    ​    输入：lists = [[1,4,5],[1,3,4],[2,6]]
-    ​    输出：[1,1,2,3,4,4,5,6]
-    ​    解释：链表数组如下：
-    ​    [
-    ​    1->4->5,
-    ​    1->3->4,
-    ​    2->6
-    ​    ]
-    ​    将它们合并到一个有序链表中得到。
-    ​    1->1->2->3->4->4->5->6
-    ​    
-    ​    示例 2：
-    ​    输入：lists = []
-    ​    输出：[]
-    ​    
-    ​    示例 3：
-    ​    输入：lists = [[]]
-    ​    输出：[2]
+        输入：lists = [[1,4,5],[1,3,4],[2,6]]
+        输出：[1,1,2,3,4,4,5,6]
+        解释：链表数组如下：
+        [
+        1->4->5,
+        1->3->4,
+        2->6
+        ]
+        将它们合并到一个有序链表中得到。
+        1->1->2->3->4->4->5->6
+        
+        示例 2：
+        输入：lists = []
+        输出：[]
+        
+        示例 3：
+        输入：lists = [[]]
+        输出：[2]
 
-
-​    
 ```java
     class Node {
         int val;
@@ -575,24 +538,20 @@
 ```
 
 
-### 46. 全排列
-    https://leetcode-cn.com/problems/permutations/
+### [46. 全排列](https://leetcode-cn.com/problems/permutations/)
     给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 
-
-​     
-​   
-​    示例 1：
-​    输入：nums = [1,2,3]
-​    输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-​    
-​    示例 2：
-​    输入：nums = [0,1]
-​    输出：[[0,1],[1,0]]
-​    
-​    示例 3：
-​    输入：nums = [1]
-​    输出：[[1]]
+    示例 1：
+    输入：nums = [1,2,3]
+    输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+    
+    示例 2：
+    输入：nums = [0,1]
+    输出：[[0,1],[1,0]]
+    
+    示例 3：
+    输入：nums = [1]
+    输出：[[1]]
 
 ```java
     List<List<Integer>> res = new ArrayList();
@@ -702,30 +661,27 @@
         }
 ```
 
-### 31. 下一个排列
-    https://leetcode-cn.com/problems/next-permutation/
+### [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/)
     实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列（即，组合出下一个更大的整数）。
     
     如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
     
     必须 原地 修改，只允许使用额外常数空间。
-    ​    示例 1：
-    ​    输入：nums = [1,2,3]
-    ​    输出：[1,3,2]
-    ​    
-    ​    示例 2：
-    ​    输入：nums = [3,2,1]
-    ​    输出：[1,2,3]
-    ​    
-    ​    示例 3：
-    ​    输入：nums = [1,1,5]
-    ​    输出：[1,5,1]
-    ​    
-    ​    示例 4：
-    ​    输入：nums = [1]
-    ​    输出：[1]
-
-
+    示例 1：
+    输入：nums = [1,2,3]
+    输出：[1,3,2]
+    
+    示例 2：
+    输入：nums = [3,2,1]
+    输出：[1,2,3]
+    
+    示例 3：
+    输入：nums = [1,1,5]
+    输出：[1,5,1]
+    
+    示例 4：
+    输入：nums = [1]
+    输出：[1]
 
 ```java
 public void nextPermutation(int[] nums) {
@@ -776,23 +732,7 @@ public void nextPermutation(int[] nums) {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 34. 在排序数组中查找元素的第一个和最后一个位置
-    https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+### [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
     给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
     如果数组中不存在目标值 target，返回[-1, -1]。
     
@@ -869,32 +809,28 @@ public void nextPermutation(int[] nums) {
 ```
 
 
-### 39. 组合总和
-    https://leetcode-cn.com/problems/combination-sum/
+### [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/)
     给你一个 无重复元素 的整数数组candidates 和一个目标整数target，找出candidates中可以使数字和为目标数target 的 所有不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
     
     candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
     
     对于给定的输入，保证和为target 的不同组合数少于 150 个。
 
-
-​    
-​    
-​    示例1：
-​    输入：candidates = [2,3,6,7], target = 7
-​    输出：[[2,2,3],[7]]
-​    解释：
-​    2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
-​    7 也是一个候选， 7 = 7 。
-​    仅有这两种组合。
-​    
-​    示例2：
-​    输入: candidates = [2,3,5], target = 8
-​    输出: [[2,2,2,2],[2,3,3],[3,5]]
-​    
-​    示例 3：
-​    输入: candidates = [2], target = 1
-​    输出: []
+    示例1：
+    输入：candidates = [2,3,6,7], target = 7
+    输出：[[2,2,3],[7]]
+    解释：
+    2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
+    7 也是一个候选， 7 = 7 。
+    仅有这两种组合。
+    
+    示例2：
+    输入: candidates = [2,3,5], target = 8
+    输出: [[2,2,2,2],[2,3,3],[3,5]]
+    
+    示例 3：
+    输入: candidates = [2], target = 1
+    输出: []
 
 ```java
     List<List<Integer>> res = new ArrayList();
@@ -930,29 +866,19 @@ public void nextPermutation(int[] nums) {
 ```
 
 
+### [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/)
+    给定一个 n×n 的二维矩阵matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+    
+    你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
+    
+    示例 1：
+    输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    输出：[[7,4,1],[8,5,2],[9,6,3]]
+    
+    示例 2：
+    输入：matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+    输出：[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
 
-
-
-### 48. 旋转图像
-
-```
-https://leetcode-cn.com/problems/rotate-image/
-给定一个 n×n 的二维矩阵matrix 表示一个图像。请你将图像顺时针旋转 90 度。
-
-你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
-```
-
-​    
-
-```
-示例 1：
-输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
-输出：[[7,4,1],[8,5,2],[9,6,3]]
-
-示例 2：
-输入：matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
-输出：[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
-```
 
 ```java
     public void rotate(int[][] matrix) {
@@ -977,31 +903,23 @@ https://leetcode-cn.com/problems/rotate-image/
     }
 ```
 
-### 49. 字母异位词分组
+### [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+    给你一个字符串数组，请你将 字母异位词 组合在一起。可以按任意顺序返回结果列表。
+    
+    字母异位词 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。
+    
+    示例 1:
+    输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+    输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
+    
+    示例 2:
+    输入: strs = [""]
+    输出: [[""]]
+    
+    示例 3:
+    输入: strs = ["a"]
+    输出: [["a"]]
 
-```
-https://leetcode-cn.com/problems/group-anagrams/
-给你一个字符串数组，请你将 字母异位词 组合在一起。可以按任意顺序返回结果列表。
-
-字母异位词 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。
-```
-
-​     
-​    
-
-```
-示例 1:
-输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
-
-示例 2:
-输入: strs = [""]
-输出: [[""]]
-
-示例 3:
-输入: strs = ["a"]
-输出: [["a"]]
-```
 
 ```java
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -1037,8 +955,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 
 
-### 53. 最大子数组和
-    https://leetcode-cn.com/problems/maximum-subarray/
+### [53. 最大子数组和](https://leetcode-cn.com/problems/maximum-subarray/)
     给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
     
     子数组 是数组中的一个连续部分。
@@ -1077,8 +994,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 
 
-### 55. 跳跃游戏
-    https://leetcode-cn.com/problems/jump-game/
+### [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)
     给定一个非负整数数组nums ，你最初位于数组的 第一个下标 。
     
     数组中的每个元素代表你在该位置可以跳跃的最大长度。
@@ -1117,23 +1033,19 @@ https://leetcode-cn.com/problems/group-anagrams/
         }
 ```
 
-### 56. 合并区间
-    https://leetcode-cn.com/problems/merge-intervals/
+### [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
     以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
 
-
-​    
-​    
-​    示例 1：
-​    输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
-​    输出：[[1,6],[8,10],[15,18]]
-​    解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
-​    
-​    示例2：
-​    
-​    输入：intervals = [[1,4],[4,5]]
-​    输出：[[1,5]]
-​    解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。
+    示例 1：
+    输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
+    输出：[[1,6],[8,10],[15,18]]
+    解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
+    
+    示例2：
+    
+    输入：intervals = [[1,4],[4,5]]
+    输出：[[1,5]]
+    解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。
 
 ```java
     public int[][] merge(int[][] intervals) {
@@ -1166,37 +1078,33 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 
-### 62. 不同路径
-    https://leetcode-cn.com/problems/unique-paths/
+### [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
     一个机器人位于一个 m x n网格的左上角 （起始点在下图中标记为 “Start” ）。
     
     机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
     
     问总共有多少条不同的路径？
-
-
-​    
-​    
-​    示例 1：
-​    输入：m = 3, n = 7
-​    输出：28
-​    
-​    示例 2：
-​    输入：m = 3, n = 2
-​    输出：3
-​    解释：
-​    从左上角开始，总共有 3 条路径可以到达右下角。
-​    1. 向右 -> 向下 -> 向下
-​    2. 向下 -> 向下 -> 向右
-​    3. 向下 -> 向右 -> 向下 
-​       
-​    示例 3：
-​    输入：m = 7, n = 3
-​    输出：28
-​    
-​    示例 4：
-​    输入：m = 3, n = 3
-​    输出：6
+    
+    示例 1：
+    输入：m = 3, n = 7
+    输出：28
+    
+    示例 2：
+    输入：m = 3, n = 2
+    输出：3
+    解释：
+    从左上角开始，总共有 3 条路径可以到达右下角。
+    1. 向右 -> 向下 -> 向下
+    2. 向下 -> 向下 -> 向右
+    3. 向下 -> 向右 -> 向下 
+       
+    示例 3：
+    输入：m = 7, n = 3
+    输出：28
+    
+    示例 4：
+    输入：m = 3, n = 3
+    输出：6
 ```java
     public int uniquePaths(int m, int n) {
 
@@ -1239,23 +1147,19 @@ https://leetcode-cn.com/problems/group-anagrams/
     }
 ```
 
-### 64. 最小路径和
-    https://leetcode-cn.com/problems/minimum-path-sum/
+### [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)
     给定一个包含非负整数的 mxn网格grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
     
     说明：每次只能向下或者向右移动一步。
-
-
-​    
-​    
-​    示例 1：
-​    输入：grid = [[1,3,1],[1,5,1],[4,2,1]]
-​    输出：7
-​    解释：因为路径 1→3→1→1→1 的总和最小。
-​    
-​    示例 2：
-​    输入：grid = [[1,2,3],[4,5,6]]
-​    输出：12
+    
+    示例 1：
+    输入：grid = [[1,3,1],[1,5,1],[4,2,1]]
+    输出：7
+    解释：因为路径 1→3→1→1→1 的总和最小。
+    
+    示例 2：
+    输入：grid = [[1,2,3],[4,5,6]]
+    输出：12
 
 ```java
     public int minPathSum(int[][] grid) {
@@ -1303,8 +1207,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 
 
 
-### 70. 爬楼梯
-    https://leetcode-cn.com/problems/climbing-stairs/
+### [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
     假设你正在爬楼梯。需要 n阶你才能到达楼顶。
     
     每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
@@ -1352,8 +1255,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 
-### 72. 编辑距离
-    https://leetcode-cn.com/problems/edit-distance/
+### [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)
     给你两个单词word1 和word2， 请返回将word1转换成word2 所使用的最少操作数 。
     
     你可以对一个单词进行如下三种操作：
@@ -1362,25 +1264,23 @@ https://leetcode-cn.com/problems/group-anagrams/
     删除一个字符
     替换一个字符
 
-
-​    
-​    示例1：
-​    输入：word1 = "horse", word2 = "ros"
-​    输出：3
-​    解释：
-​    horse -> rorse (将 'h' 替换为 'r')
-​    rorse -> rose (删除 'r')
-​    rose -> ros (删除 'e')
-​    
-​    示例2：
-​    输入：word1 = "intention", word2 = "execution"
-​    输出：5
-​    解释：
-​    intention -> inention (删除 't')
-​    inention -> enention (将 'i' 替换为 'e')
-​    enention -> exention (将 'n' 替换为 'x')
-​    exention -> exection (将 'n' 替换为 'c')
-​    exection -> execution (插入 'u')
+    示例1：
+    输入：word1 = "horse", word2 = "ros"
+    输出：3
+    解释：
+    horse -> rorse (将 'h' 替换为 'r')
+    rorse -> rose (删除 'r')
+    rose -> ros (删除 'e')
+    
+    示例2：
+    输入：word1 = "intention", word2 = "execution"
+    输出：5
+    解释：
+    intention -> inention (删除 't')
+    inention -> enention (将 'i' 替换为 'e')
+    enention -> exention (将 'n' 替换为 'x')
+    exention -> exection (将 'n' 替换为 'c')
+    exection -> execution (插入 'u')
 ```java
     public int minDistance(String word1, String word2) {
 
@@ -1414,10 +1314,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 
-
-
-### 75. 颜色分类
-    https://leetcode-cn.com/problems/sort-colors/
+### [75. 颜色分类](https://leetcode-cn.com/problems/sort-colors/)
     给定一个包含红色、白色和蓝色、共n 个元素的数组nums，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
     
     我们使用整数 0、1 和 2 分别表示红色、白色和蓝色。
@@ -1425,15 +1322,13 @@ https://leetcode-cn.com/problems/group-anagrams/
     必须在不使用库的sort函数的情况下解决这个问题。
 
 
-​    
-​    
-​    示例 1：
-​    输入：nums = [2,0,2,1,1,0]
-​    输出：[0,0,1,1,2,2]
-​    
-​    示例 2：
-​    输入：nums = [2,0,1]
-​    输出：[0,1,2]
+    示例 1：
+    输入：nums = [2,0,2,1,1,0]
+    输出：[0,0,1,1,2,2]
+    
+    示例 2：
+    输入：nums = [2,0,1]
+    输出：[0,1,2]
 
 ```java
     public void sortColors(int[] nums) {
@@ -2052,7 +1947,7 @@ https://leetcode-cn.com/problems/group-anagrams/
 ```
 
 ### [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
-    给定一个整数数组prices，其中第prices[i]表示第i天的股票价格 。​
+    给定一个整数数组prices，其中第prices[i]表示第i天的股票价格 。
     
     设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
     
@@ -2289,15 +2184,15 @@ https://leetcode-cn.com/problems/group-anagrams/
     函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
 
 
-​    
-​    示例：
-​    
-​    输入
-​    ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
-​    [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
-​    输出
-​    [null, null, null, 1, null, -1, null, -1, 3, 4]
-​    
+    
+    示例：
+    
+    输入
+    ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+    [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+    输出
+    [null, null, null, 1, null, -1, null, -1, 3, 4]
+    
     解释
     LRUCache lRUCache = new LRUCache(2);
     lRUCache.put(1, 1); // 缓存是 {1=1}
