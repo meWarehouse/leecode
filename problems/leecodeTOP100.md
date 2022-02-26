@@ -3574,8 +3574,100 @@ public boolean isValid(String s) {
 
 ```
 
+### [312. 戳气球](https://leetcode-cn.com/problems/burst-balloons/)
+    有 n 个气球，编号为0 到 n - 1，每个气球上都标有一个数字，这些数字存在数组nums中。
+    现在要求你戳破所有的气球。戳破第 i 个气球，你可以获得nums[i - 1] * nums[i] * nums[i + 1] 枚硬币。这里的 i - 1 和 i + 1 代表和i相邻的两个气球的序号。如果 i - 1或 i + 1 超出了数组的边界，那么就当它是一个数字为 1 的气球。
+    求所能获得硬币的最大数量。
+
+    示例 1：
+    输入：nums = [3,1,5,8]
+    输出：167
+    解释：
+    nums = [3,1,5,8] --> [3,5,8] --> [3,8] --> [8] --> []
+    coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167
+
+    示例 2： 
+    输入：nums = [1,5]
+    输出：10
+```java
+    int[][] dp = new int[505][505];
+
+    public int maxCoins(int[] nums) {
+
+        int len = nums.length;
+
+        int[] p = new int[len + 2];
+        p[0] = p[len + 1] = 1;
+        for (int i = 1; i <= len; i++) p[i] = nums[i - 1];
 
 
+        for (int i = 1; i <= len; i++) dp[i][i] = p[i - 1] * p[i] * p[i + 1];
+
+        for (int n = 2; n <= len; n++) {
+
+            for (int i = 1; n + i - 1 <= len; i++) {
+
+                int j = n + i - 1;
+
+                for (int k = i; k <= j; k++) {
+
+                    dp[i][j] = Math.max(dp[i][j], dp[i][k - 1] + dp[k + 1][j] + p[k] * p[i - 1] * p[j + 1]);
+
+                }
+
+            }
+
+        }
+
+        return dp[1][len];
+
+    }
+
+```
+
+### [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+    给你一个整数数组 coins ，表示不同面额的硬币；以及一个整数 amount ，表示总金额。
+    
+    计算并返回可以凑成总金额所需的 最少的硬币个数 。如果没有任何一种硬币组合能组成总金额，返回-1 。
+    
+    你可以认为每种硬币的数量是无限的。
+    
+    
+    示例1：
+    输入：coins = [1, 2, 5], amount = 11
+    输出：3
+    解释：11 = 5 + 5 + 1
+    
+    示例 2：
+    输入：coins = [2], amount = 3
+    输出：-1
+    
+    示例 3：
+    输入：coins = [1], amount = 0
+    输出：0
+```java
+    public int coinChange(int[] coins, int amount) {
+
+        int len = coins.length;
+
+        int[] dp = new int[amount+1];
+        Arrays.fill(dp,amount + 1);
+        dp[0] = 0;
+
+        for(int i = 1;i <= amount;i++){
+
+            for(int j = 0;j < len;j++){
+
+                if(coins[j] <= i){
+                    dp[i] = Math.min(dp[i],dp[i-coins[j]] + 1);
+                }
+            }
+        }
+        
+        return  dp[amount] > amount ? -1 : dp[amount];
+        
+    }
+```
 
 
 
