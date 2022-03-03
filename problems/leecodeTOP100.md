@@ -3719,8 +3719,61 @@ public boolean isValid(String s) {
     }
 ```
 
+### [338. 比特位计数](https://leetcode-cn.com/problems/counting-bits/)
+    给你一个整数 n ，对于0 <= i <= n 中的每个 i ，计算其二进制表示中 1 的个数 ，返回一个长度为 n + 1 的数组 ans 作为答案。
+
+    示例 1：
+    输入：n = 2
+    输出：[0,1,1]
+    解释：
+    0 --> 0
+    1 --> 1
+    2 --> 10
+
+    示例 2：
+    输入：n = 5
+    输出：[0,1,1,2,1,2]
+    解释：
+    0 --> 0
+    1 --> 1
+    2 --> 10
+    3 --> 11
+    4 --> 100
+    5 --> 101
+```java
+    /*
+        0~n 分为奇数 偶数
+
+        偶 奇 偶 奇 偶 奇 ....
+
+        对于奇数 一定比前一个偶数多一个 1
+
+        偶数二进制 xxxxxx10
+        右移一位    xxxxxx1
 
 
+     */
+    public int[] countBits(int n) {
+
+        int[] res = new int[n + 1];
+
+        res[0] = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if ((i & 1) == 1) {
+                //奇数
+                res[i] = res[i - 1] + 1;
+            } else {
+                //偶数
+                res[i] = res[i >> 1];
+            }
+        }
+
+        return res;
+
+    }
+
+```
 
 
 
