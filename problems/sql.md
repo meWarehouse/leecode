@@ -1,1 +1,138 @@
 https://www.nowcoder.com/ta/sql-factory-interview
+
+留存
+```sql
+id  uid artical_id  in_time out_time    sign_cin
+
+
+tb_user_log
+
+
+
+
+
+SELECT
+    t1.first_login_date,
+    COUNT(t1.uid) c0,
+    COUNT(t2.uid) c1,
+    ROUND(COUNT(t1.uid) / COUNT(t1.uid),2) p
+FROM 
+(
+    -- 每天新增用户 
+    SELECT 
+        uid,
+        MIN(DATE_FORMAT(in_time,'%Y%m%d')) first_login_date
+    FROM tb_user_log GROUP BY uid
+)t1
+LEFT JOIN 
+(
+    -- 每天登录用户
+    SELECT uid,DATE_FORMAT(in_time,'%Y%m%d') login_date FROM tb_user_log GROUP BY uid,DATE_FORMAT(in_time,'%Y%m%d') 
+
+
+    select
+        uid,
+        login_date
+    from 
+    (
+    select
+        uid,
+        date_format(in_time,'%Y%m%d') login_date
+    from tb_user_log
+    union 
+    select
+        uid,
+        date_format(out_time,'%Y%m%d') login_date
+    from tb_user_log
+    )a1 
+    group by uid,login_date
+    order by login_date
+
+)t2
+ON t1.uid=t2.uid AND t1.first_login_date=DATE_SUB(t2.login_date,INTERVAL 1 DAY)
+GROUP BY t1.first_login_date
+
+
+
+01
+    101 102 103
+
+02
+    101 103 104
+
+03 
+    101 104 105
+
+04 
+    101
+
+
+===========================================
+        用户id，用户注册日期，用户登陆日期（活跃日期）
+
+
+        drop table test_retention;
+        create table test_retention(
+        user_id string
+        ,regist_time string
+        ,active_time string
+        )
+        partitioned by ( dt string )
+        ;
+
+
+        08-01
+        1 2 3 4 5
+
+        08-02
+        1 2 3 6 7 8 9 10
+
+        08-03
+        1 2 6 7
+
+        08-04
+        1 2 3 6 7 8 9
+
+
+        select
+        user_id
+        regist_time
+        from test_retention where
+        group by user_id
+
+
+
+        select
+        '08-03',
+        '一日留存',
+        sum(if(regist_time='2021-08-03'),1,0) count_03_new,
+        sum(if(regist_time='2021-08-03' and active_time='2021-08-04',1,0)) as count_03_new_l
+        from test_retention
+
+
+        select
+        '08-01',
+        '一日留存',
+        sum(if(regist_time='2021-08-01',1,0)) count_03_new,
+        sum(if(regist_time='2021-08-01' and active_time='2021-08-02',1,0)) as count_03_new_l
+        from test_retention
+
+        select
+        '08-01',
+        '两日留存',
+        sum(if(regist_time='2021-08-01',1,0)) count_03_new,
+        sum(if(regist_time='2021-08-01' and active_time='2021-08-03',1,0)) as count_03_new_l
+        from test_retention
+
+
+        select
+        '08-01',
+        '三日留存',
+        sum(if(regist_time='2021-08-01',1,0)) count_03_new,
+        sum(if(regist_time='2021-08-01' and active_time='2021-08-04',1,0)) as count_03_new_l
+        from test_retention
+
+
+
+```
+
