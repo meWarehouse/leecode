@@ -4074,3 +4074,58 @@ public boolean isValid(String s) {
     }
 ```
 
+### [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/)
+    给你一个 只包含正整数 的 非空 数组nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
+    
+    示例 1：
+    
+    输入：nums = [1,5,11,5]
+    输出：true
+    解释：数组可以分割成 [1, 5, 5] 和 [11] 。
+    示例 2：
+    
+    输入：nums = [1,2,3,5]
+    输出：false
+    解释：数组不能分割成两个元素和相等的子集。
+
+```java
+    public boolean canPartition(int[] nums) {
+
+        int len = nums.length;
+
+        if(len < 2) return false;
+
+        int sum = 0,max = 0;
+
+        for(int x : nums){
+            max = Math.max(max,x);
+            sum+=x;
+        }
+
+        if(sum % 2 == 1) return false;
+
+        int t = sum / 2;
+        if(t < max) return false;
+
+        boolean[] dp = new boolean[t + 1];
+        dp[0] = true;
+
+        for(int i = 0; i < len;i++){
+
+            int m = nums[i];
+
+            for(int j = t; j >= m;j--){
+                dp[j] = dp[j] || dp[j-m];
+            }
+
+        }
+
+        return dp[t];
+
+    }
+
+```
+
+
+
+
