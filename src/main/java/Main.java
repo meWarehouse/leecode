@@ -1,52 +1,73 @@
-import sun.misc.FpUtils;
-
-import java.net.Inet4Address;
-import java.nio.ByteBuffer;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
+
 
     public static void main(String[] args) {
 
 
-        new Main().canPartition(new int[]{1,5,11,5});
 
     }
 
-
-    public boolean canPartition(int[] nums) {
+    public int subarraySum(int[] nums, int k) {
 
         int len = nums.length;
 
-        if(len < 2) return false;
+        //前缀和
+        int[] dp = new int[len +1];
 
-        int sum = 0,max = 0;
-
-        for(int x : nums){
-            Math.max(x,max);
-            sum+=x;
+        for (int i =  1; i <= len ; i++) {
+            dp[i] = dp[i-1] + nums[i-1];
         }
 
-        if(sum % 2 == 1) return false;
+        int ret = 0;
 
-        int t = sum / 2;
+        Map<Integer,Integer> map = new HashMap<>();
 
-        if(t < max) return false;
-
-        boolean[] dp = new boolean[t+1];
-        dp[0] = true;
+        for (int i = len; i >=0 ; i--) {
 
 
-        for (int i = 0; i < len; i++) {
-            int x = nums[i];
-            for (int j = t; j >= x; j--) {
-                dp[j] = j - x >=0 ? dp[j] | dp[j-x] : dp[j];
-            }
+            map.put(dp[i],map.getOrDefault(dp[i],0) + 1);
+
+            int t = dp[i-1] + k;
+
+            if(map.containsKey(t))
+                ret+=map.get(t);
+
         }
 
-        return dp[t];
 
 
+        return ret;
+
+
+    }
+
+    public int subarraySum(int[] nums, int k) {
+
+        int len = nums.length;
+
+        int p[] = new int[len+1];
+
+        for(int i = 1; i <= len;i++) p[i] = p[i-1] + nums[i-1];
+
+        int ans = 0;
+
+        Map<Integer,Integer> map = new HashMap();
+
+        for(int i = len;i > 0;i++){
+            map.put(p[i],map.getOrDefault(p[i],0) + 1);
+
+            int t = p[i - 1]  + k;
+
+            if(map.containsKey(t)) ans+=map.get(t);
+
+        }
+
+        return ans;
 
 
     }

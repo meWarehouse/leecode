@@ -8,7 +8,7 @@
     你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
     
     你可以按任意顺序返回答案。
-
+    
     示例 1：
     输入：nums = [2,7,11,15], target = 9
     输出：[0,1]
@@ -49,7 +49,7 @@
     请你将两个数相加，并以相同形式返回一个表示和的链表。
     
     你可以假设除了数字 0 之外，这两个数都不会以 0开头。
-
+    
     示例 1：
     输入：l1 = [2,4,3], l2 = [5,6,4]
     输出：[7,0,8]
@@ -96,7 +96,7 @@
 
 ### [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
     给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
-
+    
     示例1:
     输入: s = "abcabcbb"
     输出: 3
@@ -147,7 +147,7 @@
     给定两个大小分别为 m 和 n 的正序（从小到大）数组nums1 和nums2。请你找出并返回这两个正序数组的 中位数 。
     
     算法的时间复杂度应该为 O(log (m+n)) 。
-
+    
     示例 1：
     输入：nums1 = [1,3], nums2 = [2]
     输出：2.00000
@@ -165,7 +165,7 @@
     示例 4：
     输入：nums1 = [], nums2 = [1]
     输出：1.00000
-    
+
 
     示例 5：
     输入：nums1 = [2], nums2 = []
@@ -320,7 +320,7 @@
 
 ### [9. 回文数](https://leetcode-cn.com/problems/palindrome-number/)
     给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
-    
+
 
     示例 1：
     输入：x = 121
@@ -540,7 +540,7 @@
 
 ### [46. 全排列](https://leetcode-cn.com/problems/permutations/)
     给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
-
+    
     示例 1：
     输入：nums = [1,2,3]
     输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
@@ -815,7 +815,7 @@ public void nextPermutation(int[] nums) {
     candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
     
     对于给定的输入，保证和为target 的不同组合数少于 150 个。
-
+    
     示例1：
     输入：candidates = [2,3,6,7], target = 7
     输出：[[2,2,3],[7]]
@@ -1035,7 +1035,7 @@ public void nextPermutation(int[] nums) {
 
 ### [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
     以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
-
+    
     示例 1：
     输入：intervals = [[1,3],[2,6],[8,10],[15,18]]
     输出：[[1,6],[8,10],[15,18]]
@@ -1263,7 +1263,7 @@ public void nextPermutation(int[] nums) {
     插入一个字符
     删除一个字符
     替换一个字符
-
+    
     示例1：
     输入：word1 = "horse", word2 = "ros"
     输出：3
@@ -1953,7 +1953,7 @@ public void nextPermutation(int[] nums) {
     
     卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
     注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-
+    
     示例 1:
     
     输入: prices = [1,2,3,0,2]
@@ -2184,7 +2184,7 @@ public void nextPermutation(int[] nums) {
     函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
 
 
-    
+​    
     示例：
     
     输入
@@ -2563,7 +2563,7 @@ class MinStack {
     除了root之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果 两个直接相连的房子在同一天晚上被打劫 ，房屋将自动报警。
     
     给定二叉树的root。返回在不触动警报的情况下，小偷能够盗取的最高金额。
-
+    
     示例 1:
     输入: root = [3,2,3,null,3,null,1]
     输出: 7
@@ -3210,7 +3210,7 @@ class Trie {
     示例 2：
     输入：nums = [3,1,3,4,2]
     输出：3
-    
+
 ```java
     public int findDuplicate(int[] nums) {
 
@@ -3335,7 +3335,7 @@ public class Codec {
 ```
 
 ### [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
-    
+
     给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
     
     子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
@@ -3422,23 +3422,23 @@ public class Codec {
     
     左括号必须用相同类型的右括号闭合。
     左括号必须以正确的顺序闭合。
-
+    
     示例 1： 
     输入：s = "()"
     输出：true
-
+    
     示例2
     输入：s = "()[]{}"
     输出：true
-
+    
     示例3：
     输入：s = "(]"
     输出：false
-
+    
     示例4：
     输入：s = "([)]"
     输出：false
-
+    
     示例5：
     输入：s = "{[]}"
     输出：true
@@ -3472,7 +3472,7 @@ public boolean isValid(String s) {
 
 ### [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
     数字 n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
-
+    
     示例 1：
     输入：n = 3
     输出：["((()))","(()())","(())()","()(())","()()()"]
@@ -3628,14 +3628,14 @@ public boolean isValid(String s) {
     有 n 个气球，编号为0 到 n - 1，每个气球上都标有一个数字，这些数字存在数组nums中。
     现在要求你戳破所有的气球。戳破第 i 个气球，你可以获得nums[i - 1] * nums[i] * nums[i + 1] 枚硬币。这里的 i - 1 和 i + 1 代表和i相邻的两个气球的序号。如果 i - 1或 i + 1 超出了数组的边界，那么就当它是一个数字为 1 的气球。
     求所能获得硬币的最大数量。
-
+    
     示例 1：
     输入：nums = [3,1,5,8]
     输出：167
     解释：
     nums = [3,1,5,8] --> [3,5,8] --> [3,8] --> [8] --> []
     coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167
-
+    
     示例 2： 
     输入：nums = [1,5]
     输出：10
@@ -3681,8 +3681,9 @@ public boolean isValid(String s) {
     计算并返回可以凑成总金额所需的 最少的硬币个数 。如果没有任何一种硬币组合能组成总金额，返回-1 。
     
     你可以认为每种硬币的数量是无限的。
-    
-    
+
+
+​    
     示例1：
     输入：coins = [1, 2, 5], amount = 11
     输出：3
@@ -3721,7 +3722,7 @@ public boolean isValid(String s) {
 
 ### [338. 比特位计数](https://leetcode-cn.com/problems/counting-bits/)
     给你一个整数 n ，对于0 <= i <= n 中的每个 i ，计算其二进制表示中 1 的个数 ，返回一个长度为 n + 1 的数组 ans 作为答案。
-
+    
     示例 1：
     输入：n = 2
     输出：[0,1,1]
@@ -3729,7 +3730,7 @@ public boolean isValid(String s) {
     0 --> 0
     1 --> 1
     2 --> 10
-
+    
     示例 2：
     输入：n = 5
     输出：[0,1,1,2,1,2]
@@ -3889,7 +3890,7 @@ public boolean isValid(String s) {
 ```
 
 
-### [399. 除法求值](https://leetcode-cn.com/problems/evaluate-division/solution/399-chu-fa-qiu-zhi-nan-du-zhong-deng-286-w45d/)
+### [399. 除法求值](https://leetcode-cn.com/problems/evaluate-division/solution/399-chu-fa-qiu-zhi-nan-du-zhong-deng-286-w45d/) X
     给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] = [Ai, Bi] 和 values[i] 共同表示等式 Ai / Bi = values[i] 。每个 Ai 或 Bi 是一个表示单个变量的字符串。
     
     另有一些以数组 queries 表示的问题，其中 queries[j] = [Cj, Dj] 表示第 j 个问题，请你根据已知条件找出 Cj / Dj = ? 的结果作为答案。
@@ -3897,7 +3898,7 @@ public boolean isValid(String s) {
     返回 所有问题的答案 。如果存在某个无法确定的答案，则用 -1.0 替代这个答案。如果问题中出现了给定的已知条件中没有出现的字符串，也需要用 -1.0 替代这个答案。
     
     注意：输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果。
-
+    
     示例 1：
     
     输入：equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
@@ -4052,7 +4053,7 @@ public boolean isValid(String s) {
     
     输入：people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]
     输出：[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]
-    
+
 ```java
     public int[][] reconstructQueue(int[][] people) {
 
@@ -4125,6 +4126,216 @@ public boolean isValid(String s) {
     }
 
 ```
+
+### [448. 找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)
+    给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。
+    
+    示例 1：
+    输入：nums = [4,3,2,7,8,2,3,1]
+    输出：[5,6]
+    
+    示例 2：
+    输入：nums = [1,1]
+    输出：[2]
+```java
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+
+        for(int i = 0; i < nums.length;i++){
+            while(true){
+                int pos = nums[i] - 1;
+                if(nums[pos] == nums[i]) break;
+                swap(nums,pos,i);
+            }
+        }
+
+
+        List<Integer> ans = new ArrayList();
+
+        for(int i = 0;i < nums.length;i++){
+            if(nums[i] - 1 != i) ans.add(i+1);
+        }
+
+        return ans;
+
+    }
+
+    public void swap(int[] arr,int i,int j){
+
+        if(i != j){
+            arr[i] = arr[i] ^ arr[j];
+            arr[j] = arr[i] ^ arr[j];
+            arr[i] = arr[i] ^ arr[j];
+        }
+
+    }
+```
+
+
+### [461. 汉明距离](https://leetcode-cn.com/problems/hamming-distance/)
+    两个整数之间的 汉明距离 指的是这两个数字对应二进制位不同的位置的数目。
+    
+    给你两个整数 x 和 y，计算并返回它们之间的汉明距离。
+    
+    示例 1：
+    
+    输入：x = 1, y = 4
+    输出：2
+    解释：
+    1   (0 0 0 1)
+    4   (0 1 0 0)
+    ↑   ↑
+    上面的箭头指出了对应二进制位不同的位置。
+    示例 2：
+    
+    输入：x = 3, y = 1
+    输出：1
+    
+```java
+    public int hammingDistance(int x, int y) {
+
+        // 32bit
+        // 最高位 0
+        // 31 -> [0,30]
+
+        // int cnt = 0;
+
+        // for(int i = 0 ;i <= 30;i++){
+            
+        //     //取二进制第i位的值
+        //     int dxi = (x >>> i) & 1;
+        //     int dyi = (y >>> i) & 1;
+
+        //     if(dxi != dyi) cnt++;
+
+        // }
+
+        // return cnt;
+
+        //异或
+        // 00 0
+        // 11 0
+        // 01 1
+        // 10 1
+
+        // x ^ y = v  -> 取v二进制中1的个数
+
+
+        int v = x ^ y;
+
+        int cnt = 0;
+
+        while(v != 0){
+            cnt += (v & 1);
+            v = (v >> 1);
+        }
+
+        return cnt;
+
+    }
+```
+
+
+### [538. 把二叉搜索树转换为累加树](https://leetcode-cn.com/problems/convert-bst-to-greater-tree/)
+```java
+
+    int sum = 0;
+
+    public TreeNode convertBST(TreeNode root) {
+        
+        if(root == null) return root;
+
+        convertBST(root.right);
+
+        sum+=root.val;
+        root.val = sum;
+
+        convertBST(root.left);
+
+        return root;
+
+    }
+```
+
+
+### [543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree/)
+    给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。
+    
+    示例 :
+    给定二叉树
+    
+              1
+             / \
+            2   3
+           / \     
+          4   5    
+    返回3, 它的长度是路径 [4,2,1,3] 或者[5,2,1,3]。
+
+```java
+    int ret;
+
+    public int diameterOfBinaryTree(TreeNode root) {
+        ret = 0;
+
+        dfs(root);
+
+        return ret;
+    }
+
+    public int dfs(TreeNode node){
+
+        if(node == null) return -1;
+
+        int lDept = dfs(node.left);
+        int rDept = dfs(node.right);
+
+        ret = Math.max(lDept + rDept + 2,ret);
+
+        return Math.max(lDept,rDept) + 1;
+
+    }
+```
+
+### [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+    给你一个整数数组 nums 和一个整数k ，请你统计并返回该数组中和为k的连续子数组的个数。
+    
+    示例 1：
+    输入：nums = [1,1,1], k = 2
+    输出：2
+    
+    示例 2：
+    输入：nums = [1,2,3], k = 3
+    输出：2
+```java
+    public int subarraySum(int[] nums, int k) {
+        
+        int len = nums.length;
+
+        int p[] = new int[len+1];
+
+        for(int i = 1; i <= len;i++) p[i] = p[i-1] + nums[i-1];
+
+        int ans = 0;
+
+        Map<Integer,Integer> map = new HashMap();
+
+        for(int i = len;i > 0;i--){
+            map.put(p[i],map.getOrDefault(p[i],0) + 1);
+
+            int t = p[i - 1]  + k;
+
+            if(map.containsKey(t)) ans+=map.get(t); 
+
+        }
+
+        return ans;
+
+    }
+```
+
+
+
+
+
 
 
 
