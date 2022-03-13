@@ -4332,9 +4332,47 @@ public boolean isValid(String s) {
     }
 ```
 
+### [581. 最短无序连续子数组](https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/)
+    给你一个整数数组 nums ，你需要找出一个 连续子数组 ，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。
+    
+    请你找出符合题意的 最短 子数组，并输出它的长度。
+    
+    示例 1：
+    
+    输入：nums = [2,6,4,8,10,9,15]
+    输出：5
+    解释：你只需要对 [6, 4, 8, 10, 9] 进行升序排序，那么整个表都会变为升序排序。
+    示例 2：
+    
+    输入：nums = [1,2,3,4]
+    输出：0
+    示例 3：
+    
+    输入：nums = [1]
+    输出：0
+```java
+    public int findUnsortedSubarray(int[] nums) {
 
+        int len = nums.length;
+        int[] arr = new int[len];
+        
+        System.arraycopy(nums,0,arr,0,len);
+        
+        Arrays.sort(arr);
+        
+        int L = 0,R = len - 1;
 
+        while (L < len && nums[L] == arr[L]) L++;
+        while (R >= 0 && nums[R] == arr[R]) R--;
+        
+        
+        if(L > R) return 0;
+        
+        return R - L + 1;
+       
 
+    }
+```
 
 
 
