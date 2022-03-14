@@ -1,27 +1,14 @@
-import javax.swing.text.html.HTMLWriter;
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
 
-    public int findUnsortedSubarray(int[] nums) {
 
-        int len = nums.length;
-        int[] arr = new int[len];
+    public static void main(String[] args) {
 
-        System.arraycopy(nums,0,arr,0,len);
-
-        Arrays.sort(arr);
-
-        int L = 0,R = len - 1;
-
-        while (L < len && nums[L] == arr[L]) L++;
-        while (R >= 0 && nums[R] == arr[R]) R--;
-
-
-        if(L > R) return 0;
-
-        return R - L + 1;
+        System.out.println(new Main().findMaximizedCapital(2, 3, new int[]{1, 2, 100, 10}, new int[]{0, 1, 3, 5}));
 
     }
+
+
 
 }
