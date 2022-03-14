@@ -236,7 +236,66 @@ having count(id) >=3
 +-------+
 
 
+### 分组问题
+```sql
+id ts(秒)
+1001 17523641234
+1001 17523641256
+1002 17523641278
+1001 17523641334
+1002 17523641434
+1001 17523641534
+1001 17523641544
+1002 17523641634
+1001 17523641638
+1001 17523641654
 
+
+create table if not exists test2(id int,ts bigint)
+
+insert into table test2 values
+(1001,17523641234)
+,(1001,17523641256)
+,(1002,17523641278)
+,(1001,17523641334)
+,(1002,17523641434)
+,(1001,17523641534)
+,(1001,17523641544)
+,(1002,17523641634)
+,(1001,17523641638)
+,(1001,17523641654)
+
+某个用户连续的访问记录如果时间间隔小于 60 秒，则分为同一个组
+
+select
+    id,
+    ts,
+    lag(ts,1,ts) over(partition by id order by ts ) lagts
+from test2
+
+
+
+select
+    id,
+    ts,
+    sum(if(tt>=60,1,0)) over(partition by id order by ts)
+from
+(
+    select
+        id,
+        ts,
+        ts - lagts as tt
+    from
+    (
+        select
+            id,
+            ts,
+            lag(ts,1,0) over(partition by id order by ts ) lagts
+        from test2
+    )t1
+)t2
+
+```
 
 
 
