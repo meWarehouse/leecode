@@ -1104,6 +1104,50 @@ public void nextPermutation(int[] nums) {
 ```
 
 
+### [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+    实现pow(x, n)，即计算 x 的 n 次幂函数（即，xn ）。
+    
+    
+    示例 1：
+    
+    输入：x = 2.00000, n = 10
+    输出：1024.00000
+    示例 2：
+    
+    输入：x = 2.10000, n = 3
+    输出：9.26100
+    示例 3：
+    
+    输入：x = 2.00000, n = -2
+    输出：0.25000
+    解释：2-2 = 1/22 = 1/4 = 0.25
+```java
+    public double myPow(double x, int n) {
+
+        if (n == 0) return 1D;
+
+        int pow = Math.abs(n == Integer.MIN_VALUE ? n + 1 : n);
+
+        double t = x;
+        double ans = 1D;
+
+        while (pow != 0) {
+
+            if ((pow & 1) != 0) ans *= t;
+
+            t *= t;
+            pow = pow >> 1;
+
+        }
+
+
+        if (n == Integer.MIN_VALUE) ans *= x;
+
+        return n < 0 ? (1D / ans) : ans;
+
+
+    }
+```
 
 
 
