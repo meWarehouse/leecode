@@ -1,7 +1,5 @@
 
 
-
-
 ### [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
     给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那两个整数，并返回它们的数组下标。
     
@@ -550,7 +548,7 @@
     一个有效的数独（部分已被填充）不一定是可解的。
     只需要根据以上规则，验证已经填入的数字是否有效即可。
     空白格用'.'表示。
-
+    
     示例 1：
     输入：board =
     [["5","3",".",".","7",".",".",".","."]
@@ -563,7 +561,7 @@
     ,[".",".",".","4","1","9",".",".","5"]
     ,[".",".",".",".","8",".",".","7","9"]]
     输出：true
-
+    
     示例 2：
     输入：board =
     [["8","3",".",".","7",".",".",".","."]
@@ -1106,8 +1104,9 @@ public void nextPermutation(int[] nums) {
 
 ### [50. Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
     实现pow(x, n)，即计算 x 的 n 次幂函数（即，xn ）。
-    
-    
+
+
+​    
     示例 1：
     
     输入：x = 2.00000, n = 10
@@ -2384,8 +2383,8 @@ public void nextPermutation(int[] nums) {
 
 
 ​    
-    示例：
-    
+​    示例：
+​    
     输入
     ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
     [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
@@ -3883,11 +3882,11 @@ public boolean isValid(String s) {
 
 
 ​    
-    示例1：
-    输入：coins = [1, 2, 5], amount = 11
-    输出：3
-    解释：11 = 5 + 5 + 1
-    
+​    示例1：
+​    输入：coins = [1, 2, 5], amount = 11
+​    输出：3
+​    解释：11 = 5 + 5 + 1
+​    
     示例 2：
     输入：coins = [2], amount = 3
     输出：-1
@@ -4388,7 +4387,7 @@ public boolean isValid(String s) {
     
     输入：x = 3, y = 1
     输出：1
-    
+
 ```java
     public int hammingDistance(int x, int y) {
 
@@ -4583,8 +4582,9 @@ public boolean isValid(String s) {
     注意: 合并过程必须从两个树的根节点开始。
     
     示例 1：
-    
-    
+
+
+​    
     输入：root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
     输出：[3,4,5,5,4,null,7]
     示例 2：
@@ -4613,5 +4613,58 @@ public boolean isValid(String s) {
 
     }
 ```
+
+
+### [69. x 的平方根 ](https://leetcode-cn.com/problems/sqrtx/)
+    给你一个非负整数 x ，计算并返回x的 算术平方根 。
+    
+    由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。
+    
+    注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。
+
+    示例 1：
+    输入：x = 4
+    输出：2
+
+    示例 2：
+    输入：x = 8
+    输出：2
+    解释：8 的算术平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。
+```java
+   public int mySqrt(int x) {
+
+        if(x == 0) return 0;
+
+        if(x <= 3) return 1;
+
+        long ans = 1;
+        long L = 1,R = x;
+
+        long M = 0;
+
+        while(L <= R){
+
+            M = (L + R) / 2;
+
+            if(M * M <= x){
+                ans = M;
+                L = M + 1;
+            }else{
+                R = M - 1;
+            }
+
+        }
+
+        return (int) ans;
+
+    }
+```
+
+
+
+
+
+
+
 
 
