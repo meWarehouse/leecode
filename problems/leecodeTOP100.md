@@ -4872,3 +4872,73 @@ public boolean isValid(String s) {
     }
 
 ```
+
+### [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/)
+    给你一个整数 n ，返回 和为 n 的完全平方数的最少数量 。
+    
+    完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不是。
+    
+    示例1：
+    
+    输入：n = 12
+    输出：3
+    解释：12 = 4 + 4 + 4
+    示例 2：
+    
+    输入：n = 13
+    输出：2
+    解释：13 = 4 + 9
+```java
+    public int numSquares(int n) {
+
+        int res = n,num = 2;
+        while(num * num <= n){
+            int a = n / (num * num), b = n % (num * num);
+            res = Math.min(res,a+numSquares(b));
+            num++;
+        }
+        return res;
+    }
+    
+    ==============================================================
+
+    public int numSquares(int n) {
+        
+        while (n % 4 == 0) n = n / 4;
+        
+        if(n % 4 == 7) return 4;
+
+
+        for (int i = 0; i * i <=n ; i++) {
+            
+            int b = (int) Math.sqrt(n - i * i);
+            
+            if(i * i + b * b == n){
+                return (i > 0 && b > 0) ? 2 : 1;
+            }
+            
+        }
+        
+        return 3;
+        
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
