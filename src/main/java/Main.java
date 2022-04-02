@@ -1,23 +1,32 @@
 public class Main {
 
-    public int numSquares(int n) {
 
-        while (n % 4 == 0) n = n / 4;
+    public int trap(int[] height) {
 
-        if(n % 4 == 7) return 4;
+        if (height == null) return 0;
 
+        int len = height.length;
 
-        for (int i = 0; i * i <=n ; i++) {
+        if (len < 3) return 0;
 
-            int b = (int) Math.sqrt(n - i * i);
+        int LMax = height[0], RMax = height[len - 1];
+        int L = 1, R = len - 2;
 
-            if(i * i + b * b == n){
-                return (i > 0 && b > 0) ? 2 : 1;
+        int water = 0;
+
+        while (L <= R) {
+
+            if (LMax <= RMax) {
+                water += Math.max(0, LMax - height[L]);
+                LMax = Math.max(LMax, height[L++]);
+            } else {
+                water += Math.max(0, RMax - height[R]);
+                RMax = Math.max(RMax, height[R--]);
             }
 
         }
 
-        return 3;
+        return water;
 
     }
 
