@@ -4968,9 +4968,105 @@ public boolean isValid(String s) {
     }
 ```
 
+### [407. 接雨水 II](https://leetcode-cn.com/problems/trapping-rain-water-ii/)
+    给你一个 m x n 的矩阵，其中的值均为非负整数，代表二维高度图每个单元的高度，请计算图中形状最多能接多少体积的雨水。
+    
+    示例 1:
+    输入: heightMap = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
+    输出: 4
+    解释: 下雨后，雨水将会被上图蓝色的方块中。总的接雨水量为1+2+1=4。
+    
+    示例 2:
+    输入: heightMap = [[3,3,3,3,3],[3,2,2,2,3],[3,2,1,2,3],[3,2,2,2,3],[3,3,3,3,3]]
+    输出: 10
+
+```java
+   public int trapRainWater(int[][] heightMap) {
+
+        if(heightMap == null) return 0;
+
+        int x = heightMap.length,y = heightMap[0].length;
+
+        if(x < 3 || y < 3 ) return 0;
+
+        boolean[][] isEnter = new boolean[x][y];
+        PriorityQueue<Node> queue = new PriorityQueue<>((o1,o2) -> o1.val - o2.val);
+
+        for(int i = 0;i < x;i++){
+            if(!isEnter[i][0]){
+                queue.add(new Node(heightMap[i][0],i,0));
+                isEnter[i][0] = true;
+            }
+            if(!isEnter[i][y-1]){
+                queue.add(new Node(heightMap[i][y-1],i,y-1));
+                isEnter[i][y-1] = true;
+            }
+        }
+
+        for(int i = 0;i < y;i++){
+            if(!isEnter[0][i]){
+                queue.add(new Node(heightMap[0][i],0,i));
+                isEnter[0][i] = true;
+            }
+            if(!isEnter[x-1][i]){
+                queue.add(new Node(heightMap[x-1][i],x-1,i));
+                isEnter[x-1][i] = true;
+            }
+        }
+
+        int water = 0,max = 0;
+
+        while(!queue.isEmpty()){
+
+            Node node = queue.poll();
+            max = Math.max(max,node.val);
+            int row = node.row,col = node.col;
 
 
+            //上
+            if(row - 1 >= 0 && !isEnter[row-1][col]){
+                water += Math.max(0,max - heightMap[row-1][col]);
+                isEnter[row-1][col] = true;
+                queue.add(new Node(heightMap[row-1][col],row-1,col));
+            }
 
+            //下
+            if(row + 1 < x && !isEnter[row+1][col]){
+                water += Math.max(0,max - heightMap[row+1][col]);
+                isEnter[row+1][col] = true;
+                queue.add(new Node(heightMap[row+1][col],row+1,col));
+            }
+
+            //左
+            if(col - 1 >= 0 && !isEnter[row][col-1]){
+                water += Math.max(0,max - heightMap[row][col-1]);
+                isEnter[row][col-1] = true;
+                queue.add(new Node(heightMap[row][col-1],row,col-1));
+            }
+
+            //右
+            if(col + 1 < y && !isEnter[row][col+1]){
+                water += Math.max(0,max - heightMap[row][col+1]);
+                isEnter[row][col+1] = true;
+                queue.add(new Node(heightMap[row][col+1],row,col+1));
+            }
+
+        }
+
+        return water;
+    }
+
+
+    class Node{
+        int val,row,col;
+        public Node(int v,int r,int c){
+            this.val = v;
+            this.row = r;
+            this.col = c;
+        }
+    }
+
+```
 
 
 
