@@ -64,7 +64,7 @@ public class Main {
             }
             // 右
             if (col + 1 < y && !isEnter[row][col + 1]) {
-                water += Math.max(0, heightMap[row][col + 1]);
+                water += Math.max(0, heightMap[row][col + 1])
                 isEnter[row][col + 1] = true;
                 queue.add(new Node(heightMap[row][col + 1], row, col + 1));
             }
@@ -89,6 +89,3 @@ public class Main {
 
 }
 
-class Solution {
-
-}
